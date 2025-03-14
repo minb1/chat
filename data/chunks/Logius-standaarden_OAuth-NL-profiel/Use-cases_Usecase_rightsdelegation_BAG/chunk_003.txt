@@ -1,0 +1,3 @@
+
+##Resource owner
+A municipality that is legally required to maintain information on its buildings and adresses.

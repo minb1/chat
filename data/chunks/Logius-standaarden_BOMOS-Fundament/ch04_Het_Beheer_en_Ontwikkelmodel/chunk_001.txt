@@ -1,0 +1,14 @@
+#Het Beheer- en Ontwikkelmodel: Onderwerpen voor ontwikkeling en beheer
+
+In [onderstaande figuur](#fig-bomos-activiteitendiagram) is het
+Beheer- en Ontwikkelmodel weergegeven: een gelaagde structuur van
+onderwerpen die nodig zijn voor het ontwikkelen en beheren van een
+open standaard.
+
+De structuur bestaat uit een aantal elementen:
+
+* Drie hoofdlagen: strategie, tactiek en operationeel.
+* Twee ondersteunende lagen: implementatie ondersteuning en communicatie.
+* Per laag meerdere activiteiten die uitgevoerd kunnen worden.
+
+![BOMOS Activiteitendiagram](images/BOMOS-15_Bomos-activiteiten-blanco.png "BOMOS Activiteitendiagram")

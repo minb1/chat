@@ -1,0 +1,31 @@
+
+###Response to Authorization Requests
+
+The following data will be sent as an Authorization Response to the Authorization Code Flow as described above. The authentication response is sent via HTTP redirect to the redirect URI specified in the request.
+
+The following fields MUST be included in the response:
+
+<dl>
+
+<dt>state</dt>
+
+<dd style="margin-left: 8">REQUIRED. The value of the state parameter passed in in the authentication request. This value MUST match exactly.</dd>
+
+<dt>code</dt>
+
+<dd style="margin-left: 8">REQUIRED. The authorization code, a random string issued by the IdP to be used in the request to the token endpoint.</dd>
+
+</dl>
+
+PKCE parameters MUST be associated with the "code" as per Section 4.4 of [Proof Key for Code Exchange by OAuth Public Clients (PKCE)] [[rfc7636]]
+
+<aside class="example">
+The following is an example response:
+
+<pre>https://client.example.org/cb?
+    state=2ca3359dfbfd0
+   &code=gOIFJ1hV6Rb1sxUdFhZGACWwR1sMhYbJJcQbVJN0wHA
+</pre>
+</aside>
+
+<!-- ### [3.4.](#rfc.section.3.4) [Token Lifetimes](#TokenLifetimes) -->

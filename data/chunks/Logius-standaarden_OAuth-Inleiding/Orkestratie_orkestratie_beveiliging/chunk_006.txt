@@ -1,0 +1,7 @@
+
+###Rationale
+
+- er is een ontkoppeling tussen de Services en de client. Dit is geen probleem bij open data maar wel bij vertrouwelijke gegevens. 
+- In de praktijk is dit wel hoe bijvoorbeeld een huisarts werkt en hoe veel balies en overheidsorganisaties werken.
+- De token / OAuth flow die wordt geschetst kan in deze situaties ook een andere vorm van authenticatie of identificatie zijn 
+- Deze situatie is vaak in gebruik binnen 1 organisatie waarbij alle onderdelen van de orkestratie onder verantwoording van 1 organisatie vallen en de User ook in dienst is bij deze organisatie

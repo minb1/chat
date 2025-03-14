@@ -1,0 +1,9 @@
+
+###Governancestructuur
+
+Bij het beheer van een open standaard hoort een open governance en een
+open procedure voor belanghebbenden om te kunnen participeren in het
+beheer. Logius afdeling standaarden neemt hierin de rol van onafhankelijke, duurzame
+beheerpartij en facilitator. Bij het beheer van de API Standaarden worden
+verschillende gremia onderscheiden die gezamenlijk invulling geven aan
+de governance op de standaard:

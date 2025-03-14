@@ -1,0 +1,5 @@
+
+##Overwegingen 
+
+Het NCSC adviseert om TLS altijd te configureren op basis van [[NCSC 2021]] voor Transport Layer Security].
+

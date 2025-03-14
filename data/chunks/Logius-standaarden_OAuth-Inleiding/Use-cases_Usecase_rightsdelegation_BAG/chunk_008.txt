@@ -1,0 +1,3 @@
+
+##Rationale
+The client credentials flow is used instead of the authorization codeflow because the resource owner is a legal entity and the client acts on behalf of this legal entity, not the individual user working with the application. 

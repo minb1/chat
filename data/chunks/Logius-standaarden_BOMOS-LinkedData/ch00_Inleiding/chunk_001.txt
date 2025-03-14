@@ -1,0 +1,5 @@
+#Inleiding
+
+BOMOS Linked Data maakt deel uit van de BOMOS documentatie.
+De BOMOS documentatie is onderverdeeld in een aantal delen
+(zie [BOMOS structuur](#structuur-bomos)).

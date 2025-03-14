@@ -1,0 +1,38 @@
+
+####Waarop kan worden gecertificeerd?
+
+Er bestaat een spanningsveld tussen het aantal soorten certificaten
+dat uitgereikt wordt en omvang van gestelde eisen per
+certificaat. Enerzijds is het wenselijk om het aantal soorten
+certificaten beperkt te houden, dit om te voorkomen dat een
+organisatie vele certificeringtrajecten moet doorlopen (bovendien
+daalt de 'waarde' van een certificaat bij een toenemend aantal
+soorten). Anderzijds is het niet wenselijk dat een organisatie alle
+onderdelen van de te ontwikkelen standaarden moet kunnen ondersteunen
+om gecertificeerd te kunnen worden. Een algemeen certificaat kan
+weinig zeggend zijn, terwijl bij twintig specifieke certificaten
+niemand er meer iets van begrijpt.
+
+In de meeste situaties bestaat een semantische standaard uit een
+familie van standaarden. Een afweging die gemaakt moet worden is op
+welk niveau de certificering wordt ingevoerd: voor de gehele set of
+voor een deel functionaliteit (vaak: de standaard). Daarbij moet ook
+bedacht worden dat ieder versienummer van een standaard dan een
+certificaat krijgt: het aantal explodeert al snel.
+
+Een grote hoeveelheid aan certificaten is niet verstandig als adoptie
+het doelstelling is voor certificering aangezien de herkenbaarheid en
+waarde van het certificaat dan afneemt. Daarnaast moet er ook een
+stimulans zijn om bijvoorbeeld een nieuwe versie te implementeren,
+bijvoorbeeld door de uitgifte van een nieuw certificaat. Een deel van
+de oplossing om bijvoorbeeld de hoeveelheid certificaten een halt toe
+te roepen, is een bepaalde geldigheidsduur van het
+certificaat. Bijvoorbeeld in plaats van SETU timecard v1.2 certificaat
+uit te geven, zou SETU timecard 2020 certificaat (waarin is aangegeven
+dat SETU timecard v.1.2 de versie van de standaard is) een alternatief
+kunnen zijn dat zijn waarde verliest in 2021 of 2022. Hiermee wordt de
+versieproblematiek ondervangen.
+
+Overigens is er een gevaar van doorschieten: bijvoorbeeld als er
+nieuwe versies van een standaard uitgebracht moeten worden om de
+financiën van de beheerorganisatie op orde te brengen.

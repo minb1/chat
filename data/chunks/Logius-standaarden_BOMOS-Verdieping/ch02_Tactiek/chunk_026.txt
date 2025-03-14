@@ -1,0 +1,19 @@
+
+####Leerpunten, aandachtspunten, do's and dont's
+
+**Kies**: Een plugfest gericht op interoperabiliteit is een compleet
+  ander plugfest dan die gericht op adoptie/transparantie. Een
+  plugfest gericht op interoperabiliteit kan bijvoorbeeld besloten
+  zijn, gericht op ondersteuning richting leveranciers, en passend in
+  de vroege levensfase van een standaard. Een plugfest gericht op
+  adoptie is zeer open, met publiciteit, gericht op transparantie en
+  passend in een volwassen levensfase van een standaard. Een keuze is
+  dan ook noodzakelijk.
+
+**Bepaal duidelijk wat en hoe getoetst wordt.** Mogelijkerwijs is dit niet de gehele standaard, maar slecht onderdelen ervan. Communiceer de toetsingscriteria en het toetsingsproces.  
+**Betrek leveranciers vroegtijdig;** zij zijn de kern van een plugfest.  
+**Creër winst voor leveranciers.** Combineer bijvoorbeeld het plugfest met de mogelijkheid om hun producten te demonstreren aan eindgebruikers. Zorg eventueel voor aandacht in de media voor de standaard en voor de leveranciers.  
+**Alle deelnemers zijn winnaars!** Dit moet ook gecommuniceerd worden. Immers de deelnemers stellen zich kwetsbaar op en werken mee aan transparantie. Dat kan niet gezegd worden over de niet-deelnemers.  
+**Geef leveranciers de kans zich goed voor te bereiden.** Werk eventueel mee aan toetsingen van implementaties voorafgaand aan het plugfest via bijvoorbeeld andere validatietechnieken.  
+**Zorg voor voldoende expertise tijdens het plugfest** die kan helpen bij de implementatie van de standaard. Dit kunnen medewerkers van de standaardisatie-organisatie zijn, maar ook eventuele externe experts.  
+**Het werken met een panel wordt ontraden,** aangezien dit subjectieve scores oplevert en veel tijd kost in de voorbereiding.  

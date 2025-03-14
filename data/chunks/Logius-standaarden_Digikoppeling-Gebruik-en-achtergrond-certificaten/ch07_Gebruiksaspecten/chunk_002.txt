@@ -1,0 +1,10 @@
+
+##Vragen
+
+Dit hoofdstuk geeft antwoord op de volgende vragen met betrekking tot certificaten voor Digikoppeling:
+
+1. Hoe worden organisaties geautoriseerd?
+1. Welke alternatieven heb ik om autorisatie in mijn applicatie te regelen?
+1. Hoe vaak moet een certificaat vernieuwd worden?
+1. Hoe controleer ik of een certificaat nog geldig is?
+1. Hoe zorg ik dat ik met mijn certificaat kan testen?

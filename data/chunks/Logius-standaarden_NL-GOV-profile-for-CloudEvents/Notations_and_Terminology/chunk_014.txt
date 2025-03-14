@@ -1,0 +1,6 @@
+
+####Protocol
+
+Messages can be delivered through various industry standard protocol (e.g. HTTP,
+AMQP, MQTT, SMTP), open-source protocols (e.g. Kafka, NATS), or platform/vendor
+specific protocols (AWS Kinesis, Azure Event Grid).

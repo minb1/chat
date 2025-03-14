@@ -1,0 +1,9 @@
+
+##Use cases
+
+In deze context onderkennen we vier use cases
+
+- De Client bevraagt direct de bronnen en heeft de orkestratie daarmee ingebed in de client software (deze use case wordt verder niet uitgediept)
+- De User Identity wordt onderbroken door de orkestratie (Implicit Identity reuse)
+- De User Identity propageert door tot de bronnen (Identity propagation)
+- De user bevraagt 1 bron en de service van de bron bevraagt nog een andere bron zonder dat de user of client hier weet van heeft (deze use case wordt verder niet uitgediept)

@@ -1,0 +1,3 @@
+
+#####Digikoppeling-Architectuur
+Zie voor toelichting [Digikoppeling Architectuur](https://github.com/Logius-standaarden/Digikoppeling-Architectuur#readme)

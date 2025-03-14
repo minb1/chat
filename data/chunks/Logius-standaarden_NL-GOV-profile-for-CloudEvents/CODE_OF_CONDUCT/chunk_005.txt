@@ -1,0 +1,6 @@
+
+##Meldingen
+
+U kunt kwetsende, agressieve of anderszins niet passende uitingen via email
+melden bij een van de beheerders van de repository. De contactgegevens
+daarvan kunt u vinden in de [README](README.md).

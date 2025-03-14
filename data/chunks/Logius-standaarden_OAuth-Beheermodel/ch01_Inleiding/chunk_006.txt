@@ -1,0 +1,17 @@
+
+###Status
+
+De actuele versie van de OAuth-NL is v1.0. Deze versie is op 09-07-2020 door het OBDO vastgesteld op advies van het Forum Standaardisatie.  
+De status van de standaard is ‘Verplicht (pas toe leg uit)’. Dit houdt kort gezegd in dat Nederlandse overheden en instellingen uit de (semi) publieke sector verplicht zijn deze standaard toe te passen op het moment dat zij REST API’s gaan gebruiken voor het ontsluiten van overheidsinformatie en/of functionaliteit naar gebruikers van websites, apps of webapplicaties. Dit is ook specifiek beschreven in het toepassingsgebied van de standaard:
+
+> NL GOV Assurance Profile for OAuth 2.0 moet worden toegepast bij applicaties waarbij gebruikers of ‘resource owners’ impliciet of expliciet toestemming geven aan een dienst van een derde om namens deze toegang te krijgen tot gegevens via een REST API waarvoor ze recht van toegang hebben. Zie voor meer informatie over het [pas toe of leg uit beleid.](https://www.forumstandaardisatie.nl/node/229)
+
+- De verplichting is gepubliceerd door het Forum Standaardisatie op:  
+  - [forumstandaardisatie.nl/open-standaarden/nl-gov-assurance-profile-oauth-20](https://forumstandaardisatie.nl/open-standaarden/nl-gov-assurance-profile-oauth-20)
+- Versie 1.0 van de OAuth-NL standaard is gepubliceerd op:  
+  - [publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0)
+- De laatste versie van de OAuth-NL is gepubliceerd op:  
+  - [publicatie.centrumvoorstandaarden.nl/api/oauth/](https://publicatie.centrumvoorstandaarden.nl/api/oauth/)
+- De laatste concept versie van de OAuth-NL standaard is gepubliceerd op:  
+  - [logius-standaarden.github.io/OAuth-NL-profiel/](https://logius-standaarden.github.io/OAuth-NL-profiel/)
+ 

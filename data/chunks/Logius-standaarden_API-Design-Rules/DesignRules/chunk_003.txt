@@ -1,0 +1,171 @@
+
+##HTTP methods
+
+Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc7231]].
+
+<span id="api-03"></span>
+<div class="rule" id="/core/http-methods" data-type="technical">
+   <p class="rulelab">Only apply standard HTTP methods</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Resources MUST be retrieved or manipulated using standard HTTP methods (GET/POST/PUT/PATCH/DELETE).
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         The HTTP specifications offer a set of standard methods, where every method is designed with explicit semantics. Adhering to the HTTP specification is crucial, since HTTP clients and middleware applications rely on standardized characteristics.
+         <table>
+            <thead>
+               <tr>
+                  <th scope="col">Method</th>
+                  <th scope="col">Operation</th>
+                  <th scope="col">Description</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td><code>GET</code></td>
+                  <td>Read</td>
+                  <td>Retrieve a resource representation for the given [=URI=]. Data is only retrieved and never modified.</td>
+               </tr>
+               <tr>
+                  <td><code>POST</code></td>
+                  <td>Create</td>
+                  <td>Create a subresource as part of a collection resource. This operation is not relevant for singular resources. This method can also be used for <a href="#/core/resource-operations">exceptional cases</a>.</td>
+               </tr>
+               <tr>
+                  <td><code>PUT</code></td>
+                  <td>Create/update</td>
+                  <td>Create a resource with the given [=URI=] or replace (full update) a resource when the resource already exists.</td>
+               </tr>
+               <tr>
+                  <td><code>PATCH</code></td>
+                  <td>Update</td>
+                  <td>Partially updates an existing resource. The request only contains the resource modifications instead of the full resource representation.</td>
+               </tr>
+               <tr>
+                  <td><code>DELETE</code></td>
+                  <td>Delete</td>
+                  <td>Remove a resource with the given [=URI=].</td>
+               </tr>
+            </tbody>
+         </table>
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific testscripts are published in the [[ADR-Validator]] repository.
+      </dd>
+   <div class="example">The following table shows some examples of the use of standard HTTP methods:
+      <table>
+      <thead>
+      <tr>
+      <th scope="col">
+      Request</th>
+      <th scope="col">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td><code>GET /rijksmonumenten</code></td>
+            <td>Retrieves a list of national monuments.</td>
+         </tr>
+         <tr>
+            <td><code>GET /rijksmonumenten/12</code></td>
+            <td>Retrieves an individual national monument.</td>
+         </tr>
+         <tr>
+            <td><code>POST /rijksmonumenten</code></td>
+            <td>Creates a new national monument.</td>
+         </tr>
+         <tr>
+            <td><code>PUT /rijksmonumenten/12</code></td>
+            <td>Modifies national monument #12 completely.</td>
+         </tr>
+         <tr>
+            <td><code>PATCH /rijksmonumenten/12</code></td>
+            <td>Modifies national monument #12 partially.</td>
+         </tr>
+         <tr>
+            <td><code>DELETE /rijksmonumenten/12</code></td>
+            <td>Deletes national monument #12.</td>
+         </tr>
+      </tbody>
+      </table>
+   </div>
+	<p class="note">The HTTP specification [[rfc7231]] and the later introduced <code>PATCH</code> method specification [[rfc5789]] offer a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
+	The OpenAPI Specification 3.x <a href="https://spec.openapis.org/oas/v3.0.3#path-item-object">Path Item Object</a> also supports these methods, except for <code>CONNECT</code>.<br>
+  According to <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-4.1">RFC 7231 4.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.<br>
+  In addition to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code>, etc.<br>
+  If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.5">RFC 7231 6.5.5</a>.</p>
+      <dt>How to test</dt>
+      <dd>
+         The OpenAPI Description MUST NOT include non standard HTTP methods for retrieving or manipulating resources.
+      </dd>
+   </dl>
+</div>
+
+<span id="api-01"></span>
+<div class="rule" id="/core/http-safety" data-type="functional">
+   <p class="rulelab">Adhere to HTTP safety and idempotency semantics for operations</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         The following table describes which HTTP methods MUST behave as safe and/or idempotent:</p>
+         <table>
+            <thead>
+               <tr>
+                  <th scope="col">Method</th>
+                  <th scope="col">Safe</th>
+                  <th scope="col">Idempotent</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td><code>GET</code></td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+               </tr>
+               <tr>
+                  <td><code>HEAD</code></td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+               </tr>
+               <tr>
+                  <td><code>OPTIONS</code></td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+               </tr>
+               <tr>
+                  <td><code>POST</code></td>
+                  <td>No</td>
+                  <td>No</td>
+               </tr>
+               <tr>
+                  <td><code>PUT</code></td>
+                  <td>No</td>
+                  <td>Yes</td>
+               </tr>
+               <tr>
+                  <td><code>PATCH</code></td>
+                  <td>No</td>
+                  <td>No</td>
+               </tr>
+               <tr>
+                  <td><code>DELETE</code></td>
+                  <td>No</td>
+                  <td>Yes</td>
+               </tr>
+            </tbody>
+         </table>
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         The HTTP protocol [[rfc7231]] specifies whether an HTTP method SHOULD be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they SHOULD be taken into account when implementing caching and fault tolerance strategies.
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         Request methods are considered <i>safe</i> if their defined semantics are essentially read-only; i.e., the client does not request, and does not expect, any state change on the origin server as a result of applying a safe method to a target resource. A request method is considered <i>idempotent</i> if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.
+      </dd>
+   </dl>
+</div>
+

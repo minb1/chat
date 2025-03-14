@@ -1,0 +1,16 @@
+
+##Use case: Authorization code flow
+
+In this use case a (public/governmental) service is offered via an API.
+The service will be consumed by the User using a client, that can be any arbitrary, non-trusted application.
+For provisioning the service, the service provider requires an identifier of the User.
+The identifier of the User can be either an arbitrary (self-registered) identifier or a formal identifier (citizen number or other restricted, registered ID).
+Upon service provisioning, the service uses the identifier of the User for access control within the service.
+
+A Client wishes to send a request to an API, on behalf of the User.
+The API requires to have a trusted identification and *authorization* of the User, before providing the Service.
+A Client has pre-registered with the Authorization Endpoint and has been assigned a client_id.
+
+![Use case Authorization code flow](media/use_case_authorization_code.svg "Use case Authorization code flow")
+
+The normal flow, that is without any error handling, is described below.

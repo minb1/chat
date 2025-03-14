@@ -1,0 +1,4 @@
+##Protected Resource Profile
+<!-- ### [4.](#rfc.section.4) Protected Resource Profile -->
+
+<!-- ### [4.1.](#rfc.section.4.1) [Protecting Resources](#ProtectingResources) -->

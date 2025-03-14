@@ -1,0 +1,5 @@
+
+####Producer
+
+The "producer" is a specific instance, process or device that creates the data
+structure describing the CloudEvent.

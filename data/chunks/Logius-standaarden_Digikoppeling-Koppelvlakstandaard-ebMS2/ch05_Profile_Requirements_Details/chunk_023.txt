@@ -1,0 +1,11 @@
+
+###Profile Requirement Item: Non Persistent Authorization
+
+
+|[[EBXML-MSG]] Section 4.1.4.8 Non Persistent Authorization | All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header element(s)|`/SOAP:Header/eb:Signature`|
+| Are communication channel authorization methods required? [Yes, for Security Services Profile 2.] Which methods are allowed or required? | TLS client and server authentication is **required** as described in section in 4.2.3. |
+| Alignment | [Appears as BusinessTransactionCharacteristics/\@isAuthorizationRequired=transient in CPA.] | |
+| Test References | (empty) |
+| Notes  | (empty) |

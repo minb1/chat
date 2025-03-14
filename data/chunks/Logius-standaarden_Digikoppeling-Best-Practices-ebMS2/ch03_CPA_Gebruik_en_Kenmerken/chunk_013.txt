@@ -1,0 +1,16 @@
+
+###BusinessCharacteristics
+
+Deze heeft de volgende verplichte waarde, waarbij alleen de timeToPerform een andere waarde kan krijgen (afhankelijk van de timing karakteristieken van de RequestingBusinessActivity en de RespondingBusinessActivity):
+
+```XML
+<tns:BusinessTransactionCharacteristics
+    tns:isAuthenticated="transient"
+    tns:isAuthorizationRequired="true"
+    tns:isConfidential="transient"
+    tns:isIntelligibleCheckRequired="false"
+    tns:isNonRepudiationReceiptRequired="false"
+    tns:isNonRepudiationRequired="false"
+    tns:isTamperProof="transient"
+    tns:timeToPerform="P2D"/>
+```

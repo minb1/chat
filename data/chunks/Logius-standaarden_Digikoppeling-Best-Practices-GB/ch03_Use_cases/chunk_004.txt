@@ -1,0 +1,13 @@
+
+##Verzending (pull)
+
+In deze use case verzendt een service provider gegevens naar een service requester. Daartoe worden de volgende processtappen doorlopen:
+
+![Use case 'Verzending'](media/use_case_verzending.svg "Use case 'Verzending'")
+
+1. Op enig moment is er een gebeurtenis waardoor de service provider besluit tot verzenden van gegevens. Voorbeelden van triggers zijn: tijd, bericht ontvangst of wijziging van gegevensobjecten.
+2. Als gegevens niet beschikbaar zijn in de vorm van een Groot Bestand zal dit aangemaakt worden (bijvoorbeeld door samenstelling vanuit een database).
+3. De service provider stuurt een 'verzoek tot ophalen' naar de service requester. In dit verzoek is in ieder geval de Meta-data van het Grote Bestand opgenomen, maar kan bijvoorbeeld ook informatie over de aard en beoogde afhandeling van het Grote Bestand zijn opgenomen.
+4. De service requester haalt de gegevens op (Groot Bericht) en krijgt deze verstrekt op grond van autorisatie (OIN).
+
+> Aanvullend kan het Grote Bestand ook verwijderd worden. Bijvoorbeeld nadat de expiration-time is verstreken of nadat de client een bericht heeft gestuurd om de succesvolle ontvangst te bevestigen. Merk op dat deze interactie identiek is aan “Multi-distributie” maar slechts één (1) afnemer kent.

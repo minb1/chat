@@ -1,0 +1,6 @@
+
+##Afbeeldingen
+
+Afbeeldingen krijgen een nummer en vermelding in de figurenlijst [[[#tof]]].
+
+![Tekstueel alternatief voor toegankelijkheid](media/Bomos_levenscyclus.svg "Onderschrift")

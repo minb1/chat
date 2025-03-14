@@ -1,0 +1,6 @@
+
+##Verslag
+
+Mededeling Martin: Normatieve beheer bij Logius. Beheermodel is vastgesteld en gepubliceerd op GitHub. Link gedeeld in chat. https://github.com/Logius-standaarden/ADR-Beheermodel
+
+Mededeling en algemene vraag: Extensies zijn vast gesteld. Welke extensies kunnen opgenomen worden in het normatieve gedeelte?

@@ -1,0 +1,9 @@
+
+###Werking
+De Digikoppeling Koppelvlakstandaarden bevatten meerdere profielen
+waarin een samenhangend interactiepatroon voor berichtuitwisseling is
+beschreven<sup>2</sup>.
+
+<sup>2</sup>: Een Digikoppeling service (Service Provider en Service
+Requester) werkt altijd volgens een vooraf bepaald profiel voor
+berichtenuitwisseling volgens een Koppelvlakstandaard.

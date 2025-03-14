@@ -1,0 +1,4 @@
+
+##Conclusie:
+
+- een kwaadwillende kan nooit met een self signed certificaat een client faken die met een ander certificaat is geregistreerd bij de authorization server

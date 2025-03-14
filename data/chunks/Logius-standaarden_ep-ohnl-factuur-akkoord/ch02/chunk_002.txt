@@ -1,0 +1,6 @@
+
+##Afbeeldingen
+
+Afbeeldingen krijgen een nummer en vermelding in de figurenlijst [[[#tof]]].
+
+![Het bericht 'OHNL Factuur Akkoord' in de berichtenstroom](media/factuur-akkoord-ubl.png "'OHNL Factuur Akkoord' in de berichtenstroom")

@@ -1,0 +1,13 @@
+
+##Digikoppeling standaarden 
+
+De Digikoppeling standaarden bestaan uit de volgende documenten (groene blokken zijn onderdeel van de Digikoppeling standaard):
+
+*Specificatie van de koppelvlakstandaarden*
+
+De koppelvlakspecificatie beschrijft de eisen die gesteld worden aan de adapters om interoperabel met elkaar te kunnen communiceren. De hele set informatie die tezamen nodig is voor een complete generieke Digikoppeling koppelvlakdefinitie bestaat uit:
+
+- Interfacedefinitie.
+
+- Beveiligingsvoorschriften en standaarden voor de transport laag, signing en encryptie (cipher suites).
+

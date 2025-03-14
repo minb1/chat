@@ -1,0 +1,14 @@
+
+##Summary with points for attention 
+
+- Each CloudEvents event can be wholly represented as a JSON object and MUST use the media type `application/cloudevents+json`.
+- The [CloudEvents JSONSchema](https://github.com/cloudevents/spec/blob/v1.0.1/spec.json) for the spec can be used to validate events in JSON.
+- Unset attributes MAY be encoded to the JSON value of null. When decoding attributes and a null value is encountered, it MUST be treated as the equivalent of unset or omitted. OPTIONAL not omitted attributes MAY be represented as a null JSON value.
+- The runtime data type of the `data' content inside the JSON object can be either:
+    - a textual [JSON value](https://tools.ietf.org/html/rfc7159#section-3) with member name `data`
+    - a binary JSON string expression containing the [Base64](https://tools.ietf.org/html/rfc4648#section-4) encoded binary value with member name `data_base64` 
+- So if a `data_base64` member is present it indicates that its value is Base64 encoded binary data.
+- JSON Batch Format can be used to batch several CloudEvents into a single JSON document.
+    - The document contains a JSON array filled with CloudEvents in the JSON Event format.
+    - Media type `application/cloudevents-batch+json` MUST be used.
+    - The JSON Batch Format MUST NOT be used when only support for the JSON Format is indicated.

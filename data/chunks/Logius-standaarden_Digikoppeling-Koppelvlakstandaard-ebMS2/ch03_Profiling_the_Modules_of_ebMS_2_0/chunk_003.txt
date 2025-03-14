@@ -1,0 +1,6 @@
+
+###Core Extension Elements [ebMS 2.0] Section 3 
+
+|Profile(s)             | Usage: required/optional/never used in this profile |
+|-------------------|---|
+| **Best effort**<br>**Reliable Messaging**<br>**End-to-End Security** | Support is **required**. |

@@ -1,0 +1,8 @@
+
+##Welke ondersteuning bieden leveranciers?
+
+Een leverancier is een marktpartij die u kan ondersteunen bij de implementatie van Digikoppeling. Een groot aantal leveranciers biedt hiervoor de nodige diensten en producten aan.
+
+De Digikoppeling standaarden zijn beschreven op technologie-onafhankelijke wijze, zodat de aansluiting op Digikoppeling is te ontwikkelen met behulp van producten van verschillende leveranciers. Organisaties kunnen er daarom zeker van zijn dat zij kunnen werken met leveranciers en producten die het best bij hun infrastructuur aansluiten.
+
+Leveranciers kunnen een volledig geconfigureerde digikoppeling oplossing leveren die in uw bestaande ICT-infrastructuur geinstalleerd wordt. Uw huidige backoffice systemen worden hierop aangesloten, waarmee u voldoet aan de Digikoppeling-standaard. Dit is ook mogelijk voor samenwerkingsverbanden en shared service centra’s. Op basis van de installatie van één digikoppeling oplossing kunnen meerdere gemeenten aangesloten worden. Een andere oplossing is het gebruik van SaaS, waarbij een online dienst wordt aangeboden. De organisatie hoeft de software dan niet aan te schaffen, maar sluit een contract af voor een vast bedrag per maand of per aantal berichten voor het gebruik. De SaaS provider zorgt voor installatie, onderhoud en beheer, de organisatie benadert (als gebruiker) de software over het internet bij de SaaS provider.

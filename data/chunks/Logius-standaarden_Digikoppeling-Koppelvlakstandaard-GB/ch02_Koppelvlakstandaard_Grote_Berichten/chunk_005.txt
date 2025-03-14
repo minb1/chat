@@ -1,0 +1,20 @@
+
+###Pull Principe
+
+Het principe is dat de verzender het grote bestand aanbiedt via een Grote
+Berichten File Service en een bericht stuurt aan de ontvanger dat het bericht
+geplaatst is, de ontvanger kan het bestand vervolgens ophalen.
+
+![Uitwisseling groot bestand via Grote Berichten file service van de zender](media/UitwisselingGrootbestandviaGBfileservice_zender.png "Uitwisseling groot bestand via Grote Berichten file service van de zender")
+
+In bovenstaand figuur is dit grafisch weergegeven.
+
+- Stap 1: De verzender verstuurt het bericht met de meta-data van het bestand,
+bijvoorbeeld naam, locatie, grootte etc.
+
+- Stap 2: De ontvanger ontvangt het bericht met de meta-data, en download en
+verwerkt vervolgens het bestand (PULL).
+
+Opmerking  
+De verzender maakt hiervoor het te verzenden bestand gereed , eventueel wordt
+dit in meerdere delen gesplitst als dit wenselijk is.

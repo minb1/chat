@@ -1,0 +1,11 @@
+
+###Step 3. Resource interaction
+
+The Client can now send (a) request(s) to the Service, on behalf of itself.
+It does so by sending requests to the Resource Server, along with the Access Token.
+The Resource Server uses the Access Token for its access control decision.
+The Resource Server responds based on these decisions to the Client.
+The contents and protocol of the Resource Request and Resource Response are out of scope of this profile.
+
+> Direct access clients that are using the client credentials grant type and are not using OpenIDConnect are also allowed to use an X.509 certificate to authenticate with the authorization server's token endpoint. This flow is compatible with OAuth 2.0 due to section 2.3.2 of [[rfc6749]].
+

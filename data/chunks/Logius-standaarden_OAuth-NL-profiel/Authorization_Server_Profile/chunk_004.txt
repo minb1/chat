@@ -1,0 +1,8 @@
+
+####Client authentication
+
+The authorization server MUST enforce client authentication as described above for the authorization code and client credentials grant types. Public client cannot authenticate to the authorization server.
+
+The authorization server MUST validate all redirect URIs for authorization code ~~and implicit grant types~~.
+
+<!-- ### [3.1.3.](#rfc.section.3.1.3) [Dynamic Registration](#DynamicRegistration) -->

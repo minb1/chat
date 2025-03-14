@@ -1,0 +1,10 @@
+
+###Capabiliteit van een organisatie, bestaande infrastructuur
+
+Wat zijn de capabiliteiten van de organisaties die met elkeaar gegevensuitwisselen. Bijvoorbeeld wordt er al gebruik gemaakt van Digikoppeling WUS of ebMS, of juist niet. beschikt de organisatie over eigen ontwikkelteam, of maakthet gebruik van een partner of leverancier.
+
+- Zijn er al koppelingen in gebruik tussen partijen?.
+
+  - Zo ja welke; als hergebruik mogelijk is, kan dat vaak voordelen opleveren omdat men al bekend is met de technieken en de beheerprocessen reeds op volwassen wijze ingericht zijn.
+
+Dit kan een hele valide reden zijn om voor een bepaalde variant te kiezen, ook al zijn er technische argumenten te maken dat een ander type in theorie beter zou passen.

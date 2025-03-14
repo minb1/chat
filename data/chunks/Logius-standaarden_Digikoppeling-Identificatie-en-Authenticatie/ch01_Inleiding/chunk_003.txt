@@ -1,0 +1,9 @@
+
+##Leeswijzer
+
+Dit document gaat over de bedrijfsarchitectuur op landelijk niveau, en specifiek
+over de identificatie en authenticatie van organisaties. Eerst beschrijven we de
+probleemstelling in hoofdstuk 2. De kernbegrippen staan gedefinieerd in
+hoofdstuk 3. In hoofdstuk 4 analyseren we het gewenste niveau van de identiteit
+voor overheidsorganisaties, uitmondend in een architectuurprincipe. Hoofdstuk 5
+gaat in op de vraag hoe de (nummer)identiteit vorm krijgt.

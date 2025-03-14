@@ -1,0 +1,29 @@
+
+###Context
+
+In het geval van Digikoppeling Grote Berichten is sprake van minimaal twee uitwisselingen waarvan het belang is om de samenhang te bewaken:
+
+1. bericht met de meta-data;
+
+1. bestand dat naar aanleiding hiervan verzonden wordt.
+
+Het bewaken van de samenhang wordt extra belangrijk als er (tegelijkertijd) meerdere gegevensstromen zijn. Een oplossing verschilt per implementatie en kent algemeen de volgende mogelijkheden:
+
+- Verzender standaard  
+    Een verzender van het grote bericht heeft geen moeite om de context te bewaken. De applicatie die het grote bestand aanmaakt zal in hetzelfde proces ook metadata aanmaken. Bij ophalen van het bestand vormt de url waarmee deze opgehaald wordt de referentie voor de bestandserver. Om de oplossing robuuster te maken kan de contextID uit de metadata aanvullend overgenomen worden in het bestand. Onderstaande mogelijkheden hebben verder alleen betrekking op het bewaken van de context aan de ontvanger kant.
+
+- Contextbewaking door applicatieserver (WUS)  
+    De ontvanger die via een synchrone WUS-response metadata ontvangt kan in dezelfde procesgang het bestand ophalen. Bewaken van de context vindt dan door de applicatieserver plaats die na verzending van het request een proces ‘on hold’ zet en bij binnenkomst van een response het proces opstart dat hier op stond te wachten.
+
+- Contextbewaking met expliciete referentie (ebMS2)  
+    In het geval van ebMS2 kan als standaard oplossing een referentie meegegeven worden. Dit kan door deze op te nemen in de contextID van de metadata. Bij voorkeur komt deze overeen met de MessageID of ConversationID van het bericht:
+
+   1. Als het bestand specifiek bij één bericht hoort: MessageID
+   1. Als het bestand bij een conversatie van meerdere berichten hoort of als een conversatie maar één bericht bevat: ConversationID.
+
+    Om de oplossing robuuster te maken kan de contextID uit de metadata aanvullend overgenomen worden in het bestand.
+
+- Contextbewaking met expliciete referentie (WUS/REST-API)  
+    In het geval van synchrone uitwisseling maar ook bij asynchrone uitwisseling (geen standaard onderdeel van Digikoppeling WUS of REST-API!) kan als  oplossing een referentie meegegeven worden. Dit kan bijvoorbeeld door de applicatie de referentie in de body te laten opnemen. Beter is het echter om dit conform Digikoppeling in de header op te nemen. In het request wordt de referentie dan opgenomen in de MessageID van het request. De service geeft deze MessageID dan terug als 'contextID' in de (synchrone of asynchrone) response<sup>1</sup>. Om de oplossing robuuster te maken kan de contextID uit de metadata aanvullend overgenomen worden in het bestand.
+
+<sup>1</sup>: Volgens de WUS koppelvlakstandaard zal ook het headerveld “RelatesTo” van de response overeenkomen met het MessageID van het request.

@@ -1,0 +1,16 @@
+
+###Wijzigingen
+
+![Behandeling van een wijzigingsvoorstel in het beheerproces](images/Beheerproces.png "Behandeling van een wijzigingsvoorstel in het beheerproces")
+
+1. Acceptatie van een wijzigingsvoorstel.
+2. Labelen van een voorstel als groot/klein, aangeven van status.
+3. Behandeling van een wijzigingsvoorstel.
+4. Agendering voor een overleg.
+5. Advisering vanuit overleggen.
+6. Acceptatie van een wijzigingsvoorstel.
+7. Doorvoeren van een wijzigingsvoorstel.
+8. Publicatie van een wijziging in de komende release
+
+Wanneer een wijziging is geaccepteerd kan deze deel uitmaken van een
+volgende release.

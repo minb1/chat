@@ -1,0 +1,18 @@
+
+##Betrouwbaarheid
+
+De noodzaak van betrouwbaarheid is afhankelijk van de context. Indien de
+bestandsoverdracht een melding (bv in combinatie met ebMS2) betreft, is ook
+betrouwbaarheid noodzakelijk. Indien de bestandsoverdracht een bevraging (bv
+in combinatie met WUS) betreft, is dit niet noodzakelijk maar
+hoogstwaarschijnlijk wenselijk.
+
+Voor de context van meldingen dient de client een retry mechanisme te
+implementeren rekening houdend met eventuele beperkte beschikbaarheid van het
+netwerk en/of de server (service-window).
+
+| Referentie | **Type** | **Specificatie**                                                                                                                                                                                                                                                                                                                                                                                           |
+|------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GB013      | Algemeen | Voor meldingen, zoals bedoeld in de Digikoppeling architectuur, MOET een retry mechanisme toegepast worden dat rekening houdt met eventuele beperkte beschikbaarheid van het netwerk en/of de server (service-window)  De specificatie van het aantal retries en tijdswindow vormt een situationeel af te spreken gegeven. Dit komt overeen met (afspraken over) de configuratie van ebMS2 implementaties. |
+| GB014      | Algemeen | Indien na ontvangst de omvang van het bestand niet overeen komt met de omvang uit het meta-bericht, dan MOET de bestandsoverdracht als niet-succesvol beschouwd worden (size error).                                                                                                                                                                                                                       |
+| GB015      | Algemeen | Indien na ontvangst de checksum van het bestand niet overeen komt met de checksum uit het meta-bericht, dan MOET de bestandsoverdracht als niet-succesvol beschouwd worden (checksum error).                                                                                                                                                                                                               |

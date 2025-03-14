@@ -1,0 +1,13 @@
+
+###Profile Requirement Item: Ping-Pong Security
+
+|[[EBXML-MSG]] Section 8.1, 8.2 Message Service Handler Ping/Pong Message | All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header element(s)|`Eb:MessageHeader/eb:Service`|
+| If used, must Ping Messages be digitally signed? | If Ping-Pong is used, it is **optional** for Ping messages to be digitally signed. |
+| If used, must Pong Messages be digitally signed? | If Ping-Pong is used, it is **optional** for Pong messages to be digitally signed. |
+| Under what circumstances must a Pong Message not be sent? | No recommendation made.   |
+| If not supported or unauthorized, must the MSH receiving a Ping respond with an error message, or ignore it due to security concerns?   | No recommendation made |
+| Alignment | (empty) |
+| Test References | (empty) |
+| Notes  | (empty) |

@@ -1,0 +1,19 @@
+
+###Signing & Encryptie toevoegen aan RESTful API profiel
+
+_Wat is het issue of de wens?_
+
+Digikoppeling EBMS & WUS kennen specifieke profielen voor signing & encryptie, het huidige Digikoppeling RESTful API profiel kent dit nog niet
+
+_Wat gaat er gebeuren?_
+
+Het onderdeel signing en encryptie zal worden ingevuld, hierbij zal worden aangesloten op de ontwikkelingen binnen het kennisplatform API's.
+Ontwikkelingen in Europese standaarden (JAdES) en ontwikkelingen in internationale standaarden worden hierbij meegenomen.
+
+_Wat is het resultaat?_
+
+Een Digikoppeling standaard waarin voor het Digikoppeling REST API profiel ondersteuning is voor signing & encryptie.
+
+_Wanneer gaat dit gebeuren?_
+
+Q1 2024-Q3 2024

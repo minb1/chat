@@ -1,0 +1,29 @@
+
+##Inleiding
+
+Dit document specificeert de Koppelvlakstandaard ebMS2 voor
+berichtenuitwisseling over Digikoppeling (voorheen OverheidsServiceBus) als een
+toepassing van de EBXML-MSG standaard, de ebXML Message Service Specification
+versie 2.0 [[EBXML-MSG]]. Digikoppeling is bedoeld als generieke infrastructuur
+voor een grote variëteit aan diensten. Deze Standaard is daardoor eveneens
+generiek en dient nader gespecialiseerd te worden voor specifieke berichtstromen
+en diensten.
+
+EbXML Messaging [[EBXML-MSG]] is bedoeld voor verschillende toepassingen en
+faciliteert die diversiteit door een scala aan configureerbare features en
+opties te bieden. Elk gebruik van ebXML Messaging in een bepaalde keten of
+binnen een bepaalde gemeenschap vereist in de praktijk een bepaalde mate van
+aanvullende standaardisatie. Aangezien veel van de configuratiefeatures in de
+standaard optioneel zijn, moet precies gedocumenteerd worden welke onderdelen
+ervan op welke manier toegepast zijn, om op de verschillende relevante niveaus
+interoperabiliteit te realiseren. Die informatie is hier verzameld en
+gepubliceerd als configuratiegids voor de gebruikers van Digikoppeling. Het legt
+de overeengekomen conventies vast voor het gebruik van ebXML message service
+handlers, de functionaliteit die van een implementatie verwacht wordt en de
+details voor het gebruik van de standaard.
+
+Een deployment specificatie is niet hetzelfde als een ebXML
+samenwerkingsprotocol overeenkomst (ook wel aangeduid met een “Collaboration
+Protocol Profile and Agreement) [ISO 15000-1]. Wel hebben sommige onderdelen van
+een deployment specificatie gevolgen voor de specifieke invulling van
+CPA-elementen.

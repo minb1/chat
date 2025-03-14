@@ -1,0 +1,12 @@
+
+##Message Payload and Flow Profile
+
+| | All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+| What are typical and maximum message payload sizes which must be handled? (maximum, average) | Some ebXML Messaging products have performance and scalability issues with payloads larger than a (single digit) megabyte in size. Some partners may need to bridge incoming ebXML Message flows to other (enterprise) messaging protocols which have message size limits. Firewalls and other networking equipment may also (implicitly) impose size limits. |
+| What are typical communication bandwidth and processing capabilities of an MSH for these Services? | No recommendation made.   |
+| Expected Volume of Message flow (throughput): maximum (peak), average?  | No recommendation made.   |
+| (Section 2.1.4) How many Payload Containers must be present?   | Messages may contain one or more payload containers  |
+| What is the structure and content of each container? [List MIME Content-Types and other process-specific requirements.] Are there restrictions on the MIME types allowed for attachments? | Each payload container will get a MIME type reflecting the type of the ‘content’ it contains.  |
+| How is each container distinguished from the others? [By a fixed ordering of containers, a fixed Manifest ordering, or specific Content-ID values.]. Any expected relative order of attachments of various types? | No recommendation made.   |
+| Others   |   |

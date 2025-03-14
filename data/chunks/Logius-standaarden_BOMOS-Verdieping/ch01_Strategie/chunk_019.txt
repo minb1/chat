@@ -1,0 +1,19 @@
+
+####Stap 1 - Beschrijf huidige situaties en toekomstscenario's en identificeer stakeholders.
+
+De eerste stap begint met een analyse van de stakeholders; wat zijn de
+partijen die een relatie hebben tot het interoperabiliteitsprobleem
+waarin een mogelijke standaard een oplossing kan bieden. Voor het
+identificeren van de stakeholders, kan de NEN stakeholderanalyse
+gebruikt worden ([zie sectie Werkgroep en
+stakeholders](#werkgroepen-en-stakeholders)).
+
+Vervolgens wordt de huidige situatie geanalyseerd; wat zijn de
+uitgangsposities van waaruit de primaire stakeholders moeten
+vertrekken. Daarbij dient ook het beeld van het toekomstscenario met
+standaard helder te zijn, zodat de migratiepaden van de huidige
+situatie naar de toekomstscenario's duidelijk zijn.
+
+Het figuur geeft dit weer voor de primaire stakeholder de juwelier in dit voorbeeld. Uiteraard is het bij de implementatie de bedoeling om ervoor te zorgen dat zoveel mogelijk partijen in toekomstscenario 1 of 2 terecht komen en de standaard gaan gebruiken.
+
+![Scenarios juweliersbranche](images/BOMOS-5_Scenarios-juweliersbranche-blanco.png "Scenarios juweliersbranche")

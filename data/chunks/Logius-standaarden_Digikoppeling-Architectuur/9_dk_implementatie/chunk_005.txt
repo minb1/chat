@@ -1,0 +1,60 @@
+
+###Selectie van profielen
+
+Vanwege interoperabiliteit, eenvoud en overzichtelijkheid onderscheidt
+Digikoppeling per koppelvlakstandaard een aantal standaardprofielen. Elk profiel bestaat uit vooraf gedefinieerde keuzen over kenmerken als synchroniciteit, beveiliging en betrouwbaarheid voor REST API, WUS of ebMS2. Door toepassing van de Digikoppeling profielen worden deze kenmerken correct afgehandeld en kunnen partijen sneller een koppelvlakstandaard implementeren. De profielen worden nader gespecificeerd in de koppelvlakstandaarden WUS en ebMS2.
+
+De volgende kenmerken zijn onderkend:
+
+ - Best effort – geschikt voor bevragingen (WUS en REST API)
+
+- Betrouwbaar (reliable) – geschikt voor meldingen (ebMS)
+
+- Signed – geschikt voor de ondertekening van berichten (WUS en ebMS2)
+
+- Encrypted – geschikt voor de versleuteling van de payload en attachments (WUS en ebMS2)
+
+De aanduiding van de profielen kent de volgende systematiek:
+
+- 2W = two-way
+
+- be = best-effort
+
+- rm = reliable
+
+- S of s =signed
+
+- SE of e =signed en encrypted
+
+- osb= overheidsservicebus, de oude naam van Digikoppeling
+
+
+| Invulling | DK REST API profiel | DK WUS profiel | DK ebMS2 profiel |
+| --- | --- |---|---|
+| Bevragingen / Meldingen |  |  |  |
+| best-effort | 1.0 | 2W-be | osb-be |
+| best-effort signed |  | 2W-be-S | osb-be-s |
+| best-effort signed/encrypted |  | 2W-be-SE | osb-be-e |
+|  |  |  |  |
+| reliable* |  |  | osb-rm |
+| reliable signed |  |  | osb-rm-s |
+| reliable signed en encrypted |  |  | osb-rm-e |
+
+
+Tabel 9.1: Profielen in relatie tot Digikoppeling-voorschriften
+
+> *Met reliable wordt hier aangegeven of het profiel specifieke functionaliteit biedt voor het herzenden en gegarandeerd afleveren van data als onderdeel van het profiel (dwz bovenop de basisondersteuning van de betrouwbaarheid van het netwerk protocol (TCP/IP) dat voor elk van deze profielen geldt)
+
+*NB: De profielnamen komen uit eerdere versies van de koppelvlakstandaarden. Zij moeten gehandhaafd blijven in verband met het feit dat deze standaarden reeds in gebruik zijn bij vele organisaties. Dit verklaart de verschillen in de gebruikte afkortingen tussen de WUS- en ebMS2-profielen.*
+
+Neem de volgende aspecten mee bij de keuze van een profiel:
+
+- Gaat het om berichten (of bijlagen) groter dan 20 MiB? Stem eerst af met uw ketenpartner of Digikoppeling Grote Berichten gebruikt moet worden.
+
+- Is snelheid belangrijker dan betrouwbaarheid? Kies dan voor een koppelvlakstandaard dat synchrone bevragingen ondersteunt, REST API of WUS.
+
+- Is betrouwbaarheid belangrijker, kies dan voor een koppelvlakstandaard dat reliable messaging ondersteunt (ebMS).
+
+- Bevind zich tussen partijen een niet vertrouwde (transparante) intermediair? Kies dan voor een Signed profiel.
+
+- Mag een niet vertrouwde intermediair informatie niet inzien? Kies dan voor een Encyrpted profiel.

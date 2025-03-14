@@ -1,0 +1,6 @@
+
+###Schematische weergave van de flow van de standaard
+
+![OAuth-Abstract_Authorization_Code_Flow](./media/OAuth-Abstract_Authorization_Code_Flow.svg)
+
+

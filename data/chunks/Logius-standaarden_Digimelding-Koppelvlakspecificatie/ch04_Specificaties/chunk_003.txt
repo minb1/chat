@@ -1,0 +1,10 @@
+
+##Annotatie versturen
+
+De berichten beschreven in deze uitwisseling worden gebruikt om:
+
+-   met de terugmeldapplicatie van een afnemer een terugmelding te
+    versturen
+-   om een eerder door de afnemer gedane terugmelding in te trekken
+-   om een status terug te melden van een bronhouder naar een Landelijke
+    Voorziening

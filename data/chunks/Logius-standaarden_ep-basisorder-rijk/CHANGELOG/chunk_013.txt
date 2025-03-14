@@ -1,0 +1,4 @@
+
+###Added
+
+- (BOR) [Schematron](./technische-documentatie/basisorder-rijk-ohnl-1.9.sch) voor validatie OHNL 1.9 order (ORDER ONLY) toegevoegd → 13 nieuwe validatieregels toegevoegd (v0.7.0).

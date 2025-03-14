@@ -1,0 +1,21 @@
+
+###Binaire Data
+
+In de Digikoppeling Koppelvlakstandaard WUS worden twee mogelijkheden
+ondersteund om binaire data te versturen. Dat zijn Base64Binary (Base64Binary in
+payload element van het bericht) of MTOM (MIME wrappers waarbij binaire data in
+een aparte Multipart/Related pakket is opgenomen). Bij het toepassen van MTOM
+wordt er ook wel gesproken van een geoptimaliseerd bericht.
+
+De meest gangbare toolkits kunnen MTOM berichten ontvangen en versturen. Het wel
+of niet toepassen van MTOM kan vaak vanuit de code of middels een
+configuratiebestand geregeld worden.
+
+Bij het inrichten bepaalt de provider of een koppelvlak wel of geen
+ondersteuning biedt voor MTOM. Bij een nieuwe koppeling in samenspraak, bij
+toevoegen van een afnemer aan een bestaande dienst dient deze zich te
+conformeren aan de bestaande inrichting (en wel of niet gebruik van MTOM).
+
+| Nr    | Omschrijving |
+|---|---|
+| WM001 | Toepassen MTOM wordt door webservice provider bepaald.  |

@@ -1,0 +1,4 @@
+
+##REQUIRED Attributes
+
+The following attributes are REQUIRED to be present in all CloudEvents:

@@ -1,0 +1,4 @@
+
+##Waarom dit document
+
+De `Voorwaarden Digikoppeling` en de `Digikoppeling Gebruiksvoorwaarden` hebben een juridisch karakter en beantwoorden waarschijnlijk niet elke vraag van gebruikers van een OIN. In dit document proberen we daarom de werking van het OIN stelsel met al haar facetten nader te beschrijven in de hoop die vragen te beantwoorden.

@@ -1,0 +1,183 @@
+
+###WS-Addressing
+
+Voorschriften als gevolg van het toepassen van WS-Addressing
+<!-- pieter: deze tabel in plain html, omdat het html voorbeeld niet goed rendert met markdown tabellen -->
+<table class="dkkvs">
+    <thead>
+        <tr>
+            <th>Nr</th>
+            <th>Omschrijving</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>WA001</td>
+            <td>Digikoppeling WUS gebruikt de volgende velden uit
+                WS-Addressing:<br>
+                <ul>
+                    <li>wsa:To</li>
+                    <li>wsa:Action</li>
+                    <li>wsa:MessageID</li>
+                    <li>wsa:RelatesTo</li>
+                    <li>wsa:ReplyTo</li>
+                    <li>wsa:From</li>
+                </ul>
+                De communicatie binnen het Digikoppeling domein is voor een deel afhankelijk van de toepassing van
+                WS-Addressing velden. Aangezien er meerdere WS-Addressing specificaties zijn, die onder meer
+                verschillende namespaces kunnen hebben, is er voor gekozen om alleen de specificatie van 2006/05
+                [https://www.w3.org/TR/ws-addr-core/](https://www.w3.org/TR/ws-addr-core/)[[ws-addr-core]] verplicht te stellen in de berichten
+                binnen het Digikoppeling domein. Hieronder wordt de toepassing van de verschillende velden toegelicht.
+                Er is gekozen voor een zo klein mogelijke subset uit de WS-Addressing standaard om de kans op
+                interoperabiliteitsissues te minimaliseren. Met het toepassen van deze standaard wordt het “achter de voordeur” routeren mogelijk.<br><br>
+                <strong>wsa:To</strong> Dit wordt gebruikt om de endpoint vast te leggen waar het bericht naar toe dient te gaan. Het element wsa:to is van het type wsa:AttributedURIType - een extensie op het xs:anyUri type- en dient gevuld te worden met een ‘Adres’ element. De waarde van het adres element kan hetzij een absolute URI zijn of `http://www.w3.org/2005/08/addressing/anonymous`.
+                Optioneel kan het To-adres aangevuld te worden met een OIN door het gebruik van querystring parameters (bijvoorbeeld `http://service-end-point?OIN=xxxxxx`). De waarde van de OIN in het adres is het OIN nummer van de ontvangende partij.<br><br>
+                <strong>wsa:Action</strong> Deze waarde wordt gebruikt om een specifieke operatie aan te roepen. Deze waarde is terug te vinden in de WSDL van de betreffende aan te roepen webservice van de Service Provider. Dit veld is verplicht en moet in het bericht worden opgenomen.<br><br>
+                <strong>wsa:MessageID</strong> De waarde hiervan kan door de service requester of provider zelf ingevuld worden zolang dit een waarde is die aan de onderliggende specificatie voldoet ([[ws-addr-core]]).<br><br>
+                <strong>wsa:RelatesTo</strong> Dit element komt alleen voor in de SOAP header van het response bericht. Het bevat de waarde van de wsa: MessageID van het request bericht.<br><br>
+                <strong>wsa: ReplyTo</strong> De verplichte specificatie van wsa:ReplyTo geldt alleen voor het request bericht. De specificatie mag zowel plaatsvinden door gebruik te maken van de default-waarde als door expliciete opname van deze SOAP-header. Voor synchrone communicatie t.b.v. bevragingen zal het replyTo veld gevuld zijn met de waarde `http://www.w3.org/2005/08/addressing/anonymous` of het element volledig weglaten. Bij weglaten van dit veld moet de ontvanger conform WS-Addressing specificatie alsnog de waarde `http://www.w3.org/2005/08/addressing/anonymous` gebruiken.<br><br>
+                <strong>wsa:From</strong> Het gebruik van wsa:From is optioneel voor synchrone berichten voor
+                bevragingen. De waarde van dit veld wordt gebruikt om aan te geven waar het bericht vandaan komt. De wsa:From is van het type wsa:EndPointReferenceType en dient gevuld te worden met een ‘Adres’ element (wsa:Address). De waarde van het adres element kan hetzij een absolute URI zijn of `http://www.w3.org/2005/08/addressing/anonymous`. Optioneel kan het From-adres aangevuld te worden met een OIN door het gebruik van querystring parameters (e.g. `http://service-end-point?OIN=xxxxxx`). De waarde van de OIN in het adres is het OIN nummer van de verzendende partij.<br><br>
+                De elementen <strong>wsa:ReplyTo</strong> en <strong>wsa:From</strong> zijn beiden van de type
+                ‘wsa:EndPointReferenceType’. Het EndPointReferenceType stelt enkel het element ‘Address’ verplicht. De overige velden van EndPointReferenceType zijn optioneel en zijn om compatibiteitsredenen niet toegestaan binnen Digikoppeling.<br><br>
+                Het is toegestaan om overige WS-Addressing velden op te nemen in de berichten omdat bij sommige toolkits het genereren van deze velden niet onderdrukt kan worden. Hierbij geldt wel de beperking dat de waarde voor deze velden het routeringsmechanisme niet verstoort. Derhalve moet, indien het bericht andere velden dan hierboven bevat, de waarde `http://www.w3.org/2005/08/addressing/anonymous` of `http://www.w3.org/2005/08/addressing/none` aan deze velden toegekend worden. Overzicht verplichte WS-Addressing properties in request en response berichten (volgens
+                [[ws-addr-metadata]])
+                <br><br>
+                <b>WS-Addressing request headers Field</b>
+                <table class="dkkvsincell">
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Property</th>
+                            <th>Mandatory</th>
+                            <th>Description.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>wsa:To</td>
+                            <td>[destination]</td>
+                            <td>Y</td>
+                            <td>Provides the address of the intended receiver of this message.</td>
+                        </tr>
+                        <tr>
+                            <td>wsa:Action</td>
+                            <td>[action]</td>
+                            <td>Y</td>
+                            <td>Identifies the semantics implied by this message.</td>
+                        </tr>
+                        <tr>
+                            <td>wsa:From</td>
+                            <td>[source endpoint]</td>
+                            <td>Y<sup>1</sup></td>
+                            <td>Provides the address of the original sender of this Message</td>
+                        </tr>
+                        <tr>
+                            <td>wsa:ReplyTo</td>
+                            <td>[reply endpoint]</td>
+                            <td>Y<sup>2</sup></td>
+                            <td>Intended receiver for the reply to this message.</td>
+                        </tr>
+                        <tr>
+                            <td>wsa:FaultTo</td>
+                            <td>[fault endpoint]</td>
+                            <td>N</td>
+                            <td>Intended receiver for faults related to this message. May be included to direct fault
+                                messages to a different endpoint than [reply endpoint]</td>
+                        </tr>
+                        <tr>
+                            <td>wsa:MessageID</td>
+                            <td>[message id]</td>
+                            <td>Y</td>
+                            <td>Unique identifier for this message. Used in the [relationship] property of the reply
+                                message. </td>
+                        </tr>
+                        <tr>
+                            <td>wsa:RelatesTo</td>
+                            <td>[relationship]</td>
+                            <td>N</td>
+                            <td>Indicates relationship to a prior message. Unused in this Message Exchange Pattern
+                                (MEP), but could be included to facilitate longer running message exchanges.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <sup>1</sup>Voor bevragingen is source endpoint optioneel.<br>
+                <sup>2</sup>Impliciet specificeren van het reply endpoint door weglaten van ReplyTo is
+    ook toegestaan.
+                <br><br>
+                <b>WS-Addressing response headers</b>
+                <table class="dkkvsincell">
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Property</th>
+                            <th>Mandatory</th>
+                            <th>Description.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>wsa:To</td>
+                            <td>[destination]</td>
+                            <td>N<sup>3</sup></td>
+                            <td>Provides the address of the intended receiver of this message.</td>
+                        </tr>
+                        <tr>
+                            <td>wsa:Action</td>
+                            <td>[action]</td>
+                            <td>Y</td>
+                            <td>Identifies the semantics implied by this message.</td>
+                        </tr>
+                        <tr>
+                            <td>wsa:From</td>
+                            <td>[source endpoint]</td>
+                            <td>N</td>
+                            <td>Message origin. Unused in this MEP, but could be included to facilitate longer running message
+                                exchanges.</td>
+                        </tr>
+                        <tr>
+                            <td>wsa:ReplyTo</td>
+                            <td>[reply endpoint]</td>
+                            <td>N</td>
+                            <td>Intended receiver for replies to this message. Unused in this MEP, but could be included to facilitate
+                                longer running message exchanges.</td>
+                        </tr>
+                        <tr>
+                            <td>wsa:FaultTo</td>
+                            <td>[fault endpoint]</td>
+                            <td>N</td>
+                            <td>Intended receiver for faults related to this message. Unused in this MEP, but could be included to
+                                facilitate longer running message exchanges.</td>
+                        </tr>
+                        <tr>
+                            <td>wsa:MessageID</td>
+                            <td>[message id]</td>
+                            <td>Y<sup>4</sup></td>
+                            <td>Unique identifier for this message. Unused in this MEP, but may be included to facilitate longer running
+                                message exchanges.</td>
+                        </tr>
+                        <tr>
+                            <td>wsa:RelatesTo</td>
+                            <td>[relationship]</td>
+                            <td>Y</td>
+                            <td>Indicates that this message is a reply to the request message, using the request message [message id] value and the predefined <a
+                                    href="http://www.w3.org/2005/08/addressing/reply">http://www.w3.org/2005/08/addressing/reply</a>
+                                IRI.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <sup>3</sup>Sommige platformen wijken op dit punt af van de Web Service Addresing 1.0 –
+Metadata standaard. Het wsa:To veld wordt bij synchrone SOAP verkeer actief uit
+het antwoordbericht gefilterd. Om hier vanuit de standaard aan tegemoet te komen
+mag bij het ontbreken van dit veld in het antwoordbericht door de ontvanger de
+anonymous waarde (http://www.w3.org/2005/08/addressing/anonymous) worden
+aangenomen.
+
+<sup>4</sup> Hiermee wordt afgeweken van wat de Web Services Addressing 1.0 – Metadata
+standaard voorschrijft. Volgens deze standaard is de MessageID in response
+optioneel. Bovenstaande properties kunnen in een aantal gevallen ook gespecificeerd worden
+door betreffende velden in de header weg te laten. Zie WS-addressing 1.0- Core, paragraaf 2.1 en paragraaf 3.2; zie ook BP 1.2 paragraaf 3.7.14.
+            </td>
+        </tr>
+    </tbody>
+</table>

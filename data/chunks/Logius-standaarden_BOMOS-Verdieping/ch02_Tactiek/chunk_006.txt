@@ -1,0 +1,29 @@
+
+###Open invulling met Open Source Software
+
+Onderdeel van het activiteitendiagram is _moduleontwikkeling_, dit wil
+zeggen dat de organisatie software kan (laten) ontwikkelen waarin de
+standaard geïmplementeerd is. Gevaarlijk is om dit als
+standaardisatieorganisatie zelf 'commercieel' te doen aangezien de
+standaardisatieorganisatie een concurrent wordt van andere
+leveranciers in de markt. De ondersteuning van de standaard door
+andere leveranciers zal dan snel afnemen. Door het ontwikkelen op
+basis van open source wordt dit deels ondervangen. De open source
+module waarin de standaard is verwerkt komt dan vrij beschikbaar
+waardoor de commerciële leveranciers dit verder kunnen oppakken, en op
+termijn kan de standaardisatieorganisatie haar handen er vanaf
+trekken. Het is dan ook voornamelijk een middel (stimulans) om de
+markt in beweging te krijgen.
+
+Verder is Open Source Software een prima alternatief voor gesloten
+source software. Het voornaamste verschil is het business model. Voor
+de adoptie van een standaard is het belangrijk dat de standaard
+geïmplementeerd wordt in alle software, ongeacht het business
+model. Het is in enige mate gevaarlijk, vanuit adoptie oogpunt, om een
+bepaald type leverancier een voorkeursbehandeling te geven aangezien
+daarmee weerstand gecreëerd wordt bij andere leveranciers.
+
+Open Source Software dient zeker niet verward te worden met open
+standaarden. Dit zijn wezenlijk andere concepten, waarbij vanuit het
+oogpunt van interoperabiliteit alleen open standaarden essentieel
+zijn.

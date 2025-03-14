@@ -1,0 +1,4 @@
+
+##Resource owner
+
+The resource owner is the sensor owner. In this case the the sensors are provided to citizens by the Resource owner, e.g. a local government or city.

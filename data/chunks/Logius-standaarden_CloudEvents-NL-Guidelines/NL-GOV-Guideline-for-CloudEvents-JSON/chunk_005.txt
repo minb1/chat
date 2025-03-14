@@ -1,0 +1,4 @@
+
+##Normative References
+
+- [JSON Event Format for CloudEvents - Version 1.0.1](https://github.com/cloudevents/spec/blob/v1.0.1/json-format.md)

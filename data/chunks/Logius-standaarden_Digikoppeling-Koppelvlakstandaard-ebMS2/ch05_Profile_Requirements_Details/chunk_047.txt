@@ -1,0 +1,9 @@
+
+###Profile Requirement Item: HTTP Response Codes
+|[[EBXML-MSG]] Appendix B.2.3 HTTP Response Codes  | All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header elements|MIME parts|
+| What client behaviors should result when 3xx, 4xx or 5xx HTTP error codes are received? | In the event of an HTTP 5xx error code, the MSH **must** behave according to the recommendations specified in [[SOAP]]. An HTTP 503 error code **should** be treated as a recoverable error (i.e. **should not** terminate any reliable messaging retries). Codes in the 3xx and 4xx ranges **must** be interpreted as errors. |
+| Alignment | (empty) |
+| Test References | (empty) |
+| Notes  | (empty) |

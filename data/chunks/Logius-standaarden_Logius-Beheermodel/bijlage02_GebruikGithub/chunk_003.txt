@@ -1,0 +1,11 @@
+
+##Wijzigingsvoorstellen
+Het proces zoals beschreven onder
+[operationeel beheer, wensen en eisen](#wensen-en-eisen)
+wordt voor de Logius standarden geïmplementeerd door gebruik te maken
+van _GitHub issues_. Een _issue_ kan binnen GitHub ingediend worden
+door iedere (GitHub)gebruiker en wordt bij ontwikkeling van code
+gebruikt om functionele wensen of gevonden bugs in te dienen zodat
+deze door ontwikkelaars opgepakt kunnen worden. Een _issue_ kan
+online besproken worden en uiteindelijk gesloten worden wanneer
+deze verwerkt is.

@@ -1,0 +1,7 @@
+
+###Nut
+
+> De overheid ontsluit gegevens en applicaties steeds vaker met REST-API's. Voorbeelden hiervan zijn te zien op de website [developer.overheid.nl](https://developer.overheid.nl), [in Common Ground](https://commonground.nl), [Haal Centraal](https://www.vngrealisatie.nl/producten/haal-centraal) en [het Digitaal Stelsel Omgevingswet](https://aandeslagmetdeomgevingswet.nl).  
+> Representational state transfer (REST) is een ontwerpprincipe dat wereldwijd veel gebruikt wordt voor het bouwen van programmeerinterfaces over het web (API's). REST is geen standaard maar een ontwerpprincipe, en laat nog veel vrijheid in het structureren van API's.  
+> De standaard REST-API Design Rules geeft een verzameling basisregels voor structuur en naamgeving waarmee de overheid op een uniforme en eenduidige manier REST-API's aanbiedt. Dit maakt het voor ontwikkelaars gemakkelijker om betrouwbare applicaties met te ontwikkelen met API's van de overheid.
+> [Bron: Forum standaardisatie](https://www.forumstandaardisatie.nl/open-standaarden/rest-api-design-rules)

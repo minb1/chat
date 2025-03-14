@@ -1,0 +1,9 @@
+
+###Profile Requirement Item: PersistDuration
+
+|[[EBXML-MSG]]Section 6.4.6 PersistDuration | **Best effort**|**Reliable Messaging**|**End-to-End Security** |
+|------------------|---|---|---|
+| How long must data from a reliably sent message be kept in persistent storage by a receiving MSH, for the purpose of retransmission? | **Not applicable**   | Depends on the retry interval as defined in the particular collaboration, defined by the involved parties. If no value is defined by the parties, a value of 5 days is used. | Depends on the use of best effort or reliable messaging. |
+| Alignment | [Appears as ReliableMessaging/PersistDuration in CPA.] |   |   | |
+| Test References | (empty) |||
+| Notes  | (empty) |||

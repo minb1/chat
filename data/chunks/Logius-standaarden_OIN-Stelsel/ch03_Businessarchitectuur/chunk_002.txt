@@ -1,0 +1,4 @@
+
+##Wat is het OIN
+
+Het Organisatie-identificatienummer ([=OIN=]) is een uniek nummer dat Logius kan toekennen aan organisaties om zich te kunnen identificeren, authentiseren en of autoriseren bij digitaal berichtenverkeer binnen en met de overheid.

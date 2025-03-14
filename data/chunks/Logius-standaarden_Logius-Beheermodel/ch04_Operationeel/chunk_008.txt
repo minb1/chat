@@ -1,0 +1,18 @@
+
+###Impact van wijzigingen en versienummering
+Afhankelijk van de impact van een wijziging of patch krijgt een release
+een nieuwsversienummer. Het versienummerbeheer volgt principes voor
+semantische versienummering
+[en is beschreven in een bijlage](#bijlage-versie-nummering-logius-standaarden)
+
+De impact van een wijziging kan verschillen per koppelvlakspecificatie. Voor de
+standaarden die deel uitmaken van Digikoppeling hebben we de volgende _impactmatrix_ opgesteld:
+
+| Standaard                |  Toevoegen  |   Wijzigen  | Verwijderen |  Vervallen  |
+|--------------------------|-------------|-------------|-------------|-------------|
+|                          | major/minor | major/minor | major/minor | major/minor |
+
+In de matrix zijn kolommmen opgenomen voor verwijderen _en_ vervallen.
+Met verwijderen wordt het volledig verwijderen van een regel of concept bedoeld.
+Bij vervallen blijft deze behouden maar wordt door een geldigheidsdatum aangegeven
+dat de regel of eht concept niet meer van toepassing is.

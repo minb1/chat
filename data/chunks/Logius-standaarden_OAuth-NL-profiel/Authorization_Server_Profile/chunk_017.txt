@@ -1,0 +1,12 @@
+
+###Token Lifetimes
+
+This profile provides RECOMMENDED lifetimes for different types of tokens issued to different types of clients. Specific applications MAY issue tokens with different lifetimes. Any active token MAY be revoked at any time.
+
+For clients using the authorization code grant type, access tokens SHOULD have a valid lifetime no greater than one hour, and refresh tokens (if issued) SHOULD have a valid lifetime no greater than twenty-four hours.
+
+For public clients access tokens SHOULD have a valid lifetime no greater than fifteen minutes.
+
+For clients using the client credentials grant type, access tokens SHOULD have a valid lifetime no greater than six hours.
+
+<!-- ### [3.5.](#rfc.section.3.5) [Scopes](#Scopes) -->

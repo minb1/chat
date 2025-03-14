@@ -1,0 +1,5 @@
+
+###Logius standaarden governance
+
+Logius heeft de governance van het beheer van haar standaarden aangesloten op de 
+governance van de Generieke Data Infrastructuur (GDI) van de Nederlandse overheid.

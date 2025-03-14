@@ -1,0 +1,11 @@
+
+###Profile Requirement Item: Manifest
+
+|[[EBXML-MSG]] Section 3.2.2 Manifest Validation| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header elements|`/SOAP:Body/eb:Manifest`|
+| How many Manifest elements must be present, and what must they reference? Does the order of Manifest elements have to match the order of the referenced MIME attachments? Any restriction on the range of value for xlink:reference (e.g. nothing other than content id references)? | Manifest elements **must** only reference business documents or other payloads that are included in the ebXML message as a MIME part allows for references to external message payloads (for instance, using HTTP URIs), which are logically part of the message, but not as a physical entity in the MIME envelope. This is **never used** in these profiles. |
+| Must a URI whichcannot be resolved be reported as an error?  | A Content Id URI reference that cannot be resolved **must** be treated as an error. |
+| Alignment | (empty) |
+| Test References | (empty) |
+| Notes  |  XML or other business documents can have references to other resources that are not part of the ebXML message. It is up to the receiving application to interpret any such references. |

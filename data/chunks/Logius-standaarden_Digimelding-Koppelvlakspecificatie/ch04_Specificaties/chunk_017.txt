@@ -1,0 +1,15 @@
+
+###Algemeen
+
+| | |
+|-----------------|--------------------------------------------------------------------------------------------------------------|
+|  Doel           |   Het ontvangen van een antwoordbericht waaruit blijkt dat de berichtverwerking conform specificaties werkt. |
+|  Voorwaarde     |   Geen.                                                                                                      |
+|  Trigger        |   Behoefte om te controleren of berichtverwerking naar behoren functioneert.                                 |
+|  Direct gevolg  |   Terugsturen van een echobericht.                                                                           |
+|  Vervolgactie   |   Indien de echo faalt onderzoeken waardoor dit wordt veroorzaakt.                                           |
+|  Bijzonderheden |   
+
+![ Interactiediagram voor echo's](images/image10.png " Interactiediagram voor echo's")
+
+![Interactiediagram echoverzoek via Digimelding Webservice](images/image11.png "Interactiediagram echoverzoek via Digimelding Webservice")

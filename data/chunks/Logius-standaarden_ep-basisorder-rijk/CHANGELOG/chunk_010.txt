@@ -1,0 +1,6 @@
+
+###Changed
+
+- (BOR) Meldingsteksten [Schematron BOR OHNL 1.9](./technische-documentatie/basisorder-rijk-ohnl-1.9.sch) aangepast vanwege reviews (v0.7.0 → v0.8.0).
+- (BOR) Meldingsteksten [Schematron BOR Peppol BIS 3](./technische-documentatie/basisorder-rijk-peppol-bis-3.sch) aangepast vanwege reviews (v0.7.1 → v0.8.0).
+- Directorystructuur aangepast ten behoeve van de technische documentatie. Links aangepast waar nodig.

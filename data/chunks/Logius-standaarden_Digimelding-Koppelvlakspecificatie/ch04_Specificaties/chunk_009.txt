@@ -1,0 +1,16 @@
+
+####Annotatie toevoegen (aanpassing)
+
+Het antwoord op het toevoegen van een annotatie of het nu een
+annotatieboom met volledige terugmelding is of een annotatie voor een
+intrekking is altijd een AnnotatieToevoegenResponse-bericht met daarin
+een tijdstempel. Het is een zogeheten functionele acknowledgement wat
+betekent dat de achterliggende (TMV-)applicatie het vraagbericht in
+goede orde ontvangen heeft.
+
+| **Berichttype:** AnnotatieToevoegenResponse      |           |          |
+|--------------------------------------------------|-----------|----------|
+| **Elementen/attributen**                         |           |          |
+| AnnotatieToevoegenResponse                       |           |          |
+| AnnotatieToevoegenResponse . Tijdstempel         | *Tijd waarop antwoord verstuurd is.* | \[1..1\] |
+| AnnotatieToevoegenResponse . AnnotatieVerwijzing | *UUID van de toegevoegde annotatie waar het antwoord betrekking op heeft.* | \[1..1\] |

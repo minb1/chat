@@ -1,0 +1,27 @@
+
+####Token Response
+
+<!-- iGov-NL : Start of the additional content -->
+<aside class=" addition">
+<b>iGov-NL : Additional content</b></br>  
+
+The Token Response has the following contents:
+
+<dl>
+<dt>access_token</dt>
+<dd>Mandatory. Structured access token a.k.a. a JWT Bearer token. The JWT MUST be signed.</dd>
+<dt>token_type</dt>
+<dd>Mandatory. The type for a JWT Bearer token is <code>Bearer</code>, as per [[rfc6750]]</dd>
+<dt>refresh_token</dt>
+<dd>Under this profile, refresh tokens are supported.</dd>
+<dt>expires_in</dt>
+<dd>Optional. Lifetime of the access token, in seconds.</dd>
+<dt>scope</dt>
+<dd>Optional. Scope(s) of the access (token) granted, multiple scopes are separated by whitespace. The scope MAY be omitted if it is identical to the scope requested.</dd>
+</dl>
+
+For best practices on token lifetime see section [Token Lifetimes](#token-lifetimes).
+</aside>
+<!-- iGov-NL : End of the additional content -->
+
+<!-- ### [3.2.](#rfc.section.3.2) Connections with protected resources -->

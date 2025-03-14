@@ -1,0 +1,4 @@
+
+###(Nr 6) Via Knooppunt A en B (met gebruik van eigen OIN A,B voor TLS verbindingen)
+
+A en B maken verbinding via het eigen TLS-certificaat. Aandachtspunt is daarom het machtigen van deze partijen om te acteren in de keten. Routering kan op basis van afspraken, de berichtheader of berichtinhoud of op basis van end-to-end signing met een signing certificaat van de verzender/ontvanger. Specifiek is dat ook Knooppunt A en B elkaar moeten 'vertrouwen' in de communicatie.

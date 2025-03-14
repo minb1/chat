@@ -1,0 +1,19 @@
+
+##Codes
+
+Lijst van technische foutmeldingen met classificatie naar foutcategorieën:
+
+| **Code** | **Omschrijving**                            | **Categorie** | **toelichting**                                                                                     |
+|----------|---------------------------------------------|---------------|-----------------------------------------------------------------------------------------------------|
+| 0001     | Invalide soap envelope                      | 1             | Voldoet niet aan verwachte syntax. Structuur van de envelope matcht niet met wat er verwacht wordt  |
+| 0002     | Niet geautoriseerd                          | 3             | Service niet beschikbaar (QoS). Door gebrek aan bevoegdheden.                                       |
+| 0003     | Invalide soapaction                         | 1             | De inhoud leidt niet tot een voltooide actie, is niet gedefinieerd of onbegrijpelijk. Protocol fout |
+| 0004     | Niet conform xsd                            | 1             | Voldoet niet aan verwachte syntax                                                                   |
+| 0005     | WS-Addressing header `To` ontbreekt         | 1             | Ontbreekt of voldoet niet aan verwachte syntax                                                      |
+| 0006     | WS-Addressing header `Action` ontbreekt     | 1             | Ontbreekt of voldoet niet aan verwachte syntax                                                      |
+| 0007     | WS-Addressing header `MessageID` ontbreekt  | 1             | Ontbreekt of voldoet niet aan verwachte syntax                                                      |
+| 0008     | WS-Addressing header `RelatesTo` ontbreekt | 1             | Ontbreekt of voldoet niet aan verwachte syntax                                                      |
+| 0009     | Niet volgens UTF                            | 1             | Voldoet niet aan verwachte characterset                                                             |
+| 0010     | Headers anders dan WSA-headers              | 1             | Voldoet niet aan verwachte syntax                                                                   |
+| 0011     | Header andere waarde dan voorgeschreven     | 1             | Voldoet niet aan verwachte spec/waarde                                                              |
+| 0051     | Service niet beschikbaar                    | 3             | Service niet beschikbaar (QoS). Door gebrek aan resources/ verwerkingscapaciteit.                   |

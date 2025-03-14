@@ -1,0 +1,4 @@
+
+##Authorization server
+manager
+The authorization server is hosted by Dutch Cadastre and provides (among other things) authorizations to municipalities to update and maintain data on buildings and adresses.

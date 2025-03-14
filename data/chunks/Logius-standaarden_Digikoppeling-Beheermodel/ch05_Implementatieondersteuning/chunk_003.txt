@@ -1,0 +1,5 @@
+
+##Helpdesk
+Logius biedt ondersteuning en advies via verschillende kanalen:
+1. Online via de website en via de Github omgeving.
+2. Per mail via digikoppeling@logius.nl

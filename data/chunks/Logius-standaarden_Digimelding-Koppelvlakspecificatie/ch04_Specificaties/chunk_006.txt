@@ -1,0 +1,15 @@
+
+###Inhoud bericht Annotatie ToevoegenRequest
+
+**Tabel AnnotatieToevoegenRequest**
+
+|  Parameter | Toelichting | Relaties |
+|    :---    |     :---    |   :---:  |
+| OinBasisregistratie | Het OIN van de houder van een landelijke voorziening van de basisregistratie    | \[1..1\]   |
+| Registratie         | Code (maximaal 3 letterig) waarmee de basisregistratie wordt aangeduid wanneer de houder van een landelijke  voorziening meer dan 1 basisregistratie beheert (bv BRT, BGT). | \[0..1\] |
+| Annotatie           | Dit element wordt alleen gevuld met een annotatie die moet worden ingetrokken.* | \[1..1\]\* |
+| AnnotatieBoom       | Bestaat uit minimaal één annotatie (de terugmelding) en de bijbehorende leafs.* | \[1..1\]\* |
+
+\* De elementen Annotatie en AnnotatieBoom zijn onderdeel van een
+verplicht keuzeveld: de AnnotatieToevoegenRequest bevat altijd slechts
+één van de twee.

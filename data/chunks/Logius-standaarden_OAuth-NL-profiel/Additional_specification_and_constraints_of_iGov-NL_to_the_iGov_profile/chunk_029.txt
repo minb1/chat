@@ -1,0 +1,11 @@
+8 Mandating security recommendations
+
+The OAuth2 standards include various security considerations. Additional best practices are being drafted. As this profile is intended for broad usage in situations where sensitive data is being exchanged, any compliant implementation should be secure and privacy friendly by default.
+
+As a result, a few not-so-secure options are explicitly prohibited and more secure options required or recommended. These include:
+- access tokens in URL query string, as this can have security and privacy implications.
+- validation of parameters, as counter measure 
+- PSS padding in signing methods, see Detailed rationale 4
+- Usage of PKCE, see Detailed rationale 7
+
+##

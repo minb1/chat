@@ -1,0 +1,6 @@
+
+###Beveiliging
+
+Point-to-Point en End-to-End beveiliging wordt ondersteund. Point-to-Point
+beveiliging wordt uitgevoerd op basis van TLS, End-to-End beveiliging op basis
+van WS-Security.

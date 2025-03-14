@@ -1,0 +1,11 @@
+
+###Profile Requirement Item: Service
+
+|[[EBXML-MSG]] Section 3.1.4 Service Element| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header elements|`/SOAP:Header/eb:MessageHeader/eb:Service`<br>`/SOAP:Header/eb:MessageHeader/eb:Service/\@type`|
+| Are Services (related groups of Actions) defined for each party of each business process? List them, or provide a reference to the source of these values. [Per-process; absent from BPSS definitions.] Is there a URI format scheme for this element? | No recommendation made.   |
+| Is there a defined "type" for Service elements? If so, what value must the type attribute contain?  | The text content of the Service element **must not** contain white space. |
+| Alignment | Appears as Service element in CPA Appears as Service/\@type in CPA |
+| Test References | (empty) |
+| Notes  | (empty) |

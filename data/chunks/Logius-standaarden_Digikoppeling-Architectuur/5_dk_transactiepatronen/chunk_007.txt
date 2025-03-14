@@ -1,0 +1,14 @@
+
+###Uitwisseling via een niet-transparante intermediair
+
+Een transparante keten is alleen mogelijk als zowel de service-aanbieder als de serviceafnemer hetzelfde protocol hanteren. De intermediair routeert berichten tussen de serviceaanbieder en de serviceafnemer waarbij het bericht bewerkt moet worden voor verdere verzending. 
+
+![Niet-Transparante Intermediair](media/niet_transparante_intermediair.png "Niet-Transparante Intermediair")
+
+
+|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
+|---|---|---|
+|Digikoppeling WUS |Gebruik Digikoppeling WUS header voor routering| ... |
+|Digikoppeling ebMS |Gebruik Digikoppeling ebMS header voor routering| ... |</span>
+
+Tabel 5.5: Niet-Transparante intermediair

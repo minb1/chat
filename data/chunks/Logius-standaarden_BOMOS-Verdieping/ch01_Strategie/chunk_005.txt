@@ -1,0 +1,150 @@
+
+###Beheertaken uitvoering
+
+Voor de invulling van ontwikkelen beheertaken in een
+organisatiestructuur zijn verschillende mogelijkheden, variërend van
+het beleggen bij een standaardisatieorganisatie tot het volledig zelf
+invullen in een eigen organisatie. Het is geen doel op zich om voor
+elke standaard een eigen beheren ontwikkelorganisatie op te tuigen. De
+praktijk laat zien dat weinig bestaande organisaties zijn berekend op
+het complete takenpakket, waardoor toch vele
+standaardisatiecommunities hebben besloten een eigen organisatie op te
+tuigen. Een deel van de taken wordt dan belegd bij de eigen
+organisatie, maar een deel van de taken kan ook belegd worden bij
+andere soorten organisaties. [Onderstaande
+figuur](#fig-beleggen-van-ontwikkeltaken) noemt hier (andere)
+standaardisatieorganisaties, research-organisaties en
+brancheorganisaties.
+
+![Beleggen van ontwikkeltaken](images/BOMOS-3_Beleggen-van-beheer-en-ontwikkeltaken-blanco.png "Beleggen van ontwikkeltaken")
+
+Het model maakt onderscheid tussen not-for-profit en profit
+organisaties. Dit onderscheid is relevant in het kader van openheid
+([zie sectie over
+openheid](#de-open-invulling-van-een-standaard-activiteit-community)). Indien
+het beheer van een standaard is belegd bij een profit-organisatie kan
+er geen sprake zijn van een open standaard! Dat wil niet zeggen dat
+commerciële organisaties geen open standaarden kunnen ontwikkelen in
+opdracht van een bestuur (organisatie), of na ontwikkeling doneren aan
+een not-forprofit beheerorganisatie. Het ontwikkelen en beheren van
+standaarden dient altijd not-for-profit te gebeuren, waarbij een
+not-for profit organisatie wel het meest voor de hand liggend is.
+
+Een eerste voor de hand liggende mogelijkheid is het beleggen van de
+beheertaken bij formele standaardisatieorganisaties. De wereld is hier
+wel veranderd in vergelijking met dertig jaar geleden toen het
+merendeel van de standaarden door deze formele organisaties werd
+ontwikkeld. In de huidige tijd wordt het merendeel van de standaarden
+buiten de formele standaardisatieorganisaties ontwikkeld in allerlei
+vormen van consortia, en dat aantal blijft groeien. Ook zien we weer
+steeds meer complexe samenwerkingsverbanden tussen
+standardisatie-organisaties ontstaan.  Voor de semantische standaarden
+speelt dit in extreme mate. Deels heeft dit te maken met de traagheid
+van processen bij formele standaardisatieorganisaties, maar
+voornamelijk het gebrek aan inhoudelijke kennis en expertise. Voor
+semantische standaarden is domeinkennis essentieel.
+
+Dit wil niet zeggen dat formele standaardisatieorganisaties geen
+waarde hebben, integendeel. Op een aantal punten hebben ze potentieel
+een belangrijke toegevoegde waarde. Bijvoorbeeld om de status van de
+standaard te verhogen. Zo is NEN3610 ontwikkeld door Geonovum, maar
+voor extra status ook uitgebracht als NEN-norm. Daarnaast is
+secretariële ondersteuning voor werkgroepen ook een prima taak die
+extern belegd kan worden.
+
+De inhoudelijke kennis zal echter altijd zelf georganiseerd moeten
+worden. Onderzoeksorganisaties, zoals universiteiten en instituten,
+zijn een andere mogelijkheid om taken bij te beleggen. Voordeel is de
+schat aan inhoudelijke kennis, maar mogelijk ook een gebrek aan
+domeinkennis of kennis van het specifieke gebruik. Het
+tegenovergestelde is het geval bij brancheorganisaties; voordeel hier
+is de uitmuntende domeinkennis, maar nadeel is juist een gebrek aan
+inhoudelijke standaardisatie/ICT kennis. Vaak zijn (semantische)
+standaarden voor brancheorganisaties een ver van hun bed show. Het
+onderwerp wordt al snel afgedaan als iets van techneuten, wat het in
+de kern niet is; juist voor semantiek is domeinkennis van groot
+belang.
+
+Een eigen organisatie oprichten is een mogelijkheid, evenals
+commerciële dienstverleners inschakelen. Dat laatste is wel op
+gespannen voet met de openheidprincipes. De eigen organisatie is de
+meest gekozen optie voor de kern van ontwikkelen beheertaken. Velen
+domeinen kennen inmiddels eigen organisaties die kennis hebben van
+zowel het domein als standaardisatie, bijvoorbeeld Geonovum,
+EduStandaard, CROW, Informatiehuis Water, SETU, etc. Tot de kern van
+hun werk behoren de strategische beheeractiviteiten zoals
+geïdentificeerd in het model, en in grote mate ook de tactische en
+operationele activiteiten. In deze situatie zijn bepaalde activiteiten
+eenvoudig en zelfs beter om uit te besteden.
+
+Een aantal suggesties:
+
+[**Moduleontwikkeling**](https://logius-standaarden.github.io/BOMOS-Fundament/index.html#de-onderwerpen-uit-het-model);
+Moduleontwikkeling is riskant om binnen de ontwikkel- en
+beheerorganisatie te laten plaatsvinden. Daarmee wordt men ook
+leverancier en concurrent van partijen in de gemeenschap. Beter is om
+moduleontwikkeling te stimuleren buiten de ontwikkel- en
+beheerorganisatie, mogelijk in de vorm van open source software. Dit
+kan andere leveranciers ook bewegen om de standaard te gaan
+ondersteunen en/of betrokken te raken bij de ontwikkeling daarvan. De
+beste aanpak is afhankelijk van de kenmerken van de community.
+
+[**Certificeren**](https://logius-standaarden.github.io/BOMOS-Fundament/index.html#de-onderwerpen-uit-het-model);
+Essentieel bij certificeren is de onafhankelijkheid van de
+certificerende instelling. Gebruikelijk is dat de ontwikkel- en
+beheerorganisatie het toetsingskader opstelt, en vervolgens de
+daadwerkelijke toetsing (op basis van het toetsingskader) uitbesteedt
+aan externe partijen die zich specifiek richten op het toetsen en
+certificeren.
+
+[**Architectuur/Roadmapping/Benchmarking**](https://logius-standaarden.github.io/BOMOS-Fundament/index.html#de-onderwerpen-uit-het-model);
+Ondersteuning en uitvoering hiervoor past uitstekend bij een
+research-organisatie in brede zin (Naast kennisinstituten, ook
+organisaties zoals CBS voor benchmarking). Met name voor benchmarking
+geldt dat dit beter bij een externe organisatie belegd kan worden.
+
+[**Communicatie**](https://logius-standaarden.github.io/BOMOS-Fundament/index.html#de-onderwerpen-uit-het-model);
+Past vaak goed bij een brancheorganisatie die al een
+communicatieapparaat heeft ingericht. Uiteraard moet er dan wel een
+brancheorganisatie zijn die naadloos aansluit bij de standaard en die
+bereid is de communicatie als belangrijke taak mee te
+nemen. Communicatie rondom het beheer- en ontwikkelproces van een
+standaard vraagt om specifieke kennis van dat beheer en heeft een
+specifieke doelgroep zoals softwareleveranciers. Dit dient door een
+brancheorganisatie onderkend te worden. Andere opties zijn
+communicatieafdelingen van een andere partner organisatie.
+
+Op hoofdniveau kunnen we concluderen dat er de keuze is om de
+ontwikkel- en beheertaken te beleggen bij:
+
+1. Bestaande organisaties.
+2. Nieuwe organisaties.
+3. Combinatie van beiden.
+
+Het beleggen van alle taken bij een bestaande situatie klinkt ideaal,
+maar er is geen organisatie die alleenstaand voor het complete
+takenpakket is toegerust. Ook organisaties als NEN, Forum
+Standaardisatie, etc. zijn daar niet op ingericht.
+
+Daardoor is het in de praktijk vaak noodzakelijk om een nieuwe
+organisatie op te richten, als er binnen het domein nog geen
+organisatie bestaat gericht op standaardisatie. Optie 3, de combinatie
+van beide, betekent dat bepaalde taken door deze (nieuwe) specifieke
+domein standaardisatie organisatie worden opgepakt en andere taken
+door ander type organisaties, conform de beschrijving in deze
+paragraaf over het uitbesteden van taken.
+
+<aside class="example" title="Edustandaard">
+Edustandaard is een platform waar alle publieke en private partijen binnen
+het onderwijsveld bij elkaar komen om afspraken te maken. Deze afspraken 
+gaan bijvoorbeeld over het vindbaar maken van digitaal leermateriaal, of 
+over het overbrengen van leerlinggegevens van het ene systeem naar het andere. 
+Edustandaard ondersteunt publieke en private ketenpartijen in het onderwijs 
+met standaarden en referentiearchitecturen om de informatiestromen in de 
+onderwijsketens zo effectief mogelijk in te richten. Edustandaard beheert 
+diverse standaarden en biedt overzicht en inzicht in de werking van 
+(keten)processen. Ook wordt advies gegeven aan ketenpartijen in alle 
+onderwijssectoren, van primair tot hoger onderwijs. 
+
+[De governance van de Edustandaard is beschreven in de bijlage](#edustandaard-governance).
+</aside>

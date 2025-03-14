@@ -1,0 +1,19 @@
+
+###type
+
+- Type: `String`
+- Description: This attribute contains a value describing the type of event
+  related to the originating occurrence. Often this attribute is used for
+  routing, observability, policy enforcement, etc. The format of this is
+  producer defined and might include information such as the version of the
+  `type` - see
+  [Versioning of CloudEvents in the Primer](https://github.com/cloudevents/spec/blob/v1.0.1/primer.md#versioning-of-cloudevents)
+  for more information.
+- Constraints:
+  - REQUIRED
+  - MUST be a non-empty string
+  - SHOULD be prefixed with a reverse-DNS name. The prefixed domain dictates the
+    organization which defines the semantics of this event type.
+- Examples
+  - com.github.pull_request.opened
+  - com.example.object.deleted.v2

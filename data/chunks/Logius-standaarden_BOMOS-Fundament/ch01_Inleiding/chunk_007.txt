@@ -1,0 +1,54 @@
+
+##Aanpak & Historie
+
+In 2006 heeft de Werkgroep CMO (Community Model Open Standaarden), een
+werkgroep van Bureau Open Standaarden (later omgedoopt tot Forum
+Standaardisatie) van GBO.Overheid (later omgedoopt tot Logius), al aan
+dit onderwerp gewerkt. De uitkomst, een notitie, is door Forum
+Standaardisatie beschikbaar gesteld en vormde het startpunt voor de
+ontwikkeling van BOMOS versie 1.
+
+Als aanpak voor de ontwikkeling van BOMOS is gekozen voor een
+gestructureerde discussie met een kleine groep van experts uit de
+semantische standaardisatieorganisaties waarin kennis gedeeld werd
+over de relevante onderwerpen. Dit heeft geleid tot versie 1 van BOMOS
+in 2009.
+
+Na de eerste uitgave heeft in 2010 opnieuw een serie bijeenkomsten
+plaatsgevonden. Daar waren ook gebruikers van de eerste versie
+vertegenwoordigd. Aan de hand van de ervaringen en nieuwe inzichten is
+BOMOS verder uitgebouwd en uitgebreid: BOMOS versie 2.
+
+Door middel van deze aanpak is kennis van organisaties die zich
+bezighouden met ontwikkeling en beheer van standaarden verankerd;
+zoals Logius, Geonovum, Kennisnet, CROW, Informatiehuis Water,
+Stichting Elektronische Transacties Uitzendbranche (SETU), het
+Nederlands Normalisatie-instituut (NEN), VNG Realisatie,
+onderzoeksorganisatie TNO, Universiteit Twente en vele anderen.
+
+In 2012 is onder aanvoering van Forum Standaardisatie gewerkt aan een
+uitbreiding met als titel BOMOS2i. Waarbij de “i” staat voor
+“implementatie”; Een handreiking hoe BOMOS in de standaardisatie
+praktijk gebruikt kan worden. Een andere variant op BOMOS is
+uitgebracht door TNO genaamd BOMOD. Ook hier gaat het over beheer en
+ontwikkelprocessen, maar nu is het onderwerp het publiceren van
+datasets in plaats van standaarden. Ook is in die periode BOMOS
+(her)uitgebracht in verschillende huisstijlen. Al met al is het er
+niet per definitie overzichtelijker op geworden voor een gebruiker.
+
+Rond 2017 heeft Logius BOMOS verder opgepakt. Er is een uitbreiding op
+BOMOS2i gepubliceerd door de toevoeging van een normenkader. Hierop is
+de BOMOS-meting gebouwd. Dit instrument stelt een beheerder in staat
+om het beheer van de standaard daadwerkelijk te toetsen.
+
+In 2022 is deze BOMOS (versie 3.0.0) gepubliceerd waarmee de BOMOS
+gebruiker een nieuw integraal startpunt heeft om met BOMOS aan de slag
+te gaan.
+
+<aside class=" example" title="BOMOS gebruikt door CROW">
+Om te zorgen voor een zorgvuldige doorontwikkeling, met oog voor de belangen van alle gebruikers, wordt het IMBOR door CROW beheerd volgens BOMOS. Beheer volgens BOMOS heeft voor IMBOR de volgende voordelen:
+- Belangen van stakeholders worden evenwichtig afgewogen bij ontwikkeling en beheer van de standaard.
+- De standaard wordt samen met gebruikers actueel gehouden, iedereen kan ideeën aandragen.
+- Het beheer gebeurt transparant.
+- Informatie is voor iedereen toegankelijk met heldere voorwaarden voor gebruik.
+</aside>

@@ -1,0 +1,92 @@
+
+###De relatie met internationale standaarden
+
+Semantische standaarden kennen een ongekende complexiteit in
+vergelijking met andere standaarden en worden anders ontwikkeld en
+beheerd. Het merendeel van de IT-standaarden wordt al buiten de
+officiële standaardisatieorganisaties (zoals ISO en NEN) ontwikkeld,
+namelijk in zogenoemde industrieconsortia zoals W3C en OASIS. Wanneer
+we naar semantische standaarden kijken, gaat het echter nog een stap
+verder aangezien die grotendeels door een eigen organisatie ontwikkeld
+worden.
+
+<aside class="example" title="Semantische internationale harmonisatie van Aquo">
+   Voor het beheer van de Noordzee zijn internationaal uitwisselbare gegevens 
+   over zeewater noodzakelijk. De Aquo-standaard was alleen geschikt voor 
+   het Nederlands continentaal plat. Dat is maar een stukje van de Noordzee. 
+   Maar om (beleids-) vraagstukken over de hele Noordzee aan te pakken, moet 
+   Nederlandse beheerders data uitwisselen met bijvoorbeeld Engelse databeheerders. 
+   Daarvoor is een internationale standaard nodig. In de 1e fase zijn is het 
+   Informatiehuis Water met een consortium van relevante partijen een woordenboek 
+   aan het samenstellen. Dat is een tabel met enerzijds de Nederlandse Aquo-term 
+   en anderzijds de Engelse SeaDataNet/EMODnet-term.
+</aside>
+
+De praktijk laat zien dat alleen een onderscheid tussen horizontale en
+verticale standaarden te beperkt is. Internationale verticale
+standaarden hebben vaak nog een specifieke invulling nodig om
+bijvoorbeeld in de context van een land (zoals Nederland) perfect te
+kunnen aansluiten bij de bedrijfsprocessen in die context. Dit is
+noodzakelijk om interoperabiliteit te kunnen behalen. Op nationaal
+niveau ontstaan dan standaarden, ook wel afspraken of
+toepassingsprofielen genoemd, die een verdere invulling bevatten van
+een internationale standaard. Daarnaast worden er ook regelmatig
+specifieke codelijstjes voor de nationale context toegevoegd. Dit
+leidt tot de volgende classificatie:
+
+*   Internationale horizontale standaard
+*   Internationale verticale standaard
+*   Nationale standaard/toepassingsprofiel/afspraak/taxonomie
+*   Nationale vocabulaires, codelijstjes, etc.
+
+Ook in de organisaties is dit terug te zien: HL7 is de internationale
+standaard, en daarnaast is er HL7 Nederland. Bij het internationale HR
+Open Standards is het SETU dat Nederlandse HR Open Standards profielen
+maakt.
+
+Alle vormen, of het nu een internationale horizontale standaard is of
+een nationaal codelijstje, moeten allemaal ontwikkeld en beheerd
+worden! Overigens wil het niet zeggen dat alle vier de classificaties
+voor een bepaald toepassingsdomein moeten voorkomen. In de praktijk
+kan elke willekeurige combinatie voorkomen, afhankelijk van de
+situatie.
+
+<aside class="example" title="OGC Observations & measurements als basis voor IM Metingen">
+   IM Metingen is een standaard die door de bodembeheerders en waterbeheerders gezamenlijk 
+   is opgesteld om gegevensuitwisseling over de verschillende vakgebieden heen mogelijk te 
+   maken. Maar er is bij het ontwerp al rekening gehouden met internationale gegevensuitwisseling. 
+   IM Metingen is gebaseerd op de internationale standaard OpenGIS® Observations and Measurements 
+   (O&M). Observations and Measurements is een standaard voor het beschrijven van observaties en 
+   metingen. Deze observaties en metingen zijn weer gekoppeld aan een locatie. Met O&M is het 
+   mogelijk om observaties en metingen in een internationaal model te modelleren en uit te wisselen.
+</aside>
+
+Tijdens de adoptiefase is nog wel eens een gehoorde opmerking dat men
+alleen de internationale standaard wil adopteren in plaats van de
+nationale. De argumentatie is meestal dat men wereldwijd zaken doet,
+of dat de internationale standaard breder aansluit of breder bekend
+is. In de praktijk zal dit echter leiden tot beperkte
+interoperabiliteit aangezien de internationale standaard minder goed
+zal aansluiten en veelal ook te veel vrijheidsgraden kent. Omdat
+interoperabiliteit het doel is van standaarden is het geen verstandige
+keus. Men zou zich moeten richten op de nationale standaard die zorg
+draagt voor aansluiting bij internationale standaarden en zorg draagt
+voor optimale toepassing in de Nederlandse context.
+
+Ook in de beheerfase van een standaard is het nuttig aandacht te houden 
+voor internationale standaarden. Wanneer tijdens de adoptiefase geen passende 
+internationale standaard beschikbaar is kan een nationale standaard de enige 
+optie zijn. Maar dat kan veranderen. Een voorbeeld is de Digikoppeling standaard. 
+Digikoppeling omvat een koppelvlakspecificatie met hetzelfde doel en toepassing 
+als het Europese eDelivery wat later vastgesteld is. In het kader van 
+standaardenbeheer zou ervoor gekozen moeten worden de nationale standaard uit 
+te faseren ten gunste van een meer recente  internationale standaard. 
+Ook hier zal een nationaal profiel op de internationale standaard nuttig zijn. 
+Voor de beheerorganisatie resulteert dit in een andere rol. De beheerorganisatie 
+vertegenwoordigt de Nederlandse stakeholders indien nodig in het beheer van de 
+internationale standaard.
+
+Belangrijk aandachtspunt bij internationale standaarden is dat in een situatie van
+bijvoorbeeld een internationale verticale standaard in combinatie met
+een nationaal toepassingsprofiel, dat voor beide een andere naam wordt
+gehanteerd om verwarring in de praktijk voorkomen.

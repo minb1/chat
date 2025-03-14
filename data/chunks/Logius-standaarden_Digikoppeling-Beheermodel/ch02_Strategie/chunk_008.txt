@@ -1,0 +1,18 @@
+
+####Het Strategisch overleg: De Programmeringsraad GDI
+
+In de MIDO structuur heeft de Programmeringsraad GDI (PGDI) een rol in 
+het strategisch beheer van standaarden. De programmeringsraad is gemandateerd 
+(door het [OBDO](#overheidsbreed-beleidsoverleg-digitale-overheid-obdo))
+om besluiten te nemen over wijzigingen op de standaard.
+
+Het strategisch overleg keurt voorstellen tot wijziging goed op basis van 
+adviezen van het technisch overleg, het tactisch overleg en het advies van de
+beheerorganisatie. Daarnaast keurt het strategisch overleg de door de 
+stakeholders voorgestelde richting goed die aan de beheerorganisatie voorgelegd
+wordt. Bijvoorbeeld een voorstel tot ingrijpende wijziging zoals het overgaan
+naar een nieuwe (onderliggende) standaard kan in het strategisch overleg
+goedgekeurd worden.
+
+De beheerorganisatie werkt goedgekeurde voorstellen uit en neemt deze op in 
+een vast te stellen nieuwe versie.

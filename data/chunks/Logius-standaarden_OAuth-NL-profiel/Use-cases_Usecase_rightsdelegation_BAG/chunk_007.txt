@@ -1,0 +1,5 @@
+
+##Scopes & claims
+A JWT token containting the following claim is used:
+The claim "cdi" contains the ID of the municipality delegating its rights to maintain the key registry.
+The delegatee, the cloud provider gets a token containing this claim from the authorization server when providing its credentials. The actual delegation, provding client credentials to the client and delegating rights from the resource owner to the cleint is done out of band as this is not part of the client credentials flow.

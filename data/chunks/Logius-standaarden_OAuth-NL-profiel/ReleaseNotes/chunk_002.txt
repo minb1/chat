@@ -1,0 +1,6 @@
+
+##Inleiding
+Op 09-07-2020 is besloten om versie 1.0 van het NL GOV Assurance profile for OAuth 2.0 "Verplicht" te stellen op de lijst van open standaarden van het forum standaardisatie. Zie ook https://www.forumstandaardisatie.nl/open-standaarden/nl-gov-assurance-profile-oauth-20
+
+In samenwerking met het Kennisplatform APIs is de afgelopen jaren gewerkt aan het OAuth-NL om om de opmaak te verbeteren en het profiel functioneel uit te breiden met de 'client credentials flow'. Daarnaast zijn verschillende kleine bugs verholpen en correcties doorgevoerd en gezamenlijk hebben deze geleid tot de nieuwe versie 1.1.0.  
+Voor OAuth-NL start een publieke consultatie op 13-05-2024 tot 13-06-2024.  

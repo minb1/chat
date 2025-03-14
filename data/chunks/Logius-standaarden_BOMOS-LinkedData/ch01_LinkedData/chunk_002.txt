@@ -1,0 +1,3 @@
+
+##Opkomst van Linked Data
+In de afgelopen jaren is in zowel de publieke als private sector steeds vaker de Linked Data benadering toegepast. Dit hoofdstuk beschrijft initiatieven in de publieke sector en de private sector, plus een die daar tussenin zit: de FAIR-beweging.

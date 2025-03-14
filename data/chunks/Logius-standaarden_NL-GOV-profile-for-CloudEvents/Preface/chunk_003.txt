@@ -1,0 +1,7 @@
+Usecases
+ <figure id='authorization_code'>
+	<img alt="Pubsub image" src='media/use-case-pubsub1.png' width="600" />
+	<figcaption>Publish-subscribe pattern</figcaption>
+ </figure>
+
+###

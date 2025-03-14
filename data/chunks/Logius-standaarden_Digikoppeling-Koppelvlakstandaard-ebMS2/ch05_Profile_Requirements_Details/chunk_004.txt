@@ -1,0 +1,10 @@
+
+###Profile Requirement Item: Role
+
+|[[EBXML-MSG]] Section 3.1.1.2 Role Element| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+| Header elements|`/SOAP:Header/eb:MessageHeader/eb:From/eb:Role`<br>`/SOAP:Header/eb:MessageHeader/eb:To/eb:Role`|
+| Are Roles defined for each party of each business process? List them, or provide a reference to the source of these values. Example – within the EAN•UCC system, approved values are specified by the EAN•UCC Message Service Implementation Guide. | Business process is out of scope for (this version of the) Digikoppeling. Within a single contract (CPA) between two Partners: - A Partner **must** fulfill one and only one role (a Partner cannot change its role within one contract). - A Partner can send messages (one or more) and/or receive messages (one or more). In case a Partner wants to use different roles, different contracts (CPA's) must be used. |
+| Alignment | [Per-process; may reference Role values in BPSS [BPSS] definitions. Appears as Role/\@name in CPA.] |
+| Test References | (empty)  |
+| Notes  | (empty)  |

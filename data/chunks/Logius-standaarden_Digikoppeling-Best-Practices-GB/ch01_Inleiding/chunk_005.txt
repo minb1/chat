@@ -1,0 +1,8 @@
+
+###Leidend principe
+
+De koppelvlakstandaarden dienen te leiden tot een maximum aan interoperabiliteit met een minimum aan benodigde ontwikkelinspanning. Daarom wordt gekozen voor bewezen interoperabele internationale standaarden.
+
+Digikoppeling maakt berichtenuitwisseling mogelijk op basis van de REST API, ebXML/ebMS2 en WUS families van standaarden inclusief de daarbij behorende verwante standaarden.
+
+Aan te sluiten overheidsorganisaties hebben aangegeven op een uniforme manier (met één stekker) te willen aansluiten op Digikoppeling. Organisaties die beschikken over  frameworks, brokers, gateways of andere middleware voor gegevensuitwisseling kunnen de aansluiting op Digikoppeling, in het algemeen, realiseren via deze voorzieningen.

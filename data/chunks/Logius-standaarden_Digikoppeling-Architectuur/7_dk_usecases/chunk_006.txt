@@ -1,0 +1,9 @@
+
+###Raadplegen of muteren van een bron
+
+Voorbeelden:
+
+- Een centrale website die een object opvraagt bij op een achterliggende bron. 
+- Het aanmaken, bewerken of verwijderen van een publicatie op de Staatscourant.
+
+Hier kan Digikoppeling REST API gebruikt worden. Digikoppeling WUS is hiervoor ook mogelijk.

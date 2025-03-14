@@ -1,0 +1,6 @@
+
+###OAS: OpenAPI Specification
+
+Een [[[openapi]]] beschrijft de eigenschappen van de data die een API als input accepteert en als output teruggeeft. OAS specificeert alleen welke attributen de API verwerkt en hun datatypen, niet welke implementatie er achter de API schuilgaat.
+
+Voor het beschrijven van DK-Rest API's is het gebruik van OAS verplicht. Op [[Pas-toe-of-leg-uit]] staat beschreven welke versie toegepast moet worden.

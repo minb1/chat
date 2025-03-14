@@ -1,0 +1,11 @@
+
+##Business voorbeelden
+
+| **Use case**        | **Voorbeeld**                                                                                 |
+| ------------------- |-----------------------------------------------------------------------------------------------|
+| upload              | Clients versturen een bericht en bijbehorend Groot Bestand.                                   |
+| push                | Clients uploaden een Groot Bestand na goedkeuring van het upload verzoek.                     |
+| download            | Gegevens worden beschikbaar gesteld voor breed (openbaar) gebruik.                            |
+| selectie            | Ad hoc informatieverzoeken voor het samenstellen van rapportages of doorsnedes van gegevens . |
+| verzending          | Maandelijkse verzending van vast afgesproken gegevenssets.                                    |
+| (multi-)distributie | Verstrekking van mutaties naar geabonneerde instanties.                                       |

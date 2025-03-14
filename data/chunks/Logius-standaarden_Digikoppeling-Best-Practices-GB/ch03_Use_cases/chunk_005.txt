@@ -1,0 +1,13 @@
+
+##Push
+
+In deze use case verzendt een service provider gegevens naar een service requester. Daartoe worden de volgende processtappen doorlopen:
+
+![Use case 'Push'](media/use_case_push.svg "Use case 'Push'")
+
+Op enig moment is er een gebeurtenis waardoor de service provider besluit tot verzenden van gegevens. Voorbeelden van triggers zijn: tijd, berichtontvangst of wijziging van gegevensobjecten.
+1. De service requester stuurt een 'upload verzoek' naar de service provider. In deze melding is in ieder geval de Meta-data van het Grote Bestand opgenomen, maar kan bijvoorbeeld ook informatie over de aard en beoogde afhandeling van het Grote Bestand zijn opgenomen.
+2. De service provider stuurt een 'upload response' met instructies over de uploadlocatie (UUID).
+3. De service requester upload de gegevens set (Groot Bericht) en krijgt toegang op grond van autorisatie (OIN).
+
+> Merk op dat deze interactie overeenkomsten vertoont met de use case “Verzending” maar upload in plaats van download.

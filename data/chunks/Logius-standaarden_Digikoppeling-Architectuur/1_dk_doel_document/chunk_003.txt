@@ -1,0 +1,4 @@
+
+##Doel
+
+De *Digikoppeling Architectuur* definieert de kaders – de gehanteerde principes en voorschriften - waarbinnen de gegevensuitwisseling op basis van Digikoppeling plaatsvindt en beschrijft de rol van intermediairs in de keten van gestructureerde gegevensuitwisseling.

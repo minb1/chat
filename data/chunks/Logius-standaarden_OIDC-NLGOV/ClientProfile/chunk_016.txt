@@ -1,0 +1,10 @@
+
+##Registration
+
+All Clients MUST register with the OpenID Provider.
+
+Native Clients MUST either be provisioned a unique per-instance Client identifier or be registered as *public* Clients by using a common Client identifier; browser-based Clients MUST be registered as *public* Clients.
+
+Clients SHOULD use Dynamic Registration as per [[RFC7591]] to reduce manual labor and the risks of configuration errors. Dynamic Client Registration Management Protocol [[RFC7592]] MAY be used by Clients.
+
+In case a native Client is using per-instance registration, the Client MUST use Dynamic Registration.

@@ -1,0 +1,27 @@
+#[kop 1 voorbeeld tekst]
+
+Dit is een voorbeeld tekst.
+
+Als je iets nadruk wilt geven: *tekst met nadruk (schuingedrukt)*. Of: _zo kan het ook_.
+
+Sterke nadruk doe je zo: **tekst met sterke nadruk**.
+
+Kop niveau's geef je aan met hashtags.
+
+Om speciale blokken tekst te maken moet je toch een beetje HTML gebruiken:
+
+<aside class="example">
+Voorbeeld hier...
+</aside>
+
+<aside class="note">
+Noot tekst hier...
+</aside>
+
+<aside class="issue" data-number="1">
+Issue tekst hier...
+</aside>
+
+<aside class="warning">
+Waarschuwing hier...
+</aside>

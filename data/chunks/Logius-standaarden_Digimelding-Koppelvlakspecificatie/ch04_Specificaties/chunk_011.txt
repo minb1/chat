@@ -1,0 +1,11 @@
+
+###Algemeen
+
+|      |      |
+| :--- | :--- |
+| Doel           |  Het opvragen van de status van terugmeldingen van een terugmeldende organisatie. |
+| Voorwaarde     |  De organisatie heeft terugmeldingen gedaan.                                |
+| Trigger        |  Een gebruiker wil de status van terugmeldingen van zijn organisatie weten. |
+| Direct gevolg  |  De gebruiker is geïnformeerd over de status en eventueel extra detailinformatie van de terugmeldingen die hem interesseren.     |
+| Vervolgactie   |  De gebruiker kan terugmeldingen van zijn organisatie intrekken op basis van de informatie verstrekt in het status overzicht. |
+| Bijzonderheden  | \- |

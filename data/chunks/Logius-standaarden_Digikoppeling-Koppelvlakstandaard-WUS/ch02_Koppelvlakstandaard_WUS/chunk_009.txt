@@ -1,0 +1,20 @@
+
+##Voorschriften 
+
+De inhoud van de Digikoppeling standaard vloeit voort uit bovengenoemde
+standaarden, of vormt een nadere invulling daarvan (een keuze uit toegestane
+mogelijkheden in die standaarden).
+
+In de paragrafen hierna worden die onderdelen achtereenvolgens behandeld:
+
+- WSDL,
+
+- WS-Addressing,
+
+- Binaire data,
+
+- Beveiliging,
+
+- Betrouwbaarheid,
+
+- Namespace.

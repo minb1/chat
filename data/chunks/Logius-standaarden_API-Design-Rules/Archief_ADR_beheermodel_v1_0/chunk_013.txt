@@ -1,0 +1,21 @@
+
+###Deelname
+
+Uitbreidingen en aanpassingen in de ADR-standaard komen tot stand door participatie van de verschillende belanghebbenden. Belanghebbenden kunnen op vier manieren participeren aan het wijzigings- en besluitvormingsproces: 
+1.	Als lid van de API Community 
+2.	Als lid van de Technische Architectuurgroep 
+3.	Als lid van het Tactisch overleg 
+4.	Als lid van het OBDO
+
+*Ad 1) Deelname aan de API-Community staat open voor alle belanghebbenden;*  
+*Ad 2) Aangezien het overleg van de Technische Architectuur Groep (het Technisch Overleg) het eerste besluitvormende gremium is van de standaard, en besluitvorming in dit gremium plaatsvindt op basis van consensus, stelt Logius een aantal voorwaarden aan deelname:*  
+   1.	Leden van het technisch overleg dienen een aantoonbaar belang te hebben bij de standaard.
+   2.	De omvang en samenstelling moet een goede vertegenwoordiging bevatten van de verschillende belangen rond de standaard. We gaan uit van 1 deelnemer per organisatie.
+   3.	Het belang van de Nederlandse overheid dient voldoende geborgd te zijn in het technisch overleg.
+
+Personen/partijen die willen deelnemen aan het technisch overleg kunnen een mail sturen aan api@logius.nl, waarin zij aangeven wat hun belang is bij de standaard. Met inachtneming van bovenstaande punten, beoordeeld Logius de aanvraag.
+
+> N.B. Gezien de grote overlap tussen de deelnemers van het beoogde Technisch Overleg en de werkgroep ARD van het Kennisplatform (zie *Samenwerking met andere beheer organisaties*). Hebben Logius en het kennisplatform besloten deze overleggen vooralsnog te combineren. Als in de toekomst blijkt dat deze combinatie geen goede invulling geeft aan een effectieve en gedragen besluitvorming m.b.t. tot de standaard, kan Logius ten allen tijde een eigen reeks Technische Overleggen organiseren. 
+
+***Ad 3) Volgt, zodra bekend is welk gremium dit is;***  
+*Ad 4) Het OBDO kent een vaste vertegenwoordiging. [Zie voor meer informatie de governance van Digitaleoverheid.nl](https://www.digitaleoverheid.nl/governance-digitale-overheid/).*

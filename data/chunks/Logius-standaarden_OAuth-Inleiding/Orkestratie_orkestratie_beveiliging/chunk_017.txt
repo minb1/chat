@@ -1,0 +1,8 @@
+
+###Implicaties Identity propagation
+
+- Er is een sterke vertrouwensband nodig tussen zowel de Client & Service alsook de composite Service en de system Services. Deze vertrouwensband zal waarschijnlijk worden vertaald naar eisen, audits en contracten om te voorkomen dat de Service Y toch de gegevens inziet die de resouces terugsturen aan de client.
+
+- Organisatorisch zullen X, Y, Z, A & B praktisch gezien niet allemaal van verschillende organisaties zijn. Het is logischer wanneer A, B & Y van 1 organisatie zijn of wanneer X & Y van 1 organisatie zijn. Service Y wordt namelijk alleen ontwikkeld als er een vraag is en een voordeel voor de Services of de client.
+
+- Afhankelijk van de situatie is het waarschijnlijk dat Identity provider Z een algemene dienst is van de overheid (denk aan DigiD of eHerkenning) of dat dit een dienst is van 1 van de organisaties in de orkestratie.

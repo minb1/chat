@@ -1,0 +1,93 @@
+
+###Metadata als deel van een bericht
+
+Metadata hoeft niet altijd als een afzonderlijk bericht verzonden te worden. Het is ook toegestaan om metadata met andere parameters te combineren in één bericht. Het verschil tussen gewone services en “grote berichten” services beperkt zich dus alleen tot de wijze waarop de “payload” wordt aangeleverd.
+
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<embedded-meta xmlns:tns="http://www.logius.nl/digikoppeling/gb-embedded/" xmlns:gb="http://www.logius.nl/digikoppeling/gb/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.logius.nl/digikoppeling/gb/ gb-embedded.xsd ">
+	<andere-data>
+		Hier kan van alles staan, tekst of andere tags.
+	</andere-data>
+	<digikoppeling-external-data-references profile="digikoppeling-gb-1.0">
+		<data-reference contextId="1201">
+			<lifetime />
+			<content contentType="">
+				<filename>
+					NCName
+				</filename>
+				<checksum type="MD5">
+					0123456789012345678901234567890123456789
+				</checksum>
+				<size>
+					1024
+				</size>
+			</content>
+			<transport>
+				<location>
+					<senderUrl type="xs:anyURI">
+						https://my.host.nl/12345-2-c3c3281c-e561-4be8-8519
+					</senderUrl>
+				</location>
+			</transport>
+		</data-reference>
+	</digikoppeling-external-data-references>
+</embedded-meta>
+```
+
+Essentieel voor GB is hierbij de *data-reference* tag; het gebruik van de *digikoppeling-external-data-references* tag is hierbij niet noodzakelijk. In plaats daarvan kan ook een tag uit de target namespace gebruikt worden, afhankelijk van het bijbehorende schema:
+
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<embedded-meta xmlns:tns="http://www.logius.nl/digikoppeling/gb-embedded/" xmlns:gb="http://www.logius.nl/digikoppeling/gb/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.logius.nl/digikoppeling/gb/ gb-embedded.xsd ">
+	<data>
+		<id>
+			tns:id
+		</id>
+		<version>
+			tns:version
+		</version>
+		<result profile="digikoppeling-gb-1.0">
+			<data-reference contextId="1201">
+				<lifetime />
+				<content contentType="">
+					<filename>
+						NCName
+					</filename>
+					<checksum type="MD5">
+						0123456789012345678901234567890123456789
+					</checksum>
+					<size>
+						1024
+					</size>
+				</content>
+				<transport>
+					<location>
+						<senderUrl type="xs:anyURI">
+							https://my.host.nl/12345-2-c3c3281c-e561-4be8-8519
+						</senderUrl>
+					</location>
+				</transport>
+			</data-reference>
+		</result>
+	</data>
+</embedded-meta>
+
+```
+
+De bijbehorende XSD zou hierbij als volgt gedefinieerd kunnen worden:
+
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gb="http://www.logius.nl/digikoppeling/gb/2010/10" xmlns:tns="http://www.logius.nl/digikoppeling/gb/embedded/" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://www.logius.nl/digikoppeling/gb/embedded/">
+	<import namespace="http://www.logius.nl/digikoppeling/gb/2010/10" schemaLocation="gb-1.0.xsd" />
+	<element name="embedded-meta" type="tns:data" />
+	<complexType name="data">
+		<sequence>
+			<element name="id" type="xs:string" />
+			<element name="version" type="xs:string" />
+			<element name="result" type="gb:external-data-references" />
+		</sequence>
+	</complexType>
+</schema>
+```

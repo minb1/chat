@@ -1,0 +1,6 @@
+
+##OIN Register (Centrale OIN Raadpleegvoorziening)
+
+Logius beheert de Centrale OIN Raadpleegvoorziening (COR) waarin uitgegeven Organisatie identificatienummers zijn gepubliceerd. Dit register is openbaar raadpleegbaar en zowel via het web als via een REST API bevraagbaar.
+
+Het OIN register is te vinden op https://oinregister.logius.nl/oin-register.

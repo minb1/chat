@@ -1,0 +1,16 @@
+
+##CPA Register
+
+Het CPA Register wordt gebruikt voor het opstellen van een CPA (servicebeschrijving) voor ebMS2 uitwisselingen. Een CPA is een formeel xml-document dat de functionele en technische eigenschappen van de ebMS2-protocolkarakteristieken vastlegt. Het is dus een format voor afspraken over de gegevensuitwisseling met ebMS2.<sup>[29](#f29)</sup>
+
+Het CPA Register ondersteunt partijen bij het maken van een CPA (Collaboration Protocol Agreement). Een CPA kan om verschillende redenen zinvol zijn:
+
+- Het is een formeel contract tussen twee partijen die op basis van ebMS2 gegevens willen uitwisselen.
+
+- Het automatiseert de configuratie van de ebMS2 adapter (het inlezen van de CPA volstaat).
+
+- Het biedt zekerheid dat beide partijen dezelfde instellingen gebruiken.
+
+De wijze waarop een CPA wordt toegepast staat beschreven in Digikoppeling Best Practices ebMS2. Het CPA Register is beschreven in de Gebruikershandleiding. Het CPA register is te vinden op [https://cparegister.minvenj.nl](https://cparegister.minvenj.nl)
+
+<br><sup><a name="f29"><dfn>29</dfn></a>: *Digikoppeling Best Practices ebMS*</sup

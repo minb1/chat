@@ -1,0 +1,6 @@
+
+##EB011 MessageOrder en ConversationId
+
+Als de MessageOrder functionaliteit gebruikt wordt, moeten alle betreffende (samenhangende) berichten dezelfde ConversationId krijgen.
+
+Er zijn meerdere, onafhankelijke, berichtstromen mogelijk waar MessageOrder op van toepassing is als elke berichtstroom zijn eigen ConversationId krijgt.

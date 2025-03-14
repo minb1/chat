@@ -1,0 +1,5 @@
+
+###Connection to the Authorization Server
+
+
+<!-- ### [2.3.1.](#rfc.section.2.3.1) [Requests to the Authorization Endpoint](#RequestsToAuthorizationEndpoint) -->

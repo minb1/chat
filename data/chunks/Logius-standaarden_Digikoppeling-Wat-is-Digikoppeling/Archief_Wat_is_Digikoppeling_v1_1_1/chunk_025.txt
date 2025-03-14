@@ -1,0 +1,17 @@
+Meldingen
+
+Betreft het verzenden van een bericht naar een ontvanger waarbij het essentieel is te weten dat het bericht goed ontvangen is middels een bevestiging. Zowel een serviceaanbieder[^5] als een serviceafnemer kunnen initiator zijn van een melding. Meldingen kunnen rechtstreeks of via een intermediair verlopen. Zie Figuur 5.
+
+[^5]: Een partij kan een service aanbieden – in de rol van serviceaanbieder – of een service afnemen – in de rol van serviceafnemer.
+
+Voorbeeld in een dagelijkse situatie: Bij de bank wordt een bedrag bijgeboekt op de eigen rekening. De transactie die heeft plaatsgevonden wordt aan de betrokken rekeninghouders teruggekoppeld met een melding over de bijschrijving en een melding aan de andere rekeninghouder over de afboeking. Hier is sprake van een “reliable message” want er kan nooit een afboeking plaatsvinden zonder een bijschrijving en vice versa.
+
+![](media/bd366c63cdc2b1da84a1399105c7e567.png)
+
+Figuur 5: Berichtuitwisseling bij Meldingen.
+
+Meldingen worden ingericht op basis van de Digikoppeling-koppelvlakstandaard ebMS2.
+
+Meer informatie over deze koppelvlakken, zie voor ebMS2 §5.2 en zie voor WUS §5.3.
+
+###

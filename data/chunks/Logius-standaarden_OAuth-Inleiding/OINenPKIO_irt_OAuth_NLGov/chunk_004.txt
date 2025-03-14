@@ -1,0 +1,7 @@
+
+##Intenties:
+
+- Clients in de client credentials flow zijn pre-registerd [Step 1. Client Authentication](https://logius-standaarden.github.io/OAuth-NL-profiel/#step-1-client-authentication)
+- Private_key_jwt is naast tls_client_auth toegestaan. In beide situaties is een Private key nodig om ofwel de JWT te signen ofwel de mTLS connectie op te zetten. Indien dus de PKIO verplicht is is in beide gevallen een OIN inzichtelijk bij de authorization server.   
+- verbindingen tussen client, resource en authorization server zijn altijd versleuteld met TLS en indien PKIO verplicht is dus ook altijd the identificeren (op TLS niveau met de OIN uit het subjectSerialNumber veld van de public key)
+- 

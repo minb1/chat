@@ -1,0 +1,6 @@
+Based on international iGov standard
+This profile is based upon the international government assurance profile for OAuth 2.0 (iGov) [iGOV.OAuth2] as published by the OpenID Foundation (https://openid.net/foundation/). It should be considered a fork of this profile as the iGov profile is geared more towards the American situtation and in the Netherlands we have to deal with an European Union context.
+We have added the chapter Usecases to illustrate the specific usecase the iGov-NL profile is aimed at.  
+Besides the OAuth profile iGov also has a complementary OpenID connect profile [iGOV.OpenID]. If and when OpenID connect becomes a mandatory standard for the Dutch public sector iGov-NL can be expanded with a Dutch version of the iGov OpenID Connect profile. De usecase described at the beginning of iGov-NL was written with this possible expansion in mind.
+
+#

@@ -1,0 +1,9 @@
+
+##Deployment and Processing requirements for CPAs
+
+|| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+| Is a specific registry for storing CPA's required? If so, provide details.  | Pending. |
+| Is there a set of predefined CPA templates that can be used to create given Parties’ CPA's?   | It is **highly recommended** to use the “CPA Register” facility. A web-based program is available by which CPA's are created and stored. See https://cparegister.minvenj.nl/logius See https://www.logius.nl/diensten/digikoppeling/documentatie for information about the CPA Creation facility (document is written in Dutch). In addition to this there is a **Best Practices** document with information about the use of CPA's. |
+| Is there a particular format for file names of CPA's, in case that file name is different from CPA-ID value? | No recommendation.   |
+| Others | It is **required** to specify the resulting ebMS collaboration with a CPA. It is **required** that all actions within a CPA make use of (one and) the same default channel for sending acknowledgements. This default channel can only support **one specific profile** within a CPA (for instance either osb-rm-s or osb-rm, not both within one CPA). As a result, when there are actions which are based on different profiles (for instance osb-rm-s and osb-be) and the profiles for the acknowledgements are different as well (for instance osb-rm-s and osb-be), multiple CPA's must be created. |

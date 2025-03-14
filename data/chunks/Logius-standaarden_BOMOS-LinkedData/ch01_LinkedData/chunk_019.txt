@@ -1,0 +1,4 @@
+
+###VocBench
+VocBench 3 is gefinancierd door het ISA²-programma van de Europese Commissie.
+Het is een gratis platform dat gezamenlijke bewerking en beheer van codelijsten, taxonomieën, thesauri en ontologiën mogelijk maakt. Naast community management (beheer van meerdere gebruikers, roldefinitie, toegangscontrole), biedt VocBench 3 een mechanisme waarmee gebruikers hun model kunnen koppelen aan Jira, een soort issue en bug tracking platform voor software.

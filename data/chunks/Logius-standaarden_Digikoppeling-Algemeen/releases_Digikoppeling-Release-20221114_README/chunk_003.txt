@@ -1,0 +1,6 @@
+
+###RFC: Toevoegen API-58 No sensitive information in URI's
+
+Regel API-58 wordt toegevoegd aan:
+
+https://publicatie.centrumvoorstandaarden.nl/dk/restapi/#afspraken-api-design-rules-extensies

@@ -1,0 +1,24 @@
+
+#Welke vragen worden beantwoord
+
+Deze handreiking beschrijft wat we verstaan onder adresseren en routeren en op welke manier het OIN hierbij een rol speelt. Verder beschrijven we in detail hoe OIN's en subOIN's gebruikt kunnen worden in een berichtenketen.
+
+Naast de identificatie van organisaties die niet in aangesloten registers staan, bieden subOIN's ook de mogelijkheid van routeren van berichten door gebruik te maken van fijnmazige identificatie.
+
+De volgende vragen komen aan de orde:
+
+1. Het OIN wordt zowel gebruikt voor authenticatie als voor adressering.
+
+- Hoe werkt dit precies?
+
+- Op welke plek wordt het OIN gebruikt?
+
+- Kunnen er verschillende OIN's gebruikt worden?
+
+2. Wanneer is het aan te raden om subOIN's te gebruiken voor adresseren en routeren?
+
+3. Hoe werkt routeren en adresseren? 
+
+- Wat zijn de regels die partijen met elkaar moeten afspreken over het routeren en adresseren van berichten?
+
+- Wat is de rol van certificaten bij routeren en adresseren

@@ -1,0 +1,9 @@
+
+### De flow is dan als volgt:
+
+1. De **<u>user</u>** navigeert naar de client application of webbrowser (***<u>de client</u>***) en wordt gevraagd in te loggen (het *<u>authorization request</u>*). 
+2. De <u>**user**</u> voert z'n account gegevens in die alleen hij weet (het *<u>client secret</u>*). Uiteraard doet de user dit alleen als hij de client applicatie vertrouwd.
+3. De <u>**client**</u> stuurt op basis van de gegevens van de <u>**user**</u> een verzoek aan de <u>***authorization server***</u> (het <u>*token request*</u>). De **<u>authorization server</u>** beoordeeld dit verzoek op basis van alle beschikbare **<u>user</u>** en **<u>client</u>** gegevens. (Veelal dient een client applicatie zich vooraf eerst te registreren.)
+4. De <u>**authorization server**</u> stuurt als alles goed is een *<u>Access token</u>* terug aan de **<u>client</u>**. Dit is gebruikelijk een JSON Web Token (JWT).
+5. De **<u>client</u>** stuurt namens de **<u>user</u>** een request aan de resource server en voorziet dit request van het <u>*access token*</u>. De resource server kan de combinatie van het request en de en token beoordelen en bepalen welk response aan de client wordt gestuurd.
+6. Indien alles aan de vereisten voldoet stuurt de **<u>resource server</u>** een response aan de **<u>client</u>** met de gevraagde data (de <u>*protected resource*</u>)

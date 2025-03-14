@@ -1,0 +1,37 @@
+
+###Data-reference-request bericht 2 (PUSH)
+
+Hieronder volgt een voorbeeld van een Grote Berichten data-reference-request bericht voor een PDF bestand genaamd `file.pdf` met een grootte van 2048MiB, die moet worden ge-upload en is gezipped in de volgende 2 zip parts:
+
+- file.pdf.z01 met een grootte van 1024MiB is ge-upload naar `https://my.host.nl/files/file.pdf.z01`
+- file.pdf.zip met een grootte van 765MiB is ge-upload naar `https://my.host.nl/files/file.pdf.zip`
+
+```XML
+<gb:digikoppeling-external-data-references-request profile="digikoppeling-gb-4.0"                                                 
+  xmlns:gb="http://www.logius.nl/digikoppeling/gb/2020/09" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <gb:data-reference-request>
+    <gb:compression>ZIP4J</gb:compression>
+    <gb:content contentType="application/pdf">
+      <gb:filename>file.pdf</gb:filename>
+      <gb:checksum type="MD5">01234567890123456789012345678901</gb:checksum>
+      <gb:size>2048</gb:size>
+      <gb:transport>
+        <gb:location>
+          <gb:receiverUrl type="xs:anyURI">https://my.host.nl/files/</gb:receiverUrl>
+        </gb:location>
+        <gb:part>
+          <gb:filename>file.pdf.z01</gb:filename>
+          <gb:checksum type="MD5">12345678901234567890123456789012</gb:checksum>
+          <gb:size>1024</gb:size>
+        </gb:part>
+        <gb:part>
+          <gb:filename>file.pdf.zip</gb:filename>
+          <gb:checksum type="MD5">23456789012345678901234567890123</gb:checksum>
+          <gb:size>765</gb:size>
+        </gb:part>
+      </gb:transport>
+    </gb:content>
+  </gb:data-reference-request>
+</gb:digikoppeling-external-data-references-request>
+```

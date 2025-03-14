@@ -1,0 +1,10 @@
+
+####Revocation
+
+Token revocation allows a client to signal to an authorization server that a given token will no longer be used.
+
+An authorization server MUST revoke the token if the client requesting the revocation is the client to which the token was issued, the client has permission to revoke tokens, and the token is revocable.
+
+A client MUST immediately discard the token and not use it again after revoking it.
+
+<!-- ### [3.1.7.](#rfc.section.3.1.7) PKCE -->

@@ -1,0 +1,6 @@
+
+###Message Order [ebMS 2.0] Section 9 
+
+| Profile(s)| Usage: required/optional/never used in this profile |Notes|
+|------------------|---|---|
+|**Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security**|**Optional**. Message Order is *strongly discouraged* in these profiles.|Many organisations use message handlers that do not support this functionality. Therefore, it can only be used if communicating parties agree to this option in advance. This specification is limited to message service handler order functionality and does not preclude application-level in-order processing if sequence information is somehow provided at the business document level.|

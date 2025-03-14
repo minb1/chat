@@ -1,0 +1,7 @@
+
+###Added
+
+- (BOR) Schematron voor validatie Peppol BIS 3 order (ORDER ONLY) toegevoegd → 9 nieuwe validatieregels (v0.7.0).
+- Logboek van wijzigingen voor schematron toegevoegd.
+- Eerste gereviewde werkversie van de nieuwe publicatievorm voor de <em>Handreiking basisOrder Rijk</em>, gebaseerd op de eerdere niet-publiekelijke werkversie van maart 2022 (v0.8.1).
+

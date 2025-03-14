@@ -1,0 +1,13 @@
+
+###Profile Requirement Item: Reference/Description
+
+|[[EBXML-MSG]] Section 3.2.1.2 Description Element | All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header element(s)|`/SOAP:Body/eb:Manifest/eb:Reference/eb:Description`|
+| Are any Description elements required? If so, what are their contents?   | Description elements are optional. They **may** be ignored by any receiving message service handler. |
+| Alignment | (empty) |
+| Test References | (empty) |
+| Notes  | (empty) |
+
+Module: Security
+----------------

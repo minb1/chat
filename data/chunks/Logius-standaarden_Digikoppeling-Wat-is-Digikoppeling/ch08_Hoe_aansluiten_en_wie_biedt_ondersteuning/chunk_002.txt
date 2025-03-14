@@ -1,0 +1,8 @@
+
+##Aansluitprocedure
+
+De Leeswijzer beschrijft de aansluitprocedure om Digikoppeling te implementeren. Het is een hulpmiddel voor organisaties. De aansluitprocedure bestaat uit een aantal fases en stappen die uitgewerkt zijn. Het document is onderdeel van de aansluitkit voor Digikoppeling.
+
+| **Meer informatie** | **Zie** | **Doelgroep** |
+|---|---|---|
+| Aansluitprocedure implementatie Digikoppeling | Leeswijzer_aansluitprocedure_implementatie \_DK | [MT] [PL] [A&D] [OT&B] |

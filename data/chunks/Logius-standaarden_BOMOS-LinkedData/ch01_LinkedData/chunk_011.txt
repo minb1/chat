@@ -1,0 +1,9 @@
+
+##Doorontwikkelen
+Stel: de eerste versie van de nieuwe semantische standaard op basis van Linked Data is af. De gebruikersgemeenschap is naarstig aan de slag met implementeren. Waar wordt het beheer en doorontwikkeling vanaf nu door gekenmerkt?  
+
+Ten eerste is hetgeen dat in beheer genomen wordt, de nieuwe standaardontologie, meer modulair van aard dan je als beheerder van een conventionelere standaard gewend bent. Doorontwikkeling is nog meer gericht op samenstelling van bestaande ontologiën en andere bouwblokken dan bij de conventionele aanpak het geval was.  Dit is bijvoorbeeld te zien in de Geo-standaarden. Daar hebben nieuwe ontologiën relatief weinig toegevoegd. Er zijn veel bestaande vocabulaires geassembleerd. De gezamenlijke afspraken gaan dan over hoe je die zaken compileert. Dat was met de conventionele aanpak voor semantische standaarden al in mindere mate zo, bijvoorbeeld met XML Schema, maar met ontologieën is dat meer en voor grotere blokken.
+
+Dat neemt niet weg dat een deel van de domeinbeschrijving in een eigen ontologie gemodelleerd is. Die eigen ontologie moet doorontwikkeld worden om met de tijd mee te gaan. De uitdaging hierbij is om dit zo zorgvuldig en precies te blijven doen. De geavanceerdere toepassingen van ontologiën, zoals complexe queryÃ¢â‚¬â„¢s of automatisch redeneren, zijn namelijk gevoeliger voor fouten. Meer nog dan bij andere semantische standaarden is dus de nauwkeurigheid en coherentie van de ontologie van kritisch belang.
+
+Niet alle wijzigingsverzoeken leiden tot veranderingen in de gemeenschappelijke ontologie. Soms is het beter om een uitbreiding te ontwikkelen, die vervolgens in gebruik wordt genomen door het deel van de gebruikersgemeenschap dat hier profijt van heeft. Ontologiën en andere Linked Data standaarden zijn hiervoor ontworpen. Als beheerder is het zaak om uitbreidingen voor de gebruikers expliciet en inzichtelijk te maken. Hier kan je vervolgens controle en analysen op uitvoeren.

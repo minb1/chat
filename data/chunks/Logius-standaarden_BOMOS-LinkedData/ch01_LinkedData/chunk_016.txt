@@ -1,0 +1,3 @@
+
+###Protégé
+Protégé is een gratis, open-source platform dat een reeks tools aanbiedt om domeinmodellen en applicaties met ontologiën te bouwen. Er bestaat een webversie en een desktopversie. WebProtégé is een ontologie-ontwikkelomgeving voor het web om ontologiën te creëren, uploaden, wijzigen en delen. Gebruikers kunnen deze gezamenlijk bekijken en bewerken. Protégé Desktop bevat daarnaast extra functionaliteit zoals 'semantic reasoners' en visualisatietools.

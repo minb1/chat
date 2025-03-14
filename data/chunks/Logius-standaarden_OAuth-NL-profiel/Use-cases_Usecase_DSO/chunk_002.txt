@@ -1,0 +1,4 @@
+
+##Overview
+
+In this use case, the client credential flow is used in a digital system that enables citizens to request permits for activities they want to undertake in their environment. For example when a citizen wants to cut down a tree or change the exterior of their house they have to request a permit. The citizen can start a permit request in the web interface of the Digitaal Stelsel Omgevingswet - Digital System Environmental Law (hereafter: DSO) and this system will determine what local authorized authority (e.g. a municipality) is responsible. Once the permit request is ready, a trigger is sent to the system of the local authorized authority to use the client credential flow to retrieve the data associated with the request. The request can then be completed in the client software of that local authority.

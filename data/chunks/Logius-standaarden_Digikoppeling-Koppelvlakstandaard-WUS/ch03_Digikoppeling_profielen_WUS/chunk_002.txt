@@ -1,0 +1,18 @@
+
+##WUS Profiel Digikoppeling 2W-be
+
+<dl>
+<dt>Beveiliging</dt>
+<dd>
+Dit profiel maakt voor de beveiliging alleen gebruik van tweezijdig TLS.
+</dd>
+<dt>Headerblocks</dt>
+<dd>
+Alleen de verplichte WS-Addressing headers zijn hier van toepassing (zie
+soapenv:Header in [[[?Voorbeelden]]]).
+</dd>
+<dt>MTOM</dt>
+<dd>
+De geoptimaliseerde (MTOM) voorbeeldberichten worden weergegeven in [[[?Voorbeelden]]].
+</dd>
+</dl>

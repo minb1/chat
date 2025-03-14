@@ -1,0 +1,9 @@
+Aansluiten op Landelijke Voorzieningen
+
+Met één Digikoppeling-implementatie kunt u berichten uitwisselen met alle overheden en aansluiten op Basisregistraties en Landelijke Voorzieningen. Zie de Logius website voor een overzicht van de diverse Landelijke Voorzieningen. Een belangrijk deel is beschikbaar om op aan te sluiten zoals bijvoorbeeld: LV-WOZ, MijnOverheid Lopende zaken en Berichtenbox, e-factureren. Informeer bij de aanbieder van de Landelijke Voorziening naar de laatste stand van zaken omtrent beschikbaarheid.
+
+| **Meer informatie**           | **Zie**                           | **Doelgroep** |
+|-------------------------------|-----------------------------------|---------------|
+| Over landelijke voorzieningen | Digikoppeling_Architectuur (§4.1) | [A&D] [OT&B]  |
+
+##

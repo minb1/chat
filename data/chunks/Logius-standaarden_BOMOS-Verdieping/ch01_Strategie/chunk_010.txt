@@ -1,0 +1,17 @@
+
+###Kosten en opbrengsten
+
+Wel is het mogelijk om te kijken naar de mogelijke kostenposten en
+opbrengsten van het beheer van standaarden. De balans vat deze samen.
+
+| Debet | Credit |
+|  --- |  ---  |
+| Ontwikkelkosten | Structureel begroting |
+| Beheerkosten | Projectfinanciering |
+| Communicatie | Lidmaatschapsgelden |
+| Lidmaatschapskosten (+reiskosten) | Subsidie |
+| Bedrijfsvoering (accountant) | Dienstverlening |
+| Huisvesting | Licenties |
+| Goodwill |  |
+| Tooling (Licenties) |  |
+| Financieringskosten |  |

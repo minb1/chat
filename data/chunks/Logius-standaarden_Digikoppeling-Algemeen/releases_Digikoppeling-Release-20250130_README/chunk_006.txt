@@ -1,0 +1,8 @@
+
+#####Digikoppeling Koppelvlakstandaard REST-API
+
+- [Pull request](https://github.com/Logius-standaarden/Digikoppeling-Koppelvlakstandaard-REST-API/pull/29)
+- [Wijzigingen](https://logius-standaarden.github.io/Digikoppeling-Algemeen/releases/Digikoppeling-Release-20250130/diff.htm)
+  - ${\textsf{\color{red}↓ Verwijderd ↓}}$
+  - ${\textsf{\color{green}↕ Vervangen ↕}}$
+  - ${\textsf{\color{orange}↑ Toegevoegd ↑}}$

@@ -1,0 +1,13 @@
+
+###Profile Requirement Item: Trusted Timestamp
+
+|[[EBXML-MSG]] Section 4.1.4.9 Trusted Timestamp | All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header element(s)|`/SOAP:Header/eb:Signature`|
+| Is a trusted timestamp required? [Yes, for Security Services Profiles 9-12, 15-17, 20, 21.] If so, provide details regarding its usage. | **Not applicable**   |
+| Alignment | (empty) |
+| Test References | (empty) |
+| Notes  |  Applications submitting data to, or receiving data from, Digikoppeling message handlers can perform timestamping. The ebXML Messaging protocol is payload-neutral and therefore supports timestamped payloads. However, this timestamping functionality is not part of the Digikoppeling functionality. Any valid ebXML Message must contain an eb:TimeStamp as part of the eb:MessageData. |
+
+Module : Error Handling
+-----------------------

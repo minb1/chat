@@ -1,0 +1,9 @@
+
+##Totalen (optioneel)
+
+|      | Gegevensnaam                | Verplicht&nbsp;<sup>[1](#f1)</sup> | Voorbeeldvulling      | Opmerkingen |
+|------|-----------------------------|------------|-----------------------|----|
+|  5.1 | Onderbedrag inclusief BTW   | Nee        | 242.00                |  |
+|  5.2 | Onderbedrag exclusief BTW   | Nee        | 200.00                |  |
+|  5.3 | Regeltotaal exclusief BTW   | Ja&nbsp;<sup>[1](#f1)</sup> | 200.00 | Regeltotaal exclusief BTW, kortingen en toeslagen |
+|  5.4 | Totaal BTW                  | Nee        | 42.00                 |  |

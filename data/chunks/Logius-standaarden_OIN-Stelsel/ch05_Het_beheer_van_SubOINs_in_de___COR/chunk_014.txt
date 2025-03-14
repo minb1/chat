@@ -1,0 +1,4 @@
+
+###Beëindigen
+
+Als het KVK-nummer of [=RSIN=] vervalt, vervalt het [=OIN=]. Als het [=OIN=] vervalt, mogen de daaraan gerelateerde SubOINs niet meer worden gebruikt, en moeten deze worden ingetrokken.

@@ -1,0 +1,7 @@
+
+###Message Status Service [ebMS 2.0] Section 7
+
+| Profile(s)| Usage: required/optional/never used in this profile |Notes|
+|------------------|---|---|
+|**Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security**|**Optional**. Message Status Service is not required in these profiles. |(empty) |
+

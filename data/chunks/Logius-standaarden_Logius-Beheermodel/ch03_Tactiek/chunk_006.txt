@@ -1,0 +1,7 @@
+
+###Nederlandse Overheid Referentie Architectuur (NORA)
+
+De xxx standaard volgt de principes van de Nederlandse Overheid
+Referentie Architectuur. Zie voor meer informatie:
+[<span class="underline">https://www.noraonline.nl/wiki/NORA\_online</span>](https://www.noraonline.nl/wiki/NORA_online)
+

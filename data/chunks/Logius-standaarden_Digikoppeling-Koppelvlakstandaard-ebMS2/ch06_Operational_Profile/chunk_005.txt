@@ -1,0 +1,9 @@
+
+##Error Handling Profile
+
+|[[EBXML-MSG]] Section 4.2.4.2 | All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+ (Section 4.2.4.2) Should errors be reported to a URI which is different from the one identified within the From element? What are the requirements for the error reporting URI and the policy for defining it?   | No recommendation made   |
+| What is the policy for error reporting? In case an error message cannot be delivered, what other means are used to notify the party, if any?   | Pending.  |
+| (Appendix B.4) What communication protocol-level error recovery is required, before deferring to Reliable Messaging recovery? [For example, how many retries should occur in the case of failures in DNS, TCP connection, server errors, timeouts; and at what interval?] | Pending.  |
+| Others  |  |

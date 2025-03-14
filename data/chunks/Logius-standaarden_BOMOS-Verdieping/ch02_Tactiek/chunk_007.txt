@@ -1,0 +1,6 @@
+
+##Samenhang met andere standaarden (Activiteit Architectuur)
+
+Zoals eerder geschetst is interoperabiliteit het doel en zijn
+standaarden het middel. Dit deel gaat in op deze relatie tussen
+verschillende standaarden.

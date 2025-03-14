@@ -1,0 +1,18 @@
+
+##HRN formaat, te gebruiken voor Bedrijven
+
+De opbouw van het HRN (Handels Register Nummer) is identiek aan het OIN:
+
+>   \<prefix\>\<nummer\>\<suffix\>
+
+Voor het HRN worden tot nog toe alleen onderstaande mogelijkheden onderkend.
+
+| **Prefix**           | **Nummer**                      | **Suffix**                     |
+|---|---|---|
+| **00000001**             | RSIN uit HR (9 posities)        | “000”                          |
+| **00000003**             | KvK nummer uit NHR (8 posities) | Volgnummer “0000” (4 posities) |
+| **00000002** en **00000004** | Niet gebruikt.                  |                                |
+| vanaf **00000005**       | Niet gebruikt.                  |                                |
+
+In de HRN-variant worden de nummers vastgesteld door de TSP, op basis van het
+door de aanvrager opgegeven KvK-nummer, dat door de TSP wordt gecontroleerd.

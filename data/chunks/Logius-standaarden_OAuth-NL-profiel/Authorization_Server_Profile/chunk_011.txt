@@ -1,0 +1,17 @@
+
+####RefreshTokens
+
+Authorization Servers MAY issue refresh tokens to clients under the following context:
+
+Clients MUST be registered with the Authorization Server.
+
+Clients MUST present a valid client_id. Confidential clients MUST present a signed client_assertion with their associated keypair.
+
+Clients using the Direct Credentials method MUST NOT be issued refresh_tokens. These clients MUST present their client credentials with a new access_token request and the desired scope.
+
+<aside class=" addition">
+<b>iGov-NL : Additional content</b></br>  
+Refresh tokens for public clients must either be sender-constrained or one-time use. From [[[ietf-oauth-v2-1-10-refresh-token-grant]]]
+</aside>
+
+<!-- ### [3.1.10.](#rfc.section.3.1.10) Token Response -->

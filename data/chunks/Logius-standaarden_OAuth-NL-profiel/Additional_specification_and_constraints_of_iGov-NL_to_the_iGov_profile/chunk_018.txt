@@ -1,0 +1,4 @@
+Functional scope of the standaard
+The use of OAuth 2.0 is mandatory for applications where users (resource owner) delegate rights (implicitly or explicitly) to a (third party) service with the purpose of giving this service acces to specific data using a RESTful API. Specifcally a RESTful API to which the resource owner has acces rights.
+
+##

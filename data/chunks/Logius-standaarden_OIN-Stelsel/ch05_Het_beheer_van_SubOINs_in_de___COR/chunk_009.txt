@@ -1,0 +1,4 @@
+
+###Mutaties doorgeven aan de [=COR=]
+
+De [=OIN-houder=] moet alle mutaties met betrekking tot de SubOINs doorgeven aan Logius, beheerder van de [=COR=].

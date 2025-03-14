@@ -1,0 +1,8 @@
+
+###Resulterende berichtheaders
+
+Deze standaard beschrijft per definitie aan welke eisen een Digikoppeling WUS
+implementatie moet voldoen. De praktijk leert dat dergelijke eisen vaak erg
+abstract zijn en dus gebaat zijn bij voorbeelden. Voorbeelden van berichten zijn
+gepubliceerd op [[?Logius]]. Voorbeelden van WSDL’s zijn beschikbaar als
+onderdeel van [[?Compliance]].

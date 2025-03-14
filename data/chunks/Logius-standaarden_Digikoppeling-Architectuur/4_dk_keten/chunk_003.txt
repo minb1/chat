@@ -1,0 +1,16 @@
+
+##Opbouw van de Digikoppeling-keten
+
+De Digikoppeling-keten bestaat uit:
+
+- Deelnemende publieke organisaties die gegevens met elkaar uitwisselen (partijen). Een partij kan  
+  - een service of resource aanbieden – in de rol van **serviceaanbieder** – of  
+  - een service afnemen – in de rol van **serviceafnemer**.
+
+- Intermediairs: organisaties die voor deze deelnemende organisaties bemiddelen in de uitwisseling van gegevens. Partijen maken onderling (of via een intermediair) afspraken over de inhoud en vorm van de gegevensuitwisseling.
+
+- Componenten die de Digikoppeling-keten vormgeven.
+  - denk aan centrale componenten zoals registers van serviceaanbieders en servicecontracten.
+  - denk aan decentrale componenten zoals gateways, adapters, firewalls, TLS-handlers, etcetera.
+
+In de onderstaande paragraven worden deze delen van de keten verder uitgewerkt.

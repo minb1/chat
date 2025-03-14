@@ -1,0 +1,20 @@
+
+###ReliableMessaging
+
+Deze heeft default een retryCount van 8 en een retryInterval van 3 uur, zonder MessageOrder:
+
+```XML
+<tns:MessagingCharacteristics tns:syncReplyMode="none"
+tns:ackRequested="always" tns:actor="urn:oasis:names:tc:ebxml-msg:actor:toPartyMSH"
+tns:ackSignatureRequested="never"    tns:duplicateElimination="always"/>
+```
+
+De waardes kunnen per CPA bepaald worden, en liggen dus niet bij voorbaat vast.
+
+In het geval dat MessageOrder wel gebruikt wordt, komt in de CPA:
+
+<tns:MessageOrderSemantics>Guaranteed</tns:MessageOrderSemantics>
+
+Conform de ebMS2 specificatie zal de applicatie dezelfde ConversationId moeten gebruiken voor de opeenvolgende berichten<sup>5</sup>.
+
+> <sup>5</sup>. [[EBXML-MSG]] H9.1.1 “The REQUIRED SequenceNumber element indicates the sequence a Receiving MSH MUST process messages. The SequenceNumber **is unique within** the ConversationId and MSH.”

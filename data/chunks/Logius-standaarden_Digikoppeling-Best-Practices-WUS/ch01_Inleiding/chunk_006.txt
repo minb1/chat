@@ -1,0 +1,12 @@
+
+###Uitwisseling binnen Digikoppeling
+
+De uitwisseling tussen service providers en - requesters is in drie lagen opgedeeld:
+
+- Inhoud: deze laag bevat afspraken over de inhoud van het uit te wisselen bericht, dus de structuur, semantiek en waardebereiken . Digikoppeling houdt zich niet met de inhoud bezig, “heeft geen boodschap aan de boodschap”.
+
+- Logistiek: op deze laag bevinden zich de afspraken betreffende transportprotocollen (HTTP), messaging (SOAP), adressering, beveiliging (authenticatie en encryptie) en betrouwbaarheid. Dit is de laag van Digikoppeling.
+
+- Transport: deze laag verzorgt het daadwerkelijke transport van het bericht.
+
+Digikoppeling richt zich uitsluitend op de logistieke laag. Deze afspraken komen in de koppelvlakstandaarden en voorzieningen.

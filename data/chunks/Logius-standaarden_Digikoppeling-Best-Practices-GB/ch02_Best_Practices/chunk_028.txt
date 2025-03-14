@@ -1,0 +1,4 @@
+
+#####Certificaten
+
+Ten behoeve van Tomcat dienen alle benodigde certificaten naar JKS-formaat geconverteerd te worden.

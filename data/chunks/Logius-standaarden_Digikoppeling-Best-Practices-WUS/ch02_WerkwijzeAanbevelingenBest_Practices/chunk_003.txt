@@ -1,0 +1,14 @@
+
+###WSDL
+
+In WSDL 1.1 [[wsdl-20010315]] is een Authoring Style advies (zie hieronder) opgenomen: “separate the definitions in three documents: data type definitions, abstract definitions, and specific service bindings”. Dit advies, met name het apart beschrijven van de “specific service bindings” (WSDL onderdelen Binding en Service) wordt overgenomen.
+
+Onderstaande tekst is een citaat uit de WSDL 1.1 Standaard. Het vormt een door Digikoppeling overgenomen best practice bij het schrijven van duidelijke WSDL’s.
+
+>   *Wijze van notatie (© W3C Note 15 March 2001, vertaald uit het Engels)*
+
+>   *“Door gebruik van het importelement wordt het mogelijk, de diverse elementen van een servicedefinitie te scheiden in afzonderlijke documenten, die dan naar behoefte geïmporteerd kunnen worden. Met behulp van deze techniek kun je duidelijker servicedefinities schrijven, omdat de definities gescheiden worden al naar gelang hun abstractieniveau. Het vergroot ook het vermogen om allerlei soorten servicedefinities nogmaals te gebruiken. Het gevolg is, dat WSDL documenten die op deze manier gestructureerd zijn, gemakkelijker te gebruiken en te onderhouden zijn. In het 2e voorbeeld hieronder is te zien hoe deze manier van schrijven gebruikt wordt om de service in het 1e voorbeeld\* te definiëren. Hier scheiden we de definities in drie documenten: gegevenstype definities, abstracte definities en specifieke service bindings. Natuurlijk is het gebruik van dit mechanisme niet beperkt tot de definities uit het voorbeeld, dat alleen taalelementen gebruikt die in deze specificatie gedefinieerd zijn. Andere typen definities, die op meerdere taalextensies gebaseerd zijn, kunnen op dezelfde manier gecodeerd en hergebruikt worden.”*
+
+\* Het voorbeeld waar deze tekst van de WSDL 1.1 standaard naar verwijst is niet in overeenstemming met het Digikoppeling Koppelvlakstandaard WUS profiel. Om een indruk te krijgen van de opdeling (authoring style) van een WSDL wordt verwezen naar de berichtvoorbeelden. De voorbeelden van berichten zijn gepubliceerd op de Logius website. Voorbeelden van WSDL’s zijn beschikbaar als onderdeel van de Digikoppeling Compliance Voorziening.
+
+Voor de specificatie van zaken die buiten het bereik van de WSDL vallen (TLS, WS-Security) wordt aanbevolen om in de WSDL van een service “documentation elements” (`<wsdl:documentation\>` of `<!-- xxx -->`) op te nemen die de eisen ten aanzien van metadata verwoorden, of een verwijzing naar betreffende documenten bevat.

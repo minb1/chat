@@ -1,0 +1,10 @@
+
+###Profile Requirement Item: Non Persistent Confidentiality
+
+|[[EBXML-MSG]] Section 4.1.4.6 Non Persistent Confidentiality| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header element(s)|`/SOAP:Header/eb:Signature`|
+| Are communication channel confidentiality methods required? [Yes, for Security Services Profiles 3, 6, 8, 11, 12.] Which methods are allowed or required? | The use of HTTPS and TLS is required. The currently allowed protocol versions for TLS are described in  [[[DK-beveiliging]]] Message service handlers **should NOT** support SSL v3 compatibility mode. |
+| Alignment | [Appears as BusinessTransactionCharacteristics/\@isConfidential=transient in CPA.]   | |
+| Test References | (empty) |
+| Notes  |  For more information see [[[DK-beveiliging]]]  |

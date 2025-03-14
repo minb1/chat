@@ -1,0 +1,11 @@
+
+###Profile Requirement Item: CPAId
+
+
+|[[EBXML-MSG]] Section 3.1.2 CPAId Element | All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header element(s)|`/SOAP:Header/eb:MessageHeader/eb:CPAId`|
+| What identification scheme is used for the CPAId, and what form should it take? If it is a URI, how is it constructed? Does it reference a real CPA, or is it just a symbolic identifier? Example – within the EAN•UCC system, the value of the CPAId is the concatenation of the Sender and Receiver GLNs followed by a four digit serial number. 1234567890128 - GLN Party A 3456789012340 - GLN Party B 0001 - CPA Number between parties A and B | The proposed EAN•UCC is recommended as a good practice. |
+| Alignment | Appears as CollaborationProtocolAgreement/\@cpaid in CPA.  |
+| Test References | (empty)  |
+| Notes  | (empty)  |

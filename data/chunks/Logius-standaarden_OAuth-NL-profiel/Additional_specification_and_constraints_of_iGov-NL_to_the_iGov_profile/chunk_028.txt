@@ -1,0 +1,11 @@
+7 Using PKCE for native applications
+
+A known and actively exploited attack exists against native applications implementing the OAuth2 Authorization Code flow. This attack is described and a countermeasure is standardized in RFC7636, also known as PKCE.
+
+The international iGov profile describes two modes for deployment of native applications. Usage of PKCE is either mandatory in case no unique client id is registered, or optional in case dynamic registration and separate client ids are being used.
+
+However, do note that this profile requires usage of PKIoverheid in inter-organizational use cases. As native application on end-user devices can rarely be considered as fully managed and controlled by one organization, dynamic registration would imply using a PKIoverheid on (mobile) end-user devices. This is in conflict with best practices and terms & conditions for PKIoverheid certificates.
+
+As such PKCE is included in the Autorization Request in this profile. This is in line with Detailed rationale 5 above.
+
+##

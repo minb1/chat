@@ -1,0 +1,11 @@
+
+##Context:
+
+**OIN refenties**
+De standaard heeft de volgende relevante verwijzingen naar het OIN die hieronder verder worden toegelicht
+- Par 2.3.4 https://logius-standaarden.github.io/OAuth-NL-profiel/#client-keys beschrijft de connectie van de client met de Authorization server en vereist simpel gezegd dat clients een keypair moeten hebben om zich te authenticeren bij het token endpoint. in onze additionele content eisen we dat hiervoor een PKIO certificaat met OIN moet worden gebruikt als de authorization server, resource server en client niet allemaal van dezelfde organisatie zijn. Aanvullend eisen we dat clients hun public key moeten registreren in de client metadata
+- Par 3.2 https://logius-standaarden.github.io/OAuth-NL-profiel/#connections-with-protected-resources beschrijft hoe resources connecten met de authorization server. het vereist dat de authorization server JWT tokens uitgeeft. Ook hier eisen we dat hiervoor een PKIO certificaat met OIN moet worden gebruikt als de authorization server, resource server en client niet allemaal van dezelfde organisatie zijn. 
+
+**PKI referenties**
+De standaard heeft de volgende relevante verwijzingen naar PKI die hieronder verder worden toegelicht:
+- 

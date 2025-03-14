@@ -1,0 +1,4 @@
+
+####CloudEvents-NL
+
+- MUST be '1.0'

@@ -1,0 +1,8 @@
+##Authorization Server Profile
+<!-- ### [3.](#rfc.section.3) [Authorization Server Profile](#ServerProfile) -->
+
+All servers MUST conform to applicable recommendations found in the Security Considerations sections of [[rfc6749]] and those found in the "OAuth Threat Model Document" [[rfc6819]] .
+
+The authorization server MUST protect all communications to and from its OAuth endpoints using TLS.
+
+<!-- ### [3.1.](#rfc.section.3.1) Connections with clients -->

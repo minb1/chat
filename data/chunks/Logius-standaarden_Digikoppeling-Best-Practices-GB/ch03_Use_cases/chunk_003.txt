@@ -1,0 +1,13 @@
+
+##Selectie
+
+In deze use case vraagt een service requester een gegevensselectie van een service provider. Daartoe worden de volgende processtappen doorlopen:
+
+![Use case 'Selectie'](media/use_case_selectie.svg "Use case 'Selectie'")
+
+1. De service requester bevraagt (ebMS2-request of eventueel REST-API of WUS) de service provider met kenmerkende criteria voor de gezochte gegevensset. Eventueel kan deze bevraging in enkele tussenstappen verlopen als deze initieel te veel mogelijkheden oplevert.
+1. De service provider maakt de gewenste gegevens set aan en zet deze klaar in een Groot Bestand.
+1. Zodra het Grote Bestand gereed is, Meldt de service provider dit aan de eerdere service requester met een verwijzing naar de gezochte gegevens set in de vorm van Meta-data (ebMS2).
+1. De service requester haalt de gewenste gegevensset op (Groot Bericht) en krijgt deze op grond van autorisatie (OIN).
+
+Merk op dat deze use case vrijwel gelijk is aan “Download”. Alleen stap 2 'aanmaken selectie' is aanvullend. Vanwege de benodigde tijd van dit aanmaken kan gereedmelding niet via een WUS-response plaatsvinden en zal altijd ebMS2 toegepast moeten worden. Als het 'aanmaken van de selectie binnen de time-out van het WUS-request kan plaatsvinden ontstaat als vanzelf het “Download” pattern.

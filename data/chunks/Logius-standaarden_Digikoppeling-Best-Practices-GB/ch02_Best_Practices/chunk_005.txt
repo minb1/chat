@@ -1,0 +1,36 @@
+
+####EbMS2
+
+Bij het Melden van grote hoeveelheden informatie kan van ebMS2 gebruik gemaakt worden. Met ebMS2 kan de ontvangst van de metadata gegarandeerd worden.
+
+De volgende aanpak is hierbij gebruikelijk:
+
+- De verzender stelt een groot bestand samen voor de overdracht.
+
+- De verzender stelt de metadata samen en verstuurt deze via ebMS2.
+
+- De ontvanger haalt het grote bestand op.
+
+Ook bij het Bevragen van grote hoeveelheden informatie kan van ebMS2 gebruik gemaakt worden. In dat geval gaat er een ebMS2 bevraging vooraf aan bovenstaande (terug-) Melding.
+
+Toepassingen:
+
+- Verzenden van grote hoeveelheden informatie.
+
+- Distributie van grote hoeveelheden informatie.
+
+Een alternatieve aanpak is:
+
+- De verzender stelt de metadata samen en verstuurt deze via ebMS2.
+
+- De ontvanger haalt het grote bestand op.
+
+- De verzender genereert 'real-time' tijdens het ophalen de benodigde data.
+
+Toepassingen:
+
+- Noodzaak tot beperken van opslagcapaciteit voor grote bestanden.
+
+- Tijdkritische omgevingen.
+
+Merk op dat de metadata de checksum van het grote bestand bevat. Deze werkwijze vereist daarom dat de checksum al vooraf is bepaald. Vaak zal aan deze voorwaarde niet voldaan kunnen worden.

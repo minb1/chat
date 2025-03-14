@@ -1,0 +1,6 @@
+
+###Impact van wijzigingen en versienummering
+
+Afhankelijk van de impact van een wijziging of patch krijgt een release een nieuw versienummer. Het versienummerbeheer volgt principes voor semantische versienummering [en is beschreven in een bijlage](#versienummering)
+
+De beheerorganisatie schat op basis van de wijziging of patch in welk nieuw versienummer noodzakelijk is.

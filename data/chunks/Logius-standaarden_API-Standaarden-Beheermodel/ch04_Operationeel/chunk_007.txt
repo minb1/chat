@@ -1,0 +1,34 @@
+
+###Releases
+
+De API Standaard zullen gezamenlijk en afzonderlijk onderhevig zijn aan beheer en onderhoud wat leidt tot nieuwe releases. Het vaststellen van nieuwe releases vindt plaats binnen het releaseplanningsproces. Het tactisch overleg is verantwoordelijk voor de juiste uitvoering. Hier komen alle belanghebbenden met verantwoordelijkheid voor de behoefte, effecten en impact op de bedrijfsvoering, informatievoorziening en ICT samen.
+
+Voor nieuwe releases wordt uitgegaan van een aantal principes:
+
+1. De standaard dient in principe zo stabiel te zijn dat
+   nieuwe releases van de standaard bestaande implementaties van een
+   oudere release niet tot migratie verplichten.
+2. De standaard streeft ernaar om interoperabel (engels: backwards compatible) te zijn met voorgaande releases
+   (interoperabele verandering).
+   Bij wijzigingen waarin ook dit niet mogelijk is, vindt een expliciete
+   afweging plaats van de geboden verbetering ten opzichte van het belang
+   van bestaande implementatie (beperking impact).
+3. Wijzigingsaanvragen kunnen door belanghebbenden worden ingediend
+   bij de beheerder.
+4. Het Technisch Overleg is verantwoordelijk voor de
+   beoordeling van ingediende wijzigingsaanvragen, uitwerken ervan
+   en de inhoudelijke (door)ontwikkeling van de te beheren API Standaarden.
+5. De beheerder zorgt voor de voorbereiding van de
+   releaseplanning.
+6. Het tactisch overleg beoordeelt de releasevoorstellen en stelt
+   het beleid en de roadmap van nieuwe releases
+   vast in het releaseplanningsproces.
+7. Bij het vaststellen van een nieuwe release kan het strategisch overleg
+   uitspraken doen over het ondersteunen van oude releases.
+8. Maximaal kunnen twee (opéénvolgende) releases van een API Standaard
+    gelijktijdig de status „In Gebruik‟ hebben.
+9. Op het moment dat het functionele toepassingsgebied van
+    een API Standaard, waarvoor het pas-toe-of-leg-uit-regime geldt
+    wijzigt, wordt dit voorgelegd aan Forum Standaardisatie en het
+    OBDO zodat het regime kan worden bekrachtigd voor dit nieuwe
+    toepassingsgebied.

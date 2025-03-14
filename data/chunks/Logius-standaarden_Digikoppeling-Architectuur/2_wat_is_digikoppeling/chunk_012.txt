@@ -1,0 +1,8 @@
+
+##Digikoppeling voor Closed Data en Open Data via Closed diensten
+
+Digikoppeling bestaat uit een verzameling standaarden voor elektronisch verkeer tussen overheidsorganisaties. Digikoppeling gaat dus om overheidsgegevens. Openbare informatie van de Rijksoverheid mag worden hergebruikt, bijvoorbeeld op websites en in applicaties. Dit is Open Data.
+
+Overheidsgegevens zijn actief beschikbaar als open data voor hergebruik van derden. Behalve als er goede redenen zijn om dat niet te doen. In dat geval noemen we dit Closed Data.
+
+![Externe Gegevensuitwisseling kan verdeeld worden in open diensten en closed diensten](media/DK_open_closed_data.svg "Open en Closed OverheidsData")

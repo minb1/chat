@@ -1,0 +1,10 @@
+
+##Begrippen
+
+- OAuth:
+- Identity propagation:
+- Identity reuse:
+- Vertrouwelijke gegevens:
+- Open Data:
+- Token Exchange:
+- Identity Service Provider:

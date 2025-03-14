@@ -1,0 +1,4 @@
+
+##Scopes & claims
+
+The scopes and claims used in this system are defined by the DSO, and are related to the CRUD actions of the API's available. 

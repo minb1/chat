@@ -1,0 +1,28 @@
+
+##Summary with points for attention 
+
+- Events can be transferred with all standard or application-defined HTTP request methods that support payload body transfers. Events can be also be transferred in HTTP responses and with all HTTP status codes that permit payload body transfers.
+- This specification defines three content modes for transferring events: 
+    - structured (required): HTTP message body contains both event data and metadata attributes; an appropriate event format is used ((non-batching) JSON is the only event format that MUST be supported); 
+    - batched (optional): HTTP message body contains event data and metadata attributes from multiple events; an appropriate event format is used.
+    - binary (required): HTTP message body contains event data as-is; event attributes mapped to HTTP-headers; HTTP `Content-Type` header declares the media type.
+ - Received `Content-Type` header value is:
+    - `application/cloudevents(+xxxx)`: structured mode (`xxx` denotes the used event format)
+    - `application/cloudevents-batch`: batched mode
+    - Otherwise: binary mode (`Content-Type` header declares the media type.)
+- Structured content mode:
+    - The HTTP message body MUST contain both event data and metadata attributes.
+    - The HTTP Content-Type header MUST be set to the media type of an event format (E.g. `application/cloudevents+json; charset=UTF-8`)
+    - The chosen event format defines how all attributes, and data, are represented in the HTTP message body.
+    - Implementations MAY include the same HTTP headers as defined for the binary mode (E.g. `ce-id`). 
+- Batched content mode:
+    - The HTTP message body MUST contain both event data and metadata attributes.
+    - The HTTP Content-Type header MUST be set to the media type of an event format (E.g. `application/cloudevents-batch+json; charset=UTF-8`)
+    - The chosen event format defines how a batch of events and all event attributes, and data, are represented.
+    - All batched CloudEvents MUST have the same specversion attribute. Other attributes MAY differ, including the datacontenttype attribute. The batch MAY be empty.
+- Binary content mode:
+    - All CloudEvents context attributes, including extensions, MUST be mapped to HTTP headers with the same name as the attribute name but prefixed with `ce-`.
+    - The value for each HTTP header is constructed as described in the [specification](
+        https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md#3132-http-header-values)
+
+At the moment there are *no additional agreements* about the use of the specification within the Dutch government.

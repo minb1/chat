@@ -1,0 +1,16 @@
+
+###Gebruik van de Digikoppeling voorzieningen
+
+Digikoppeling bestaat uit een set diensten, afspraken en ondersteunende voorzieningen. Die positionering bepaalt de manier waarop Digikoppeling omgaat met het verschil tussen productie en test.
+
+Digikoppeling-voorzieningen ondersteunen het ontwikkelproces en maken daarom geen onderscheid tussen productie en test<sup>[30](#f30)</sup>. In de gegevensuitwisseling moeten organisaties hier wel onderscheid in maken. Wanneer er op een generieke infrastructurele component TLS-terminatie plaatsvindt, zal er in het algemeen slechts met productiecertificaten kunnen worden gewerkt. Dergelijke componenten worden ingezet voor zonering tussen niet-vertrouwde, semi-vertrouwde en vertrouwde netwerkzones. Keten- of pre-productietesten zullen in het algemeen gebruik kunnen maken van generieke infrastructuur.
+
+Daarom geldt:
+
+- De Digikoppeling-voorzieningen zijn bedoeld om te ondersteunen gedurende de ontwikkel- en testperiode.
+
+- Certificaten voor productie wijken af van certificaten voor test doordat zij op verschillende ‘roots’ zijn gebaseerd, respectievelijk ‘PKI Root Staat der Nederlanden’ en ‘PKI TRIAL root’.
+
+- Digikoppeling-koppelvlakstandaarden gelden (uiteraard) voor zowel productie als test.
+
+<br><sup><a name="f30"><dfn>30</dfn></a>: Voorzover het de voorzieningen betreft die voor partijen benaderbaar zijn.</sup>

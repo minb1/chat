@@ -1,0 +1,36 @@
+
+###voorbeelden uit de praktijk
+
+<aside class="example">
+
+**HoofdOIN**
+
+ | Subject.OrganizationName  | Subject.organizationalUnitName  | Subject.serialNumber  |
+ | -- | -- | -- |
+ | **Gemeente Utrecht**  | (leeg)  | 00000001002220647000  |
+
+**SubOIN (organisatieonderdeel)**
+
+ | Subject.OrganizationName  | Subject.organizationalUnitName  | Subject.serialNumber  |
+ | -- | -- | -- |
+ | Rijksdienst voor Ondernemend Nederland  | **RVO - Bouw Utrecht Facturen**  | 00000004114202890000  |
+
+**SubOIN (voorziening van een organisatie)**
+
+ | Subject.OrganizationName  | Subject.organizationalUnitName  | Subject.serialNumber  |
+ | --- | --- | --- |
+ | Logius  | **Logius (Digilevering Integrator)**  | 00000004194049711000  |
+
+**SubOIN (samenwerking(niet in [=HR=]) van meerdere organisaties,  met één verantwoordelijke partij)**
+
+ | Subject.OrganizationName  | Subject.organizationalUnitName  | Subject.serialNumber  |
+ | --- | --- | --- |
+ | Gemeente Beuningen  | **Munitax**  | 00000004001094920000  |
+
+**SubOIN (Buitenlandse bank, geen [=HR=] registratie)**
+
+ | Subject.OrganizationName  | Subject.organizationalUnitName  | Subject.serialNumber  |
+ | --- | --- | --- |
+ | Belastingdienst-registratie buitenlandse banken  | **Deloitte Global Tax Center (Europe)**  | 00000008823631400000  |
+
+</aside>

@@ -1,0 +1,23 @@
+
+#####Security Filter
+
+Ten behoeve van de autorisatie kan ook gebruik gemaakt worden van security filters om de geldigheid van een request aan de hand van het client certificaat te kunnen verifiëren. Hierbij kan gedacht worden aan een controle dat iedere url het OIN van de client dient te bevatten, maar ook aan een database waarin iedere afzonderlijke url geautoriseerd dient te worden.
+
+Security filters dienen als library (jar) geïmplementeerd te worden en dienen in *web.xml* geconfigureerd te worden:
+
+```XML
+<filter>
+    <filter-name>shared</filter-name>
+    <filter-class>com.filters.Authenticate</filter-class>
+</filter>
+```
+De bijbehorende URL-mapping dient eveneens in *web.xml* geconfigureerd te worden:
+
+```XML
+<filter-mapping>
+    <filter-name>shared</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+```
+
+Het is de verantwoordelijkheid van de verstrekkende partijen om inkomende requests te controleren op geldigheid.

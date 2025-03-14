@@ -1,0 +1,19 @@
+
+###Digikoppeling REST API profiel baseren op ADR 2.0
+
+_Wat is het issue of de wens?_
+
+De API Design Rules (ADR) standaard versie 2.0 heeft een nieuwe naamgeving van API design rules geintroduceerd en versie 2.0 heeft ook een modulaire opbouw gekregen.
+
+_Wat gaat er gebeuren?_
+
+Het Digikoppeling REST-API profiel zal worden aangepast zodat dit in lijn is met de nieuwe versie ADR 2.0 
+
+_Wat is het resultaat?_
+
+Een Digikoppeling REST-API profiel gebaseerd op ADR versie 2.0 
+
+_Wanneer gaat dit gebeuren?_
+
+Q1 2024-Q2 2024
+

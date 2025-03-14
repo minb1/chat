@@ -1,0 +1,66 @@
+
+###Service definitie WSDL
+
+Voorschriften ten gevolge van de keuze voor BP 1.2
+
+<!-- pieter: deze tabel in plain html, omdat het html voorbeeld niet goed rendert met markdown tabellen -->
+<table class="dkkvs">
+    <thead>
+ <tr>
+ <th>Nr</th>
+ <th>Omschrijving</th>
+ </tr>
+    </thead>
+    <tbody>
+ <tr>
+ <td>WW001</td>
+ <td>Voor de SOAP berichten wordt SOAP 1.1 en “document-literal binding” gehanteerd. Hierbij wordt als
+ transport binding HTTP voorgeschreven.</td>
+ </tr>
+ <tr>
+ <td>WW002</td>
+ <td>Door het opleggen van het SOAP style type “document/literal” zal de inhoud van de berichten beschreven
+ worden door XML en geen afgeleide daarvan. Dit houdt in dat er niet een eigen mapping mag worden
+ geïntroduceerd voor encoding types zoals bijvoorbeeld bij SOAP encoding het geval is. Kortom, de
+ datatypen moeten voldoen aan de XML Schema Part 2: Datatypes</td>
+ </tr>
+ <tr>
+ <td>WW003</td>
+ <td>Bij document –literal mag het SOAP “body” element slechts 1 XML element bevatten. Hierbinnen kunnen
+ eventueel wel meerdere elementen opgenomen worden.</td>
+ </tr>
+ <tr>
+ <td>WW004</td>
+ <td>Basic Profile stelt eisen aan het “PortType” van een WSDL. Hierbij mogen de “parts” van de “messages”
+ alleen een “element” bevatten (geen “parts” die een “type” attribuut gebruiken). “R2204 A
+ document-literal binding in a <strong>DESCRIPTION</strong> MUST refer, in each of its soapbind:body
+ element(s), only to wsdl:part element(s) that have been defined using the element attribute.” Er is geen
+ voorbeeld bij WS-I, maar een voorbeeld kan zijn:<pre class="example">
+ &lt;element name="TradePriceRequest"&gt;
+ &lt;complextype\&gt;
+ &lt;all&gt;
+ &lt;element name="tickerSymbol" type="string"&gt;&lt;/element&gt;
+ &lt;/all&gt;
+ &lt;/complextype\&gt;
+ &lt;/element&gt;
+ …
+ &lt;message name="GetLastTradePriceInput"&gt;
+ &lt;part name="body" elements="xsd1:TradePriceRequest"&gt;&lt;/part&gt;
+ &lt;/message&gt;
+ </pre></td>
+ </tr>
+    </tbody>
+</table>
+
+Aanvullende voorschriften (dus specifieke Digikoppeling-invulling binnen de ruimte van een bovengenoemde standaard)
+
+
+| Nr    | Omschrijving |
+|---|---|
+| WS001 | Er kunnen meerdere operaties per webservice gedefinieerd worden. |
+| WS002 | De SOAPAction aanduiding in de WSDL wordt gevuld met een lege string (“”), wordt weggelaten, of heeft dezelfde vulling als de { [http://www.w3.org/2007/05/addressing/metadata](http://www.w3.org/2007/05/addressing/metadata)}Action in de WSDL. In de HTTP Header van het bericht moet de SOAPAction een lege string met quotes zijn (“”), of een waarde hebben gelijk aan de WS-Addressing Action (wsa:Action). |
+| WS003 | De Digikoppeling WUS ondersteunt alleen de zogenaamde “request/response” berichtenuitwisseling (zie WSDL 1.1 specificatie paragraaf “2.4 Port Types”) [[wsdl]]. |
+| WS005 | De WSDL bevat slechts één “portType” per WSDL bestand. |
+| WS006 | Digikoppeling ondersteunt alleen UTF-8. |
+| WS007 | In de header zijn geen eigen velden (header blocks) toegestaan. De header bevat alleen de in het betreffende profiel vastgestelde velden, die dus uitsluitend gedefinieerd zijn in het betreffende WS-I profiel (respectievelijk de onderliggende OASIS/W3C standaarden). |
+| WS008 | Het is verplicht een WS-Addressing Action referentie op te nemen in de WSDL. Het definiëren van een WS-Addressing action in WSDL kan met behulp van de Web Services Addressing 1.0 – Metadata standaard. Informatie hierover is te vinden via [http://www.w3.org/TR/2007/REC-ws-addr-metadata-20070904/\#explicitaction](http://www.w3.org/TR/2007/REC-ws-addr-metadata-20070904/#explicitaction) [[ws-addr-metadata]]. Zie voor mogelijke vulling van wsam:action in WSDL “4.4.4 Default Action Pattern for WSDL 1.1” van de Web Services Addressing 1.0 – Metadata standaard (http://www.w3.org/TR/2007/REC-ws-addr-metadata-20070904/). |

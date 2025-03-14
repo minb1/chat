@@ -1,0 +1,4 @@
+
+###Stakeholders
+
+Stakeholders bij het gebruik van het OIN-Stelsel zijn in beginsel alle partijen die gebruik maken van het [=OIN=] en [=SubOIN=] en/of bijbehorende Centrale OIN raadpleegvoorziening ([=COR=]) én de partijen die een rol hebben bij het beheer van het OIN.

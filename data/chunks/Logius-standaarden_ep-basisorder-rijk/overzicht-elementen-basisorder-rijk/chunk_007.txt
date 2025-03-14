@@ -1,0 +1,14 @@
+
+##Orderregels
+
+|      | Gegevensnaam                | Verplicht  | Voorbeeldvulling      | Opmerkingen |
+|------|-----------------------------|------------|-----------------------|----|
+|  6.1 | Orderregelnummer            | Ja         | 1                     |  |
+|  6.2 | Orderregelomschrijving      | Nee        | Kantoorinrichting     |  |
+|  6.3 | Aantal                      | Ja         | 5                     |  |
+|  6.4 | Artikelnaam                 | Ja         | Verstelbaar bureau    |  |
+|  6.5 | Stuksprijs                  | Ja         | 200.00                | Exclusief BTW |
+|  6.6 | BTW percentage              | Nee        | 21                    | Dit kan de waarde 0, 9 of 21 zijn |
+|  6.6 | Factuurregelbedrag          | Ja         | 1000.00               | Exclusief BTW |
+
+<sup><a name="f1"><dfn>1</dfn></a>: De verplichtingen in deze kolom gelden alleen als het optionele gegevensblok is opgenomen in het bericht.</sup>

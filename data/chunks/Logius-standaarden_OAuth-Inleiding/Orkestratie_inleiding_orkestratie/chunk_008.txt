@@ -1,0 +1,5 @@
+
+###Belangrijkste Kenmerken
+
+- **Deterministische Workflows**: Arazzo maakt zowel menselijke leesbare als machine-leesbare  documentatie mogelijk, wat de ervaring voor API-aanbieders en  -gebruikers verbetert.
+- **Toepassingen**: Interactieve workflowdocumentatie Automatische documentgeneratie Code- en SDK-generatie op basis van functionele gebruiksgevallen Automatisering van testgevallen en nalevingscontroles AI-gestuurde deterministische API-aanroep

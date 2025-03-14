@@ -1,0 +1,13 @@
+
+####Het Technische Overleg
+
+Het Technisch Overleg (TO) is een periodieke bijeenkomst  waarbij de
+vragen en doorontwikkelwensen m.b.t. de standaard worden doorgenomen,
+geprioriteerd en worden uitgewerkt. Daarnaast wordt door de leden de
+releaseplanning en de roadmap opgesteld. Deelname aan het Technisch Overleg
+is vrij voor eenieder die een belang heeft bij de standaard
+(overheid, wetenschap en markt).
+
+De agenda en stukken van het Technisch overleg zijn openbaar. De Technische Overleggen vallen niet binnen de 
+GDI overlegstructuur maar maken wel deel uit van de governance 
+van de standaarden.

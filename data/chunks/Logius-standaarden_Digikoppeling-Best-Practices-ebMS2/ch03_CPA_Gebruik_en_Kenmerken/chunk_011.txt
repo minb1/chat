@@ -1,0 +1,4 @@
+
+###PartyId
+
+Het Organisatie Identificatie nummer (OIN) van de organisatie. De PartyId is de (logische) aanduiding waarmee de organisatie geïdentificeerd wordt. Als de organisatie nog geen OIN heeft moet een nummer aangevraagd worden bij Logius. De COR (De Centrale OIN Raadpleegvoorziening) wordt gebruikt om informatie vast te leggen over de organisatie en het OIN. Het nummer zal ook gebruikt worden in het cliënt certificaat voor het subject.Serialnumber veld. Zie ook EB014 in hoofdstuk 2. Organisaties die op basis van standaarden met andere overheden communiceren wordt sterk aangeraden om een OIN aan te vragen.

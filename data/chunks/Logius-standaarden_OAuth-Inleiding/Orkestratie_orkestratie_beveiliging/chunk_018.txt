@@ -1,0 +1,12 @@
+
+##Conclusies en Adviezen
+
+- Voor een moderne API architectuur is een identity service provider cruciaal.
+
+- Niet alleen om IAM toe te passen op de eigen Service maar ook om achterliggende services aan te kunnen spreken.
+
+- Met de groei van het aantal system APIs en vraag naar Composite APIs groeit het beveiligingsvraagstuk exponentieel mee.
+
+- Bereid API’s voor op de IAM mbv Oauth.
+
+- Houd er rekening mee en faciliteer token exchange als onderdeel van je roadmap / groei / maturity level.

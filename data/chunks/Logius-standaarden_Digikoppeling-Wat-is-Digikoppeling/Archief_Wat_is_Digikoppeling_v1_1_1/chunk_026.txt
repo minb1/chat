@@ -1,0 +1,7 @@
+Omgaan met Grote Berichten (GB)
+
+Berichten (Bevragingen of Meldingen) die een grootte hebben van meer dan 20 MiB[^6] kunnen op een andere wijze worden uitgewisseld. Hiervoor gelden specifieke afspraken. Deze zijn vastgelegd in het koppelvlakstandaard Grote Berichten. Meer informatie, zie §5.4.
+
+[^6]: 1 MiB=1024\^2 bytes : Voorheen stond hier 20MB. We gebruiken de term MiB om geen enkele verwarring te scheppen over de drempelwaarde. Het verschil tussen 20Mb en 20Mib is echter te verwaarlozen.
+
+###

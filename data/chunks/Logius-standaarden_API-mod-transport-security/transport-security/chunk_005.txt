@@ -1,0 +1,34 @@
+
+###Security Headers
+
+<div class="rule" id="/transport/security-headers">
+  <p class="rulelab"><strong>/transport/security-headers</strong>: Use mandatory security headers in API all responses</p>
+  <p>Return API security headers in all server responses to instruct the client to act in a secure manner</p>
+</div>
+
+There are a number of security related headers that can be returned in the HTTP responses to instruct browsers to act in specific ways. However, some of these headers are intended to be used with HTML responses, and as such may provide little or no security benefits on an API that does not return HTML. The following headers SHOULD be included in all API responses:
+
+| Header                                            | Rationale                                                                                              |
+|---------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| `Cache-Control: no-store`                         | Prevent sensitive information from being cached.                                                       |
+| `Content-Security-Policy: frame-ancestors 'none'` | To protect against drag-and-drop style clickjacking attacks.                                           |
+| `Content-Type`                                    | To specify the content type of the response. This SHOULD be `application/json` for JSON responses.     |
+| `Strict-Transport-Security`                       | To require connections over HTTPS and to protect against spoofed certificates.                         |
+| `X-Content-Type-Options: nosniff`                 | To prevent browsers from performing MIME sniffing, and inappropriately interpreting responses as HTML. |
+| `X-Frame-Options: DENY`                           | To protect against drag-and-drop style clickjacking attacks.                                           |
+| `Access-Control-Allow-Origin`                     | To relax the 'same origin' policy and allow cross-origin access. See CORS-policy below                 |
+
+Note that strict transport security is not only mandated by this module [but also by law](https://wetten.overheid.nl/BWBR0048156/2023-07-01). 
+
+The headers below are only intended to provide additional security when responses are rendered as HTML. As such, if the API will never return HTML in responses, then these headers may not be necessary. However, if there is any uncertainty about the function of the headers, or the types of information that the API returns (or may return in future), then it is RECOMMENDED to include them as part of a defense-in-depth approach.
+
+| Header                                        | Rationale                                                              |
+|-----------------------------------------------|------------------------------------------------------------------------|
+| `Content-Security-Policy: default-src 'none'` | The majority of CSP functionality only affects pages rendered as HTML. |
+| `Feature-Policy: 'none'`                      | Feature policies only affect pages rendered as HTML.                   |
+| `Referrer-Policy: no-referrer`                | Non-HTML responses SHOULD not trigger additional requests.             |
+
+In addition to the above listed HTTP security headers, web- and browser-based applications SHOULD apply Subresource Integrity [SRI](https://www.w3.org/TR/SRI/). When using third-party hosted contents, e.g. using a Content Delivery Network, this is even more relevant. While this is primarily a client implementation concern, it may affect the API when it is not strictly segregated or for example when shared supporting libraries are offered.
+
+**How to test**
+The precense of the mandatory security headers can be tested in an automated way. A test client makes a call to the API root. The response is tested for the precense of mandatory headers.

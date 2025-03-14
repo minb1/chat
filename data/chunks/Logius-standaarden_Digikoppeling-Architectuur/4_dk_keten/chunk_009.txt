@@ -1,0 +1,9 @@
+
+##Digikoppeling-aanbod
+
+Digikoppeling onderscheidt verschillende vormen van uitwisseling:
+
+- *synchrone* request-response voor bevraging en bewerking van objecten en in de context van het gebruik van *resources* op basis van het REST patroon.
+- *synchrone* request-response met gestructureerde berichtuitwisseling
+- *asynchrone* request-response (in combinatie met events of signalen) en reliable messaging
+- uitwisseling van grote data bestanden en hun metadata

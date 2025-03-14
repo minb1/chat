@@ -1,0 +1,9 @@
+
+###Profile Requirement Item: Non Persistent Authentication
+
+|[[EBXML-MSG]]Section 4.1.4.3 Non Persistent Authentication | All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+| Are communication channel authentication methods required? [Yes, for Security Services Profiles 2-5.] Which methods are allowed or required? | Client and Server authentication is required using HTTPS and TLS. The currently allowed protocol versions for TLS are described in [[[DK-beveiliging]]] `Note:` Message service handlers **should NOT** be able to operate in SSL v3 backward compatibility mode. |
+| Alignment | [Appears as BusinessTransactionCharacteristics/\@isAuthenticated=transient in CPA.] |
+| Test References | (empty) |
+| Notes  | for more information see [[[DK-beveiliging]]]  |

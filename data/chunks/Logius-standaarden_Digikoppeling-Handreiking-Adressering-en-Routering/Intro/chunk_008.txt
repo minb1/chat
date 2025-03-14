@@ -1,0 +1,5 @@
+
+###Voorbeeld Respec document
+
+[Digikoppeling Architectuur Document](https://publicatie.centrumvoorstandaarden.nl/dk/architectuur/2.0vv/)
+

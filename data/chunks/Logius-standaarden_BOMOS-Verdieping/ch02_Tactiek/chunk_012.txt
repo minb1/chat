@@ -1,0 +1,30 @@
+
+###Sector overstijgende interoperabiliteit: Verzuiling
+
+Door de sector-specifieke aanpak van de semantische standaarden
+ontstaat de angst voor verzuiling van sectoren. Interoperabiliteit
+over sectoren heen wordt niet opgelost, en wordt zelfs mogelijk steeds
+lastiger. Het potentiële probleem is alom bekend, en oplossingen
+worden daarvoor bedacht maar tot op heden stranden deze in zeer lage
+adoptie en gebrek aan draagvlak en ondersteuning. Dat kan twee
+oorzaken hebben;
+
+1. Het probleem van sector overstijgende interoperabiliteit wordt nog
+   niet als nijpend beschouwd aangezien binnen de sector nog grotere
+   uitdagingen liggen.
+
+2. De voorgestelde technische oplossingen zijn vaak uitermate
+   complex. Bijvoorbeeld een technisch fraaie oplossing is de
+   UN/CEFACT Core Components standaard. Deze standaard is meer dan
+   tien jaar oud, maar is uiteindelijk nooit breed geadopteerd.
+
+De kern van de oplossing zit hem waarschijnlijk niet in de techniek,
+maar in de beheerorganisaties actief in de verschillende
+domeinen. Deze zullen minder verkokerd moeten optreden en meer moeten
+samenwerken met de collega beheer-organisaties in aanverwante
+sectoren. Daar is de laatste jaren dan ook al verbetering in
+opgetreden. Mede ook op basis van het 'open' gedachtegoed, want in een
+_one world_ ([zie sectie over
+openheid](#de-open-invulling-van-een-standaard-activiteit-community))
+zijn er geen concurrerende standaarden en sluiten standaarden perfect
+op elkaar aan.

@@ -1,0 +1,4 @@
+
+###PartyName
+
+De naam van de partij zoals die opgegeven moet worden in de CPA. Dit zal voor elke organisatie anders zijn, maar blijft wel hetzelfde voor alle CPA’s die gemaakt zullen worden.

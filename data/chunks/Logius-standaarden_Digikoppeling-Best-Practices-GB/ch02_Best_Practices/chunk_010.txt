@@ -1,0 +1,26 @@
+
+###Location URL
+
+De URL voor het ophalen of aanleveren van grote berichten moet uniek zijn; hierbij kan gebruik gemaakt worden van een UUID om een (fysieke) bestandsnaam te genereren. Daarnaast kan ook aanvullende informatie aan de URL worden toegevoegd om deze enigszins te structureren.
+
+Bijvoorbeeld:
+```
+https://my.host.nl/f47ac10b-58cc-**4**372-**a**567-0e02b2c3d479
+```
+
+Of ingedeeld naar (OIN van de) ontvanger:
+```
+https://my.host.nl/01234567890123456789/f47ac10b-58cc-4372-a567-0e02b2c3d479
+```
+
+Of ingedeeld naar datum/tijd:
+```
+https://my.host.nl/2010/09/01/f47ac10b-58cc-4372-a567-0e02b2c3d479
+```
+
+Het default poortnummer is 443; het gebruik van afwijkende poortnummers is alleen met wederzijdse instemming toegestaan:
+```
+https://my.host.nl:8443/f47ac10b-58cc-4372-a567-0e02b2c3d479
+```
+
+De URL hoeft niet altijd naar een fysiek bestand te verwijzen; de response voor de URL mag ook dynamisch worden opgebouwd. Wel geldt hierbij dat de response voor opeenvolgende requests identiek moet zijn, omdat anders geen checksum bepaald kan worden.

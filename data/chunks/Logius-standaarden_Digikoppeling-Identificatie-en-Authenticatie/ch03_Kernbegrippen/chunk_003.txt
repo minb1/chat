@@ -1,0 +1,25 @@
+
+##Authenticatie
+
+Authenticatie is als volgt gedefinieerd:
+
+Authenticatie is het proces waarbij nagegaan wordt of een subject daadwerkelijk
+is wie hij beweert te zijn, dat wil zeggen: daadwerkelijk de identiteit bezit
+die hij opgeeft.
+
+Bij de authenticatie wordt bijv. gecontroleerd of een opgegeven bewijs van
+identiteit overeenkomt met echtheidskenmerken<sup>4</sup> <sup>5</sup>. Het proces van
+authenticatie is dus onlosmakelijk verbonden met identiteit.
+
+<sup>4</sup>: Voor authenticatie wordt daarom ook wel de term verificatie gehanteerd.
+
+<sup>5</sup>: De definitie van authenticatie in de NORA gaat meer in op het aspect hoe
+    authenticatie wordt uitgevoerd dan op wat het is. Daarom wordt die definitie
+    hier niet overgenomen.
+
+Authenticatie levert als het ware de kwaliteit van de identificatie. Tevens
+speelt hier een 'chain of trust'. Als een paspoort beschikt over de
+echtheidskenmerken (en het is niet gestolen of verlopen) dan mag men op de
+inhoud vertrouwen. Hetzelfde geldt voor een PKIoverheid certificaat. Als het
+'root' certificaat te vertrouwen is (en het certificaat is niet ingetrokken of
+verlopen) dan mag men op de inhoud vertrouwen.

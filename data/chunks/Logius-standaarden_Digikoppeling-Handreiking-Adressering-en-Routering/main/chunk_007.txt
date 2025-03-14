@@ -1,0 +1,41 @@
+
+##Het OIN wordt zowel gebruikt voor authenticatie als voor adressering.
+
+- *Hoe werkt dit precies?*
+
+Voor de authenticatie van de zender en de ontvanger in het berichtenverkeer tussen overheidspartijen worden PKIo-certificaten gebruikt. Het PKIo-certificaat wordt zowel gebruikt om het transport van de berichten veilig te laten verlopen (gebruikmakend van het TLS-protocol) als voor authenticatie. Bij het gebruik van Digikoppeling wordt tweezijdige authenticatie vereist. Zender en ontvanger moeten elkaars certificaat vertrouwen en elkaars publieke TLS-sleutel kennen.
+
+Naast het OIN is ook het endpoint van belang. Het endpoint is de URL van de service die benaderd wordt. In Digikoppeling ebMS wordt het endpoint in het CPA vastgelegd. In WUS is dit onderdeel van het WS-addressing deel in de SOAP-header. Voor asynchroon verkeer (ebMS) moet ook de endpoint van de zender bekend zijn. Voor REST API-aanroepen wordt het endpoint in de URL van de HTTP-actie aangegeven.
+
+Adresseren en Routeren vindt plaats op het niveau van de berichtheader. Voor het routeren kan gebruik gemaakt worden van het OIN, het opgegeven endpointadres of beide. 
+
+- *Op welke plek wordt het OIN gebruikt?*
+
+Een PKIo-certificaat dat gebruikt wordt voor berichtenuitwisseling met Digikoppeling bevat het OIN van de organisatie of organisatieonderdeel. Dit OIN wordt opgeslagen in het `Subject.SerialNumber` veld van het certificaat.
+
+De Digikoppelingstandaard beschrijft per Profiel – ebMS, WUS of REST API – op welke manier het OIN gebruikt moet worden.
+
+1. ebMS: OIN van zender en ontvanger worden vastgelegd als PartyId in het CPA (berichtencontract). De ebMS-berichtenheader wordt gegenereerd op basis van de CPA.
+
+2. WUS: in de querystring van de endpointuri in de SOAP ws-addressing header.
+
+3. REST API: in de querystring van de HTTP-operatie.
+  
+ >Zender en ontvanger kunnen hier worden vastgelegd met een "to" en een "from" parameter, dit maakt het mogelijk om ook bij gebruik van intermediairs aan te geven wat de oorspronkelijke afzender - of eindbestemming is  .  In [Bijlage 1](#bijlage-1-voorbeeld-van-routering) vindt u een uitgebreid voorbeeld.
+
+
+- *Kunnen er in certificaat en header verschillende OIN's gebruikt worden?*
+
+In het meest eenvoudige geval wisselen organisaties onderling berichten uit zonder tussenkomst van intermediairs of knooppunten. In dat geval is het OIN in het certificaat identiek aan het OIN gebruikt in de berichtenheader.
+
+Indien gebruik wordt gemaakt van knooppunten (of SAAS)  zijn er meerdere varianten mogelijk. Het berichtenverkeer van een organisatie die een SAAS-oplossing gebruikt kan gebruikmaken van het certificaat van die SAAS-provider of bij de SAAS-provider een eigen certificaat deponeren, zodat de SAAS-provider het juiste certificaat selecteert als een bericht namens de zender wordt gestuurd.
+
+> De optie om een generiek eigen certificaat bij de SAAS leverancier te deponeren is onwenselijk, immers de SAAS leverancier verkrijgt op deze manier een sleutelbos van certificaten
+> Zie ook : [Bijlage 3 : Analyse Knelpunten Routering](#bijlage-3-analyse-knelpunten-routering-en-intermediairs).
+> Een optie is om te werken met een certificaat met een beperkte specifieke scope op basis van Sub-OIN om risico's te beperken.
+
+Een vergelijkbare situatie treedt op als een bericht naar een knooppunt wordt verstuurd, die het ontvangen bericht doorrouteert naar de uiteindelijke bestemming.
+
+Het OIN dat wordt gebruikt in de berichtenheader kan afwijken van het OIN in het certificaat. In het geval dat een bericht wordt gestuurd naar een knooppunt dat het bericht verder doorstuurt binnen de eigen of een andere organisatie kan dit OIN uit de berichtenheader wordt gebruikt door het knooppunt als middel om het bericht te routeren. Naast routeren op basis van het OIN wordt ook gebruik gemaakt  van endpointadressen.
+
+>Bij gebruik van Knooppunten (of SAAS leveranciers) is het van belang de bevoegdheid (en de gegevensverantwoordelijke) te kunnen vaststellen, in [Bijlage 3 : Analyse Knelpunten Routering](#bijlage-3-analyse-knelpunten-routering-en-intermediairs) worden de mogelijkheden hiervoor beschreven.

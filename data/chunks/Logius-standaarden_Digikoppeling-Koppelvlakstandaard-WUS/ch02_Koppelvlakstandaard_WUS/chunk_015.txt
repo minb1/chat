@@ -1,0 +1,92 @@
+
+####End-to-End beveiliging
+
+Deze beveiliging is optioneel en wordt bovenop point-to-point beveiliging
+ingezet op SOAP niveau met behulp van ondertekening en versleuteling. End-to-End
+beveiliging is primair van toepassing in de scenario’s waar intermediairs
+betrokken zijn gedurende de gegevensuitwisseling en in scenario’s waarbij
+onweerlegbaarheid van belang is.
+
+| Nr | Omschrijving | 
+|---|---|
+| WB001 | Toepassen WS-Security 1.0 en WS-Security 1.1 | 
+| | Overwegingen: Basic Security Profile 1.1 is sinds 2010 november final geworden. Hierin worden zowel de WS-Security 1.0 als de WS-Security 1.1 namespaces beide gebruikt. |
+| WB002 | Toepassen van Timestamp in security header met Timestamp Created is verplicht. Timestamp Expires is optioneel.<br>De tijdstamp moet een Universal Time Coordinated (UTC) tijdzone aanduiding hebben. Bij het toepassen van een timestamp gaat tijdsynchronisatie van de verschillende communicerende systemen een rol spelen. Indien dit niet mogelijk is moet hiermee met de vulling van de Created en Expires rekening worden gehouden door middel van een “timestampSkew“. | 
+| | Overwegingen: Bij toepassen van Timestamp Expires is tijdsynchronisatie van belang. Om mogelijke problemen hiermee te voorkomen, zou er overwogen kunnen worden om een eis op te nemen dat de Expires niet in Timestamp opgenomen mag worden. Omdat het expliciet weglaten van de Expires niet in alle tooling mogelijk is, wordt hiervoor niet gekozen. Tevens kan het zijn dat door het ontbreken van tijdsynchronisatie er problemen zijn met de Timestamp Created, in de situatie waarbij de ontvanger heeft vastgesteld dat de Timestamp Created in de toekomst ligt. Hiervoor biedt tooling vaak een “timestampSkew”. Deze geeft de toegestane afwijking ten opzichte van UTC aan.  |
+| WB003 | Indien WS-Security wordt toegepast, is ondertekenen verplicht en versleutelen optioneel (keuze profiel Digikoppeling 2W-be-S, Digikoppeling 2W-be-SE,). |
+| | Overwegingen: De berichten kunnen zowel ondertekend als versleuteld worden. Gezien het doel van WS-Security, te weten het “door een intermediair heen” kunnen doorgeven van authenticatie-informatie, is ondertekenen primair van belang; daarmee is ook onweerlegbaarheid geregeld. Uiteraard kan het in een bepaalde situatie ook een eis zijn dat het bericht niet leesbaar is voor de intermediair. | 
+| WB004 | Ondertekenen van bericht onderdelen SOAP:body, SOAP:headers (WS-Addressing headers en Timestamp) is verplicht bij toepassing van End-to-End beveiliging. Van elk van deze onderdelen dient separaat een digest te worden berekend en te worden opgenomen in het SignedInfo element. De handtekening dient te worden gegenereerd op basis van de inhoud van het SignedInfo element. |
+| | Overwegingen: Met het ondertekenen wordt authenticatie, integriteit en onweerlegbaarheid ondersteund. Het is van belang dat de integriteit en onweerlegbaarheid van de inhoud en header van het bericht kan worden vastgesteld, de SOAP:body, SOAP:header (WS-Addressing en het Timestamp element) zullen dus ondertekend moeten worden. |
+| WB005 | Bij toepassen van versleutelen geldt dit voor de volgende bericht onderdelen: SOAP:body | |
+| | Overwegingen: De WS-Addressing headers worden niet versleuteld, dit omdat deze anders niet leesbaar zijn voor intermediairs. De wsa:Action en de ondertekening worden dus niet versleuteld. Ook de SOAPaction kan niet afgeschermd worden. Door beveiliging op transport niveau is het risico van een niet afgeschermde wsa:Action en SOAPAction tot een minimum beperkt. |
+| WB006 | Berichten worden eerst ondertekend en vervolgens versleuteld. | 
+| | Overwegingen: Omdat er zowel wordt ondertekend als versleuteld, moet de volgorde hiervan gespecificeerd worden: -Bij verzending eerst ondertekenen en vervolgens versleutelen. -Bij ontvangst eerst ontsleutelen en daarna de ondertekening verifieren. |
+
+
+<table class="dkkvs">
+    <tbody>
+        <tr>
+            <td>WB007</td>
+            <td>Technische gegevens ten behoeve van ondertekenen
+                <table class="dkkvsincell">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Waarde</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Onderteken optie Algoritme</td>
+                            <td>Exclusive XML Canonicalization
+                                [http://www.w3.org/2001/10/xml-exc-c14n](http://www.w3.org/2001/10/xml-exc-c14n\#)
+                        </tr>
+                        <tr>
+                            <td>Data Encryption Algorithms</td>
+                            <td>zie [[Beveiligingsdocument]]
+                        </tr>
+                        <tr>
+                            <td>Key Transport Algorithms</td>
+                            <td>zie [[Beveiligingsdocument]]
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>WB008</td>
+            <td>Technische gegevens ten behoeve van versleutelen:
+                <table class="dkkvsincell">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Waarde</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data Encryption Algorithms</td>
+                            <td>zie [[Beveiligingsdocument]]
+                        </tr>
+                        <tr>
+                            <td>Key Transport Algorithms</td>
+                            <td>zie [[Beveiligingsdocument]]
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+||| 
+|---|---|
+|WB009|Security token X.509 Certificate Token (PKI Overheid Digikoppeling certificaat).|
+|WB010|Publieke sleutel welke gebruikt is voor het signing proces dient meegeleverd te worden met het bericht via een ‘Direct security token’ reference.|
+||Overwegingen:<br>Het certificaat wordt in het bericht meegestuurd. Hiermee kan de ontvanger door middel van het meegeleverd certificaat de handtekening controleren. Het certificaat dient uiteraard wel vertrouwd te zijn via een truststore configuratie waarin het PKIoverheid stamcertificaat alsmede de intermediair certificaten en Trusted Servicer Provider certificaten zijn opgenomen. Zie hiervoor [[Certificaten]]. (een vereiste voor veel platformen om de validatie van het bericht aan te vangen).|
+|WB011|Het toepassen van End-to-End beveiliging wordt op serviceniveau aangeduid. Alle operaties en dus berichten (request en response) worden ontsloten volgens één bepaald Digikoppeling profiel.|
+||Overwegingen:<br>Beveiligingseisen kunnen op het niveau van het bericht gedefinieerd worden, maar niet alle toolkits kunnen hiermee overweg. Totdat alle belangrijke toolkits dit wel kunnen, is het beter om bericht beveiliging op serviceniveau te definiëren.|
+|WB012|Voor het versleutelen van het responsebericht wordt het certificaat in het requestbericht gebruikt.|
+||Toelichting:<br>In eis WB010 wordt aangegeven dat het certificaat voor ondertekening in het bericht wordt opgenomen. Indien een webservice wordt ontsloten volgens het Digikoppeling 2W-be-SE profiel moet deze op basis van het requestbericht kunnen bepalen welk certificaat gebruikt moet worden om de payload van de response te versleutelen. Dit kan door het certificaat in het requestbericht te gebruiken voor versleuteling van de response. Ook de requester dient hier dus rekening mee te houden bij ontsleutelen van het responsebericht.<br>Om het request bericht initieel te versleutelen dient de publieke sleutel van de ontvangende partij al in de truststore geregistreerd te zijn.|
+|WB013|Indien WS-Security wordt toegepast, is het controleren van de signature door de ontvangende partij verplicht.|
+||Overwegingen:<br>Het ondertekenen van berichten is alleen zinvol als de ontvanger van het bericht ook daadwerkelijk de signature valideerd. Indien de validatie mislukt, dient het bericht afgewezen te worden en een foutmelding als antwoord te worden verstuurd.<br>Ook indien de ondertekening van de respons niet valide is mogen de gegevens niet verwerkt worden. De ontvanger kan wedermaal een requestbericht versturen, maar de kans is groot dat out-of-band communicatie noodzakelijk is om er voor te zorgen dat de dienstaanbieder een valide respons stuurt.|
+|WB014|Indien WS-Security wordt toegepast dient het responsebericht de signature van het requestbericht als onderdeel van het SignatureConfirmation element op te nemen (WS Security 1.1.).|
+||Overwegingen:<br>Door het herhalen van de ondertekening van het requestbericht kan de ontvanger van het responsebericht valideren dat het oorspronkelijke requestbericht in onaangetaste staat is ontvangen en verwerkt.<br>Een contract wordt voor een Digikoppeling WUS Koppelvlak gedefinieerd door een WSDL. De WSDL 1.1 specificatie op zich biedt geen mogelijkheden om het gebruik van WS-Security aan te geven.|

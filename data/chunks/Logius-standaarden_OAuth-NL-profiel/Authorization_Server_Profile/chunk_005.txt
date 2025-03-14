@@ -1,0 +1,43 @@
+
+####Dynamic Registration
+
+Dynamic Registration allows for authorized Clients to on-board programmatically without administrative intervention. This is particularly important in ecosystems with many potential Clients, including Mobile Apps acting as independent Clients. Authorization servers MUST support dynamic client registration,
+and clients MAY register using the [Dynamic Client Registration Protocol] [[rfc7591]] for authorization code grant types. Clients MUST NOT dynamically register for the client credentials grant type. Authorization servers MAY limit the scopes available to dynamically registered clients.
+
+Authorization servers MAY protect their Dynamic Registration endpoints by requiring clients to present credentials that the authorization server would recognize as authorized participants. Authorization servers MAY accept signed software statements as described in [[RFC7591]] [[rfc7591]] issued 
+to client software developers from a trusted registration entity. The software statement can be used to tie together many instances of the same client software that will be run, dynamically registered, and authorized separately at runtime. The software statement MUST include the following client metadata parameters:
+
+<dl>
+
+<dt>redirect_uris</dt>
+
+<dd style="margin-left: 8">array of redirect URIs used by the client; subject to the requirements listed in [Section 2.2.1](#redirect-uri)</dd>
+
+<dt>grant_types</dt>
+
+<dd style="margin-left: 8">grant type used by the client; must be "authorization_code” or "client_credentials”</dd>
+
+<dt>jwks_uri or jwks</dt>
+
+<dd style="margin-left: 8">client's public key in JWK Set format; if jwks_uri is used it MUST be reachable by the Authorization Server and point to the client's public key set</dd>
+
+<dt>client_name</dt>
+
+<dd style="margin-left: 8">human-readable name of the client</dd>
+
+<dt>client_uri</dt>
+
+<dd style="margin-left: 8">URL of a web page containing further information about the client</dd>
+
+</dl>
+
+<!-- iGov-NL : Start of the additional content -->
+<aside class=" addition">
+<b>iGov-NL : Additional content</b></br>  
+In this version of iGov-NL we recommend that the Authorization servers SHOULD support dynamic client registration. However depending on how the future authentication architecture of the Dutch government develops in regards to OAuth we may revisit this in a future revision.  
+The current requirement fits an architecture where there is a limited number of widely used authorization servers. However if in practice we start seeing a very large number of authorization servers with limited use this requirement can become a recommendation in a future version of this profile. For these authorization servers with limited use we consider mandatory support for dynamic client registration a large burden.
+
+</aside>
+<!-- iGov-NL : End of the additional content -->
+
+<!-- ### [3.1.4.](#rfc.section.3.1.4) Client Approval -->

@@ -1,0 +1,3 @@
+
+###Semantic Treehouse
+Semantic Treehouse is het communityplatform dat het beheer van ontologiën en andere soorten datamodellen ondersteunt. Wat Semantic Treehouse uniek maakt, is dat het de publicatie, het onderhoud en het beheer van uw datamodellen op één plek combineert. Semantic Treehouse is gebaseerd op meer dan 10 jaar ervaring met het ontwikkelen, onderhouden en delen van datastandaarden volgens BOMOS. Semantic Treehouse valt onder de categorie Software as a Service, en afnemers hebben de mogelijkheid om een eigen huisstijl in te richten voor de gebruikersinterface voor een herkenbare gebruikerservaring.

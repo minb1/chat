@@ -1,0 +1,23 @@
+Message Ordering in ebXML
+
+Een onderdeel van de ebMS 2.0 specificatie is de volgordelijkheid van berichten, aangeduid met MessageOrder. overgenomen uit hoofdstuk 9 van [ebM2.0][^6]:
+
+[^6]: Zie document op [www.oasis-open.org](http://www.oasis-open.org).
+
+>   **9 MessageOrder Module**
+
+>   The MessageOrder module allows messages to be presented to the To Party in a particular order. This is accomplished through the use of the MessageOrder element. Reliable Messaging MUST be used when a MessageOrder element is present.
+
+>   MessageOrder module MUST only be used in conjunction with the ebXML Reliable Messaging Module (section 6) with a scheme of Once-And-Only-Once (sections 6.6). If a sequence is sent and one message fails to arrive at the To Party MSH, all subsequent messages will also fail to be presented to the To Party Application (see status attribute section 9.1.1).
+
+>   **9.1 MessageOrder Element**
+
+>   The MessageOrder element is an OPTIONAL extension to the SOAP Header requesting the preservation of message order in this conversation.
+
+De ebMS standaard biedt daarmee de mogelijkheid om de volgordelijkheid van berichten te garanderen.
+
+Maar het is wel een OPTIONAL[^7] element, dus bekijk per product of het ook daadwerkelijk ondersteund wordt.
+
+[^7]: OPTIONAL, uit [ebMS v2.0]: “This word means that an item is truly optional. One vendor may choose to include the item because a particular marketplace requires it or because the vendor feels that it enhances the product while another vendor may omit the same item.”
+
+##

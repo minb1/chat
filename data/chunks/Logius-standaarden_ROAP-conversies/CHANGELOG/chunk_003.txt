@@ -1,0 +1,8 @@
+
+###Added
+
+- Eerste kale versie versie op basis van ReSpec-template van Logius, ontdaan van alle voorbeeldballast uit het template.
+- Inleiding ([ROAP-conversies.md](ROAP-conversies.md)) toegevoegd.
+- Hoe deze documentatie te lezen ([legenda.md](legenda.md)) toegevoegd.
+- Samenvatting ([samenvatting.md](samenvatting.md)) toegevoegd.
+- Dit [wijzigingenbestand](CHANGELOG.md) toegevoegd.

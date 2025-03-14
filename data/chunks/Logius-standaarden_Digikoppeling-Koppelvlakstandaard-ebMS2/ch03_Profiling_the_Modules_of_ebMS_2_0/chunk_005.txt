@@ -1,0 +1,9 @@
+
+###SyncReply Module [ebMS 2.0] Section 4.3
+
+| Profile(s)| Usage: required/optional/never used in this profile |Notes|
+|------------------|---|---|
+|**Best effort**|**Never used** in this profile|(empty)|
+|**Reliable Messaging**|**Optional used** in this profile. All messages, including acknowledgments and error messages, are sent asynchronously, with the exception of cases as described in par 4.4.1. Only in specific cases can MSH signals (acknowledgements, errors) sent synchronously. See 4.4.1 for conditions.|Asynchronous messaging does not preclude fast response times, as is required to support interactive applications. Asynchronous messaging supports higher levels of scalability and supports scenarios where a response message may be sent minutes, hours or days after the initial request message. Asynchronous messaging may be combined transparently with store-and-forward intermediary|
+|**End-to-End Security**|**Optional used** in this profile. See profile Best Effort or profile Reliable Messaging for details|(empty)|
+

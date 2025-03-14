@@ -1,0 +1,3 @@
+#Waaraan koppelen?
+
+Digikoppeling is een standaard voor elektronisch berichtenverkeer binnen de overheid. De Digikoppeling standaard vormt de basis voor de Stelselvoorzieningen die in het kader van gegevensuitwisseling tussen basisregistraties en haar afnemers zijn ontwikkeld. Maar ook voor aansluiting op andere e-overheidsbouwstenen is de implementatie van Digikoppeling binnen uw organisatie randvoorwaardelijk.

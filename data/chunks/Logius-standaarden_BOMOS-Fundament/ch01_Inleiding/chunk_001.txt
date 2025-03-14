@@ -1,0 +1,9 @@
+#Inleiding
+
+We starten met een woord van dank, en zullen vervolgens de BOMOS
+"Geboden" presenteren, waarin veel uit BOMOS in samen komt. De
+structuur van BOMOS wordt toegelicht, om daarna uitgebreid het Beheer-
+en Ontwikkelmodel te introduceren, wat afgesloten wordt met een
+overzicht van onderwerpen die in [BOMOS Deel 2: De
+Verdieping](https://logius-standaarden.github.io/BOMOS-Verdieping)
+terugkomen.

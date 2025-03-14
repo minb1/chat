@@ -1,0 +1,41 @@
+
+####Ad 2. Mate van volwassenheid
+
+Als een standaard een grote mate van volwassenheid heeft, gekenmerkt
+door brede adoptie van de standaard, dan is dienstverlening door de
+beheerorganisatie ook een potentiële inkomstenbron. Te denken valt aan
+verschillende vormen van dienstverlening:
+
+*   certificering
+*   opleiding
+*   implementatieondersteuning
+
+[Certificering](#kwaliteit-van-implementaties) kan op verschillende
+manieren ingezet worden, ook als middel om financiële opbrengsten te
+genereren. In het kader van opleidingen kan bijvoorbeeld gedacht
+worden aan het geven van opleidingsdagen tot aan complete cursussen
+over de standaard. De marge op de cursus kan een inkomstenbron zijn,
+helemaal gecombineerd met certificeren (het volgen van een opleiding
+verplicht stellen voor het certificaat). Tot slot is
+implementatie-ondersteuning een middel, dat kan in lichte mate door
+het geven van betaalde adviezen over correct gebruik van de standaard,
+tot aan het uitvoeren van complete implementatietrajecten. Hiermee
+wordt de beheerorganisatie ook een marktpartij en daar kleven nadelen
+aan.
+
+Kort samengevat zal dienstverlening een inkomstenbron zijn die naar
+mate de standaard volwassener wordt meer mogelijkheden gaat bieden
+voor inkomsten. Een inkomstenbron die in de praktijk niet veel
+voorkomt, maar voor de toekomst niet uitgesloten moet worden is de
+donatie. Vooral structurele donaties zijn een prettige
+financieringsvorm. Dit leidt tot het volgende model:
+
+![Opbrengstenmodel](images/BOMOS-4_Opbrengstmodel-blanco.png "Opbrengstenmodel")
+
+Overigens zijn de kosten van het beheren van een standaard ook niet
+gelijk door de jaren heen. Sommige kostenposten kunnen flink
+veranderen. Tegenwoordig zien we posten als tactisch beheer flink
+stijgen, vooral door de relaties tussen de vele (internationale)
+standaarden die afstemming vergen. Indien de adoptie van de standaard
+succesvol is zal ook een post als implementatieondersteuning flink
+kunnen stijgen.

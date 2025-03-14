@@ -1,0 +1,7 @@
+#Invulling OIN en Naam in het  PKIoverheidcertificaat
+
+<aside class="note">
+
+Onderstaande beschrijving is voorgelegd aan de TSP's voor verificatie.
+
+</aside>

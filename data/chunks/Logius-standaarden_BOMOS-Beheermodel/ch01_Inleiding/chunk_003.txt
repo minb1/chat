@@ -1,0 +1,18 @@
+
+##BOMOS versie 2 naar versie 3
+
+BOMOS staat voor 'Beheer en Ontwikkelmodel Open Standaarden. De
+methodiek is ontstaan uit een samenwerking met verschillende partijen
+met expertise m.b.t. het open beheren van standaarden. In 2006 heeft de
+Werkgroep CMO (Community Model Open Standaarden), een werkgroep
+bestaande uit TNO, Bureau Forum Standaardisatie en Logius aan dit
+onderwerp gewerkt, dit vormde het startpunt voor de ontwikkeling van
+BOMOS versie 1 en 2. De methodiek is sindsdien ondergebracht bij Logius
+en is toe aan een nieuwe versie. Daarnaast is er behoefte aan tooling
+(op basis van BOMOS) ter ondersteuning van het beheren van stelsels en
+standaarden. Logius beheerd stelsels en **standaarden** met behulp van
+
+BOMOS maar de methodiek zelf wordt momenteel niet actief beheerd. Om de
+methodiek conform BOMOS actief te beheren en door te ontwikkelen zijn we
+recent gestart met een werkgroep en het schrijven van dit
+beheerdocument.

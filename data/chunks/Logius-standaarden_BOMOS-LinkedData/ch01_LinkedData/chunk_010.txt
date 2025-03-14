@@ -1,0 +1,11 @@
+
+##Een (tussen)weg kiezen
+Het is overigens niet zo dat de keuze enkel bestaat uit ofwel een volledige overstap maken naar Linked Data, of alles te houden bij het oude. Er zijn gradaties en tussenstappen denkbaar.
+
+Een technologie die hierin een essentiële rol speelt is RML (RDF Mapping Language), ontwikkeld door een team van de Universiteit van Gent. Met RML is het mogelijk om semi-gestructureerde data als JSON, XML en CSV te transformeren naar Linked Data. Dat doe je door eerst de RML regels die voor de betreffende data moeten gelden op te schrijven. Daarna voed je deze RML regels plus de oorspronkelijke data aan een zogenaamde RMLMapper, die er Linked Data triples van maakt.
+
+Het toepassen van RML zou wel eens voor veel gemeenschappen met standaarden het beste alternatief balans kunnen zijn op volledig overstappen op Linked Data of niets doen. In principe volstaat het om door middel van RML mappings een tussenlaag aan te brengen die de vertaling maakt tussen de relevante interne systemen van de gebruiker en de gemeenschappelijke ontologie. Dankzij die mappings kan men vervolgens door middel van RESTful APIs toch Linked Data uitwisselen, terwijl de huidige systemen in stand kunnen blijven.
+
+<aside class="example">
+Deze strategie werd ook in het FIT with Ontologies-project gehanteerd. Een belangrijk doel in dat project was het bewaken van backwards compatibility met de berichtuitwisseling volgens de conventionele SETU-standaarden. Met andere woorden, het moest met de nieuwe techniek mogelijk blijven om SETU-berichten te ontvangen en verwerken. Men heeft daarom gewerkt aan de FIT engine: een softwarecomponent dat RML toepast om SETU-berichten om te zetten naar Linked Data. Met de FIT engine kunnen de partijen die de overstap naar uitwisseling van Linked Data gemaakt hadden alle vruchten hiervan plukken, zonder dat hun bestaande koppelingen met klanten daarvoor op de schop hoeven.  
+</aside>

@@ -1,0 +1,4 @@
+
+##EB016 Correlatie van berichten
+
+Voor het correleren van berichten in ebMS2 spelen de elementen *Messageid*, *ConversationId* en *RefToMessageId* een rol. Het gebruik van de combinatie *MessageId* en *RefToMessageId* en het *ConversationId* dienen verschillende doelen. Deze 2 doelen zijn hieronder uitgewerkt:

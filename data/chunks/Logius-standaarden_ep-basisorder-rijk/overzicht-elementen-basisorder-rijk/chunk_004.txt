@@ -1,0 +1,12 @@
+
+##Gegevens leverancierpartij
+
+|      | Gegevensnaam                | Verplicht  | Voorbeeldvulling      | Opmerkingen |
+|------|-----------------------------|------------|-----------------------|----|
+|  3.1 | Naam                        | Ja         | Leverancier B.V.      |  |
+|  3.2 | Identificatie               | Ja         | 60451258              | Standaard KvK nummer, optioneel vestigingsnummer of BTW  |
+|  3.3 | Adres                       | Nee        | Appelhof 1            | Straat en huisnummer dienen te worden samengevoegd in XML |
+|  3.4 | Postcode                    | Nee        | 4321 AA               |  |
+|  3.5 | Plaats                      | Nee        | Den Haag              |  |
+|  3.6 | Land                        | Ja         | NL                    | Tweeletterige landcode |
+|  3.7 | Contactpersoon              | Nee        | henk@leverancierbv.nl |  |

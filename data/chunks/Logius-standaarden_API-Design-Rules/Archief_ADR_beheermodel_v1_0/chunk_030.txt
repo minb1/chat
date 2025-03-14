@@ -1,0 +1,28 @@
+
+##Documentatie
+
+Alle documenten m.b.t. de standaard en het beheer van de standaard worden openbaar en zonder drempels voor gebruik, gepubliceerd op logius.nl en onze Github pagina&#39;s. Logius publiceert tenminste de volgende documenten:
+
+- Dit ADR-beheermodel
+- De vergaderstukken van het Technisch overleg en overige besluitvormende gremia.
+- De specificaties van de standaard
+- De voorlopige specificaties van de nieuwe versie van de standaard.
+
+
+
+Versie 1.0 van de ADR is gepubliceerd op:<br>
+[https://publicatie.centrumvoorstandaarden.nl/api/adr/1.0](https://publicatie.centrumvoorstandaarden.nl/api/adr/1.0)
+
+De laatste versie van de ADR is gepubliceerd op:<br>
+[https://publicatie.centrumvoorstandaarden.nl/api/adr/](https://publicatie.centrumvoorstandaarden.nl/api/adr/)
+
+De laatste concept versie van de standard is gepubliceerd op:<br>
+[https://logius-standaarden.github.io/API-Design-Rules/](https://logius-standaarden.github.io/API-Design-Rules/)
+
+Het beheermodel is gepubliceerd op:<br>
+[API-Design-Rules/Governance at master · Logius-standaarden/API-Design-Rules (github.com)](https://github.com/Logius-standaarden/API-Design-Rules/tree/master/Governance)
+
+De vergaderstukken zijn gepubliceerd op:<br>
+[API-Design-Rules/Governance at master · Logius-standaarden/API-Design-Rules (github.com)](https://github.com/Logius-standaarden/API-Design-Rules/tree/master/Governance)
+
+

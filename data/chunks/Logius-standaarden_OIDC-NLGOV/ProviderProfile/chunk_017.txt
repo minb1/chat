@@ -1,0 +1,6 @@
+
+###Caching
+
+It is RECOMMENDED that OpenID Providers provide caching directives through HTTP headers for the Discovery endpoint and the `jwks_uri` endpoint and make the cache valid for at least one week.
+OpenID Providers SHOULD document their change procedure. In order to support automated transitions to configuration updates, OpenID Providers SHOULD only make non-breaking changes and retain backward compatibility when possible. It is RECOMMENDED that OpenID Providers monitor usage of outdated configuration options used by any OpenID Client and actively work with their administrators to update configurations.
+The above on caching and changes MUST be applied to the `jwks_uri` containing the OpenID Provider's key set as well.

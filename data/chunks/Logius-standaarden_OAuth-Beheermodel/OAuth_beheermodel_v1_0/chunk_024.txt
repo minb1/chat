@@ -1,0 +1,4 @@
+
+##Kwaliteitsbeleid en benchmarking  
+
+Zoals gezegd wordt het beheer van de OAuth-NL standaard volledig open ingevuld (zie ook de paragraaf [Bomos](#bomos) en [Governance](#governance)) Dit borgt dat zoveel mogelijk belangstellenden en belanghebbenden betrokken zijn bij wijzigingen en besluitvorming die wijzigingen.

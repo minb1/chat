@@ -1,0 +1,11 @@
+#Digikoppeling Release 14-11-2022: Toevoegen API-58 No sensitive information in URI's
+
+Uit het Onderzoek ‘verwijzing naar de 'ADR API Security Extensie' vanuit de Digikoppeling Beveiligingsvoorschriften’
+
+https://logius.nl/diensten/digikoppeling/documentatie/digikoppeling-roadmap-2022-2023#index-9
+
+Is regel API-58 ‘No sensitive information in URIs’ gekomen als geschikt om normatief te maken.
+
+In deze release is opgenomen:
+
+* [Digikoppeling Koppelvlakstandaard REST-API 1.1.0](https://publicatie.centrumvoorstandaarden.nl/dk/restapi/)

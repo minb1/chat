@@ -1,0 +1,2 @@
+#Deprecated rules
+This appendix contains some of the rules that were described in the [first version](https://docs.geostandaarden.nl/api/API-Strategie-ext/#geospatial) of the "Geospatial Extension", which was never officially adopted as a standard. Only those rules that are still relevant in some situations or do not have a good replacement in the current Geospatial model are retained here. They are shown here only as information. 

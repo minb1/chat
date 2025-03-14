@@ -1,0 +1,4 @@
+
+##Metadata
+
+De metadata beschrijft de informatie over het bestand dat verstuurd wordt met HTTP 1.1. De metadata zelf wordt verzonden via het REST-API, ebMS of WUS Koppelvlak. Ten behoeve van toekomstige vernieuwingen bevat de metadata een versienummer (‘profile’-waarde).

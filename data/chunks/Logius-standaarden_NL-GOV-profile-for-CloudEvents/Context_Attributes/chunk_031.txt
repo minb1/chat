@@ -1,0 +1,9 @@
+
+####sequencetype
+
+- Type: `String`
+- Description: Specifies the semantics of the sequence attribute. See the
+  [SequenceType Values](#sequencetype-values) section for more information.
+- Constraints:
+  - OPTIONAL
+  - If present, MUST be a non-empty string

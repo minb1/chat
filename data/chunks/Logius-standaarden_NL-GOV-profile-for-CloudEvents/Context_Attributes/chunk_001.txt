@@ -1,0 +1,10 @@
+#Context Attributes
+<!-- ## [3.](#rfc.section.3) [Authorization Server Profile](#ServerProfile) -->
+
+Every CloudEvent conforming to this specification MUST include context
+attributes designated as REQUIRED, MAY include one or more OPTIONAL context
+attributes and MAY include one or more extension attributes.
+
+These attributes, while descriptive of the event, are designed such that they
+can be serialized independent of the event data. This allows for them to be
+inspected at the destination without having to deserialize the event data.

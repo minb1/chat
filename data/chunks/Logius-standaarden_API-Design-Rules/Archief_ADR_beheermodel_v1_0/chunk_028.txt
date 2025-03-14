@@ -1,0 +1,18 @@
+
+##Uitvoering en ontwikkeling (Wijzigingsproces)
+
+De procedure van RCF naar daadwerkelijke wijziging ziet er als volgt uit:
+
+- Issues die in behandeling worden genomen worden als RFC gelabeld
+- RFC&#39;s worden besproken en uitgewerkt in de Werkgroep ADR
+- RFC&#39;s worden vastgesteld in Technisch Overleg API&#39;s (TO)
+- RFC worden na vaststelling in het TO Openbaar geconsulteerd
+- Na vaststelling volgt publicatie van de nieuwe versie van standaard
+
+> N.B. Zolang het Centrum voor Standaarden nog geen predicaat &quot;Uitstekend beheer&quot; heeft ontvangen van Forum Standaardisatie, zullen nieuwe versies na vaststelling in het TO aan Forum Standaardisatie worden voorgelegd ter beoordeling.
+> N.B.2. Het technisch overleg is momenteel samengevoegd met het structurele overleg van de werkgroep ADR van het Kennisplatform (zie 2.2.3)
+
+Dit is schematisch weergegeven in het onderstaande ADR Governance model:  
+
+![ADR Governance model](media/ADR_Governance_model.png "ADR Governance model")
+> Figuur 6. ADR Governance model

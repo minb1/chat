@@ -1,0 +1,8 @@
+
+###Rationale
+
+Er is een direct verband tussen de Services en de identity van de client/gebruiker. Dit is maakt het mogelijk om ook privacy vertrouwelijke gegevens veilig te gebruiken in de orkestratie. 
+- In de praktijk wordt deze vorm van orkestratie ook vaak client side gedaan door vanuit de client direct meerdere API's aan te roepen,
+- en is er bij de orkestratie service vaak geen sprake van filtering van gegevens,
+- het betreft dan meer een bundeling van meerdere bronnen dan echt orkestratie,
+- het lijkt bij bevragingen vaak meer op het composition patroon dan een orkestratie patroon.

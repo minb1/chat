@@ -1,0 +1,4 @@
+
+##BOMOS toegepast op afsprakenstelsels
+
+![BOMOS model](images/bomos_activiteiten.png "BOMOS activiteiten")

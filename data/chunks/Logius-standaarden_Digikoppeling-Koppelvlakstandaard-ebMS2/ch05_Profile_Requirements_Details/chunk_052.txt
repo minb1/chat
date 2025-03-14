@@ -1,0 +1,11 @@
+
+##Profile Requirement Item: SMTP Confidentiality and Security
+
+|[[EBXML-MSG]] Appendix B.3.4, B.3.5| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header elements|MIME parts |
+| What SMTP access control mechanisms are required? [Refer to item 4.1.4.8 in Security section.] | **Not applicable**. This specification only supports the HTTP transport protocol. |
+| Is transport-layer security required for SMTP, and what are the specifics of its use? [Refer to item 4.1.4.6 in Security section.] | **Not applicable**. This specification only supports the HTTP transport protocol. |
+| Alignment | (empty) |
+| Test References | (empty) |
+| Notes  | (empty) |

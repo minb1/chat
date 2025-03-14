@@ -1,0 +1,13 @@
+4.1 Protecting Resources
+
+iGov-NL
+
+TODO NL example
+
+/iGov-NL
+
+**rationale to be provided by: Jan-Jaap**
+
+**reference to rationale: self explanatory: additional information (non normative) on how to implement requirement**
+
+##

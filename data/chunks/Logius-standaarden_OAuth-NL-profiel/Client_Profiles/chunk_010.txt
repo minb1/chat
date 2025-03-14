@@ -1,0 +1,19 @@
+
+####Response from the Authorization Endpoint
+
+<!-- iGov-NL : Start of the additional content -->
+<aside class=" addition">
+<b>iGov-NL : Additional content</b></br>  
+
+Response parameters
+<dl>
+<dt>code</dt>
+<dd>Mandatory. MUST be a cryptographic random value, using an unpredictable value with at least 128 bits of entropy.</dd>
+<dt>state</dt>
+<dd>Mandatory. MUST be a verbatim copy of the value of the <code>state</code> parameter in the Authorization Request.</dd>
+</dl>
+
+</aside>
+<!-- iGov-NL : End of the additional content -->
+
+<!-- ### [2.3.3.](#rfc.section.2.3.3) [Requests to the Token Endpoint](#RequestsToTokenEndpoint) -->

@@ -1,0 +1,20 @@
+
+###Grote Berichten
+
+De situatie kan zich voordoen dat een bericht een omvang krijgt die niet meer efficiënt door de Digikoppeling-adapters verwerkt kan worden bijvoorbeeld vanwege de overhead bij eventuele hertransmissies. Ook kan het voorkomen dat er behoefte bestaat aan het sturen van aanvullende informatie naar systemen buiten de normale procesgang ('out-of-band'). In die gevallen zal dit grote bestand op een andere wijze uitgewisseld moeten worden: met de Digikoppeling Koppelvlakstandaard Grote Berichten.
+
+Bij ‘grote berichten’ worden grotere bestanden uitgewisseld via een Digikoppeling uitwisseling in combinatie met een (HTTPS-)down- of upload vanaf een beveiligde website. Grote berichten vormen een functionele uitbreiding op Digikoppeling uitwisseling voor de veilige bestandsoverdracht van berichten groter dan 20 MiB<sup>[24](#f24)</sup>.
+
+Digikoppeling Grote Berichten maakt verschillende vormen van uitwisseling op business-niveau mogelijk. De best-practice beschrijft de volgende vormen:
+
+• Upload – grote hoeveelheid gegevens uploaden.
+
+• Download – grote hoeveelheid gegevens downloaden.
+
+• Selectie – een selectie van grote hoeveelheden gegevens verkrijgen.
+
+• Verzending - grote hoeveelheid gegevens versturen.
+
+• Multi-distributie - grote hoeveelheid gegevens aan meerdere ontvangers versturen.
+
+<br><sup><a name="f24"><dfn>24</dfn></a>: 1 MiB=1024<sup>2</sup> bytes : Voorheen stond hier 20MB. We gebruiken de term MiB om geen enkele verwarring te scheppen over de drempelwaarde. Het verschil tussen 20Mb en 20Mib is echter te verwaarlozen.</sup>

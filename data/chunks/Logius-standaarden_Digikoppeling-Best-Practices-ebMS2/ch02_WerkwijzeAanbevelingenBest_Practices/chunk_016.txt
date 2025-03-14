@@ -1,0 +1,20 @@
+
+##EB015 SyncReplyMode
+
+Het Digikoppeling ebMS2 Reliable Messaging (RM) profiel vereist dat berichten bevestigd worden met een *acknowledgement* bericht. Binnen het Digikoppeling ebMS2 RM-profiel moet deze acknowledgement *asynchroon* worden verzonden. Een Digikoppeling oplossing houdt hiervoor een administratie bij zodat de acknowledgement aan het initiële *MessageId* van het bericht kan worden kan worden gerefereerd
+
+Bij het gebruik van het uitwisselen van zeer hoge volumes van berichten in beperkte tijd via het Digikoppeling ebMS RM-profiel *kan* de overhead van het asynchroon bevestigen van het bericht via asynchrone acknowledgement (te) groot worden. Vandaar dat sinds versie 3.3 van dit profiel het gebruik van SyncReply Profile in de Digikoppeling ebMS2 specificatie wordt toegestaan voor een aantal uitzonderingsgevallen. Vanaf deze versie is het in bepaalde gevallen mogelijk om een bericht synchroon – dus in dezelfde http-sessie- te bevestigen met een acknowledgement (of een foutsituatie synchroon te beantwoorden met een *errormessage*)
+
+**Toepassen van Synchrone acknowledgement is uitzondering**
+
+Het gebruik van Syncreply wordt in de regel afgeraden. Tot aan versie 3.3 van Digikoppeling ebMS was een invulling van het attribuut SyncReplyMode in het CPA anders dan “none” niet toegestaan, met als onderbouwing: Asynchronous messaging does not preclude fast response times, as is required to support interactive applications. *Asynchronous messaging supports higher levels of scalability and supports scenarios where a response message may be sent minutes, hours or days after the initial request message.* Asynchronous messaging may be combined transparently with store-and-forward intermediaries.
+
+In de praktijk blijkt dat er toch situaties bestaan waarin het synchroon bevestigen van een bericht voordeel biedt:
+
+<aside class="example">
+**Casusbeschrijving**
+
+Bij uitwisseling tussen een GDI-voorziening en een grote afnemer worden door de verzendende partij aan de ontvangende partij in korte tijd zeer hoge volumes berichten aangeboden. Vanwege de eis op betrouwbaarheid is voor de uitwisseling gekozen voor het ebMS2 RM-profiel. Deze ebMS berichten bevatten per zending 1 functioneel bericht. Hierdoor is de overhead van het ebMS protocol voor de ontvangende partij relatief hoog.
+
+De berichtuitwisseling in de keten was oorspronkelijk opgezet volgens asynchrone bevestiging. Bij de ketenintegratietest tussen beide partijen kwamen verwerkingsproblemen aan de ontvangende kant aan het licht. In onderling overleg tussen de ketenpartners is afgesproken om de ebMS2 uitwisseling zo in te stellen dat acknowledgements synchroon verstuurd worden. Hierna verliep de uitwisseling volgens de afgesproken eisen aan capaciteit, performance en betrouwbaarheid.
+</aside>

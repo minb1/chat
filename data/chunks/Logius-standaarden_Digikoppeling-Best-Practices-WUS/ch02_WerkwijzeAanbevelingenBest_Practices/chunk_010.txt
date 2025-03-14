@@ -1,0 +1,16 @@
+
+####Contract First vs Contract Last
+
+Het ontwikkelen van webservices kan grofweg ingedeeld worden in twee categorieën, namelijk:
+
+- contract first
+
+- contract last
+
+Met ‘contract’ wordt gewezen op het WSDL contract dat de webservice definieert. Nagenoeg alle webservice toolkits ondersteunen beide manieren van ontwikkeling.
+
+Bij een contract first approach wordt in feite gestart met het handmatig samenstellen van het WSDL. Gebaseerd op het WSDL wordt vervolgens door toolkits de code gegenereerd. De ontwikkelaar maakt gebruik van de genereerde code om vervolgens een implementatie te schrijven. Hierbij maakt de ontwikkelaar gebruik van technieken als interfaces en overerving.
+
+Bij Contract last approach is dit proces net andersom. Een ontwikkelaar begint met het ontwikkelen van de logica en het schrijven de code. Daarna voegt de ontwikkelaar meta informatie toe aan de code waarmee bepaald wordt hoe de WSDL eruit ziet. Meta informatie verschilt per toolkit/framework hoe dit gedaan wordt. Binnen de Javawereld wordt dit vaak gedaan met jaxws annotations. Bij het opstarten van de applicatie wordt vervolgens door de toolkit bepaald welke meta informatie het tot zijn beschikking heeft en zal vervolgens op runtime een WSDL publiceren.
+
+Beide manieren hebben hun voor- en nadelen. Ervaring leert wel dat bij trajecten waarbij strikte eisen worden gesteld met betrekking tot de WSDL dat een contract first approach uiteindelijk de meest robuuste manier is. Doordat een WSDL volledig handmatig wordt samengesteld, is dit ook de meest flexibele en toolkit-onafhankelijke manier van werken.

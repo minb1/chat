@@ -1,0 +1,13 @@
+
+####Toelichting aanduidingen
+
+ Voorschriften zijn aangeduid met 'Verplicht', 'Aanbevolen' en 'Niet van Toepassing' waarvoor de volgende definities gelden:
+
+
+|Categorie | Codering RFC2119 |Voorschrift | Toelichting |
+| --- | --- |---|---|
+|  Verplicht | MUST |De eisen moeten gevolgd worden. Hier kan niet van afgeweken worden.|
+|  Aanbevolen | SHOULD | Aanbevolen is om de eisen conform conform voorschrift te implementeren. Wanneer hier van afgeweken wordt dient een zorgvuldige afweging plaats te vinden  |
+|  Niet van Toepassing | - | De eisen zijn niet van toepassing|
+
+(Indeling gebaseerd op [[?rfc2119]])

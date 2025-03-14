@@ -1,0 +1,4 @@
+
+##Authorization server
+
+The authorization server is owned by the DSO, it is part of their API Management platform. 

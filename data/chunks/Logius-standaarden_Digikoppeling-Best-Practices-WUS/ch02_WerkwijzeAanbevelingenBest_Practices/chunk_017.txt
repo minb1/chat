@@ -1,0 +1,12 @@
+
+###Routeren van berichten over meerdere intermediairs
+
+WS-Addressing biedt de mogelijkheid om via vaste metadata berichten te voorzien van routeerinformatie. Hiervoor gebruikt men met name het `To` adres. Het is aan te raden om in het `To` adres, het beoogde eindadres op te nemen. De endpoint die het bericht ontvangt kan door middel van de waarde van `To` adres bepalen hoe het bericht doorgezet wordt. Intern dient de intermediair een mapping tabel bij te houden naar wie een bericht doorgestuurd moet worden afhankelijk van de `To` waarde van het bericht. Dit kan dus naar de eindbestemming zijn, of weer naar een andere intermediair. De mapping inrichting dient vooraf afgesproken en ingericht te zijn.
+
+Het is geen optie om het `To` adres continu te herschrijven bij elke intermediair, waarin de `To` adres de waarde krijgt waar het naar toe moet gaan. Dit is namelijk niet mogelijk als het bericht ondertekend is want de `To` waarde is onderdeel van de ondertekening en mag dus niet gewijzigd worden.
+
+Ter verduidelijking, de volgende sequence diagram:
+
+![Sequence diagram routeren van berichten over meerdere intermediairs](media/sequence_diagram_routering.jpeg "sequence diagram routeren van berichten over meerdere intermediairs" )
+
+Zoals in het diagram getoond wordt, blijft de addressing informatie gelijk tijdens de hele verzending. Indien het bericht ondertekend en versleuteld is, hoeven gateway 1 en gateway 2 het bericht niet te valideren of ontcijferen. Zolang de addressing informatie niet veranderd wordt, is de meegestuurde ‘signature’ nog steeds valide. De gateway componenten lezen enkel het `To` adres uit, om te bepalen waar het bericht naartoe gestuurd moet worden.

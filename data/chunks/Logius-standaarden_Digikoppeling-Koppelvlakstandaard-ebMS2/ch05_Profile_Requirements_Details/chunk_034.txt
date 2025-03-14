@@ -1,0 +1,11 @@
+
+###Profile Requirement Item: Status Request message
+
+|[[EBXML-MSG]] Section 7.1.1 Message Status Request| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header element(s)|`Eb:MessageHeader/eb:StatusRequest`|
+| If used, must Message Status Request Messages be digitally signed?   | **Not applicable**. |
+| Must unauthorized Message Status Request messages be ignored, rather than responded to, due to security concerns? | **Not applicable**. |
+| Alignment | (empty) |
+| Test References | (empty) |
+| Notes  | (empty) |

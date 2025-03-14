@@ -1,0 +1,17 @@
+
+###MessageOrder
+
+De MessageOrder geeft aan of er wel of geen gebruik gemaakt wordt van ordening van berichten. De default waarde voor MessageOrder is “NotGuaranteed” en wordt als volgt opgenomen in het ebMS2 contract:
+
+```XML
+    <tns:MessageOrderSemantics>NotGuaranteed</tns:MessageOrderSemantics>
+```
+
+Indien er wel gebruik gemaakt wordt van MessageOrder is de waarde:
+
+```XML
+    <tns:MessageOrderSemantics>Guaranteed</tns:MessageOrderSemantics>
+```
+
+<aside class="note"> MessageOrder wordt niet door alle ebMS-adapters implementaties ondersteund. Als het wel het geval is zal de interoperabiliteit goed getest moeten worden. Zie hoofdstuk “Het gebruik van bericht volgordelijkheid”.
+</aside>

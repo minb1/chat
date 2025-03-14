@@ -1,0 +1,4 @@
+#Gewenst niveau van identiteit
+
+Het gewenste niveau van de identiteit wordt in dit hoofdstuk eerst bepaald aan
+de hand van de eisen vanuit autorisatie, en daarna vanuit vastlegging.

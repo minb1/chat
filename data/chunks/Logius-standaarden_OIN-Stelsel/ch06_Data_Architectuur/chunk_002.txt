@@ -1,0 +1,14 @@
+
+##Samenstelling OIN
+
+De lengte van het [=OIN=] is 20 posities, omdat dit wordt opgenomen in het *subject serial number* veld van het PKIoverheid certificaat. Het [=OIN=] is opgebouwd uit de volgende elementen:
+
+
+
+| **Element** | **Lengte**| **Waarde**|
+|---|---|---|
+| **Prefix**| 8 posities| Zie Prefix tabel|
+| **Hoofdnummer** | 8 of 9 posities | Identificerend nummer *Dit kan ook alfanumeriek zijn, afhankelijk van het geraadpleegde register.* uit een register. Als het hoofdnummer een [=KVK-nummer=] is, is het hoofdnummer 8 posities lang. |
+| **Suffix**| 3 of 4 posities | Als het hoofdnummer 9 posities heeft dan is het suffix 000. Als het hoofdnummer 8 posities heeft dan is het suffix 0000.|
+
+

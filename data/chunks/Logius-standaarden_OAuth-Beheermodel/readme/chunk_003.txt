@@ -1,0 +1,8 @@
+
+##Deze repository (het OAuth-NL beheermodel):
+
+<https://github.com/Logius-standaarden/OAuth-Beheermodel>
+
+Bekijk hier **de laatste werkversie** van het beheermodel:
+
+https://logius-standaarden.github.io/OAuth-Beheermodel/

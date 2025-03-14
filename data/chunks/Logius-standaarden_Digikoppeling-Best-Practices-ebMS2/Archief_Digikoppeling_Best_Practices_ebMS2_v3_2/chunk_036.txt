@@ -1,0 +1,48 @@
+Ontwerp Pattern
+
+Als uitgangspunt voor de realisatie van de volgordelijkheid kan het Resequencer patroon gebruikt worden: <http://www.enterpriseintegrationpatterns.com/Resequencer.html>
+
+\__________________________________________________________\_
+
+A [Message Router](http://www.enterpriseintegrationpatterns.com/MessageRouter.html) can route messages from one channel to different channels based on message content or other criteria. Because individual messages may follow different routes, some messages are likely to pass through the processing steps sooner than others, resulting in the messages getting out of order. However, some subsequent processing steps do require in-sequence processing of messages, for example to maintain referential integrity.
+
+**How can we get a stream of related but out-of-sequence messages back into the correct order?**
+
+![](media/6fbcc3aac2e759243464345f25cb01fe.png)
+
+**Use a stateful filter, a Resequencer, to collect and re-order messages so that they can be published to the output channel in a specified order.**
+
+The Resequencer can receive a stream of messages that may not arrive in order. The Resequencer contains in internal buffer to store out-of-sequence messages until a complete sequence is obtained. The in-sequence messages are then published to the output channel. It is important that the output channel is order-preserving so messages are guaranteed to arrive in order at the next component. Like most other routers, a Resequencer usually does not modify the message contents.  
+\_________________________________________________________\_\_
+
+De oplossingsrichtingen voor berichten waarvoor een volgnummer van belang is wordt hieronder globaal beschreven. Er wordt uitgegaan van een 'push' mechanisme: de ontvangende applicatie wordt dus actief doordat de ebMS adapter een functie van de applicatie aanroept voor het afleveren van een bericht (bijvoorbeeld met behulp van een web service of JMS queue). Dit in tegenstelling tot een 'pull' mechanisme waarbij het initiatief bij de applicatie ligt om te bepalen of er een nieuw bericht is ontvangen.
+
+**Specificatie (Design Time)**
+
+-   Voeg aan de specificatie van het bericht een element 'Volgnummer' toe.
+
+-   Definieer een 'Aanvang' en en een 'Afsluit'-bericht waarmee de ontvangde partij geinformeerd wordt over de te verwerken berichten. Dit kan met name van belang zijn als er meerdere parallelle stromen van berichten zijn die ieder afzonderlijk gebruik maken van volgordelijkheid. Het is dan wel van belang de ConversationId te gebruiken.
+
+-   Indien gewenst kan er een bericht gedefinieerd worden waarmee de ontvangende partij de verzendende partij kan informeren over de verwerkings toestand.
+
+-   De applicatie moet bijhouden wat het volgnummer is van het laatst verwerkte bericht.
+
+-   Er is een 'berichtenpool' beschikbaar waar berichten met een volgnummer in bewaard worden. Hierbij is het volgnummer een sleutel om berichten uit de ‘berichtenpool' te halen.
+
+**Verwerking (Run Time)**
+
+-   Bij ontvangst van een 'Aanvang'-bericht wordt de toestand geïnitieerd voor de volgordelijke verwerking van de berichten.
+
+-   Handel bij ontvangst van een bericht als volgt:
+
+-   Plaats het bericht in een ‘berichtenpool’.
+
+-   Als bericht nummer N verwerkt is, moet de applicatie bericht nummer N+1 ophalen uit de ‘berichtenpool’.
+
+    -   Als deze er niet is, zal de applicatie geen bericht verwerken.
+
+    -   Als deze er wel is, zal de applicatie het bericht verwerken EN daarna stap 2 opnieuw uitvoeren om een volgend bericht uit de ‘berichtenpool’ te verwerken.
+
+Om te voorkomen dat een applicatie in een 'wait lock' terecht komt (één van de berichten in de sequentie komt niet aan, ook niet binnen de gestelde termijn van de betrouwbare overdracht), zal bekeken moeten worden wat de timingkarakteristieken zijn voor de verwerking van een volgend bericht.
+
+Bij gebruik van het 'pull' mechanisme kan de berichtenpool gebruikt worden zoals in stap 2 beschreven: de applicatie zal dan op gezette tijden (op eigen initiatief) een bericht halen uit de berichtenpool. De ebMS adapter zal de berichten dan wel moeten afleveren aan de berichtenpool (zoals in stap 1).

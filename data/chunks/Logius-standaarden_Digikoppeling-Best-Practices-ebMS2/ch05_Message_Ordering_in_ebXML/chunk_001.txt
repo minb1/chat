@@ -1,0 +1,3 @@
+##Message Ordering in ebXML
+
+Een onderdeel van de ebMS 2.0 specificatie is de volgordelijkheid van berichten, aangeduid met MessageOrder. overgenomen uit hoofdstuk 9 van [[EBXML-MSG]]

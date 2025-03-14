@@ -1,0 +1,19 @@
+Gebruik van Digikoppeling door (semi-)overheidsorganisaties
+
+Figuur 1 geeft de plaats van Digikoppeling weer. Digikoppeling legt een verbinding tussen applicaties van de interne organisatie met een (of meer) externe organisaties zodat berichten kunnen worden uitgewisseld. Een organisatie kan een service aanbieden (de “serviceaanbieder” zoals een houder van een basisregistratie), of een service afnemen (de “serviceafnemer” zoals een gemeente, waterschap, rijksdienst of ZBO). Een Enterprise Servicebus of andere routeringsfunctionaliteit verzorgt de berichtuitwisseling tussen de Digikoppeling adapter en lokale applicaties. De berichtuitwisseling met een externe partij kan rechtstreeks of via een intermediair verlopen. De Digikoppeling-adapter vereist een technisch contract voor de berichtuitwisseling in een zogeheten CPA (zie §5.2) of WSDL (zie §5.3) en een PKIoverheids-certificaat in verband met informatiebeveiliging.
+
+Een serviceregister en voorzieningen (de groene blokken) zijn beschikbaar voor het implementatieproces.
+
+![27-Digikoppeling(zonder-logo)-v3-DEF.png](media/6789537969f0d8d7995f16a237970c56.png)
+
+Figuur 1: Gebruik van Digikoppeling door (overheids)organisaties.
+
+| **Meer informatie**                                                          | **Zie**                                                                    | **Doelgroep**      |
+|------------------------------------------------------------------------------|----------------------------------------------------------------------------|--------------------|
+| Over NORA in relatie tot Digikoppeling                                       | Digikoppeling\_Architectuur (§2.2)                                         | [A&D]  [OT&B]      |
+| Link naar NORA                                                               | Online: [noraonline.nl](http://www.noraonline.nl/wiki/NORA_online) (link)  |                    |
+| Link naar European Interoperability Framework                                | Online: [EIF](http://ec.europa.eu/idabc/en/document/2319/5644.html) (link) |                    |
+| Over hulpmiddelen: Serviceregister, compliance-voorzieningen en CPA register | Hulpmiddelen_bij\_implementatie                                            | [PL] [A&D]  [OT&B] |
+| .                                                                            |                                                                            |                    |
+
+##

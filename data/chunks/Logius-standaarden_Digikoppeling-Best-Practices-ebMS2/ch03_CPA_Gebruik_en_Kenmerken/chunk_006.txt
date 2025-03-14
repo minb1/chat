@@ -1,0 +1,16 @@
+
+###Service
+
+Een Service is een unieke aanduiding voor een set van samenhangende operaties.
+
+De service moet uniek zijn. Advies voor de naamgeving is als volgt:
+
+`[organisatie]:[service]:[versie]`
+
+De service heeft als type “urn:osb:services” (zonder quotes).
+
+Een service wordt als volgt in het ebMS2 contract opgenomen (met een voorbeeld service “OSB:Service:1:0”):  
+
+```XML
+<tns:Service tns:type="urn:osb:services">OSB:Service:1:0</tns:Service>
+```

@@ -1,0 +1,4 @@
+
+###Relatie met OpenAPI
+
+Arazzo aanvult de bestaande OpenAPI-specificatie door beschrijvingen van **groepen API's** en hun interacties mogelijk te maken, in plaats van alleen individuele  API's. Deze bredere scope ondersteunt automatisering en codegeneratie,  met als uiteindelijke doel de waarde die uit API's wordt gehaald te  maximaliseren.Het project staat open voor deelname van de gemeenschap, met  middelen beschikbaar op GitHub voor degenen die geïnteresseerd zijn in  bijdragen of meer willen leren over de specificatie.

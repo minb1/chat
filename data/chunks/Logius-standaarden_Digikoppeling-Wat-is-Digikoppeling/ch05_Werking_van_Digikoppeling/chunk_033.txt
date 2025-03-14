@@ -1,0 +1,8 @@
+
+###Bilaterale uitwisseling via een transparante intermediair
+
+Een transparante keten<sup>18</sup> is alleen mogelijk als zowel de serviceaanbieder als de serviceafnemer hetzelfde protocol hanteren. De intermediair routeert berichten tussen de serviceaanbieder en de serviceafnemer waarbij het bericht intact blijft (alleen de ‘header’, ofwel adresregel op de envelop, wordt gelezen). De uitwisseling verloopt op dezelfde manier als bij een bilaterale uitwisseling. Zie Figuur 8.
+
+<sup>18</sup>: Zonder wijziging aan berichten.
+
+![Bij uitwisseling via transparante intermediair verloopt het berichtenverkeer tussen aanbieder en afnemer via een intermediair waarbij het bericht intakt blijft.](media/uitwisseling_via_transparante_intermediair.png "Uitwisseling via transparante intermediair")

@@ -1,0 +1,11 @@
+
+##Aflevergegevens (optioneel)
+
+|      | Gegevensnaam                | Verplicht&nbsp;<sup>[1](#f1)</sup> | Voorbeeldvulling      | Opmerkingen |
+|------|-----------------------------|------------|-----------------------|----|
+|  4.1 | Naam                        | Nee        | Ministerie ABC, locatie X |  |
+|  4.2 | Adres                       | Ja&nbsp;<sup>[1](#f1)</sup> | Buitenhof 16a | Gevuld indien afwijkend van factuuradres Klantpartij; straat en huisnummer dienen te worden samengevoegd in XML |
+|  4.3 | Postcode                    | Nee        | 4321 KL               |  |
+|  4.4 | Plaats                      | Nee        | Den Haag              |  |
+|  4.5 | Land                        | Ja&nbsp;<sup>[1](#f1)</sup> | NL | Tweeletterige landcode |
+|  4.6 | Gewenste leverdatum         | Nee        | 2022-11-14            |  |

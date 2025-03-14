@@ -1,0 +1,4 @@
+
+###Opnemen OIN in PKIoverheidscertificaat
+
+De [=TSP=] neemt een [=OIN=] of [=SubOIN=] op in een PKIoverheidscertificaat. Hiervoor wordt het *Subject.serialNumber* veld van het certificaat gebruikt.

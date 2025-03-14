@@ -1,0 +1,31 @@
+EB006 Service & Action naamgeving
+
+**Advies 1**: gebruik een functionele naam voor de naamgeving van de Service. Verwerk de versie in de service naam. De servicenaam mag de URN zijn.
+
+>   Voorbeeld.
+
+>   Voor Digimelding (voorheen TerugMeldFaciliteit) wordt een service gedefinieerd voor de verwerking van de berichten tussen de afnemer en Digimelding en tussen de registratiehouders en de Digimelding. De service krijgt de naam:
+
+>   Digimelding:1:0
+
+**Advies 2:** als er gebruik gemaakt wordt van het CPA Register, gebruik dan als Identificerende naam de naam van de service (het laatste onderdeel van het pad in de URN.)
+
+>   Voorbeeld.
+
+>   Voor Digimelding wordt een service gedefinieerd voor de verwerking van de berichten tussen de afnemer en Digimelding en tussen de registratiehouders en Digimelding. De service wordt opgeslagen in het CPA Register met de IDentificerende naam:
+
+>   Digimelding.1.0
+
+Met deze IDentificerende naam kan een afnemer een CPA laten maken op basis van de naam (zie 'Digikoppeling CPA Creatievoorziening Handleiding' op Digikoppeling website).
+
+**Advies 3**: gebruik een functionele naam (liefst een werkwoord) voor de naamgeving van de Actions. Denk eraan dat een Service meerdere Actions mag bevatten (meldingen).
+
+>   Voorbeeld.
+
+>   Voor de Digimelding wordt in een service de Action gedefinieerd voor het terugmelden van een geconstateerde foutieve registratie. De naam voor de service is: terugmelden
+
+In Digikoppeling Koppelvlakstandaard WUS staat bij voorschrift WW003 hoe de payload in de SOAP body opgenomen moet worden: op basis van de 'document-literal style'. Bij document-literal mag de payload slechts 1 XML element bevatten; hierbinnen kunnen wel meerdere elementen opgenomen worden. Het is ook bijvoorbeeld mogelijk om meerdere elementen van het type {http://www.w3.org/2001/XMLSchema } base64Binary op te nemen binnen dit eerste element. Daarmee ondersteunt deze koppelvlakstandaard het versturen van attachments met binaire data impliciet.
+
+Het wordt sterk aangeraden om voor ebMS2 deze werkwijze over te nemen. De naam van het payload element zal dan gebruikt worden als naam voor de Action.
+
+##

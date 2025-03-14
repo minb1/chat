@@ -1,0 +1,11 @@
+
+##Validatie &amp; Certificatie
+
+Certificatie van API&#39;s is op dit moment niet mogelijk. Wel is het mogelijk API&#39;s te valideren en te testen met behulp van de door VNG gerealiseerde tools welke beschikbaar zijn op:
+- [Developer.overheid.nl](https://developer.overheid.nl/) &amp;
+
+- [API-test.nl](https://api-test.nl/)  
+
+Na validatie met de API-test tool is het mogelijk een badge te genereren waarmee aangetoond wordt dat de API voldoet aan alle test voorwaarden.
+
+

@@ -1,0 +1,15 @@
+
+###Opdracht werkgroepen
+
+Zowel de opdracht van de werkgroep als de wijze waarop over de
+resultaten en uitdagingen gerapporteerd wordt zijn beschreven.
+
+Nieuwe ideeën of wijzigingsverzoeken komen binnen bij de
+Uitvoeringsorganisatie (afdeling Standaarden) van Logius via
+[BOMOS Fundament](https://github.com/Logius-standaarden/BOMOS-Fundament)
+en [BOMOS Verdieping](https://github.com/Logius-standaarden/BOMOS-Verdieping),
+of via contacten in het netwerk van de medewerkers van de afdeling
+Standaarden of Stelsels. Zodra een nieuw initiatief zich aandient, in de
+vorm van een opdracht, zorgt de afdeling Standaarden ervoor dat het
+adviesorgaan hiervan op de hoogte wordt gesteld en er een werkgroep
+wordt opgezet.

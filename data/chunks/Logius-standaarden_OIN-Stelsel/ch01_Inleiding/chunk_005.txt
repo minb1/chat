@@ -1,0 +1,10 @@
+
+##Doel en scope van document
+
+Dit document beschrijft het OIN-stelsel. Het OIN-stelsel bestaat uit de volgende bouwstenen:
+
+- OIN- en SubOIN-systematiek
+
+- Centrale OIN Raadpleegvoorziening (incl. OIN-register)
+
+- Toelichting op de juridische voorwaarden en overeenkomsten

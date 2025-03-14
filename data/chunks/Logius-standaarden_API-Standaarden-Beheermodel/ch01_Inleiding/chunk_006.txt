@@ -1,0 +1,9 @@
+
+###Werking
+
+Een application programming interface (API) is een gestructureerd en gedocumenteerd koppelvlak voor communicatie tussen applicaties. Zo lang er computers zijn, bestaan er API's en worden er verschillende API technologieën gebruikt. Sinds 2004 heeft Representational state transfer (REST) zich ontwikkeld tot een bepalend principe voor het realiseren van API's.
+Zogenaamde ‘REST-API's’ doen voor applicaties wat websites voor mensen doen.
+Websites presenteren informatie aan mensen, REST-API's maken applicaties en gegevens over het Internet beschikbaar voor andere applicaties. De technologie achter websites en REST-API's heeft daarom veel gemeen.
+
+De overheid gebruikt REST-API's voor koppelingen met andere overheden, bedrijven en indirect ook met burgers, bijvoorbeeld via mobiele apps en webapps die aangeboden worden door bedrijven of overheden zelf.
+Ontwikkelaars kunnen deze REST-API's bevragen vanuit de gangbare programmeertalen en frameworks zoals Python, Java, Microsoft C\#, PHP.

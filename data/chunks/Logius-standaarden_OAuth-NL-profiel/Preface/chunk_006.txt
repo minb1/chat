@@ -1,0 +1,14 @@
+
+###Client
+
+The User uses a client, which can be any arbitrary application decided upon by the User.
+Assumed is that the User trusts this client for interaction with the service.
+The authorization server has at least low trust in the client when the client is either public or semi-confidential.
+Assumptions is that the Client is aware of the specifications of the API and authorization is required.
+The Client is either using a user-agent, typically a browser, or the relevant parts are integrated into the Client application.
+
+Note:
+Web-applications by default use the system-browser on a User's device as user-agent.
+Typically a native application (_"mobile app"_) either starts a system browser as user-agent or uses an _in-app_ browser.
+See RFC 8252 for more information on implementation of native applications.
+Clients can also be 'machine clients' types.

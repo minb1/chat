@@ -1,0 +1,7 @@
+
+###Step 5. Access Token Request
+
+The Client receives the Authorization Response from the user-agent.
+Using the Authorization Grant from the response, the client sends a Token Request to the Authorization Server's token Endpoint.
+It does so using the Client authentication as pre-registered.
+The Authorization Server receives and validates the Token Request.

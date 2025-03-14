@@ -1,0 +1,78 @@
+
+####Credit
+
+Potentiële bronnen van inkomsten zijn bijvoorbeeld stakeholders die
+geld uit de structurele begroting beschikbaar stellen voor de
+standaard. Dat kan een ministerie zijn, maar even goed een branche of
+belangenorganisatie. Op dezelfde manier kunnen deze organisaties ook
+tijdelijk voor een bepaald doel (project)financiering beschikbaar
+stellen. Daarnaast, aangezien standaarden een maatschappelijk en
+economisch belang hebben, zijn er vaak mogelijkheden voor
+subsidie. Deze subsidies zijn ook een mogelijke bron van inkomsten;
+maar het verkrijgen daarvan kan omslachtig zijn, en er kunnen
+beperkende voorwaarden zijn voor de inzet van het geld.
+
+Structurele financieringsvormen verdienen de voorkeur boven tijdelijke
+(project) financieringsvormen. Niemand zal namelijk een standaard
+willen implementeren waarvan het onzeker is of die volgend jaar nog
+wel beheerd wordt omdat de standaard werkt met aflopende
+projectfinanciering. Daarnaast is structurele financiering een eis
+voor opname op de pas-toe of leg-uit lijst met open standaarden van
+het Forum Standaardisatie.
+
+Andere potentiële opbrengsten zijn gerelateerd aan de standaard
+zelf. Het is mogelijk om geld te vragen voor zowel het downloaden van
+de documenten met specificaties, of het kan gekoppeld worden aan het
+gebruik van de standaard. Beide vormen zijn niet bevorderlijk voor de
+adoptie van de standaard. In de praktijk is veel weerstand tegen het
+betalen voor het standaardisatiedocument, ongeacht het bedrag. Dit is
+wel het huidige business model dat het NEN hanteert voor haar
+normen. Ook in het kader van openheid (zie hoofdstuk 8) is het niet
+verstandig om geld te vragen voor de documenten of het gebruik van de
+standaard. Hoe beperkt het bedrag ook moge zijn, de standaarden worden
+er op zijn minst minder open door. In de praktijk worden dan ook
+regelmatig draft versies van deze standaarden gebruikt, omdat deze nog
+gratis verspreid mogen worden.
+
+Dienstverlening gerelateerd aan de standaard is een andere
+mogelijkheid. Te denken valt daarbij aan consultancy over de standaard
+of implementatieconsultancy. Diensten aanbieden bijvoorbeeld in de
+vorm van een centrale berichtenmakelaar, of andere vormen van het
+leveren van software/hardware zijn ook mogelijkheden. Tot slot zouden
+er inkomsten gekoppeld kunnen worden aan dienstverlening op het gebied
+van validatie en certificatie. Al deze vormen van dienstverlening
+brengen wel een risico met zich mee. Naast een beheerorganisatie wordt
+de organisatie ook een dienstverlener. Dat kan conflicterend zijn:
+vooral door andere dienstverleners in de markt wordt dat opgevat als
+oneerlijke concurrentie. Ook kan er een verwevenheid ontstaan tussen
+het dienstverleningsproduct en de standaard zelf, indien blijkt dat
+het eigen product een bepaald deel van de standaard niet goed
+ondersteunt, kan ervoor gekozen worden de standaard te wijzigen in
+plaats van te investeren in een product dat de standaard wel volledig
+ondersteunt. Duidelijke scoping van welke dienstverlening de
+beheerorganisatie op zich neemt en welke men overlaat aan de markt is
+essentieel.
+
+Naast de structurele financiering uit de begroting van een belangrijke
+stakeholder is de meest voor de hand liggende inkomstenbron een
+(lidmaatschaps)bijdrage van de stakeholders. Hiervoor kan op basis van
+de trits 'belang-betaling-zeggenschap' de kosten verhaald worden bij
+dezelfde partijen waar ook de baten liggen. Verschillende typen
+organisaties kunnen verschillende bijdrage voor tarieven hebben
+gerelateerd aan de potentiële opbrengsten van de stakeholder door het
+gebruik van de standaard. Het spreekt voor zich dat een partij die een
+wezenlijke bijdrage levert aan het beheer van een standaard daar ook
+invloed op zal willen uitoefenen. Een risico daarbij is dat het belang
+(en dus de zeggenschap) gelijkgeschakeld wordt met de financiële
+bijdrage. Dit heeft ook consequenties voor de openheid.
+
+Voor een volwassen standaard is het eenvoudiger om inkomsten te
+genereren uit de standaard zelf of aanverwante diensten, maar daarbij
+moet men voorzichtig te werk gaan om zo min mogelijk weerstand tegen
+de standaard te creëren. Een standaard die zichzelf kan financieren
+uit inkomsten, bijvoorbeeld door lidmaatschapsgeld en
+licentie-inkomsten, kan nog steeds een open standaard zijn. Winst
+maken is uit den boze. Om dit te voorkomen kan de organisatievorm een
+belangrijke rol spelen. In de praktijk is het lastig om het free
+riders (wel meeprofiteren zonder bijdrage) probleem goed te
+adresseren.

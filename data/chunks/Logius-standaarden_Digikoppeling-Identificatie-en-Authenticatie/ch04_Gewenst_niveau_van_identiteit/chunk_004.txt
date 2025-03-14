@@ -1,0 +1,16 @@
+
+###Gevolg voor verantwoordelijkheden
+
+Consequentie is, dat afnemende organisaties verantwoordelijk zijn voor de eigen
+interne autorisaties (met betrekking tot medewerkers, afdelingen, taken
+enzovoort), bijbehorende maatregelen moeten treffen en daar controleerbaar
+verantwoording over moeten afleggen.
+
+Alle overheidsorganisaties hebben al een dergelijke verplichting in het kader
+van persoonsgegevens, in relatie tot de Algemene Verordening Gegevensbescherming (AVG).
+
+Een belangrijk deel van de verantwoordelijkheid voor informatiebeveiliging komt
+te liggen bij de afnemerorganisatie. Die dient ervoor zorg te dragen, dat
+servicerequests alleen kunnen worden gedaan door daartoe bevoegde medewerkers en
+daartoe bevoegde applicaties/systemen. Ook dit is feitelijk bezien vanuit WBP en
+andere privacy/beveiligingskaders geen nieuwe eis.

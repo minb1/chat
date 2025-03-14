@@ -1,0 +1,36 @@
+
+##Koppelvlak & koppelvlakstandaard
+
+Een koppelvlak is een interface die volgens standaarden de gegevensuitwisseling
+vastlegt. Het werken met vaste standaarden is essentieel voor een koppelvlak.
+Hierdoor wordt implementatie vergemakkelijkt. Ook wordt het mogelijk diverse
+soorten berichten door te sturen met een grote mate van interoperabiliteit,
+omdat via de standaard afspraken over hun inhoud gemaakt is.
+
+Eén van de belangrijkste eisen die door de overheid gesteld worden bij de
+inrichting van generieke voorzieningen, is dat er niet veel maatwerk ontwikkeld
+hoeft te worden, maar dat er van “off the shelf” commercieel of Open source
+geleverde software gebruik gemaakt kan worden. Voor Digikoppeling, dus voor de
+logistieke laag, betreft dat het niet willen ontwikkelen van software voor de
+adapters.
+
+Dit doel kan bereikt (benaderd) worden doordat gekozen wordt voor internationale
+(de jure of de facto) vastgelegde standaarden, die door “alle” leveranciers
+interoperabel zijn geïmplementeerd.
+
+Een andere eis is dat met name afnemers gebruik kunnen maken van één “stekker”
+(één logistiek koppelpunt). Aanbieders dienen hiervoor de nodige voorzieningen
+te treffen.
+
+Een koppelvlakspecificatie beschrijft de eisen die gesteld worden aan de
+adapters om interoperabel met elkaar te kunnen communiceren. Digikoppeling gaat
+over logistiek, dus over de envelop en niet over de inhoud. De hele set
+informatie die tezamen nodig is voor een complete generieke Digikoppeling
+koppelvlakdefinitie bestaat uit:
+
+- Interfacedefinitie “on the wire”, (voorbeeld)listing van SOAP headers en
+    informatie over velden en hun specifieke inhoud.
+
+De voor Digikoppeling vereiste interoperabiliteit van de WUS standaarden van
+OASIS en W3C wordt gebaseerd op de profielen (en tests) van OASIS WS-BRSP
+(voorheen WS-I).

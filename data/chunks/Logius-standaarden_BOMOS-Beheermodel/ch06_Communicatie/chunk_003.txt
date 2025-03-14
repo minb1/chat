@@ -1,0 +1,7 @@
+
+##Publicatie
+
+Als een nieuwe versie van BOMOS de status \"In Gebruik\" heeft, worden
+verschillende zaken gepubliceerd. Logius publiceert altijd de volledige
+specificatie van de standaard op een deel van de Logius website.
+Aanvullend publiceert Logius alle [genoemde documentatie](#documentatie).

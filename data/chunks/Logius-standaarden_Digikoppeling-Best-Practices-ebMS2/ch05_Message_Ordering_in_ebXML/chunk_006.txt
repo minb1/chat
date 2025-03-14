@@ -1,0 +1,20 @@
+
+###Ontwerp Pattern
+
+Als uitgangspunt voor de realisatie van de volgordelijkheid kan het Resequencer patroon gebruikt worden: [http://www.enterpriseintegrationpatterns.com/Resequencer.html](http://www.enterpriseintegrationpatterns.com/Resequencer.html)
+
+<aside class="example">
+
+A [Message Router](http://www.enterpriseintegrationpatterns.com/MessageRouter.html) can route messages from one channel to different channels based on message content or other criteria. Because individual messages may follow different routes, some messages are likely to pass through the processing steps sooner than others, resulting in the messages getting out of order. However, some subsequent processing steps do require in-sequence processing of messages, for example to maintain referential integrity.
+
+*How can we get a stream of related but out-of-sequence messages back into the correct order?*
+
+![Resequencer Pattern](media/resequencer_pattern.png "Resequencer Pattern")
+
+*Use a stateful filter, a Resequencer, to collect and re-order messages so that they can be published to the output channel in a specified order.*
+
+The Resequencer can receive a stream of messages that may not arrive in order. The Resequencer contains an internal buffer to store out-of-sequence messages until a complete sequence is obtained. The in-sequence messages are then published to the output channel. It is important that the output channel is order-preserving so messages are guaranteed to arrive in order at the next component. Like most other routers, a Resequencer usually does not modify the message contents.  
+
+</aside>
+
+De oplossingsrichtingen voor berichten waarvoor een volgnummer van belang is wordt hieronder globaal beschreven. Er wordt uitgegaan van een 'push' mechanisme: de ontvangende applicatie wordt dus actief doordat de ebMS adapter een functie van de applicatie aanroept voor het afleveren van een bericht (bijvoorbeeld met behulp van een web service of JMS queue). Dit in tegenstelling tot een 'pull' mechanisme waarbij het initiatief bij de applicatie ligt om te bepalen of er een nieuw bericht is ontvangen.

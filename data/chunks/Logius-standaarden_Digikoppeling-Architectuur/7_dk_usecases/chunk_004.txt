@@ -1,0 +1,9 @@
+
+###Wat is de aard van de gegevens/objecten die uitgewisseld moeten worden?
+
+Voorbeelden:
+
+- Niet nader gespecificeerde Pdfs die van A naar B moeten, met metadata 
+- Hele grote Bestanden 
+
+Hier kan Digikoppeling Grote Berichten (via ebMS of WUS) gebruikt worden. 

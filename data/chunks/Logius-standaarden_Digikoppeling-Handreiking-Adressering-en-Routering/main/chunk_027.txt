@@ -1,0 +1,8 @@
+
+##Knelpunten
+
+Knelpunten bij gebruik van intermediairs / SAAS oplossingen zijn:
+
+- Hoe herken je de oorspronkelijke afzender
+- Hoe adresseer je de uiteindelijk bestemming
+- Hoe regel je identificatie en authenticatie van partijen in een keten

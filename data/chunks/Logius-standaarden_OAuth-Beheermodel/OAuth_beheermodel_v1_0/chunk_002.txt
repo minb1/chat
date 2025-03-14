@@ -1,0 +1,4 @@
+
+##Leeswijzer
+
+Dit document beschrijft hoe Logius, afdeling Standaarden (hierna: Logius) de OAuth-NL profiel standaard beheert en hoe de bijbehorende governance is ingericht. In dit document wordt verder OAuth-NL gebruikt als afkorting voor de "NL GOV Assurance profile for OAuth 2.0" standaard.

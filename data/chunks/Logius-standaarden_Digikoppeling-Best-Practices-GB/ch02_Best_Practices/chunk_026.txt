@@ -1,0 +1,15 @@
+
+#####HTTP connector
+
+Ten behoeve van grote berichten hoeven de http connectors voor Digikoppeling in principe niet te worden aangepast. Zowel Digikoppeling als grote berichten maakt gebruikt van client authenticatie en TLS, en ze kunnen derhalve van dezelfde resources gebruik maken (poort 443). Beter is het echter om beide services toch gescheiden te houden en een afzonderlijke logische server in te richten voor grote berichten. Hierdoor kan het berichtenverkeer beter gescheiden worden en kunnen eventuele performance issues beter worden afgehandeld.
+
+De nieuwe connector dient in *server.xml* te worden toegevoegd:
+
+```XML
+<Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol" SSLEnabled="true" maxThreads="10" scheme="https" secure="true" keystoreFile="C:/Documents and Settings/gateway/osbgateway-2.0.11/
+		conf/keystores/ebmsserver.jks" keystoreType="JKS" keystorePass="xxxx" truststoreFile="C:/Documents and Settings/gateway/osbgateway-2.0.11/
+		conf/keystores/truststore.jks" truststoreType="JKS" truststorePass="xxxx" clientAuth="true" sslProtocol="TLS" />
+
+```
+
+Merk op dat in dit voorbeeld een poortnummer toegepast wordt dat naar buiten toe (Digikoppeling) niet toegepast mag worden. Dit kan dus wel als interne implementatie maar zal nog via NATting naar poort 443 getransformeerd moeten worden.

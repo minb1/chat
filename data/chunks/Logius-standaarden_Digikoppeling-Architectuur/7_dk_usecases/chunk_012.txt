@@ -1,0 +1,13 @@
+
+###End-to-End security
+
+Een bericht wordt beveiligd tussen de uiteindelijke consumer en de uiteindelijke provider, ook wanneer er zich intermediairs bevinden in het pad tussen die twee. Het betreft hier authenticatie van de consumerorganisatie, conform het Digikoppeling authenticatiemodel, waarbij alleen de identiteit van de consumerorganisatie relevant is(signing), en encryptie van het bericht (payload inclusief attachments) onderweg
+
+
+|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
+|---|---|---|
+| Digikoppeling ebMS | Digikoppeling ebMS kent profielen voor signing en encryption. Digikoppeling ebMS ondersteunt ook de mogeijkheid van onweerlegbaarheid (non-repudiation) in de vorm van een ondertekende ontvangstbevestiging | |
+| Digikoppeling WUS | Digikoppeling WUS kent profielen voor signing en encryption ||
+
+
+Tabel 7.2: End-to-End security

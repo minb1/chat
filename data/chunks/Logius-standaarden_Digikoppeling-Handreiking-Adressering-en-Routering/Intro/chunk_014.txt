@@ -1,0 +1,9 @@
+
+####Abbreviations
+
+<p>
+ The <abbr title="World Wide Web">WWW</abbr> for example.
+</p>
+<p>
+ ReSpec will automatically wrap this WWW in an abbr.
+</p>

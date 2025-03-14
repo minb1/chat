@@ -1,0 +1,55 @@
+
+###StatusoverzichtRequest
+
+Het bericht StatusoverzichtRequest wordt gebruikt in de communicatie
+tussen Afnemer en LV/Basisregistratie alsook tussen LV/Basisregistratie
+en Bronhouder om een statusoverzicht op te vragen.
+
+Ter illustratie onderstaand de interactie tussen Afnemer en
+Basisregistratie.
+
+![Interactiediagram status opvragen via de Digimelding Webservice](images/image6.png "Interactiediagram status opvragen via de Digimelding Webservice")
+
+![Interactiediagram status opvragen rechtstreeks](images/image7.png "Interactiediagram status opvragen rechtstreeks")
+
+Het statusoverzicht wordt opgevraagd op basis van de verplichte
+elementen OIN en basisregistratie. Het OIN is verplicht omdat alle
+aangesloten basisregistraties alleen van plan zijn terugmeldingen van de
+afnemer zelf terug te geven. Basisregistratie is verplicht, omdat dit
+het doorgeven van functionele fouten door de Digimelding Webservice
+vergemakkelijkt. Dit is een beperkte voorziening, het samenvoegen van
+overzichtsberichten zou de complexiteit verhogen en vooral op een goede
+wijze functionele fouten over meerdere basisregistraties heen geven,
+levert teveel complexiteit op. In het geval dat het opgeven van één
+basisregistratie verplicht is routeert de Digimelding Webservice
+slechts. Naast deze verplichte elementen is er een aantal optionele
+elementen waarmee de resultaten gefilterd kunnen worden. Een lijst met
+kenmerken van de organisatie zelf kan worden meegegeven. Dit is handig
+wanneer de afnemer een eigen registratiesysteem heeft. Daarnaast kan
+gefilterd worden op de datum van indienen en de datum van laatste
+wijziging. Tot slot kan er gefilterd worden op de status van
+terugmeldingen. Dit is enigszins bewerkelijk aangezien iedere
+basisregistratie zijn eigen statussen mag definiëren. In de
+berichtenschema's is daarom slechts vastgelegd dat dit een string is.
+
+| **Berichttype**: StatusoverzichtRequest |                      |           |
+|-----------------------------------------|----------------------|-----------|
+| **Elementen/attributen** |                                     |           |
+| OinVragendeOrganisatie   | *OIN van de vragende organisatie.*  | \[1..1\]  |
+| OinBasisregistratie      | *Het OIN van de houder van een landelijke voorziening van de basisregistratie | \[1..1\]  |
+| Registratie              | Code (maximaal 3 letterig) waarmee de basisregistratie wordt aangeduid wanneer de houder van een landelijke voorziening meer dan 1 basisregistratie beheert (bv BRT, BGT). | \[0..1\]  |
+| **Filter**               |                                     | \[0..1\]  |
+| Filter.MeldingskenmerkenLijst       | *(Lijst met)Eigen kenmerk(en) terugmeldende organisatie.* | \[0..1\]  |
+| Filter.MeldingskenmerkenLijst.MeldinggkenmerkLijstElement |    | \[1..\*\] |
+| Filter.VanafTijdstempelIndienen     | *Filtert resultaten die zijn ingediend voor dit tijdstempel weg. Resultaten op de tijdstempel of daarna worden getoond.*   | \[0..1\]  |
+| Filter.TotEnMetTijdstempelIndienen  | *Filtert resultaten die zijn ingediend na dit tijdstempel weg. Resultaten op de tijdstempel of daarvoor worden getoond.* | \[0..1\]  |
+| Filter.VanafTijdstempelWijziging    | *Filtert resultaten die zijn gewijzigd voor dit tijdstempel weg. Resultaten op de tijdstempel of daarna worden getoond<sup>4</sup>.* | \[0..1\]  |
+| Filter.TotEnMetTijdstempelWijziging | *Filtert resultaten die zijn gewijzigd na dit tijdstempel weg. Resultaten op de tijdstempel of daarvoor worden getoond<sup>4</sup>.* | \[0..1\]  |
+| Filter.StatusTerugmelding           | *String met daarin een status behorende bij de basisregistratie waarvan het overzicht gevraagd wordt.* | \[0..1\]  |
+| Filter.Objectidentificatie          | *String met daarin een objectidentificatie behorende bij de basisregistratie waarvan het overzicht gevraagd wordt. Hiermee kunnen terugmeldingen ook op basis van KvK-nummer, BSN-nummer, BAG-id, etc teruggevonden worden.* | \[0..1\]  |
+
+<p class="note">
+<sup>4</sup> *Het resultaat* betreft terugmeldingen (annotatiebomen) waarvoor
+geldt dat **de laatste annotatie** is toegevoegd tussen
+VanafTijdstempelWijziging en TotEnMetTijdstempelWijziging
+</p>

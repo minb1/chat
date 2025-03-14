@@ -1,0 +1,22 @@
+
+##Granulariteit
+
+Granulariteit betekent letterlijk: (fijn)korreligheid, ofwel de mate van detaillering. De granulariteit van de berichten waarvoor volgordelijkheid van belang is zal verstandig moeten worden gekozen.
+
+De uitersten worden hieronder beschreven:
+
+- Alle berichten die op basis van een ebMS2 contract (CPA) verzonden worden zijn van elkaar afhankelijk ten aanzien van de volgorde.
+
+  - Als één enkel bericht faalt in de overdracht, heeft dit tot gevolg dat de gehele berichtenstroom stokt. Deze berichtenstroom kan dan pas weer op gang gebracht worden als het falende bericht opnieuw gesynchroniseerd is.
+
+  - Bij grote hoeveelheden berichten die in een kort tijdsbestek verzonden worden zullen aan de ontvangende kant tijdelijk bewaard moeten worden: dit legt een claim op de resources van de ebMS-adapter.
+
+  - Berichten die mogelijk een hogere prioriteit hebben kunnen niet eerder verwerkt worden dan passend is ten aanzien van de volgorde van reeds verzonden berichten.
+
+- Voor elk afzonderlijk bericht wordt gekeken of het onderdeel uitmaakt van een nieuwe berichtenstroom waarvoor volgordelijkheid van belang is.
+
+- Er kunnen meerdere berichtstromen actief zijn die onafhankelijk van elkaar de volgordelijkheid ondersteunen.
+
+- Per object moet aangegeven worden (of bekend zijn) of de message order van belang is.
+
+De granulariteit wordt in essentie bepaald door het object waarover berichten uitgewisseld worden en waarvan de volgordelijkheid van belang is: het gaat dan om transactionele berichten over hetzelfde object.

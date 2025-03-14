@@ -1,0 +1,12 @@
+Rechtenbeleid
+
+De Standaard zelf en dit beheermodel vallen onder de Creative Commons
+licentie (Creative Commons Attribution 4.0 License) Dit houdt in dat het
+is toegestaan om deze documenten te gebruiken, verder te verspreiden en
+aan te passen. Dit werk en de specificaties van de standaard worden
+royaltee-free ter beschikking gesteld. Organisaties en personen die
+bijdragen aan de standaard dienen dit onder dezelfde voorwaarden te doen
+als bij het originele werk. Door bij te dragen aan de standaard
+verklaren zij hiermee in te stemmen.
+
+##

@@ -1,0 +1,5 @@
+#Operational Profile
+
+This section defines the operational aspect of the profile: type of deployment
+with which the profile which is mentioned above is supposed to operate with,
+expected or required conditions of operations, usage context, etc.

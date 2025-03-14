@@ -1,0 +1,6 @@
+
+##OIN ICD Code
+
+Volgens de ISO 6523 part 1 standaard is een ICD code (International Code Designator) nodig. Het OIN is sinds 2018 opgenomen in de ICD lijst
+
+De volgende alinea's geven achtergrondinformatie over de ISO 6523 standaard.

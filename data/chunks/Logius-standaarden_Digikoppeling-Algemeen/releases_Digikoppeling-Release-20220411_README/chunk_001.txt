@@ -1,0 +1,14 @@
+#Digikoppeling Release 11-04-2022: Uitbreiding Digikoppeling met REST-API Koppelvlakstandaard
+
+De Digikoppeling Standaard is uitgebreid met een Koppelvlakstandaard voor REST-API's. Deze Koppelvlakstandaard is gebaseerd op de API Design Rules (ADR) standaard die ontwikkeld is binnen het Kennisplatform API's.
+De architectuur van Digikoppeling is aangepast op de nieuwe koppelvlakspecificatie. De wijziging heeft geen impact op de al bestaande Digikoppeling koppelvlakken, het biedt een extra mogelijkheid naast bestaande opties.
+
+In deze release is opgenomen:
+
+* [Digikoppeling Architectuur 2.0](https://publicatie.centrumvoorstandaarden.nl/dk/architectuur)
+* [Digikoppeling - Koppelvlakspecificatie REST API 1.0](https://publicatie.centrumvoorstandaarden.nl/dk/restapi/)
+
+
+De uitbreiding van Digikoppeling met het REST API koppelvlak is doorgevoerd in de Digikoppeling documentatie.
+Naast het toevoegen van de REST API koppelvlakspecificatie en het aanpassen van het architectuurdocument nav deze toevoeging zijn ook waar nodig de overige documenten tekstueel aangepast voor de toevoeging van deze nieuwe koppelvlakspecificatie.
+

@@ -1,0 +1,9 @@
+
+###Authorization Server
+
+An Authorization Server is available, operated by either an independent trusted third-party or the service provider itself.
+Only a single Authorization Server is in use.
+The Authorization Server is trusted by the Resource Server.
+The Authorization Server can identify and authorize the User.
+In case the User has no direct relationship to the Authorization Server, it can forward the User to an IDP trusted by both the Authorization Server as well as the User.
+Alternatively, the Authorization Server can otherwise identify and authorize the User and is trusted by that User.

@@ -1,0 +1,60 @@
+
+##Governance
+
+BOMOS is het Beheer- en OntwikkelModel voor Open Standaarden. Het is een
+instrument dat helpt bij de inrichting van het beheer van open
+standaarden. Dit maakt BOMOS als het ware een standaard voor het beheren
+van standaarden. BOMOS bestaat uit een bundeling van best practices en
+voorbeelden van goed standaardenbeheer. Het is ontwikkeld door de
+BOMOS-community en voor iedereen vrij te gebruiken.
+
+Bij het beheer van een open standaard hoort een open governance en een
+open procedure voor belanghebbenden om te kunnen participeren in het
+beheer. Logius, afdeling Standaarden neemt hierin de rol van
+onafhankelijke, duurzame beheerpartij en facilitator. 
+
+Logius gaat uit van de governance van de Generieke Digitale Infrastructuur (GDI).
+De GDI geeft richting aan het Meerjarenprogramma Infrastructuur Digitale Overheid (MIDO).
+Voor MIDO is een governance opgesteld waarin de stakeholders van Logius richting geven aan de ontwikkelingen bij Logius. 
+Standaardenbeheer sluit aan op deze governance. Bij het beheer van BOMOS worden verschillende gremia onderscheiden die 
+gezamenlijkinvulling geven aan de governance op de standaard:
+
+1.  ***Uitvoeringsorganisatie (Uitvoering Groep - UG) Operationeel***
+
+Het is een Operationeel Overleg met periodieke bijeenkomsten *(2 x per
+maand)* waarbij de vragen en doorontwikkel wensen m.b.t. BOMOS worden
+doorgenomen, geprioriteerd en worden uitgewerkt. Daarnaast wordt door de
+leden de releaseplanning en de roadmap opgesteld en voorgelegd aan het
+AG.
+
+2.  ***Adviesorgaan en Klankbordgroep BOMOS (Advies Groep - AG) Tactisch***
+
+Het is een Technisch Overleg met periodieke bijeenkomsten *(1 x per
+kwartaal)* waarbij de vragen en doorontwikkel wensen m.b.t. BOMOS worden
+doorgenomen, geprioriteerd, uitgewerkt en vastgelegd. Dit gremium is
+verantwoordelijk voor het vaststellen van het van beheermodel van de standaard, de externe publicaties, de doorontwikkel-roadmap en het
+vaststellen van releases van de standaard, en dient als het voorportaal van het strategisch/besluitvormende gremium.
+
+3.  ***Directie Digitale Samenleving (Bestuur groep - BG) Strategisch***
+
+Dit is het hoogst ambtelijke gremium dat besluit over major releases van
+de standaard. Major releases die grotere financiele impact hebben gaan via de BG.
+Het BG is momenteel nog niet actief m.b.t. BOMOS waardoor de UG bij wijzigingen aan de
+standaard, de nieuwe versie eerst voorlegt aan het AG voor het borgen van een
+zo breed mogelijke afstemming met verschillende belanghebbenden.
+
+N.B. De definitieve invulling van de strategische laag
+wordt in 2023 duidelijk.
+
+![MIDO governance](images/MIDOgovernance.png "MIDO governance")
+
+
+4.  ***BOMOS Community (Advies Groep - AG) operationeel***
+
+Dit is het meest operationele gremium waarin iedere
+belangstellende/belanghebbende vragen kan stellen, advies kan geven en
+suggesties kan doen voor de doorontwikkeling van BOMOS. Deelname
+aan de Community is vrij voor eenieder die een belang heeft bij de
+standaard (overheid, wetenschap en markt ). Dergelijke vragen en
+suggesties worden door Logius verzameld en voorgelegd aan het UG en AO.
+

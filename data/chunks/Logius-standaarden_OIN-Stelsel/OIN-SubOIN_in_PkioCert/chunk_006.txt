@@ -1,0 +1,4 @@
+
+###Raadplegen via de COR API
+
+De COR kent ook aan publiek toegankelijke REST API om OINs van organisaties te raadplegen. De COR API biedt meer raadpleegmogelijkheden dan de website. Zie voor meer informatie [=COR=].

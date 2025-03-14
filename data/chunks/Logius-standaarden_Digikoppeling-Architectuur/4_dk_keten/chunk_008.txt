@@ -1,0 +1,28 @@
+
+###Business-behoefte
+
+Op business-niveau is er een veelheid aan uitwisselingsvormen waaraan behoefte bestaat. Deze zijn vaak context specifiek. Soms zijn deze vormen ook specifiek voor een sector waardoor het loont om deze in een sectorale berichtstandaard voor de inhoud van een bericht af te spreken.
+
+Een aantal proceskenmerken op business-niveau bepaalt welke door Digikoppeling geboden logistieke vormen geschikt zijn. Zonder alle mogelijke behoeften uit te werken, behandelt deze sub-paragraaf wel de voor de keuze van Digikoppeling belangrijke kenmerken:
+
+1. De impact op de serviceaanbieder is afhankelijk van de dienst die deze levert:
+
+   - alleen informatie, die bevraagd kan worden; dat heeft geen impact op de aanbiedende organisatie;
+   - het verwerken van een gevraagde transactie; dat heeft wel impact op de aanbiedende  organisatie.
+
+2. Naast deze impact op de service verlenende organisatie kunnen we ook onderscheid maken naar de procesinrichting:
+
+   - (het proces en) de applicatie van de afnemer wacht op een 'onmiddellijk' antwoord (de vraagsteller, applicatie/gebruiker houdt de context vast en weet dus direct waar het antwoord op slaat).
+   - het resultaat is 'uitgesteld, komt enige tijd later (de applicatie moet dan dit antwoord aan de oorspronkelijke vraag koppelen) of wellicht helemaal niet. De applicatie of het business proces wachten niet.
+
+Op basis van deze twee verschillen komen we tot vier primitieve business-interacties, weergegeven in onderstaande tabel.
+
+|                | Synchroon                 | Asynchroon             |
+|----------------|---------------------------|------------------------|
+| Bevraging      | Onmiddellijke bevraging   | Bevraging met uitstel  |
+| Transactie     | Onmiddellijke transactie  | Transactie met uitstel |
+
+Tabel 4.2: primitieve business-interacties
+
+Deze businessafspraken worden geïmplementeerd in (bedrijfs)applicaties.
+Combineren van deze primitieve interacties tot meerdere (eventueel over de tijd verspreide interacties) maken complexe business-patronen mogelijk.

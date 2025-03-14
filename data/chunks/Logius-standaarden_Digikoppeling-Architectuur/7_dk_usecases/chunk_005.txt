@@ -1,0 +1,8 @@
+
+###Het uitwisselen van relationele bedrijfsgegevens over objecten, ‘Bedrijfsdocumenten’ 
+
+Voorbeelden:
+
+- de volledige gegevens van een GBA inschrijving of de gegevens van een rechtszaak 
+
+Hier kan voor Digikoppeling WUS gekozen worden, omdat in deze uitwisseling vaak een gestructureerde berichtformaat wordt gehanteerd in combinatie met WSDL en XSD. Digikoppeling REST API is hiervoor ook mogelijk.

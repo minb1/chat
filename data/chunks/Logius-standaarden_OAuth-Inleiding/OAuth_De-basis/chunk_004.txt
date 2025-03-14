@@ -1,0 +1,4 @@
+
+###In onderstaand schema zijn de vier bovenstaande elementen en de onderlinge flow weergegeven:
+
+![OAuth-Abstract_Authorization_Code_Flow](./media/OAuth-Abstract_Authorization_Code_Flow.svg)

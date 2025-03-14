@@ -1,0 +1,27 @@
+
+###Internationale, Europese en nationale standaardisatiegemeenschap
+Internationale standaarden leveren de basis voor de koppelvlakspecificaties
+die we in Digikoppeling gebruiken.
+
+1. Digikoppeling volgt de ontwikkeling van internationale standaarden,
+   beheerd door organisaties als **W3C** en **OASIS**. Deze organisaties
+   beheren basisstandaarden als WUS, ebMS [[EBXML-MSG]] en HTTP [[rfc1945]].
+
+2. In EU kader wordt de
+   [eDelivery](https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/eDelivery)
+   standaard beheerd. eDelivery is in functionaliteit vergelijkbaar met
+   Digikoppeling. eDelivery is net als Digikoppeling gebaseerd op ebMS. Hoewel
+   eDelivery gebaseerd is op de nieuwere ebMS3/AS4 standaard.
+
+<aside class="note" title="Het 4 corner model">
+De scope van de eDelivery is vergelijkbaar met die van Digikoppeling,
+maar dan specifiek voor internationaal berichtenverkeer tussen
+EU lidstaten. In de praktijk wordt hier het _four corner model_ toegepast.
+Per lidstaat is een gateway beschikbaar waarmee in een nationale standaard
+(zoals Digikoppeling) berichten uitgewisseld kunnen worden. Deze gateway
+stuurt het dan volgens eDelivery door naar een organisatie in een andere
+lidstaat of naar een gateway in een lidstaat, die het vervolgens doorstuurt
+naar die overheid. Organisaties in verschillende lidstaten hebben natuurlijk
+de mogelijkheid om direct berichten uit te wisselen zonder gebruik te maken
+van het four corner model. 
+</aside>

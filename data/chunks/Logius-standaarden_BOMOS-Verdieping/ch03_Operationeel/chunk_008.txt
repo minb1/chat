@@ -1,0 +1,23 @@
+
+###Werkgroepen en stakeholders
+Werkgroepen zijn een belangrijk instrument voor het verzamelen, voorbereiden en beoordelen van wijzigingsverzoeken. Ondanks openheid kan om praktische redenen de deelname aan werkgroepen gelimiteerd zijn. Daarbij wordt vaak onderscheid gemaakt in type stakeholder, mede omdat het verstandig is dat de werkgroep een goede afspiegeling bevat van de stakeholders. NEN gebruikt hiervoor een stakeholderanalyse waarin de stakeholders worden geïdentificeerd door gebruik te maken van een generieke waardeketen. Deze zijn de volgende:  
+
+|       | Stakeholders | Omschrijving |
+| --- | --- | --- |
+| 1a | Directe gebruikers | Eindgebruiker van dienst, proces of product |
+| 1b | Brancheorganisaties directe gebruikers | Als groep, in de vorm van belangenorganisaties |
+| 2a | Voorwaarde scheppende organisaties / opdrachtgevers | Organisaties die de voorwaarden bepalen waaraan het product of dienst moet voldoen. Bijv. opdrachtgevers. Wetmatige voorwaarden worden door wetgevende instanties bepaald (zie onder 9). |
+| 2b | Brancheorganisaties van voorwaarde scheppende partijen |  |
+| 3a | Adviserende organisaties | Organisaties die andere belanghebbenden inhoudelijk kunnen adviseren (bijv. ingenieursbureaus, adviesbureaus, consultancy) |
+| 3b | Brancheorganisaties van adviserende partijen |  |
+| 4a | Uitvoerende / toepassende / dienstverlenende organisaties | Productnormalisatie: organisaties die het product gebruiken / toepassen in hun dienstverlening naar de eindgebruiker toe (bijv. aannemer, installateur). Dienstennormalisatie: organisaties die een proces of dienst verlenen aan de eindgebruiker (bijv. schuldhulpverlener). |
+| 4b | Brancheorganisaties van uitvoerende / dienstverlenende / toepassende partijen |  |
+| 5a | Producenten / leveranciers van hoofdproduct | Bij productnormalisatie is dit de hoofdproducent / hoofdleverancier. Bij dienstennormalisatie wordt deze categorie niet gebruikt. De rol van ‘producent / leverancier’ wordt vervuld door de uitvoerende, dienstverlenende organisatie. |
+| 5b | Brancheorganisaties van producenten / leveranciers van hoofdproduct |  |
+| 6a | Producenten / leveranciers van aanhangende producten en diensten | Bij productnormalisatie betreft dit producenten / leveranciers van producten die als grondstof, halffabrikaat of rest-/afvalstof in de productketen voorkomen. Bij dienstennormalisatie betreft het de aanbieders van aanvullende diensten. |
+| 6b | Brancheorganisaties van producenten / leveranciers van aanhangende producten en diensten |  |
+| 7 | Onderzoek- en kennisinstellingen | Instellingen die zonder direct commercieel belang kennisleverancier zijn of onderzoek verrichten. Bijv. onderwijsinstellingen, laboratoria, onderzoeksinstellingen.  |
+| 8 | Controlerende instanties | Bijv. inspectiediensten, certificeringinstellingen |
+| 9 | Wetgevende instanties | Overheden |
+| 10 | Bestaande/nieuwe initiatiefnemers | Partijen die alternatieve initiatieven ondernemen vergelijkbaar met NEN. (normen, certificatieschema’s, richtlijnen etc.) |
+| 11 | Contextbepalers groter geheel | Organisaties (bijv. stichtingen, platforms) die op generieke wijze betrokken zijn. |

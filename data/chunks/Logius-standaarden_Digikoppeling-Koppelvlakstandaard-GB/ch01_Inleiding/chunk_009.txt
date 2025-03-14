@@ -1,0 +1,18 @@
+
+##Opbouw van dit document
+
+Hoofdstuk 1 bevat een aantal algemene inleidende onderwerpen. Hoofdstuk 2 bevat
+de kern van de standaard met de algemene gebruiksvoorwaarden.
+
+Hoofdstuk 3 gaat in op het gebruik van de metadata.
+
+Hoofdstuk 4 gaat in op de wijze waarop grote bestanden uitgewisseld worden.
+
+Hoofdstuk 5 bevat de referenties en bijlagen.
+
+Begrippen en afkortingen worden toegelicht in het document
+“Digikoppeling\_Architectuur”.
+
+Dit document en andere documentatie is beschikbaar op
+[www.logius.nl/Digikoppeling](http://www.logius.nl/digikoppeling)
+

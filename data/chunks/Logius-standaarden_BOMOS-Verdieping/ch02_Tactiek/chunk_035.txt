@@ -1,0 +1,21 @@
+
+###Kwaliteit van implementaties
+
+De kwaliteit van de standaard kan nog zo goed zijn, als de kwaliteit
+van de implementaties achterblijft wordt er ook geen
+interoperabiliteit bereikt. Deze sectie gaat in op mogelijke vormen
+certificering, compliancy testing, validatie, en andere vormen van
+toetsen van het toepassen van de standaard, met daarbij eventueel een
+beloning. Certificering hanteren we als containerbegrip voor alle
+vormen hiervan.
+
+Nadat de standaard is ontwikkeld en in enige mate is geadopteerd in de
+markt komt nagenoeg altijd de certificeringsvraag wel boven
+drijven. Soms zijn het leveranciers, als early adopters van de
+standaard die zich graag in de markt door middel van een stempel
+positief willen onderscheiden (oftewel: ze willen graag return op hun
+investment als early adopter). En soms blijken in de praktijk
+implementaties niet interoperabel te zijn wat de vraag van
+certificering om interoperabiliteit te garanderen oproept. Deze
+verschillen laten al zien dat certificering verschillend ingezet kan
+worden om simpelweg verschillende vragen in te vullen.

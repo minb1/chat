@@ -1,0 +1,5 @@
+5 Inclusion of detailed request / response structure
+
+Some steps in the flow of the international iGov profile have not been described or have been incompletely described. This profile (iGov-NL) has described some messages or parameters explicitly, although they are specified in the underlying standards. These have been described for reasons of completeness.
+
+##

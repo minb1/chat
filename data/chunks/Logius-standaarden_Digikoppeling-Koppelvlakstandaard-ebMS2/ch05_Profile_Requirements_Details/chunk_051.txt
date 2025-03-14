@@ -1,0 +1,11 @@
+
+###Profile Requirement Item: MIME Headers
+
+|[[EBXML-MSG]] Appendix B.3.2 Sending ebXML Messages over SMTP| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+| Is any specific content-transfer-encoding required, for MIME body parts which must conform to a 7-bit data path? [Base64 or quoted-printable, for example.] | **Not applicable**. This specification only supports the HTTP transport protocol. |
+| If other than "ebXML" what must the SOAPAction SMTP header field contain?  | **Not applicable**. This specification only supports the HTTP transport protocol. |
+| What additional MIME headers must be included amongst the SMTP headers? | **Not applicable**. This specification only supports the HTTP transport protocol. |
+| Alignment | (empty) |
+| Test References | (empty) |
+| Notes  | (empty) |

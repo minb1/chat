@@ -1,0 +1,6 @@
+
+###Namespaces
+
+Met betrekking tot het verkrijgen van eenduidigheid in de WSDL bestanden, wordt sterk aangeraden dat xml namespace prefixen volgens de WSDL 1.1 specificatie gebruikt worden. [[wsdl-20010315]]
+
+Het heeft de voorkeur dat een namespace wordt opgebouwd op basis van de domeinnaam van de web service.

@@ -1,0 +1,9 @@
+
+###Patch Releases
+In een patchrelease worden wijzigingen doorgevoerd die de technische
+specificatie niet raken. Dit kunnen tekstuele wijzigingen zijn of
+inhoudelijke indelingen van de documenten. De wijzigingen worden
+vastgelegd in release notes. Een patch releases wordt door de beheerder
+op eigen initiatief of op aanwijzingen van gebruikers doorgevoerd en gepubliceerd.
+Een patchrelease wordt aan het Technisch Overleg ter kennisgeving medegedeeld.
+Een nieuwe patchrelease vervangt een eerdere versie in zijn geheel.

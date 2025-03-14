@@ -1,0 +1,8 @@
+
+##Encryptie in de context van HTTP Rest
+
+Voor encryptie is de standaard JSON Web Encryption (JWE) [[rfc7516]] beschikbaar
+
+Zie ook de ADR extensie signing en encryptie:
+
+- https://docs.geostandaarden.nl/api/API-Strategie-ext/#signing-and-encryption

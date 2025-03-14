@@ -1,0 +1,17 @@
+
+###Foutafhandeling
+
+Indien een bestandsoverdracht niet succesvol voltooid kan worden, dan dienen het meta-bericht, bijbehorende log-bestanden en het eventuele grote bestand bewaard te worden voor een latere handmatige verwerking.
+
+Het koppelvlak schrijft niet voor hoe te handelen bij optredende foutsituaties; het is de verantwoordelijkheid van de applicaties om hiervoor een adequate oplossing te bieden. Enerzijds zou de ontvanger de bestandsoverdracht kunnen monitoren en eventuele foutsituaties melden aan de verzender; anderzijds kan het ontbreken van een bevestiging voor de verzender aanleiding zijn om actie te ondernemen.
+
+Belangrijkste foutsituaties bij bestandsoverdracht:
+
+| Statuscode | Omschrijving          | Vervolgactie                                                                                             |
+| --- |-----------------------| --- |
+| 200        | OK                    | Indien de ontvangst van data wordt onderbroken, dan een nieuwe Range-request; anders GEEN.               |
+| 206        | Partial Content       | Idem.                                                                                                    |
+| 403        | Forbidden             | Authenticatie probleem; verder proberen is niet zinvol.                                                  |
+| 404        | Not Found             | Url niet beschikbaar; verder proberen is niet zinvol, tenzij de geldigheidsperiode nog niet is ingegaan. |
+| 416        | Range Not Satisfiable | Probleem met byte range; verder proberen is niet zinvol.                                                 |
+| 500+       | Internal Server Error | Server probleem; later opnieuw proberen.                                                                 |

@@ -1,0 +1,66 @@
+# Wat zijn de huidige versies van documenten?
+
+De onderstaande tabel geeft de huidige versies van de Digikoppeling documenten weer.
+Patchversies (hieronder weergegeven met een asterisk) raken de technische specificatie niet en hebben derhalve geen invloed op de geldigheid van het document.
+
+| Document                                        | Versie | Normatief | Geldig vanaf | Geldig  tot |
+| ----------------------------------------------- | ------ | --------- | ------------ | ----------- |
+| Wat is Digikoppeling                            | 1.1.*  |           | 19-10-2017   |             |
+| DK Beheermodel en releasebeleid                 | 1.5.*  |           | 19-10-2017   |             |
+| DK Architectuur                                 | 2.1.*  | X         | 30-01-2025   |             |
+| DK Koppelvlakstandaard REST API                 | 1.1.*  | X         | 14-11-2022  |  01-01-2027 <sup>[1](#f1)</sup> |
+| DK Koppelvlakstandaard REST API                 | 2.0.*  | X         | 30-01-2025  |             |
+| DK Koppelvlakstandaard WUS                      | 3.8.*  | X         | 11-01-2021   |             |
+| DK Koppelvlakstandaard ebMS2                    | 3.3.*  | X         | 16-05-2019   |             |
+| DK Koppelvlakstandaard Grote Berichten          | 3.8.*  | X         | 11-04-2022   |             |
+| DK Identificatie en Authenticatie               | 1.4.*  | X         | 19-10-2017   |             |
+| DK Beveiligingsstandaarden en voorschriften     | 1.4.*  | X         | 12-03-2021   |             |
+| DK Overzicht Actuele Documentatie en Compliance | 1.11.*  | X        | 30-01-2025   |             |
+| DK Best Practices WUS                           | 1.10.* |           | 19-10-2017   |             |
+| DK Best Practices ebMS2                         | 3.2.*  |           | 16-05-2019   |             |
+| DK Best Practices Grote Berichten               | 3.1.*  |           | 11-04-2022   |             |
+| DK Gebruik en achtergrond certificaten          | 1.6.*  |           | 02-09-2020   |             |
+
+<a name="f1"></a><sup>1</sup>: *Actuele versie van Koppelvlakstandaard REST API is 2.0, bestaande implementaties mogen tot de einddatum gebruik maken van versie 1.1*
+
+
+
+
+Tabel 1: Digikoppeling document versies
+
+Toelichting Normatief:  
+
+In de kolom ‘Normatief’ wordt met ‘X’ aangegeven dat het document specifieke regels bevat waar men zich aan moet houden om te voldoen aan de Digikoppeling standaard (Zie ook H5 Wanneer ben ik Digikoppeling compliant).
+
+De onderstaande tabel geeft de voorgaande versies van de Digikoppeling documenten weer.
+
+| Document                                        | Versie | Normatief | Geldig vanaf | Geldig tot |
+| ----------------------------------------------- | ------ | --------- | ------------ | ---------- |
+| DK Koppelvlakstandaard ebMS2                    | 3.2.*  | x         | 19-10-2017   | 16-05-2019 |
+| DK Best Practices ebMS2                         | 3.1.*  |           | 19-10-2017   | 16-05-2019 |
+| DK Koppelvlakstandaard WUS                      | 3.7.*  | X         | 16-05-2019   | 10-01-2021 |
+| DK Koppelvlakstandaard WUS                      | 3.6.*  | X         | 21-08-2018   | 16-05-2019 |
+| DK Koppelvlakstandaard WUS                      | 3.5.*  | X         | 19-07-2018   | 21-08-2018 |
+| DK Koppelvlakstandaard REST API                 | 1.1.*  | X         | 14-11-2022  |  01-01-2027 |
+| DK Koppelvlakstandaard REST API                 | 1.0.*  | X         | 11-04-2022   | 14-11-2022 |  
+| DK Architectuur                                 | 2.0.*  | X         | 11-04-2022   | 30-01-2025 |
+| DK Architectuur                                 | 1.5.*  | X         | 19-10-2017   | 11-04-2022 |
+| DK Koppelvlakstandaard Grote Berichten          | 3.3.*  | X         | 14-10-2020   | 11-04-2022 |
+| DK Koppelvlakstandaard Grote Berichten          | 3.2.*  | X         | 19-10-2017   | 11-10-2020 |
+| DK Beveiligingsstandaarden en voorschriften     | 1.3.*  | X         | 02-09-2020   | 12-03-2021 |
+| DK Beveiligingsstandaarden en voorschriften     | 1.2.*  | X         | 17-12-2019   | 02-09-2020 |
+| DK Beveiligingsstandaarden en voorschriften     | 1.1.*  | X         | 19-10-2017   | 17-12-2019 |
+| DK Gebruik en achtergrond certificaten          | 1.5.*  |           | 19-10-2017   | 02-09-2020 |
+| DK Overzicht Actuele Documentatie en Compliance | 1.10.*  | X        | 14-11-2022   | 30-01-2025 |            
+| DK Overzicht Actuele Documentatie en Compliance | 1.9.*  | X         | 11-04-2022   | 14-11-2022 |
+| DK Overzicht Actuele Documentatie en Compliance | 1.8.*  | X         | 12-03-2021   | 11-04-2022 |
+| DK Overzicht Actuele Documentatie en Compliance | 1.7.*  | X         | 10-01-2021   | 12-03-2021 |
+| DK Overzicht Actuele Documentatie en Compliance | 1.6.*  | X         | 14-10-2020   | 10-01-2021 |
+| DK Overzicht Actuele Documentatie en Compliance | 1.5.*  | X         | 02-09-2020   | 14-10-2020 |
+| DK Overzicht Actuele Documentatie en Compliance | 1.4.*  | X         | 17-12-2019   | 02-09-2020 |
+| DK Overzicht Actuele Documentatie en Compliance | 1.3.*  | X         | 16-05-2019   | 17-12-2019 |
+| DK Overzicht Actuele Documentatie en Compliance | 1.2.*  | X         | 30-07-2018   | 16-05-2019 |
+| DK Overzicht Actuele Documentatie en Compliance | 1.1.*  | X         | 23-07-2018   | 30-07-2018 |
+| DK Overzicht Actuele Documentatie en Compliance | 1.0.*  | X         | 19-07-2018   | 23-07-2018 |
+
+Tabel 2: Vorige versies Digikoppeling documenten per koppelvlak

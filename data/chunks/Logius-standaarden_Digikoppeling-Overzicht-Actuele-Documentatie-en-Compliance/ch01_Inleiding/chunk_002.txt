@@ -1,0 +1,4 @@
+
+##Doel
+
+Dit document *Digikoppeling Overzicht Actuele Documentatie & Compliance* beschrijft de opzet en huidige versies van de Digikoppeling standaard. Ook geeft dit document aan hoe compliance aan de standaard kan worden bepaald en aangetoond.

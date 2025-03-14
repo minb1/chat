@@ -1,0 +1,31 @@
+
+##Annotaties Algemeen
+
+De Digimelding-koppelvlakspecificatie (DMKS) die de basis vormt voor dit
+koppelvlak gaat uit van annotaties. Alle informatie over een
+terugmelding is vastgelegd in de vorm van een annotatie. Hierbij kent de
+DMKS ook annotatiebomen waarbij root annotaties voorzien zijn van leaf
+annotaties. De leafs zijn annotaties die een verwijzing bevatten naar de
+UUID van de root annotatie waar ze aan hangen. In theorie is het
+mogelijk dat een annotatie tegelijkertijd een root en leaf is, deze
+annotatie hangt dan aan een andere 'root node' maar heeft zelf ook
+leafs. Dit laatste komt in de huidige praktijk niet voor.
+
+Iedere annotatie kent een basisset aan elementen: de 'annotatiebasis'
+Deze worden bij iedere annotatie herhaald waardoor berichten behoorlijk
+omvangrijk worden. Voor het overzicht wordt deze annotatie basis in de
+volgende secties met specifieke berichten samengevat tot één regel
+Annotatiebasis. Hieronder leggen we eenmalig uit welke elementen deze
+annotatiebasis bevat.
+
+**Tabel Annotatiebasis**
+| Parameter | Toelichting | Relaties |
+| :---      | :---      |   :---:  |
+| \@uuid    | Unieke identificatie van de annotatie. | \[1..1\]  |
+| GeannoteerdDoor             | Gegevens van diegene die de annotatie heeft toegevoegd. | \[1..1\] |
+| GeannoteerdDoor.Oin       | OIN van de terugmeldende organisatie.                   | \[1..1\] |
+| GeannoteerdDoor.Vestiging | Vestigingsnummer van desbetreffende organisatie uit eHerkenning/SSOn Rijk (indien door de afnemer toegepast voor authenticatie). | \[0..1\] |
+| GeannoteerdDoor.Persoonsaanduiding | Deze zal met webservices bijna altijd de waarde "anoniem" hebben. Er zijn twee uitzonderingen. De eerste is wanneer nadere afspraken gemaakt zijn met een basisregistratie over de invulling van dit veld. De tweede is dat, indien binnen de organisatie eHerkenning/SSOn Rijk gebruikt is voor autorisatie en authenticatie, persoonsaanduiding uit eHerkenning/SSOn Rijk dient te worden meegegeven. | \[1..1\] |
+| GeannoteerdOp | Tijdstempel waarop de annotatie heeft plaatsgevonden.                 | \[1..1\] |
+| Toelichting   | Een toelichting bij de annotatie. In de huidige praktijk in gebruik voor root annotaties en status leaf annotaties voor overige leaf annotaties in de huidige praktijk altijd leeg. | \[0..1\] |
+| Annotatieverwijzing | Verwijzing naar de root annotatie waar een leaf annotatie aan gerelateerd is. Dit wordt afhankelijk  van de relevantie opgenomen. | \[0..1\] |

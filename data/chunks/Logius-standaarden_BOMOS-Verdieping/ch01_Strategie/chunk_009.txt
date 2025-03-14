@@ -1,0 +1,26 @@
+
+###De baten van standaardisatie generiek
+
+Er mogen dan weinig cijfers beschikbaar zijn maar er is voldoende
+economisch onderzoek gedaan naar de vooren nadelen van
+standaardisatie. Bijgaande tabel geeft een samenvatting (op basis van
+Blind, K. (2004). The economics of standards; theory, evidence,
+policy):
+
+|  | Positive effects | Negative effects |
+| --- | --- | --- |
+| Compatability / interface | Network externalities | Monopoly |
+|  | Avoiding Lock-ins |  |
+|  | Increased variety of systems products |  |
+| Variety reduction | Economies of scale | Reduced choice |
+|  | Building focus and critical mass | Market concentration |
+| Information standards | Facilitates trade | Regulatory capture |
+|  | Reduced transaction costs |  |
+
+Voor semantische (domein) standaarden zijn met name relevant:
+
+*   Positieve netwerkeffecten (wordt waardevoller met meer gebruikers).
+*   Voorkomen van vendor lock-ins.
+*   Toename variëteit in producten en diensten.
+*   Schaalvoordeel.
+*   Verlagen transactiekosten.

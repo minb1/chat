@@ -1,0 +1,4 @@
+
+###TLS Offloading - CPA
+
+Door het gebruik van TLS Offloading zijn er minder afhankelijkheden van certificaten in CPA’s. Daardoor kan de geldigheid van een CPA langer zijn dan de geldigheid van het certificaat.

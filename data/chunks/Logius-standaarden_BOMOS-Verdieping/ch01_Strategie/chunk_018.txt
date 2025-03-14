@@ -1,0 +1,15 @@
+
+###Het opstellen van een business case
+
+Ondanks de geschetste moeilijkheden en de verschillende pogingen die
+al gedaan zijn, proberen we toch een aanpak te schetsen die inzicht
+kan bieden in de business case. De aanpak in deze paragraaf beschreven
+is gebruikt om een business case voor een semantische standaard in de
+juweliersbranche op te stellen: Stappenplan:
+
+1. Beschrijf huidige situaties en toekomstscenario's en identificeer stakeholders.
+2. Bepaal de kosten en baten in de keten op basis van het raamwerk.
+3. Verdeel de kosten en baten naar verschillende stakeholders (Probeer de kosten en baten per stakeholder te kwantificeren).
+
+De eerste drie stappen worden toegelicht:
+

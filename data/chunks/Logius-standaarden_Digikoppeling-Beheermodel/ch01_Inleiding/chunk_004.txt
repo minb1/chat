@@ -1,0 +1,25 @@
+
+##Digikoppeling
+Digikoppeling vormt de logistieke laag voor standaardisatie van
+communicatie tussen systemen bij overheidsorganisatie op basis van
+webservice standaarden. Digikoppeling is daardoor een laag die zich
+bevindt tussen het transportnetwerk (b.v. Diginetwerk of Internet)
+en de applicatielaag (functionele berichtinhoud). De systemen die
+Digikoppeling gebruiken zijn zowel systemen toegepast worden voor
+interactie van burgers met overheden als voor systemen die berichtenverkeer
+tussen overheden afhandelen. Be berichtenverkeer gaat het hierbij vooral
+om berichten rondom de basisregistraties.
+
+De Digikoppeling-standaard is binnen de overheid in gebruik bij
+diverse organisaties, samenwerkingsverbanden en/of ketens.
+Een groot aantal ICT leveranciers biedt ondersteuning aan de voor
+Digikoppeling benodigde open standaarden (WUS, ebMS, HTTPS)
+in hun producten en dienstverlening. De Digikoppeling standaard
+heeft de zich afgelopen tijd ontwikkeld tot een volwassen standaard
+die in een grote en brede community wordt ontwikkeld. Bij het
+beheer van de Digikoppeling-standaard zijn veel verschillende
+organisaties betrokken uit de gehele Digitale Overheid.
+De voornaamste organisaties zijn ministeries, Manifestpartijen,
+houders van basisregistraties en landelijke voorzieningen,
+ketenpartijen, ICT leveranciers en gemeenten via de VNG.
+Opdrachtgever voor Digikoppeling is het Ministerie van BZK.

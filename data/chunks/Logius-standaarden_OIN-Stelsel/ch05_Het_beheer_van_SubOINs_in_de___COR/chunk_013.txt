@@ -1,0 +1,4 @@
+
+###Geldigheidsduur
+
+De door de [=SubOIN-beheerder=] uitgegeven SubOINs hebben een geldigheidsduur van drie jaar. SubOINs kunnen worden verlengd door de [=SubOIN-beheerder=] via een verzoek aan Logius.

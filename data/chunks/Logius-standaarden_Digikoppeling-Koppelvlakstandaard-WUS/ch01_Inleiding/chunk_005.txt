@@ -1,0 +1,25 @@
+
+##Opbouw van dit document
+
+Hoofdstuk 1 bevat een aantal algemene inleidende onderwerpen.
+
+Hoofdstuk 2 bevat de kern van de standaard. Deze is onderverdeeld naar
+onderwerpen/gebieden: WSDL, WS-Addressing, naamgeving, beveiliging,
+betrouwbaarheid en binaire data. Het identificeert de gekozen internationale
+(WS-I) profielen die dienen als fundament voor de Digikoppeling
+Koppelvlakstandaard WUS. Die keuzes, de nadere invullingen voor Digikoppeling
+binnen de ruimte van die standaarden/profielen en specifieke aandachtspunten bij
+de keuzes, vormen tezamen de “voorschriften” per onderwerp.
+
+Hoofdstuk 3 definieert de resulterende Digikoppeling WUS profielen.
+
+Gehanteerde terminologie: Glossary
+
+Voor de definities die binnen het Digikoppeling project gehanteerd worden, zie
+de ‘Digikoppeling Glossary’ via de onderstaande website.
+
+Website
+
+Dit document en andere documentatie is beschikbaar op
+[www.logius.nl/digikoppeling](http://www.logius.nl/digikoppeling).
+

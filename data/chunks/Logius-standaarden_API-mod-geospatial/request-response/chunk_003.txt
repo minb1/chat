@@ -1,0 +1,175 @@
+
+##Call (requests)
+
+A simple spatial filter can be supplied as a bounding box. This is a common way of filtering spatial data and can be supplied as a parameter. We adopt the OGC API Features [[ogcapi-features-1]] bounding box parameter:
+
+<div class="rule" id="/geo/bbox-query-parameter">
+  <p class="rulelab"><b>/geo/bbox-query-parameter</b>: Supply a simple spatial filter as a bounding box parameter</p>
+  <p>Support the <a href="https://docs.ogc.org/is/17-069r4/17-069r4.html#_parameter_bbox">OGC API Features part 1 <code>bbox</code> query parameter</a> in conformance to the standard.</p> 
+  <pre class="example">
+    GET /api/v1/buildings?bbox=5.4,52.1,5.5,53.2</pre>
+  <p>Note that if a resource contains multiple geometries, it is up to the provider to decide if geometries of type single geometry or type multiple geometry are returned and that the provider shall clearly document this behavior.
+  </p>
+  <p> The default spatial operator <code>intersects</code> is used to determine which resources are returned.
+  </P>
+  <p> Due to possible performance issue, especially when a combination of filters is used, a provider may decide to limit the size of the bounding box or the number of results. It is also up to the provider to decide if an error is returned in such cases. 
+  The provider shall clearly document this behavior.
+  </P>
+  <p>
+  The provider shall be able to provide resources that do not have a geometry property and are related to resources that match the bounding box filter.
+  </p>
+  <p> An error shall be given if the provided coordinates are outside the specified coordinate reference system.
+  </p>
+  <h4 class="rulelab">How to test</h4>
+  <ul>
+    <li>Issue an HTTP GET request to the API, including the <code>bbox</code> query parameter and using <a href="#crs-negotiation">CRS Negotiation</a>.</li>
+    <li>Validate that a response with status code 200 is returned.</li>
+    <li>Verify that only features that have a spatial geometry that intersects the bounding box are returned as part of the result set.</li>
+  </ul>
+</div>
+
+<aside class="note">
+Spatial operations like <code>intersects</code> and <code>within</code> in combination with a filter geometry (e.g. <code>bbox</code>) or resource geometry containing long lines, may result in erroneous responses, since a straight line between two coordinates in a CRS is, depending on the CRS, not a straight line in reality. See the <a href="https://docs.geostandaarden.nl/crs/crs/#vormvastheid">explanation in the Handreiking CRS</a> (Dutch).
+</aside>
+
+<aside class="note">
+Spatial filtering is an extensive topic. There are use cases for geospatial operators like <code>intersects</code> or <code>within</code>. Geospatial filters can be large and complex, which sometimes causes problems since <code>GET</code> may not have a payload (although supported by some clients). 
+
+More complex spatial filtering is not addressed in this module. A new API Design Rules module on filtering will address spatial as well as non-spatial filtering. [[ogcapi-features-3]] will provide input for this.
+
+However, until the filtering module is written, the geospatial module retains rule <a href="#/geo/geometric-context">/geo/geometric-context</a> about dealing with results of a global spatial query. This rule may be moved to the filtering module at a later stage.
+</aside>
+
+<span name="api-38"></span>
+<div class="rule" id="/geo/geometric-context">
+  <p class="rulelab"><b>/geo/geometric-context</b>: Place results of a global spatial query in the relevant geometric context</p>
+  <p>In case of a global query <code>/api/v1/_search</code>, results should be placed in the relevant geometric context, because results from different <a href="https://publicatie.centrumvoorstandaarden.nl/api/adr/#resources">collections</a>, i.e. different sets of resources of the same type, are retrieved. Express the name of the collection to which the results belong in the singular form using the property <code>type</code>. For example:</p>
+  <pre class="example">
+  // POST /api/v1/_search:
+  {
+    "currentPage": 1,
+    "nextPage": 2,
+    "pageSize": 10,
+    "_embedded": {
+      "items": [
+        {
+          "type": "enkelbestemming",
+          "_links": {
+            "self": {
+              "href": "https://api.example.org/v1/enkelbestemmingen/1234"
+            }
+          }
+        },
+        {
+          "type": "dubbelbestemming",
+          "_links": {
+            "self": {
+              "href": "https://api.example.org/v1/dubbelbestemmingen/8765"
+            }
+          }
+        }
+      ]
+    }
+  }
+  </pre>
+  <h4 class="rulelab">How to test</h4>
+  <ul>
+    <li>Issue an HTTP GET request to the API.</li>
+    <li>Validate that the returned document contains the expected <code>type</code> property for each member.</li>
+  </ul>
+</div>
+
+In case a REST API shall comply to the OGC API Features specification for creating, updating and deleting a resource, the following applies.
+
+<span name="api-34"></span>
+<div class="rule" id="/geo/geojson-request">
+  <p class="rulelab"><b>/geo/geojson-request</b>: Support GeoJSON in geospatial API requests</p>
+  <p>For representing geometric information in an API, use the convention for describing geometry as defined in the GeoJSON format [[rfc7946]]. Support GeoJSON as described in <a href="http://docs.ogc.org/DRAFTS/20-002.html">OGC API Features part 4</a>, but note that this standard is still in development.</p>
+  Example: POST feature
+  <pre class="example">
+  // POST /collections/gebouwen/items   HTTP/1.1
+  // Content-Type: application/geo+json
+  {
+    "type": "Feature",
+    "geometry":  {
+      "type": "Point",
+      "coordinates": [5.2795,52.1933]
+    },
+    "properties": {
+      "naam": "Paleis Soestdijk",
+      ...
+    }
+  }
+  </pre>
+  Example: POST feature collection
+  <pre class="example">
+  // POST /collections   HTTP/1.1
+  // Content-Type: application/geo+json
+  {
+    "type": "FeatureCollection",
+    "features": [
+    {
+      "type": "Feature",
+      "geometry":  {
+        "type": "Point",
+        "coordinates": [5.2795,52.1933]
+      },
+      "properties": {
+        "naam": "Paleis Soestdijk",
+        ...
+      }
+    }]
+  }  
+  </pre>
+  <h4 class="rulelab">How to test</h4>
+  <ul>
+    <li>Create a new resource that includes feature content (i.e. coordinates) using the HTTP POST method with request media type <code>application/geo+json</code> in the <code>Content-Type</code> header.</li>
+    <li>Validate that a response with status code <code>201</code> (Created) is returned.</li>
+    <li>Validate that the response includes the <code>Location</code> header with the URI of the newly added resource.
+  </ul>
+</div>
+
+In case a REST API does not have to comply to the OGC API Features specification, e.g. for usage in administrative applications, the REST API shall use the JSON data format. If a resource contains geometry, that geometry shall be embedded as a GeoJSON <code>Geometry</code> object within the resource. The media type <code>application/json</code> must be supported. This may also apply to other media types <code>application/*+json</code>, however this depends on the media type specification. If the media type specification prescribes that resource information must be embedded in a JSON structure defined in the media specification, then the media type should not be supported while it is impossible to comply to that specification with the method described below. The media type <code>application/geo+json</code> should not be supported while the resource does not comply to the GeoJSON specification, i.e. the request resource does not embed a feature or feature collection.
+A template for the definition of the schemas for the GeoJSON <code>Geometry</code> object in the requests in OpenAPI definitions is available: [geometryGeoJSON.yaml](https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml).
+In case a collection of resources is embedded in the request resource, the name of the array containing the resources should be the plural of the resource name.
+
+<div class="rule" id="/geo/embed-geojson-geometry-request">
+  <p class="rulelab"><b>/geo/embed-geojson-geometry-request</b>: Embed GeoJSON <code>Geometry</code> object as part of the JSON resource in API requests</p>
+  <p>When a JSON (<code>application/json</code>) request contains a geometry, represent it in the same way as the <code>Geometry</code> object of GeoJSON.</p>
+  Example: POST resource containing geometry
+  <pre class="example">
+  // POST /collections/gebouwen/items   HTTP/1.1
+  // Content-Type: application/json
+  {
+    "naam": "Paleis Soestdijk",
+    "geometrie": {
+      "type": "Point",
+      "coordinates": [5.2795,52.1933]
+    }
+  }
+  </pre>
+  Example: POST resource containing geometry collection
+  <pre class="example">
+  // POST /collections/gebouwen/items   HTTP/1.1
+  // Content-Type: application/json
+  {
+    "naam": "Paleis Soestdijk",
+    "geometrie": {
+      "type": "GeometryCollection",
+      "geometries": [
+        {
+          "type": "Point",
+          "coordinates": [5.2795,52.1933]
+        }
+      ]
+    }
+  }
+  </pre>
+
+  <h4 class="rulelab">How to test</h4>
+  <ul>
+    <li>Create a new resource that includes geometry of GeoJSON <code>Geometry</code> object type using the HTTP POST method with request media type <code>application/json</code> in the <code>Content-Type</code> header.</li>
+    <li>Validate that a response with status code <code>201</code> (Created) is returned.</li>
+    <li>Validate that the response includes the <code>Location</code> header with the URI of the newly added resource.
+  </ul>
+</div>

@@ -1,0 +1,10 @@
+
+###Algemeen
+
+| Term | Toelichting |
+|---|---|
+| Doel          | Het toevoegen van een annotatie(boom) bij een op Digimelding aangesloten basisregistratie door een (medewerker van) een organisatie.<br>Het effect van het annotatie toevoegen, **terugmelden** is het doen van een terugmelding.<br>Het effect van een annotatie toevoegen, **intrekken** is het intrekken van een terugmelding.<br> Het effect van een annotatie toevoegen, **statuswijziging** is het geven van een statusupdate. |
+| Voorwaarde    | Afname van gegevens uit basisregistraties door de terugmeldende organisatie, en het gedaan hebben van een check van de actuele waarde in de basisregistratie bij het doen van een terugmelding.<br>Voor het **intrekken** van een terugmelding moet er al een terugmelding gedaan is.<br>Voor het verzenden van een **statuswijziging** moet een terugmelding zijn ontvangen door de bronhouder |
+| Trigger       | Gerede twijfel over de juistheid van een gegeven in een op Digimelding aangesloten basisregistratie bij een ambtenaar binnen de organisatie.<br>Het terugkomen op de gerede twijfel van een eerder gedane terugmelding in het geval van **intrekken**.<br>Het veranderen van een status door middel van een **statuswijziging** van een terugmelding bij een bronhouder. |
+| Direct gevolg | Versturen van een bericht naar de betreffende bronhouder of landelijke voorziening.               |
+| Vervolgactie  | De landelijke voorziening van de basisregistratie  neemt de terugmelding in behandeling. De gebruiker van de terugmeldende organisatie kan dit volgen  middels status opvragen.<br>De landelijke voorziening verwerkt de statusupdate. |

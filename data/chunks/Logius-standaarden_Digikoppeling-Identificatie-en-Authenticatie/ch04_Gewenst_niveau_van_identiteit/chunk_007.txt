@@ -1,0 +1,44 @@
+
+##Vastlegging
+
+Ongeacht het voorgaande is het mogelijk, dat aan de afnemende organisatie
+strengere eisen gesteld worden aan het vastleggen van het gebruik van gegevens.
+
+Ook de WBP formuleert, in het kader van verstrekking aan derden en informeren
+van betrokkene, de eisen op het niveau van verantwoordelijke dat wil zeggen de
+rechtspersoon. Aangezien het hier een juridische omgeving betreft en de WBP
+expliciet open geformuleerd is, dient dit in voorkomende gevallen verder
+juridisch uitgezocht te worden.
+
+Uitgangspunt in dit document is dat – in termen van de WBP - bij verstrekking
+alleen de ontvangende verantwoordelijke relevant is en niet de kring van
+«personen die onder rechtstreeks gezag van de verantwoordelijke gemachtigd zijn
+om gegevens te verwerken». Personen lijken dus niet relevant, wel
+verantwoordelijken in de zin van de WBP.
+
+Een praktisch argument om niet de gegevens van medewerkers van de afnemer vast
+te leggen bij de aanbieder is, dat overheidsorganisaties vaak een dossier of
+zaak behandelen, waarbij diverse medewerkers van de betreffende organisatie
+betrokken zijn. De aanbiedende organisatie kan hooguit zicht houden op de
+toevallige eerste medewerker die informatie opvraagt, maar niet op alle volgende
+medewerkers. Dat geldt zeker wanneer dat dossier actueel gehouden wordt door
+(een mechanisme van) abonnementen.
+
+De bovenstaande redenatie voor medewerkers is ook geldig voor andere
+onderverdelingen, zoals medewerker afdeling, systeem, enzovoort bij de
+(zelfstandig bevoegde) afnemer.
+
+Conclusie:
+
+| De vastlegging van de gebeurtenis van afnemen gebeurt door de aanbieder op het niveau van afnemerorganisatie. Het is niet nodig en niet gewenst om dat te doen op een niveau binnen die afnemer zoals medewerker afdeling, systeem of wettelijke taak. |
+|---|
+
+Gevolg van dit uitgangspunt is, dat een verantwoordelijke alleen maar inzage kan
+geven in de organisaties aan wie gegevens zijn verstrekt. Die andere organisatie
+moet dan vervolgens inzicht kunnen geven welke medewerkers (en welke andere
+organisaties, indien van toepassing) de informatie hebben opgevraagd.
+
+Iets heel anders is, dat er onderling kan worden afgesproken dat een naam van
+een medewerker wordt meegegeven als onderdeel van de via de service
+uitgewisselde informatie, zodat men daarmee contact kan opnemen bij verdere
+vragen (vergelijk 'behandeld door').

@@ -1,0 +1,14 @@
+
+##Context
+
+Orkestratie services bieden over het algemeen een oplossing voor een complexe vraag en een antwoord wat input uit meerdere databronnen bevat.  Conform de [Api Strategie architectuur typologie](https://docs.geostandaarden.nl/api/API-Strategie-architectuur/#systeem-proces-convenience) is het daarmee een zogenaamde "Composite API" die meerdere systeem API's aanroept.
+
+Voor de beveiliging van een dergelijke composite API is het belangrijkste verschil of de API kennis heeft van de inhoud van de gegevensuitwisseling en  van die inhoud ook logging bijhoudt of dat de Composite API geen kennis heeft van de inhoud en daarmee ook geen logging hoeft bij te houden. 
+
+Wanneer de Composite API geen kennis heeft van de inhoud en geen logging vasthoud noemen we dit transparant.
+
+> we focussen in deze context op het bevragen van services en niet op de transactionele kant 
+>
+> We gaan in onderstaande situaties er vanuit dat er vertrouwelijke gegevens worden bevraagd. Voor het bevragen open data is dergelijke beveiliging niet noodzakelijk.
+>
+> We gaan er van uit dat OAuth wordt gebruikt voor de authorisatie van de Services.

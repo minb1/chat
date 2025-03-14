@@ -1,0 +1,10 @@
+
+##Proces voor de ontwikkeling en het beheer van een standaard (Hoofdactiviteit: Operationeel)
+
+De primaire standaardisatieactiviteit is het operationele proces: Op welke manier komt de uiteindelijke standaard nu tot stand?
+
+Daarbij is een aantal aspecten van belang:
+*   Hoe worden wensen en eisen verzameld?
+*   Hoe worden wensen en eisen vertaald naar concrete wijzigingsvoorstellen?
+*   Hoe vindt besluitvorming plaats over wijzigingsvoorstellen?
+*   Op welke manier wordt omgegaan met versies van een standaard?

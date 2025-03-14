@@ -1,0 +1,21 @@
+
+###Standaarden voor grote berichten
+
+De [[[DK-GB]]] maakt gebruik van WUS, ebMS2 of REST
+ voor het verzenden van metadata. Voor ophalen van het grote bestand maakt de standaard gebruik van HTTPS-downloads. Daardoor zijn reliability en security gelijkwaardig aan de andere koppelvlakstandaarden. Ook is het gebruik van transparante intermediairs mogelijk.
+
+[[[DK-GB]]] regelt de volgende functionaliteiten, in aanvulling op WUS of ebMS2
+
+- Identificatie en authenticatie van partijen (OIN)
+
+- Versleutelen van transport
+
+- Routeren via (http) proxies
+
+- Bestand correleren aan bericht
+
+- Ondersteuning voor foutafhandeling
+
+- Na onderbreking hervatten waar de overdracht is afgebroken (‘resume’)
+
+- Optioneel beperkte tijdsperiode om bestand beschikbaar te stellen.

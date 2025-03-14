@@ -1,0 +1,18 @@
+
+###Response binnen een conversatie
+
+Een *conversatie* gaat verder dan een simpele request/response. Een *conversation* is een gedefinieerd proces waarin meerdere berichten tussen twee partijen worden uitgewisseld. In alle ebMS berichten in een *instantie* van dat proces wordt dan hetzelfde *ConversationId* te gebruiken. De samenhang van de *individuele* transacties wordt bewaakt door het *MessageId* en *RefToMessageId* en de samenhang van het *proces* door het *ConversationId*. De waarde van 'ConversationId 'wordt in bepaald door de Partij die het eerste bericht verstuurd, de initiator.
+
+Het gebruik van het ConversationId is dus op *business-niveau*, met verschillene implementaties:
+
+- Simpel vraagbericht met ConversationId waarop het antwoordbericht hetzelfde ConversationId bevat
+- Transactieachtig gebruik, waarbij meerdere vraag- en antwoordberichten, hetzelfde ConversationId bevatten
+- Uitwisselingen waarin het case nummer in ConversationId wordt gezet, dat kunnen meerdere opeenvolgende transacties zijn waarbij er ook enige tijd kan verstrijken tussen de transacties
+- Random, geen relatie tussen vraag en antwoordbericht op basis van ConversationId
+
+<aside class="example">
+Binnen het Justitie-domein is een goed voorbeeld hiervan het proces van de identiteitsvaststelling, waarbij één verzoek resulteert in meldingen naar meerdere registers waarna uiteindelijk een gecombineerd antwoord wordt teruggestuurd naar de Politie. Bij alle meldingen in één identiteitsvaststelling wordt hetzelfde ConversationId gebruikt, maar uiteraard hebben ze allemaal wel unieke MessageId’s (met bijbehorende RefToMessageId’s voor de antwoorden).
+</aside>
+
+In een losstaande transactie heeft het ConversationId dus niet zoveel toegevoegde waarde. Die toegevoegde waarde onstaat pas op het moment dat meerdere transacties door middel van het overkoepelende ConversationId met elkaar verbonden worden.
+

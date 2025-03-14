@@ -1,0 +1,11 @@
+
+###Algemene documentatie
+
+- *Wat is Digikoppeling?*  
+    Inleidend document over Digikoppeling
+
+- *DK Overzicht Actuele Documentatie en Compliance*  
+    Totaal overzicht van de documentatie en toelichting op compliance aan de standaard;
+
+- *DK Beheermodel en Releasebeleid*
+    Governance van de Digikoppeling standaard;

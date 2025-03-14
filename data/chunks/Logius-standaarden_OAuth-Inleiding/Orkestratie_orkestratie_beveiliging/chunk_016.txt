@@ -1,0 +1,6 @@
+
+##Variatie - Federated Identity Propagation
+
+1. Identity Service Provider Z kan ook de toegang zijn tot een gefedereerde omgeving van Identity providers waarbij Z door middel van  [OAuth Token Exchange](https://datatracker.ietf.org/doc/html/rfc8693) de Access tokens worden opgehaald bij de Identity providers van de verschillende Services en deze tokens door de client worden meegegeven bij het request
+
+![Schematische weergave van Federatieve Transparante-Orkestratie](../../../media/orkestratie-Federatief-Transparante-Orkestratie.drawio.svg)

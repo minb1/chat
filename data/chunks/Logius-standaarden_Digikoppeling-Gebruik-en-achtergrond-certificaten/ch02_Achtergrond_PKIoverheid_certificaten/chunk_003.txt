@@ -1,0 +1,19 @@
+
+###Stamcertificaat
+
+De Staat der Nederlanden heeft een eigen stamcertificaat die de basis vormt voor het vertrouwen van de onderliggende certificaten.
+
+Binnen de PKI voor de overheid zijn op vier niveaus verschillende typen certificaten gedefinieerd, te weten:
+
+- Stamcertificaat;
+- Domeincertificaat;
+- TSP certificaat;
+- Eindgebruikercertificaat.
+
+Voor machine to machine verkeer (en dus ook voor Digikoppeling) wordt gebruik gemaakt van het Staat der Nederlanden Private Root CA G1 stamcertificaat.
+(Voor webauthenticatie wordt vanaf 1-1-2021 gebruik gemaakt van het stamcertificaat Staat der Nederlanden EV Root CA, Dit stamcertificaat wordt niet gebruikt voor Digikoppeling<sup>6</sup>)
+
+
+Het Public Root G3 en de Private Root G1 Stamcertificaten maken gebruik van SHA-256.
+
+<sup>6</sup>:Zie de Digikoppeling Beveiligingsvoorschriften en richtlijnen voor de specifieke eisen en evt. uitzonderingen.

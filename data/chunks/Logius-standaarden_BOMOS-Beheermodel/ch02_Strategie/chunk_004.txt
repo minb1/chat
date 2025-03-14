@@ -1,0 +1,37 @@
+
+###Governancestructuur en organisatiestructuur
+BOMOS sluit aan op de MIDO governance op strategisch niveau. Voor de governance van BOMOS zelf zijn meer governance lagen nodig, met name voor tactisch en operationeel niveau. BOMOS beheer omvat de volgende gremia:
+
+![image](https://user-images.githubusercontent.com/94606563/210580080-cefe348a-c451-49bb-94cc-739addf69332.png)
+images/image5.png "BOMOS Organisatiestructuur")
+
+Bestuur groep:
+
+-   OBDO/MIDO (programmeringstafel Infrastructuur)
+-   Logius afdeling Standaarden
+-   Logius afdeling Portfolio
+-   Bureau Forum Standaardisatie
+
+Deelnemers Adviesorgaan/klankboordgroep:
+
+-   Kadaster
+-   Geonovum
+-   Directie Digitale Samenleving
+-   KOOP
+-   TNO
+-   Bureau Forum Standaardisatie
+-   Informatie Huis Water
+-   RIONED
+-   Logius afdeling Stelsels
+-   Logius afdeling Standaarden
+
+Uitvoeringsgroep:
+
+-   Logius afdeling Standaarden
+-   Logius afdeling Stelsels
+
+De BOMOS Community:
+
+Is geen vast gremium, dit kunnen verschillende
+beheersorganisaties zijn die deel willen nemen aan de BOMOS Community.
+Alle beheer organisaties mogen hierin mee participeren.

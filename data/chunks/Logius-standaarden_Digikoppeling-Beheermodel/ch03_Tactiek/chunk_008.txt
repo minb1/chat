@@ -1,0 +1,8 @@
+
+##Adoptie en erkenning
+De Digikoppeling standaard heeft de 'pas toe of leg uit' -status van Forum
+Standaardisatie. Dit betekent kort gezegd dat Nederlandse
+overheidspartijen en partijen uit de (semi) publieke sector deze
+standaard dienen toe te passen op het moment dat zij hun informatie
+met behulp van Digikoppeling standaard willen ontsluiten voor andere overheidspartijen.
+Zie [sectie over visie in de strategie](#visie) voor meer informatie.

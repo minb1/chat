@@ -1,0 +1,15 @@
+# Documentbeheer
+
+| Datum                            | Versie      | Auteur               | Opmerkingen                                                      |
+|----------------------------------|-------------|----------------------|------------------------------------------------------------------|
+| 12/10/2017                       | 1.0         | Logius               | 1e versie                                                        |
+| 09/07/2018                       | 1.1         | Logius               | Versionering documentniveau                                      |
+| 21/08/2018                       | 1.2         | Logius               | RFC WUS Oin in wsa:to/from                                       |
+| 16/05/2019                       | 1.3         | Logius               | RFC WUS Interoperabiliteit Signing RFC ebMS SyncReply            |
+| 17/12/2019                       | 1.4         | Logius               | NCSC TLS Voorschriften                                           |
+| 02/09/2020                       | 1.5         | Logius               | Beveiligingsstandaarden PKIO                                     |
+| 14/10/2020                       | 1.6         | Logius               | DK KVS Grote Berichten v3.3                                      |
+| 11/01/2021                       | 1.7         | Logius               | RFC 2020-2, RFC 2020-3                                           |
+| 12/03/2021                       | 1.8         | Logius               | Beveiligingsstandaarden PKIO private root                        |
+| 11/04/2022                       | 1.9         | Logius               | Toevoeging REST-API koppelvlakstandaard                          |
+| 14/11/2022                       | 1.10        | Logius               | Wijziging REST-API koppelvlakstandaard RFC API-58                |

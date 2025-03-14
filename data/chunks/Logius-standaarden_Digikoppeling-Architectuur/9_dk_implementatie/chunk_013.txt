@@ -1,0 +1,32 @@
+
+###Berichtinhoud en semantiek
+
+Digikoppeling gaat over de uitwisseling van gegevens. Binnen Digikoppeling wordt een bericht dat uitgewisseld wordt met WUS of ebMS conform de SOAP<sup>[31](#f31)</sup> messaging protocol samengesteld.
+
+Bij het gebruik van het Digikoppeling REST API profiel is er geen sprake van  berichtuitwisseling. In dit profiel wordt een service met een Application Programming Interface (API) een resource aangeboden die door een gebruiker kan worden bevraagd of bewerkt, afhangend wat de API en de autorisatie eisen toelaat. De aanroep van een resource vindt plaats met HTTP-request. De HTTP-response bevat JSON of XML.
+
+Een bericht (WUS of ebMS) bestaat uit de volgende onderdelen:
+
+- Een bericht header (envelop)
+
+- Een bericht payload (inhoud)
+
+- Attachments (bijlagen)
+
+Een bericht (WUS of ebMS) voldoet aan de volgende eisen:
+
+- Alle berichten, zowel WUS als ebMS2, hebben een unieke identificatie. De gekozen structuur is geldig in de ebMS2-omgeving en in de WUS-omgeving. Zo kan dezelfde berichtidentificatie gebruikt worden in zowel een ebMS2-traject als op een voorafgaand of volgend WUS-traject. Een bepaald bericht kan daardoor direct ‘gevolgd’ worden. Gekozen is voor de structuur UUID\@URI.
+
+- De payload van een bericht moet beschreven zijn in valide XML<sup>[32](#f32)</sup>
+
+- Er moet een contract zijn met de afspraken over de te gebruiken services.
+
+- Het gebruik van een standaard karakterset en standaard codering is verplicht.
+
+Partijen maken onderling afspraken over de semantiek van de payload.
+
+Berichtdefinities worden door partijen in overleg opgesteld. De semantische interoperabiliteit (d.w.z. de betekenis van de inhoud) wordt door partijen geborgd door zoveel mogelijk gebruik te maken van (bestaande) gegevensregisters, woordenboeken of catalogi. De standaarden StUF, Suwi-ML en NEN3610 zijn veelgebruikt hiervoor.
+
+<br><sup><a name="f31"><dfn>31</dfn></a>: SOAP (Simple Object Access Protocol) is een [computerprotocol](http://nl.wikipedia.org/wiki/Protocol#Computerprotocol) dat wordt gebruikt voor communicatie tussen verschillende componenten van systemen.</sup>
+
+<br><sup><a name="f32"><dfn>32</dfn></a>: Attachments mogen andere formaten hebben.</sup>

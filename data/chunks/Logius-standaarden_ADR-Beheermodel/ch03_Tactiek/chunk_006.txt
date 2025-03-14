@@ -1,0 +1,8 @@
+
+####Kennisplatform API&#39;s
+
+Kennisplatform API&#39;s is een initiatief van Geonovum, Bureau Forum Standaardisatie, Kamer van Koophandel, VNG Realisatie en Logius. Het doel van het Kennisplatform is om de kennis over het toepassen van API&#39;s uit te wisselen en de aanpak bij verschillende organisaties op elkaar af te stemmen en waar nodig te standaardiseren. In het kennisplatform wordt gezamenlijk gekeken naar strategische en tactische vraagstukken rond het ontwikkelen van API&#39;s door de overheid en gebruik van deze API&#39;s buiten en binnen de overheid. Dit vanuit de gedachte dat we in een digitale samenleving eenvoudig met elkaar moeten kunnen samenwerken.  
+
+De ADR-standaard komt voort uit de Nederlandse API Strategie die beheerd wordt door het Kennisplatform API&#39;s en is door het kennisplatform ontwikkeld. Op het moment dat er in het kennisplatform consensus was over de kwaliteit van de ADR-standaard en de wenselijkheid deze via het &#39;pas toe of leg uit&#39; -principe normatief te laten verklaren is de standaard voorgedragen aan Forum Standaardisatie voor het verkrijgen van de voor overheden verplichte &#39;pas toe of leg uit&#39; status en heeft Logius het beheer van dit normatieve deel op zich genomen.  
+
+Het kennisplatform API&#39;s blijft via haar werkgroep ADR actief met API Design Rules, maar richt zich primair op de ontwikkeling van extensies op de ADR. Deze extensies zijn bovendien (nog) niet normatief van aard. Logius heeft bij het beheer van de ADR-standaard nauw contact met het kennisplatform (en specifiek de werkgroep ADR) om zo te borgen dat wensen en issues m.b.t. de ADR bij beide partijen helder zijn en hier gezamenlijk de beste aanpak voor gekozen kan worden. (Zie ook h4).  

@@ -1,0 +1,4 @@
+
+###SubOINs op basis van een aangesloten register
+
+Als een organisatie geregistreerd is in een aangesloten register (niet het Handelsregister), dan kan het identificerend nummer uit dit register worden gebruikt als [=SubOIN=]s. Daarmee is een aangesloten register in feite een register van SubOINs voor een specifieke doelgroep.

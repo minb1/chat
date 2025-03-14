@@ -1,0 +1,16 @@
+
+##Wensen en Eisen
+
+RFC&#39;s kunnen binnen komen via verschillende kanalen:
+
+1. Rechtstreeks bij Logius, tijdens overleggen, via de website of mail
+2. Bij de werkgroep ADR van het Kennisplatform API&#39;s, tijdens overleggen, via de website of mail
+
+RFC&#39;s worden als issue&#39;s geregistreerd in de repository van het kennisplatform API&#39;s op Github. [https://github.com/Geonovum/KP-APIs/issues](https://github.com/Geonovum/KP-APIs/issues)
+
+Om te voorkomen dat er verschillende lijsten met issues en verzoeken ontstaan, is met het kennisplatform API&#39;s afgesproken dat ieder issue en verzoek als eerste wordt beoordeeld door de werkgroep ADR van het kennisplatform API&#39;s. Dit voorkomt het ontstaan van verschillende stromen met RFC&#39;s en geeft de werkgroep de gelegenheid om in te schatten of de RFC betrekking heeft op de ADR-standaard die Logius beheert, of dat er sprake is van een verzoek dat het best kan landen in één van de (niet normatieve) extensies die het kennisplatform beheert.
+
+Dit houdt concreet in dat RFC&#39;s die rechtstreeks bij Logius worden neergelegd, door Logius worden doorgespeeld aan de werkgroep ADR zodat daar de eerste beoordeling kan plaatsvinden.
+
+![ADR RFC Procesmodel](media/ADR_Governance-RFC_Process.svg "ADR RFC Procesmodel")
+> Figuur 5. ADR RFC Procesmodel

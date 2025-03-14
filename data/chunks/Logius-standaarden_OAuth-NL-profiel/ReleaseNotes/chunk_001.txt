@@ -1,0 +1,3 @@
+#Releasenotes NL GOV Assurance profile for OAuth 2.0 V1.1.0 (OAuth-NL)
+
+Versie 1.1.0 van de standaard sluit beter aan bij de modulaire opbouw van het Kennisplatform API's en bevat nu ondersteuning van de client credentials flow.

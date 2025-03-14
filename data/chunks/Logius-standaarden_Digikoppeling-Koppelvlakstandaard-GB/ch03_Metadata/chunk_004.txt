@@ -1,0 +1,6 @@
+
+###PULL Schema
+
+Het PULL schema bevat een request bericht definitie. De DK GB PULL variant laat
+de invulling van de response verder vrij en definieert alleen (size error) en
+(checksum error) in algemene zin.

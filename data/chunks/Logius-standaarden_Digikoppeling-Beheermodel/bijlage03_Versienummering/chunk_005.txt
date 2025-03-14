@@ -1,0 +1,18 @@
+
+###Major Releases
+Een major release geeft aan dat de nieuwe versie van de standaard zodanig is gewijzigd dat een implementatie van de voorgaande versie van de standaard **niet** voldoet aan de regels van de nieuwe versie.
+Bijvoorbeeld de overgang naar nieuwe externe
+(meestal internationale) standaarden binnen een bestaand profiel. Als hierbij het
+functionele toepassingsgebied van de standaard, waarvoor het pas-toe-of-leg-uit
+regime geldt, verandert, dan wordt eerst de uitgebreide vaststellingsprocedure
+gevolgd en vervolgens de procedure van het Forum Standaardisatie.
+
+<aside class="example" title="Grote wijzigingen voor Digikoppeling">
+Bij de overgang naar een andere externe standaard binnen een bestaand
+profiel kan men denken aan een overgang naar HTTP 2.0 of SOAP 1.2 binnen
+Digikoppeling WUS koppelvlakspecificatie.
+Het toevoegen van een geheel nieuw profiel kan voor Digikoppeling kan bestaan
+uit het toevoegen van een Grote Berichten Push variant of ebMS3/AS4
+koppelvlakspecificaties. Deze kunnen natuurlijk bestaande koppelvlakspecificaties
+vervangen.
+</aside>

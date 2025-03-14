@@ -1,0 +1,18 @@
+
+##Beheerfuncties
+
+De [=COR=] biedt, naast bovenstaande, de volgende services voor beheerders:
+
+- Detailinformatie over de geregistreerde organisaties en een bewerkmogelijkheid om deze informatie aan te passen
+
+- Historie/audittrail van alle doorgevoerde wijzigingen per registratie
+
+- Mogelijkheid om nieuwe OIN- en [=SubOIN=]-registraties toe te voegen
+
+- Mogelijkheid om actieve OINs en [=SubOIN=]s in te trekken
+
+- Data synchronisatie tussen de [=COR=] database en het Handelsregister, zowel bij invoer van nieuwe registraties als periodiek, om bestaande registraties te verifiëren
+
+- Lifecycle management van OIN
+
+- Gebruikersbeheer

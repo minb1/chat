@@ -1,0 +1,12 @@
+Pilots
+
+Een pilot is onderdeel van de adoptiestrategie om de verschillende
+stakeholders te overtuigen van de meerwaarde van de standaard. Dit doen
+we doormiddel van het aanbieden van een assessment. Hiervoor is tooling
+ingericht en beschikbaar gesteld op de Logius website. Met deze tool kun
+je d.m.v. het invullen van een vragenlijst inzicht krijgen in de mate
+van volwassenheid van het beheer van een standard of stelsel. De
+resultaten kunnen positief bijdragen aan het draagvlak van een standaard
+of stelsel en tevens bijdragen aan verbetering van de kwaliteit.
+
+##

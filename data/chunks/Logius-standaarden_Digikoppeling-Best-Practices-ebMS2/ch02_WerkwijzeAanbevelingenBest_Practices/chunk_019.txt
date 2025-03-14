@@ -1,0 +1,10 @@
+
+###Response op een specifiek request
+
+*Messageid* en *RefToMessageId* worden gebruikt om heel specifiek aan te geven op welke request een response wordt gegeven. *RefToMessageId* wordt dus gebruikt om de relatie tussen een ebMS bericht en het daarop volgende ACK of NACK bericht aan te geven, een protocol gerelateerde relatie.
+
+<aside class="example">
+Voor een terugmelding  op de GBA met MessageId 1234 moet de GBA in het antwoord op deze terugmelding het RefToMessageId 1234 gebruiken. Zo zijn request en response onlosmakelijk met elkaar verbonden. Normaal gesproken worden geen verdere antwoorden op een dergelijke melding terugverwacht waardoor het bericht met het RefToMessageId ook vaak de transactie beëindigt.
+</aside>
+
+De invulling van het RefToMessageId element voor "normale" messages (dwz met business documenten) is afhankelijk van de processpecificaties die in een domein worden afgesproken. Als daarin namelijk wordt besloten om de relatie tussen vraag en antwoord alléén tot uitdrukking te brengen in de business documenten zelf, bijvoorbeeld in een SBDH, dan is het mogelijk om het RefToMessageId in het ebMS bericht waarin het antwoord is opgenomen weg te laten.

@@ -1,0 +1,10 @@
+3.1.5 Discovery
+iGov-NL
+
+iGov requires that the authorization server provides an OpenIDConnect service discovery endpoint. Recently OAuth 2.0 Authorization Server Metadata [rfc8414] has been finalized, this provide the same functionality in a more generic way and could replace this requirement in a future version of the iGov-NL profile.
+
+/iGov-NL
+
+**reference to rationale: Detailed rationale 6**
+
+##

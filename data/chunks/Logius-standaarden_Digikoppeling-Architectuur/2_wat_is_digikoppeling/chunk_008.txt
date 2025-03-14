@@ -1,0 +1,11 @@
+
+###Functioneel toepassingsgebied
+
+Het Forum Standaardisatie definieert het *functioneel toepassingsgebied* van Digikoppeling als volgt:
+
+>Digikoppeling moet worden toegepast bij digitale gegevensuitwisseling die plaatsvindt met voorzieningen die onderdeel zijn van de GDI, waaronder de basisregistraties, of die sector overstijgend is. De verplichting geldt voor gegevensuitwisseling tussen systemen waarbij er noodzaak is voor tweezijdige authenticatie. 
+Geautomatiseerde gegevensuitwisseling tussen informatiesystemen op basis van NEN3610 is uitgesloten van het functioneel toepassingsgebied.
+
+bron: [[Pas-toe-of-leg-uit]]
+
+Daarnaast benoemt het Forum de organisaties waarvoor de verplichting geldt. Dit wordt het *organisatorische werkingsgebied* genoemd. 

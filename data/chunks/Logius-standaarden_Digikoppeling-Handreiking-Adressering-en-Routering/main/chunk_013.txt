@@ -1,0 +1,4 @@
+
+###(Nr 3) Via Knooppunt A (waarbij A (Sub)OIN van verzender gebruikt voor TLS-verbindingen met ontvanger)
+
+In deze situatie wordt een knooppunt (bijv. SAAS-partij) gemachtigd om namens verzender te communiceren door het verstrekken van een certificaat van de verzender aan deze partij. De verzender kan dit certificaat intrekken wanneer het knooppunt niet langer is toegestaan om dit te gebruiken. Aandachtspunt is het certificaat d.m.v. subOIN fijnmazig te definiëren om misbruik uit te sluiten.

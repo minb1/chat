@@ -1,0 +1,4 @@
+
+###Added
+
+- Dit logboek van wijzigingen ([CHANGELOG.md](CHANGELOG.md)) toegevoegd volgens het format van [Keep a Changelog](https://keepachangelog.com/nl/1.1.0/).

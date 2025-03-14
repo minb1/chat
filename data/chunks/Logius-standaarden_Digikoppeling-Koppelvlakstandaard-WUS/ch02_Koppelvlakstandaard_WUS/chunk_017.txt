@@ -1,0 +1,11 @@
+
+##Foutafhandeling
+
+Er worden momenteel nog geen eisen gesteld aan de foutafhandeling, anders dan in
+de onderliggende specificaties vermeld worden, zoals WS-I Basic Profile 1.2. In
+het document ” Digikoppeling Best Practices WUS” is een aantal adviezen
+opgenomen.
+
+Aanvullende standaarden die gebruikt worden in combinatie met Digikoppeling
+kunnen overigens wel eisen stellen aan de fouthandeling.
+

@@ -1,0 +1,4 @@
+
+##Overview
+
+With the deployment of an endless number of air sensors the quality of the gathered data depends on the security of the sensor network. In this usecase the sensors are connected to a LoRaWAN network and equiped with a unique ID (GUID) for authentication. This prevents the injection of unindentifiable data into the network.

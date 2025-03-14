@@ -1,0 +1,48 @@
+
+###ebMS2 voor meldingen
+
+De Digikoppeling koppelvlakstandaard ebMS2 (KVS ebMS2) ondersteunt het uitvoeren van meldingen<sup>8</sup> tussen geautomatiseerde informatiesystemen. Het protocol regelt de betrouwbare ontvangst van een bericht en eventueel de onweerlegbaarheid (non-repudiation) in de vorm van een ondertekende ontvangstbevestiging. Hoewel Digikoppeling-meldingen (op de logistieke laag) asynchroon<sup>9</sup> zijn kan de business-laag wel synchroon<sup>10</sup> werken als de verzender wacht op een retour-melding.
+
+<sup>8</sup>: Berichten waar meestal niet direct een antwoord valt te geven, ofwel asynchroon berichtenverkeer. De ontvanger krijgt eerst een bevestiging dat zijn bericht ontvangen is. Later volgt het uiteindelijke antwoord.
+
+<sup>9</sup>: Er komt geen onmiddellijke reactie, of deze ontbreekt volledig.
+
+<sup>10</sup>: Er volgt een onmiddellijke reactie op het verzoek.
+
+De KVS ebMS2 regelt de volgende functionaliteiten voor meldingen:
+
+- Identificatie en authenticatie<sup>11</sup> van partijen,
+
+- Versleutelen van transport,
+
+- Adresseringsinformatie voor routering ‘achter de voordeur’,
+
+- Routeren via message-handlers,
+
+- Asynchroon berichten correleren<sup>12</sup> d.m.v. message ID,
+
+- Meerdere berichten logisch samenvoegen,
+
+- Berichten voorzien van een beveiligde datum en tijd-stempel (time-stamping),
+
+- Berichtuitwisseling vast leggen in standaard technisch contract formaat (servicecontract),
+
+- Beveiligen van berichten d.m.v. technische handtekening,
+
+- Beveiligen van berichten door de content te versleutelen,
+
+- Onweerlegbaarheid<sup>13</sup> op protocolniveau (non-repudiation),
+
+- Betrouwbaar asynchroon berichten versturen met ontvangstbevestigingen,
+
+- Ondersteuning voor foutafhandeling op asynchrone berichten,
+
+- Volgorde van berichten zo mogelijk handhaven,
+
+- Hertransmissies op protocolniveau totdat ontvangst is bevestigd.
+
+<sup>11</sup>: Het herkennen van een identiteit van een partij binnen Digikoppeling vindt plaats op basis van een PKIoverheid-certificaat en een uniek identificatienummer.
+
+<sup>12</sup>: Proceskoppeling zonder onmiddellijke reactie (maar mogelijk wel later).
+
+<sup>13</sup>: Achteraf kan niet ontkend worden dat een bericht is verstuurd of dat een bericht in goede orde is ontvangen.

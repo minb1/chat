@@ -1,0 +1,8 @@
+
+##Claims Request
+
+OpenID Core Section 5.5 [[OpenID.Core]] defines a method for a Client to request specific Claims in the UserInfo object or ID Token. OpenID Providers MUST support this `claims` parameter in the interest of data minimization - that is, the Provider only returns information on the subject the Client specifically asks for, and does not volunteer additional information about the subject.
+
+Clients requesting the `profile` scope MAY provide a `claims` request parameter.
+If the Claims request is omitted, the OpenID Provider SHOULD provide a default Claims set that it has available for the subject, in accordance with any policies set out by the trust framework the Provider supports.
+> **Note:** Clients SHOULD NOT request the `profile` scope, as described in the previous section.

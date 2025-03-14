@@ -1,0 +1,50 @@
+
+##Overzicht
+
+De Digikoppeling Architectuur legde in de eerdere versies grote nadruk op bevragingen en meldingen en legde een verband tussen deze interactiepatronen en de onderliggende standaarden, ('WUS voor bevragingen, ebMS voor meldingen en kennisgevingen'). Dit verband bleek in de praktijk niet altijd werkbaar of wenselijk. In 2020 is daarom besloten om de richtlijnen voor het toepassen van de Digikoppeling standaarden te wijzigen.
+
+![Overzicht Digikoppeling Koppelvlakken](media/fig-structuurv2.png "Overzicht Digikoppeling Koppelvlakken")
+
+Digikoppeling kent vier koppelvlakstandaarden
+
+- WUS voor synchrone uitwisseling van gestructureerde berichten;
+
+- ebMS2 voor asynchrone uitwisseling voor betrouwbaar berichtenverkeer;
+
+- REST API voor synchrone gegevensuitwisseling met resources;
+
+- Grote berichten voor het uitwisselen van grote bestanden;
+
+De Digikoppeling-koppelvlakstandaarden beschrijven verschillende profielen. Elk profiel biedt een combinatie van kenmerken die in een bepaalde functionele behoefte voorziet.
+
+De volgende profielen zijn onderkend:
+
+- Best effort – geschikt voor bevragingen 
+
+- Betrouwbaar (reliable) – geschikt voor meldingen 
+
+
+Deze komen in de volgende varianten voor:
+
+- Standaard (niets) – best effort of reliable
+
+- Signed – geschikt voor de ondertekening van berichten
+
+- Encrypted – geschikt voor de versleuteling van de payload en attachments (bericht-niveau security)
+
+Door het gebruik van deze profielen worden deze aspecten correct afgehandeld en kunnen partijen sneller een koppelvlakstandaard implementeren.
+
+
+| Onderdeel | Toelichting|
+|---|---|
+| Koppelvlakstandaard WUS | het gebruik van WUS voor synchrone uitwisseling van gestructureerde berichten en de WUS profielen.|
+| Koppelvlakstandaard ebMS2 | Het gebruik van ebMS2 voor asynchrone uitwisseling en de ebMS2 profielen|
+|Koppelvlakstandaard REST API| Het gebruik van REST APIs voor het synchroon raadplegen en bewerken van resources|
+| Koppelvlakstandaard Grote Berichten | De uitwisseling van grote berichten maakt gebruik van WUS, ebMS2 of (indien gewenst) REST met HTTPS bestandsoverdracht |
+| Beveiligingstandaarden en voorschriften  | Beschrijft de beveiligingstandaarden (TLS, signing en encryption) voor de Digikoppeling profielen WUS, ebMS2 en Grote berichten |
+| Identificatie en Authenticatie | Beschrijft de identificatie van partijen, het opzetten van een tweezijdige beveiligde TLS-verbinding en over het ondertekenen  en versleutelen van berichten en bijlagen. |
+| Overzicht Actuele Documentatie en Compliance | Overzicht van de actuele versie van de  Digikoppeling specificaties (normatief en niet-normatief)  |
+| Gebruik en Achtergrond Digikoppeling Certificaten | Beschrijft de werking en gebruik van PKIoverheid Certificaten (niet-normatief) |
+
+
+Tabel 6.1: Digikoppeling-standaarden

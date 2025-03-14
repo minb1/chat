@@ -1,0 +1,6 @@
+
+##Logius profiel
+
+[Logius heeft een eigen profiel gemaakt op ReSpec](https://github.com/Logius-standaarden/respec) om Logius organisatiespecifieke zaken, zoals layout, te ondersteunen. Wijzigingen in de W3C versie worden regelmatig doorgevoerd in de Logius versie.
+
+De Logius ReSpec versie is zo algemeen mogelijk gemaakt zodat deze door andere overheden in Nederland eenvoudig toegepast kan worden. In de Logius versie gebruiken we zoveel mogelijk input in Markdown formaat.

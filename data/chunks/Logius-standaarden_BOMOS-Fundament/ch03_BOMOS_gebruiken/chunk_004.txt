@@ -1,0 +1,32 @@
+
+##BOMOS als spiegel voor het huidige beheerproces
+
+Diverse organisaties gebruiken BOMOS als onderlegger of zelfs als
+richtlijn voor het beheer van hun (open) standaard. Andere
+organisaties gebruiken BOMOS als globale checklist en als inhoudelijke
+verantwoording voor bepaalde keuzes. Echter BOMOS is niet
+normatief. Dat kan ook niet want de inrichting van het beheer van
+standaarden is in hoge mate situatieafhankelijk.
+
+Toch is wel conformiteit met BOMOS mogelijk. **De beheerorganisatie
+werkt conform BOMOS als er een beheerdocument is gepubliceerd waarin
+de invulling van alle onderdelen uit het BOMOS Activiteitendiagram
+(het Beheer- en Ontwikkelmodel) zijn beschreven.**
+
+Voor specifieke situaties zijn wel in meer details eisen/toetsen te
+definieren per BOMOS activiteit, maar deze behoren niet tot het
+fundament van BOMOS vanwege dat ze niet voor alle BOMOS gebruikers
+relevant hoeven te zijn.
+
+Overigens als de beheerorganisatie conform BOMOS werkt, dan wil dat
+niet automatisch zeggen dat de standaard daarmee ook voldoet aan de
+criteria voor de pas-toe of leg-uit lijst van standaarden van de
+overheid. Echter het is wel te prefereren dat aangemelde standaarden
+conform BOMOS werken, en daarnaast speciale aandacht schenken aan de
+hoofdstukken rond de ontwikkel-beheer organisatie, openheid, het
+operationele proces, en de financiële structuur.
+
+Taalkundig betekent het woord "Standaard", vaak in de trend van
+vastgesteld of met elkaar afgesproken. In die context concluderen we
+dat BOMOS een standaard is. Een standaard voor (het ontwikkelen en
+beheren van) standaarden.

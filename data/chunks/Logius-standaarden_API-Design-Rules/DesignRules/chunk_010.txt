@@ -1,0 +1,25 @@
+
+##Geospatial
+
+Geospatial data refers to information that is associated with a physical location on Earth, often expressed by its 2D/3D coordinates. 
+
+<div class="rule" id="/core/geospatial" data-type="functional">
+  <p class="rulelab">Apply the geospatial module for geospatial data</p>
+  <dl>
+    <dt>Statement</dt>
+    <dd>
+       The [[[ADR-GEO]]] MUST be applied when providing geospatial data or functionality.
+    </dd>
+    <dt>Rationale</dt>
+    <dd>
+      The [[[ADR-GEO]]] formalizes as set of rules regarding:
+      <ol>
+         <li>How to encode geospatial data in request and response payloads.</li>
+         <li>How resource collections can be filtered by a given bounding box.</li>
+         <li>How to deal with different coordinate systems (CRS).</li>
+      </ol>
+    </dd>
+    <dt>Implications</dt>
+    <dd id="implications"></dd>
+  </dl>
+</div>

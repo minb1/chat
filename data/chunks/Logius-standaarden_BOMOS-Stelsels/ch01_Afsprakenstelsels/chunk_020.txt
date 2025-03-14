@@ -1,0 +1,3 @@
+
+##Implementatieondersteuning
+De mate hoe een afsprakenstelsel hier invulling aan geeft is afhankelijk van de taakverdeling tussen de deelnemers binnen een stelsel en de stelselbeheerorganisatie. Het is daarbij logisch dat de partij die een contract afsluit met een leverancier daar ook aanklopt voor ondersteuning bij de implementatie (aansluiten) en het gebruik. Binnen het stelsel zelf heeft de beheerorganisatie een taak om een rol te spelen bij vraagstukken rond de interpretatie van de stelsel specificaties en bijvoorbeeld bij het aansluiten op het netwerk.

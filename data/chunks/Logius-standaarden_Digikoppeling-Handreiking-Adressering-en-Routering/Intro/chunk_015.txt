@@ -1,0 +1,8 @@
+
+####Inline Code
+
+`````
+  function myFunction() {
+      // stuff goes here...
+    }
+`````

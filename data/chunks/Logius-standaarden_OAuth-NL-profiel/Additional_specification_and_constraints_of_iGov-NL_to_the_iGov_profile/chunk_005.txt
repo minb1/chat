@@ -1,0 +1,26 @@
+2.3.3 Requests to the Token Endpoint
+iGov-NL
+
+In addition to above signing methods, the Authorization server SHOULD support PS256 signing algorithm [RFC7518] for the signing of the private_key_jwt.
+
+Effectively, the Token Request has the following content:
+
+grant_type
+Mandatory. MUST contain the value `authorization_code`
+code
+Mandatory. MUST be the value obtained from the Authorization Response.
+scope
+Optional. MUST be less or same as the requested scope.
+redirect_uri
+Mandatory. MUST be an absolute HTTPS URL, pre-registered with the Authorization Server.
+client_id
+Mandatory. MUST have the value as obtained during registration.
+client_assertion_type
+Mandatory. MUST have the value `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`, properly encoded.
+client_assertion
+Mandatory. MUST have the above specified signed JWT as contents.
+/iGov-NL
+
+**reference to rationale: PS256 in Detailed rationale 4, Token Request in Detailed rationale 5**
+
+##

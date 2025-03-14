@@ -1,0 +1,4 @@
+
+###REST API
+
+REST API koppelingen bieden een manier van aansluiten die met name aansluit bij nieuw ontwikkelde software. Omdat een REST API koppeling ook informatie geeft over de functionaliteit en standaard operaties voor data resources definieert (insert, update, delete) wordt een REST API koppeling als laagdrempeliger ervaren dan meer traditionele SOAP koppelvlakken. Een gevolg van het REST principe is wel dat het koppelvlak in principe vooral geschikt is voor bevragingen.

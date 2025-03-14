@@ -1,0 +1,4 @@
+
+##Resource server
+
+The resource server is the backend server of the DSO where the permit request is available.

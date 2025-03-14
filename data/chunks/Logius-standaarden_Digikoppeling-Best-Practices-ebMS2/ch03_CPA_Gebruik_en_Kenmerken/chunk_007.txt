@@ -1,0 +1,18 @@
+
+###CPAId
+
+Een CPAId is een unieke aanduiding voor een overeenkomst voor een bepaalde service. De CPAId moet uniek zijn voor die bepaalde service. Denk hierbij aan het feit dat er één service wordt gespecificeerd door een service provider en dat meerdere service requesters een samenwerking aangaan. Elke samenwerking tussen twee partijen moet een ander CPAId krijgen. Een CPAId moet uniek zijn. Advies voor de naamgeving is als volgt:
+
+`[ServiceID]_[PartyId-A]_[PartyId-B]_[versie]`
+
+NB. Gebruik geen punten of andere vreemde tekens, want sommige ebMS-adapters zouden de CPAId wel eens als filenaam kunnen gebruiken...
+
+Hierbij zijn:
+
+  - `[ServiceID]` de unieke Service ID
+
+  - `[PartyId-A]` de PartyId van partij A
+
+  - `[PartyId-B]` de PartyId van partij B
+
+  - `[versie]` een UUID (of een versie nummer mits de uitgever van de CPA kan garanderen dat de CPAId uniek blijft)

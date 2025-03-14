@@ -1,0 +1,15 @@
+
+#Functionaliteit op hoofdlijnen en architectuur
+
+Deze specificatie geeft een technische en functionele beschrijving van
+een aantal services voor het uitwisselen van informatie tussen
+terugmeldapplicaties, Digimelding Webservice en landelijke voorzieningen
+van basisregistraties
+
+De beschreven services zorgen ervoor dat de informatie op een standaard
+manier wordt uitgewisseld.
+
+In de volgende paragraaf wordt ingegaan op hoe de services zich
+verhouden tot de NORA-informatiearchitectuur en welke standaarden worden
+gebruikt. Vervolgens wordt dieper ingegaan op de functionaliteit die
+deze services moeten bieden.

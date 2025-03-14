@@ -1,0 +1,9 @@
+
+##Uitgangspunten
+
+Uitgangspunt is de bestaande registraties met de bestaande registratie-processen.
+
+Met betrekking tot security zijn er diverse aandachtspunten:
+
+- Data integriteit. Dmv signing zou van individuele gegevens kunnen worden aangetoond wat de authentieke bron is en of dat deze identiek zijn aan de authentieke gegevens. Interessant vraagstuk is wat dit betekent als gegevens tijdens het orkestreren worden getransformeerd. Mogelijk raakvlakken met de [RDF Dataset Canonicalization](https://www.w3.org/TR/rdf-canon/) standaard.
+- Authenticatie/autorisatie. Bij orkestratie worden verschillende requests uitgevoerd vanuit mogelijk verschillende identiteiten, verschillende identity stores en verschillende scopes/audiences. Hierbij kan zowel een transparant als niet-transparant model worden toegepast. Deze willen we beiden beschrijven. Relevante standaarden zijn [FSC](https://commonground.gitlab.io/standards/fsc/) en [OAuth Token Exchange](https://datatracker.ietf.org/doc/html/rfc8693).

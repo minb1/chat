@@ -1,0 +1,6 @@
+
+###(Nr 5) Via Knooppunt B (waarbij B (Sub)OIN van ontvanger gebruikt voor TLS-verbindingen met verzender)
+
+In deze situatie wordt een knooppunt (bijv. SAAS-partij) gemachtigd om namens ontvanger te communiceren door het verstrekken van een certificaat van de ontvanger aan deze partij.
+
+Hierbij gelden vergelijkbare aandachtspunten als bij punt 3.

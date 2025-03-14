@@ -1,0 +1,6 @@
+
+##OPTIONAL Attributes
+
+The following attributes are OPTIONAL to appear in CloudEvents. See the
+[Notational Conventions](#notational-conventions) section for more information
+on the definition of OPTIONAL.

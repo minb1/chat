@@ -1,0 +1,47 @@
+
+###Overwegingen
+
+Primair wordt gekozen voor de interoperabele profielen van OASIS WS-BRSP
+(voorheen WS-I). Het gaat dan om WS-I Basic Profile (BP) 1.2, een set
+specificaties van webservices die interoperabiliteit bevorderen. Digikoppeling
+kiest voor standaarden die algemeen interoperabel beschikbaar zijn, dat wil
+zeggen interoperabel geïmplementeerd zijn in het grootste deel van de
+(ontwikkel) tools. De kans daarop is groter bij “final” standaarden dan bij
+drafts. Digikoppeling kiest daarom voor WS-I Standaarden met status final.
+
+De minimaal ondersteunde TLS encryptie algoritmen en sleutellengtes worden
+beschreven in het [[Beveiligingsdocument]].
+
+Resulterende beslissingen ten aanzien van standaarden:
+
+- WS-I BP 1.2; deze is gebaseerd op onderliggende standaarden: SOAP 1.1, WSDL
+    1.1 en de te kiezen onderdelen van WS-Addressing en MTOM.
+
+- WS-I BSP 1.1 voor berichtbeveiliging op basis van WS-Security.
+
+- De TLS versies zoals beschreven in [[Beveiligingsdocument]],
+    conform de aanbevelingen in WS-I BSP 1.0 voor beveiliging op
+    transport/kanaal niveau en aanbevelingen van NIST en NCSC.
+
+- WS-I Simple SOAP Binding Profile Version 1.0.
+
+Bovenstaande standaarden zijn gebaseerd op diverse onderliggende standaarden.
+Gevolg is dat de Digikoppeling WUS standaard gebruikmaakt van de volgende set
+van standaarden:
+
+| Standaarden | Gevolg van onder andere |
+|---|---|
+| HyperText Transfer Protocol 1.1 (RFC7230 t/m RFC7233) | WS-I Basic Profile 1.2 |
+| SOAP 1.1 | WS-I Basic Profile 1.2 |
+| WSDL 1.1 [[wsdl]]| WS-I Basic Profile 1.2 |
+| XML 1.0 (Second Edition) | WS-I Basic Profile 1.2 |
+| XML Schema Part 1: Structures | WS-I Basic Profile 1.2 |
+| XML Schema Part 2: Data types | WS-I Basic Profile 1.2 |
+| De huidig toegestane TLS versies zoals beschreven in [[Beveiligingsdocument]] | WS-I Basic Profile 1.2,  NCSC, NIST, ENISA |
+| HTTP over TLS Transport Layer Security (RFC2818) | WS-I Basic Profile 1.2 |
+| Internet X.509 Public Key Infrastructure Certificate and CRL Profile (RFC 3280) | PKI overheid 1.1 |
+| WS-Addressing 1.0 [[ws-addr-metadata]]| WS-I Basic Profile1.2 |
+| Web Services Addressing 1.0 – Metadata | WS-I Basic Profile 1.2 |
+| SOAP 1.1 Binding for MTOM 1.0 | WS-I Basic Profile 1.2 |
+| WS-Security 1.1 | WS-I Basic Security Profile 1.1 |
+| WS-Security 1.0 | WS-Security 1.1 |

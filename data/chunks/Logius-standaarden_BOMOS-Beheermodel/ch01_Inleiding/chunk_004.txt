@@ -1,0 +1,9 @@
+
+##Nut
+
+Het nut en de werking van de standaard zijn reeds goed beschreven in
+BOMOS versie 2.
+
+Met BOMOS worden standaardisatiecommunities ondersteund en geïnspireerd
+bij het structureel vormgeven van het beheer en verdere ontwikkelingen
+van standaarden.

@@ -1,0 +1,33 @@
+EB007 Rollen
+
+Als een overheidsorganisatie in een bepaalde service zowel berichten kan versturen als wel berichten kan ontvangen, ga dan na wat de functionele rol is. In welke hoedanigheid wordt de functie uitgevoerd? Deze functionele rol zal een bepaalde naam hebben. Gebruik dan die naam voor de rol in de CPA.
+
+Voorbeeld
+
+Een abonnementen service biedt de mogelijkheid om organisaties zich te laten inschrijven op een topic, of om zich te laten uitschrijven op een topic. De abonnementen service zal op gezette tijden een nieuw item van een topic naar een afnemer sturen. Merk op dat de berichten in alle gevallen meldingen zijn.
+
+Vanuit een eenvoudig oogpunt zou je kunnen zeggen dat de organisatie die de abonnementen service implementeert, zowel berichten verstuurt als ontvangt:
+
+-   ontvangt, voor het verwerken van de aanvragen van de afnemer, en
+
+-   verstuurt, voor het verzenden van nieuwe topics.
+
+Vanuit de optiek dat de organisatie een samenhangende verzameling van berichten gedefinieerd heeft voor de implementatie de abonnementen service, is het zinvol om de organisatie die de service aanbiedt een en dezelfde rol te geven: bijvoorbeeld 'TopicHouder'.
+
+De service krijgt de naam “AbonnementenService”. Afnemers krijgen de rol 'Abonnee'. De organisatie die de service implementeert krijgt de rol 'TopicHouder'. De volgende meldingen zijn mogelijk:
+
+-   Van 'Abonnee' rol naar 'TopicHouder' rol: melding InschrijvenOpTopic(topic)
+
+-   Van 'Abonnee' rol naar 'TopicHouder' rol: melding UitschrijvenOpTopic(topic)
+
+-   Van 'Abonnee' rol naar 'TopicHouder' rol: bevraging RaadpleegTopics()
+
+-   Van 'TopicHouder' rol naar 'Abonnee' rol: melding NieuwTopicItem()
+
+(Voor de volledigheid: het opvragen van de beschikbare topics is een 'bevraging' op Digikoppeling en zal met WUS gedaan moeten worden.)
+
+De Abonnee kan dus berichten versturen (om zich in- of uit te schrijven), maar ook ontvangen (een nieuw item van een topic). De topic houder kan berichten ontvangen (de in of uitschrijvingen van afnemers), maar ook berichten versturen (de nieuwe items van een topic).
+
+Einde voorbeeld
+
+##

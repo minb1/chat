@@ -1,0 +1,7 @@
+
+###[=COR=] WEB
+
+De [=COR=] Website retourneert een relevante attributen van een OIN-registratie. Hieronder twee schermvoorbeelden:
+
+![Resultaat van het zoeken in de [=COR=] naar een organisatie met een OIN](media/CORWEB-OIN.png "Resultaat van het zoeken in de [=COR=] naar een organisatie met een OIN")
+![Resultaat van het zoeken in de [=COR=] naar een voorziening](media/CORWEB-SUBOIN.png "Resultaat van het zoeken in de [=COR=] naar een voorziening" )

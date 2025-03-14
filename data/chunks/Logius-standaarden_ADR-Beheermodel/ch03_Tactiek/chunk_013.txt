@@ -1,0 +1,5 @@
+
+##Adoptie en erkenning  
+
+De ADR-standaard heeft de &#39;pas toe of leg uit&#39; -status van Forum Standaardisatie. Dit betekent kort gezegd dat Nederlandse overheidspartijen en partijen uit de (semi) publieke sector deze standaard dienen toe te passen op het moment dat zij hun informatie met behulp van (REST) API&#39;s willen ontsluiten. Zie hoofdstuk 1 voor meer informatie.
+

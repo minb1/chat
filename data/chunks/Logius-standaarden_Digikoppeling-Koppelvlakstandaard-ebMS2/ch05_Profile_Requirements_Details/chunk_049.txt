@@ -1,0 +1,16 @@
+
+###Profile Requirement Item: HTTP Confidentiality and Security
+
+|[[EBXML-MSG]] Appendix B.2.7 Confidentiality and Transport Protocol Level Security| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header elements|MIME parts |
+| Is HTTP transport-layer encryption required? What protocol version(s)? [SSLv3, TLSv1, for example. Refer to item 4.1.4.6 in Security section.] | Encryption is based on HTTPS and TLS. The currently allowed protocol versions for TLS are described in [[[DK-beveiliging]]] Note: TLS implementations **must NOT** support SSL v3 backwards compatiblity mode. |
+| What encryption algorithm(s) and minimum key lengths are required?  | The currently allowed protocol versions for TLS are described in [[[DK-beveiliging]]]  |
+| What Certificate Authorities are acceptable for server certificate authentication? | PKI overheid maintains a list of approved trusted service providers [[[PKI-CA]]].   |
+| Are direct-trust (self-signed) server certificates allowed?   | Self-signed certificates are only allowed in test cases.   |
+| Is client-side certificate-based authentication allowed or required?   | Client-side authentication is required.  |
+| What client Certificate Authorities are acceptable?  | PKI overheid maintains a list of approved trusted service providers [[[PKI-CA]]].   |
+| What certificate verification policies and procedures must be followed?   | PKI overheid procedures are described in [[[PKIO-PvE]]]. The use of certificate revocation lists (CRL) from the trusted CA's is required.  |
+| Alignment | (empty) |
+| Test References | (empty) |
+| Notes  |   For more information see [[[DK-beveiliging]]] |

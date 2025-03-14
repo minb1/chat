@@ -1,0 +1,8 @@
+
+###HTTP header filtering
+Realizations may rely on internal usage of HTTP-Headers. Information for processing requests and responses can be passed between components, that can have security implications.
+For instance, this is commonly practices between a reverse proxy or TLS-offloader and an application server. Additional HTTP headers are used in such example to pass an original IP-address or client certificate.
+
+Implementations MUST consider filtering both inbound and outbound traffic for HTTP-headers used internally.
+Primary focus for inbound filtering is to prevent injection of malicious headers on requests.
+For outbound filtering, the main concern is leaking of information.

@@ -1,0 +1,22 @@
+
+###WUS voor bevragingen
+
+De Digikoppeling-koppelvlakstandaard WUS (KVS WUS) ondersteunt het uitvoeren van bevragingen<sup>14</sup> tussen geautomatiseerde informatiesystemen. De KVS WUS biedt de volgende functionaliteiten voor bevragingen:
+
+<sup>14</sup>: Vragen waar direct een reactie op wordt verwacht, ofwel synchroon berichtenverkeer. Hierbij is de snelheid van afleveren belangrijk. Als een service niet beschikbaar is, krijgt de verzender een foutmelding en moet hij later of op een andere manier de informatie opvragen.
+
+- Identificatie en authenticatie van partijen,
+
+- Versleutelen van transport,
+
+- Adresseringsinformatie voor routering ‘achter de voordeur’,
+
+- Routeren via message-handlers,
+
+- Berichtuitwisseling vast leggen in standaard technisch contract formaat,
+
+- Beveiligen van berichten d.m.v. technische handtekening,
+
+- Beveiligen van berichten door de content te versleutelen,
+
+- Foutmeldingen.

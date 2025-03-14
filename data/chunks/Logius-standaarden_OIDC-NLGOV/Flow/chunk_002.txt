@@ -1,0 +1,19 @@
+
+##Authorization Code Flow
+
+The Authorization Code Flow returns an Authorization Code to the Client, which can then exchange it for an ID Token and an Access Token directly. The flow comprises the following steps:
+
+1. The Client sends an Authorization Request - containing the desired request parameters - to the OpenID Provider.
+2. The OpenID Provider authenticates the End-User.
+3. The OpenID Provider sends the End-User back to the Client with an Authorization Code.
+4. The Client requests a response using the Authorization Code at the Token Endpoint.
+5. The Client receives a response that contains an ID Token and Access Token in the response body.
+6. The Client validates the ID token and retrieves Claims and Subject Identifier(s) of the authenticated End-User.
+
+The flow described by these steps is illustrated as follows:
+
+<figure id='authorization_code_flow'>
+  <img src='media/authorization-code-flow.png' alt="authorization code flow" width="479" />
+  <figcaption>Authorization Code Flow</figcaption>
+
+</figure>

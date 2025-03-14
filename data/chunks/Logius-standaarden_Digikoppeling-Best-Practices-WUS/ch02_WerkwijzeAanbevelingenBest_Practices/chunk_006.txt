@@ -1,0 +1,6 @@
+
+####WB005
+
+Voor het onderscheid tussen test- en productieservices heeft het de voorkeur dat deze twee op aparte machines komen met een eigen DNS naam (en dus met verschillende PKI overheid certificaten).
+
+Aan de locatie (uri) van de service is daardoor te zien of het om een productie- of een testservice gaat.

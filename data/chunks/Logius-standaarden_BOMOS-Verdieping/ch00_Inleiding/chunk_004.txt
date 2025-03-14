@@ -1,0 +1,15 @@
+
+##Leeswijzer
+
+Bent u vanuit een beleidsmakende of besturende rol alleen op
+hoofdniveau geïnteresseerd, dan biedt het fundament (deel 1) voldoende
+achtergrond en context. Bent u zelf actief in
+standaardisatiecommunities dan kunt u naadloos doorgaan met het lezen
+van deel 2: De verdieping met best practices, waarin meer achtergrond
+en praktische tips rond standaardisatie zijn opgenomen.
+
+Wilt u BOMOS gaan toepassen dan is het ook raadzaam om de aanvullende
+modules te gaan bekijken. Hier kunt u voorbeelden en tools vinden die
+kunnen helpen bij implementaties van open standaarden. Ook vindt u
+hier varianten op BOMOS. Deze implementatieprofielen maken BOMOS
+toepasbaar op meer dan (semantische) standaarden alleen.

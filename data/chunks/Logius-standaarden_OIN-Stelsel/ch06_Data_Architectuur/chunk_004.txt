@@ -1,0 +1,6 @@
+
+##Voorbeeld OIN structuur
+
+Hieronder wordt de structuur van een aantal OIN registraties weergeven.
+
+![Schematische weergave OIN structuur](media/OIN-structuur.png "Schematische weergave OIN structuur")

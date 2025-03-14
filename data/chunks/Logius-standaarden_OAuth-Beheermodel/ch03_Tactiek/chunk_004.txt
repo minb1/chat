@@ -1,0 +1,19 @@
+
+###Internationale, Europese en nationale standaardisatiegemeenschap
+
+De standaard volgt de ontwikkeling van internationale standaarden (zoals bijvoorbeeld de HTTP standaarden van het IETF) in het algemeen. Meer specifiek volgen de specialisten van Logius en de leden van de TAG de standaarden waarnaar wordt gerefereerd in de standaard en bespreken deze ontwikkelingen ook in het Technisch Overleg. Indien relevant worden op basis van de internationale ontwikkelingen rfc&#39;s opgesteld om de OAuth-NL standaard aan te passen, verbeteren of actualiseren. Enkele bekende standaarden waarnaar wordt verwezen zijn:
+
+1. iGov-NL
+1. OAuth 2.0
+1. HTTP
+1. TLS
+1. JSON
+1. JWS
+1. JWE
+1. JWK Set
+1. JWT
+1. PKCE
+1. PKIOverheid
+1. OIDC
+
+> Een volledige lijst van alle referenties is beschikbaar in de standaard. Zie hiervoor de [Bijlage A. References](https://publicatie.centrumvoorstandaarden.nl/api/oauth/#references)

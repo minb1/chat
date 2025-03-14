@@ -1,0 +1,30 @@
+
+###Versie aanduiding
+
+Er zijn een aantal elementen waaraan een versie aanduiding moet worden toegevoegd. Dit zijn:
+
+WSDL/namespace
+
+WSDL/Servicenaam
+
+WSDL/PortType
+
+WSDL/Type(s) (XSD) namespace
+
+Er zijn een aantal manieren om de versie van een service aan te duiden. De meest gangbare zijn “Major.Minor”, “Enkelvoudige versie” (bijv V1) en “YYYY/MM”.
+
+Het voorstel is om voor zowel de XSD als de WSDL de Enkelvoudige versie aanduiding te gebruiken.
+
+Waarom gebruiken we geen major.minor? Er zijn verschillende mogelijkheden om Minor wijzigingen backward compatible te houden, deze worden echter als erg omslachtig beschouwd en/of ze vereisen speciale tooling ondersteuning. Daarom wordt voorgesteld geen onderscheid tussen major en minor te maken, en dus alleen met enkelvoudige versies te werken. Dit heeft als resultaat dat de WSDL en XSD namespace dus alleen de “enkelvoudige” aanduiding, zoals `_v1` krijgt.
+
+Een aantal voorbeelden:
+
+WSDL namespace `http://wus.osb.gbo.overheid.nl/wsdl/compliance-v1`
+
+XSD namespace `http://wus.osb.gbo.overheid.nl/xsd/compliance/xsd/compliance-v1`
+
+Servicenaam `OSBComplianceService_v1`
+
+PortType `IOSBComplianceService_v1`
+
+De aanduiding YYYY/MM slaat ook op een enkelvoudige versie, d.w.z. zonder onderscheid tussen major en minor. Die aanduiding kan dus ook gebruikt worden. Het lijkt echter aan te bevelen om versies van webservices aan te duiden met (oplopende) versienummers, omdat communicatie daarover iets eenduidiger is.

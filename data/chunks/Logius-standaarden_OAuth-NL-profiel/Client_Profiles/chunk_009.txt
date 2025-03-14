@@ -1,0 +1,62 @@
+
+####Requests to the Authorization Endpoint
+
+Full clients and browser-embedded clients making a request to the authorization endpoint MUST use an unpredictable value for the state parameter with at least 128 bits of entropy. Clients MUST validate the value of the <samp>state</samp> parameter upon return to the redirect URI and MUST ensure that the state value is securely tied to the user’s current session (e.g., by relating the state value to a session identifier issued by the client software to the browser).
+
+Clients MUST include their full redirect URI in the authorization request. To prevent open redirection and other injection attacks, the authorization server MUST match the entire redirect URI using a direct string comparison against registered values and MUST reject requests with an invalid or missing redirect URI.
+
+<!-- iGov-NL : Start of the additional content -->
+<aside class=" addition">
+<b>iGov-NL : Additional content</b></br>  
+
+Public clients MUST apply PKCE, as per RFC7636.
+As `code_challenge` the S256 method MUST be applied.
+Effectively this means that browser based and native clients MUST include a cryptographic random `code_verifier` of at least 128 bits of entropy and the `code_challenge_method` with the value `S256`.
+
+Request fields:
+<dl>
+<dt>client_id</dt>
+<dd>Mandatory. MUST have the value as obtained during registration.</dd>
+<dt>scope</dt>
+<dd>Optional.</dd>
+<dt>response_type</dt>
+<dd>Mandatory. MUST have value `code` for the Authorization Code Flow.</dd>
+<dt>redirect_uri</dt>
+<dd>Mandatory. MUST be an absolute HTTPS URL, pre-registered with the Authorization Server.</dd>
+<dt>state</dt>
+<dd>Mandatory, see above. Do not use the SessionID secure cookie for this.</dd>
+<dt>code_challenge</dt>
+<dd>In case of using a native app as user-agent mandatory. (Eg. an UUID [[rfc4122]])</dd>
+<dt>code_challenge_method</dt>
+<dd>In case `code_challenge` is used with a native app, mandatory. MUST use the value `S256`.</dd>
+</dl>
+
+</aside>
+<!-- iGov-NL : End of the additional content -->
+
+<aside class="example">
+The following is a sample response from a web-based client to the end user’s browser for the purpose of redirecting the end user to the authorization server's authorization endpoint:
+
+<pre>HTTP/1.2 302 Found
+Cache-Control: no-cache
+Connection: close
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 07 Jan 2015 20:24:15 GMT
+Location: https://idp-p.example.com/authorize?client_id=55f9f559-2496-49d4-b6c3-351a58
+6b7484&nonce=cd567ed4d958042f721a7cdca557c30d&response_type=code&scope=openid+email&redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
+Status: 302 Found
+</pre>
+
+This causes the browser to send the following (non-normative) request to the authorization endpoint (inline wraps for display purposes only):
+
+<pre>GET /authorize?
+   client_id=55f9f559-2496-49d4-b6c3-351a586b7484
+  &nonce=cd567ed4d958042f721a7cdca557c30d
+  &response_type=code
+  &scope=openid+email
+  &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1
+Host: idp-p.example.com
+</pre>
+</aside>
+
+<!-- ### [2.3.2.](#rfc.section.2.3.2) [Response from the Authorization Endpoint](#ResonseFromAuthorizationEndpoint) -->

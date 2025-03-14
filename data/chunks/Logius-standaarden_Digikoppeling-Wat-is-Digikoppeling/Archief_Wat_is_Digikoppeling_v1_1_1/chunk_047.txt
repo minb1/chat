@@ -1,0 +1,9 @@
+Bilaterale uitwisseling tussen partijen
+
+In het eenvoudigste ‘patroon’ gebruiken de serviceaanbieder en serviceafnemer Digikoppeling rechtstreeks voor bevragingen of meldingen, eventueel in combinatie met grote berichten. Partijen stellen samen een (technisch) servicecontract op dat ingelezen kan worden in de eigen Digikoppeling-adapter. Zie Figuur 7.
+
+![](media/a7c54fd1ccbba0855c6ca0a8b70a1176.png)
+
+Figuur 7: Bilaterale uitwisseling.
+
+###

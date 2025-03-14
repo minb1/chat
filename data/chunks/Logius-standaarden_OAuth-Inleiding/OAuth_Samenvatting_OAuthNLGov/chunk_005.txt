@@ -1,0 +1,6 @@
+
+###1. Introductie
+
+- Iedere Authorization Server moet voldoen aan alle vereisten uit de standaard ([§  1.3](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#conformance))
+- Iedere Client moet alle functies uit de standaard gebruiken ([§  1.3](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#conformance))
+- Iedere API moet alle functies uit de standaard gebruiken ([§  1.3](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#conformance))

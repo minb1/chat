@@ -1,0 +1,11 @@
+
+###dataschema
+
+- Type: `URI`
+- Description: Identifies the schema that `data` adheres to. Incompatible
+  changes to the schema SHOULD be reflected by a different URI. See
+  [Versioning of CloudEvents in the Primer](https://github.com/cloudevents/spec/blob/v1.0.1/primer.md#versioning-of-cloudevents)
+  for more information.
+- Constraints:
+  - OPTIONAL
+  - If present, MUST be a non-empty URI

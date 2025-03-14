@@ -1,0 +1,50 @@
+
+##Autorisatie
+
+In de Service Gerichte benadering van de NORA maken applicaties van de ene
+organisatie gebruik van services van een andere organisatie. Een service mag
+alleen afgenomen worden door geautoriseerde afnemers, namelijk die afnemers die
+een juridische basis<sup>6</sup> of een overeenkomst hebben met de aanbieder van de
+betreffende service.
+
+<sup>6</sup>: De terminologie moet nog juridisch correct gemaakt worden; in deze notitie
+    wordt (juridisch) wat losjes gesproken over 'zelfstandig bevoegd',
+    'juridische basis' enzovoort.
+
+Afnemers in de overheid kennen vele organisatorische 'niveaus' met diverse
+juridische statussen: gemeentelijke diensten, departementale directoraten,
+agentschappen, ZBO’s etc., al dan niet zijnde rechtspersonen. De vraag is dus
+welk niveau, en dus welke identiteit, gebruikt zou moeten worden.
+
+Het ligt voor de hand om hier uit te gaan van de organisatie(onderdeel), dat
+kennelijk zelfstandig bevoegd is (bijv. op basis van een besluit of mandaat) dan
+wel een juridische basis heeft. Een dergelijke vastlegging tussen aanbieder en
+afnemer noemen we hierna een overeenkomst.
+
+Uitgangspunt is:
+
+- de identiteit van de afnemer die gebruikt wordt voor autorisatie tot het
+    afnemen van een service, moet overeenkomen met de identiteit van de
+    organisatie(onderdeel) waarmee een overeenkomst bestaat tot het gebruik van
+    de service. Authenticatie en vervolgens autorisatie vinden daarom in eerste
+    instantie plaats op het niveau van de identiteit die is gebruikt bij de
+    overeenkomst.
+
+De vraag is of dat niveau het juiste niveau is voor autorisatie of dat er nog
+verfijning nodig is. Een serviceaanbieder kan theoretisch op verschillende
+manieren de autorisatie en de daarvoor benodigde identificatie inrichten. De
+aanbieder zou bijvoorbeeld kunnen stellen, dat medewerker X van
+afnemersorganisatie A een service wel mag afnemen en medewerker Y van diezelfde
+organisatie niet.
+
+Er bestaat brede consensus (ook in andere landen), dat dit ongewenst is.
+Enerzijds is namelijk de afnemende organisatie verantwoordelijk voor eigen
+informatiebeveiliging, dus voor het op de juiste wijze autoriseren van de eigen
+medewerkers. Anderzijds wordt de organisatie die de service aanbiedt dan niet
+met medewerkers van een ander geconfronteerd en om dezelfde reden ook niet met
+'afdelingen' of informatiesystemen van die organisatie. Het is gewenst is om
+alleen maar te autoriseren op het niveau van een organisatie.
+
+Als dat het autorisatieprincipe is, dan stelt dat als eis aan de identificatie,
+dat alleen de identiteit van de afnemerorganisatie vastgesteld (geauthenticeerd)
+hoeft te worden.

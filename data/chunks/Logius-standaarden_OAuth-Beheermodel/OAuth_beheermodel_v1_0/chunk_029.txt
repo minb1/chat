@@ -1,0 +1,17 @@
+
+##Uitvoering en ontwikkeling (Wijzigingsproces)
+
+De procedure van RCF naar daadwerkelijke wijziging ziet er als volgt uit:
+
+- Issues die in behandeling worden genomen worden als RFC gelabeld.
+- RFC&#39;s worden besproken en uitgewerkt in de Werkgroep.
+- RFC&#39;s worden vastgesteld in Technisch Overleg&#39;s (TO).
+- RFC worden na vaststelling in het TO Openbaar geconsulteerd
+- Na vaststelling volgt publicatie van de nieuwe versie van standaard
+
+> N.B. Zolang het Logius afdeling standaarden nog geen predicaat &quot;Uitstekend beheer&quot; heeft ontvangen van Forum Standaardisatie, zullen nieuwe versies na vaststelling in het TO aan Forum Standaardisatie worden voorgelegd ter beoordeling.  
+
+Dit is schematisch weergegeven in het onderstaande governance model:  
+
+![OAuth-NL Governance model](media/OAuth-NL_Governance_model.svg "OAuth-NL Governance model")
+> Figuur 6. OAuth-NL Governance model

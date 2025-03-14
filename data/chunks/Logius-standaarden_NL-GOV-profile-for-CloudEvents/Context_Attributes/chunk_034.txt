@@ -1,0 +1,8 @@
+
+####CloudEvents-NL
+
+- Attribute 'sequence' can be helpful in situations where:
+-  a form of 'pull mechanism' is used ((e.g. periodically fetching events by consumers 
+  via HTTP request)) or
+- where there is a need for (re)synchronization (e.g. 
+  after errors have occurred).

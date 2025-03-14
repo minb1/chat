@@ -1,0 +1,4 @@
+
+##Architectuuraspecten van de aansluiting op Digikoppeling
+
+Om gebruik te maken van Digikoppeling zijn een aantal zaken van belang. Zo dient u met uw partners afspraken te maken over de gegevensuitwisseling die via Digikoppeling plaats vindt. Ook dient u in uw organisatie een Digikoppeling-adapter te implementeren waarmee de koppelvlakken worden ingericht. Deze alinea beschrijft enkel de architectuur-aspecten van de aansluiting op Digikoppeling. Meer informatie over de aansluiting zelf vindt u op [https://www.logius.nl/digikoppeling/](https://www.logius.nl/digikoppeling/).

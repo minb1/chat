@@ -1,0 +1,5 @@
+# Digikoppeling Overzicht Actuele Documentatie en Compliance
+
+- Gepubliceerde versie: https://gitdocumentatie.logius.nl/publicatie/dk/actueel/
+- Werkversie: https://logius-standaarden.github.io/Digikoppeling-Overzicht-Actuele-Documentatie-en-Compliance/
+- PDF: https://gitdocumentatie.logius.nl/publicatie/dk/actueel/Digikoppeling-Overzicht-Actuele-Documentatie-en-Compliance.pdf

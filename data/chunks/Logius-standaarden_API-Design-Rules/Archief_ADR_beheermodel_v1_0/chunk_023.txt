@@ -1,0 +1,4 @@
+
+###Kwaliteitsbeleid en benchmarking  
+
+Zoals gezegd wordt het beheer van de ADR-standaard volledig open ingevuld (zie ook 1.3 en 2.2.) Dit borgt dat zoveel mogelijk belangstellenden en belanghebbenden betrokken zijn bij wijzigingen en besluitvorming die wijzigingen.

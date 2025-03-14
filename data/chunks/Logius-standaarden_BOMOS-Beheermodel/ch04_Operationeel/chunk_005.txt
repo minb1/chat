@@ -1,0 +1,18 @@
+Uitvoering en ontwikkeling (Wijzigingsproces)
+
+De procedure van RCF naar daadwerkelijke wijziging ziet er als volgt
+uit:
+
+Issues die in behandeling worden genomen worden als RFC gelabeld
+
+1.  RFC\'s worden besproken en uitgewerkt door de Uitvoeringsorganisatie
+    Logius afdeling Standaarden (Uitvoering Groep - UG)
+
+2.  RFC\'s worden vastgesteld in het Adviesorgaan BOMOS (Advies Groep -
+    AG) Tactisch
+
+3.  RFC worden na vaststelling door de Directie Digitale Samenleving
+    (Bestuur groep - BG) Strategisch geconsulteerd en na vaststelling
+    volgt publicatie van de nieuwe versie van standaard
+
+##

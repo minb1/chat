@@ -1,0 +1,11 @@
+
+##Identificatie
+
+Identificatie is het kenbaar maken van de identiteit van een subject<sup>3</sup> (een
+persoon/gebruiker of een proces/systeem). De identiteit wordt gebruikt om de
+autorisatie (zie verder) - de toegang tot een service - te beheersen.
+
+<sup>3</sup>: Voor terminologie wordt aangesloten bij de OASIS standaarden, o.a. SAML:
+    'Subject: A principal in the context of a security domain. SAML assertions
+    make declarations about subjects'. De term subject wordt ook gehanteerd in
+    de PKI-wereld, X509.

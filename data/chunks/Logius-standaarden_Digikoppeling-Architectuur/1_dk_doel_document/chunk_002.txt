@@ -1,0 +1,4 @@
+
+##Inleiding
+
+Digikoppeling is een standaard voor gestructureerde gegevensuitwisseling waarmee overheden op een veilige manier gegevens met elkaar kunnen uitwisselen.

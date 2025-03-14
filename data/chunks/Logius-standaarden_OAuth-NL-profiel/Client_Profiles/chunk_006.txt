@@ -1,0 +1,8 @@
+
+###Client Registration
+
+All clients MUST register with the authorization server. For client software that may be installed on multiple client instances, such as native applications or web application software, each client instance MAY receive a unique client identifier from the authorization server. Clients that share client identifiers are considered public clients.
+
+Client registration MAY be completed by either static configuration (out-of-band, through an administrator, etc...) or dynamically.
+
+<!-- ### [2.2.1.](#rfc.section.2.2.1) [Redirect URI](#RedirectURI) -->

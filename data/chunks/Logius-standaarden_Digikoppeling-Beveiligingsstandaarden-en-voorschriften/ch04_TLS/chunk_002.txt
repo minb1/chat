@@ -1,0 +1,8 @@
+
+##Standaarden
+
+| Standaarden | Status | Bron |
+| --- | --- | --- |
+| TLS 1.2 [[rfc5246]]  | Verplicht  | [[NCSC 2021]]  |
+| TLS 1.3 [[rfc8446]]  | Optioneel  | [[NCSC 2021]]  |
+| HTTP over TLS Transport Layer Security<br>([[rfc2818]], [[rfc5785]], [[rfc7230]]) | Informational |  IETF [[rfc5322]]|

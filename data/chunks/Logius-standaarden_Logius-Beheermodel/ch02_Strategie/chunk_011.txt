@@ -1,0 +1,21 @@
+
+###Besluitvorming
+
+Besluitvorming over wijzigingsvoorstellen kan plaatsvinden op verschillende
+niveaus. 
+
+In alle overleggremia vindt oordeelorming plaats op basis van
+consensus. Mocht consensus niet mogelijk zijn, dan gaat het vraagstuk
+met een weergave van de verschillende standpunten door naar het
+eerstvolgend-hoger gelegen-gremium. Indien in het hoogste gremium 
+(het OBDO) geen consensus bereikt kan worden heeft de voorzitter 
+van het OBDO (ministerie van BZK) de beslissende stem.
+
+Voor wijzigingen met zeer kleine impact (tekst correcties) wordt de 
+beheerorganisatie gemandateerd. De beheerorganisatie mag deze wijzigingen 
+zelf doorvoeren zonder formele beslissing door het besluitvormend overleg. 
+In de [versienummering](#bijlage-versie-nummering-logius-standaarden) worden
+deze zeer kleine wijzigingen aangeduid als _patch releases_. Voor andere
+wijzigingen is een besluit van het PGDI nodig (op basis van advies van 
+de Programmeringstafel en de beheerorganisatie). Het OBDO wordt geïnformeerd 
+over wijzigingen op de standaard.

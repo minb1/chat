@@ -1,0 +1,3 @@
+
+##Resource server
+The central server that hosts the key registry for buildings and adresses at dutch Cadastre.

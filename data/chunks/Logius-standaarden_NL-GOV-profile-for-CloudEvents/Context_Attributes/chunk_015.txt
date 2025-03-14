@@ -1,0 +1,8 @@
+
+####CloudEvents-NL
+
+Constraints:
+- JSON-format SHOULD be used (The [Nederlandse API Strategie](https://docs.geostandaarden.nl/api/API-Strategie/) knows API-Design Rules Extensions in development. Part of this is the intention to
+name JSON as the primary representation format for APIs. Because APIs play an 
+important role in communicating events (eg when using the webhook pattern) the JSON format is 
+preferred to use for payload data).

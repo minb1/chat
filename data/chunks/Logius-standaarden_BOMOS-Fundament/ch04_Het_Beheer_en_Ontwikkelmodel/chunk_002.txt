@@ -1,0 +1,44 @@
+
+##Benodigde invulling per situatie
+
+De invulling van de ontwikkel- en beheeronderwerpen zijn situationeel
+afhankelijk; dit wil zeggen dat verschillende situaties kunnen leiden
+tot een andere invulling voor een optimaal resultaat. Voor alle
+onderwerpen geldt dat deze in een ‘minimum’ en ‘maximum’ scenario
+kunnen worden uitgevoerd of wellicht niet relevant zijn voor een
+bepaalde organisatie. Het is dus zeker niet zo dat elk onderwerp moet
+worden geïmplementeerd. In tegendeel, teveel nadruk op formalisatie
+kan averechts werken.
+
+In het model worden slechts de onderwerpen beschreven die met
+activiteiten ingevuld kunnen worden, en waarvan sommige noodzakelijk
+kunnen zijn. Het is aan de inrichter van een organisatie voor beheer
+en ontwikkeling van standaarden om op basis van het hier gegeven model
+de relevante onderdelen te selecteren en in te richten. Daar waar
+relevant worden eventuele voor- en nadelen van een specifieke
+invulling van een onderwerp of activiteit gegeven.
+
+Kernonderwerpen zijn door de situationele afhankelijkheid ook
+onmogelijk aan te geven, maar het moge duidelijk zijn dat ‘governance’
+altijd georganiseerd moet zijn om besluitvorming te kunnen laten
+plaatsvinden.
+
+Afhankelijk van de situatie is het dan te bepalen welke onderwerpen
+prioriteit dienen te krijgen. In het figuur zijn de drie traditionele
+lagen herkenbaar: strategie, tactiek en operationeel. Deze worden
+geflankeerd door twee ondersteunende processen: communicatie en
+implementatieondersteuning.
+
+Het model kan de suggestie wekken dat de onderwerpen geïsoleerd zijn,
+omdat er geen onderlinge relaties zijn aangegeven. Het tegendeel is
+waar: veel onderwerpen zijn gerelateerd – zowel binnen een hoofdgroep
+als tussen de hoofdgroepen.
+
+Afstemming tussen onderwerpen is dan ook essentieel. Het model zegt
+niets over de organisatievorm of indeling daarvan in een
+beheerorganisatie. In de praktijk kunnen meerdere activiteiten belegd
+zijn bij een enkel organisatieonderdeel of kunnen meerdere
+organisatieonderdelen zich bezighouden met een enkele activiteit. De
+best practice organisatiestructuur ([Deel 2: De
+Verdieping](https://logius-standaarden.github.io/BOMOS-Verdieping))
+gaat hier verder op in.

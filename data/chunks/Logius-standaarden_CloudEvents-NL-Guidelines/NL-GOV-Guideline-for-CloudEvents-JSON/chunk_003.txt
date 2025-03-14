@@ -1,0 +1,8 @@
+
+##Recommendations
+
+- One SHOULD use the [JSON Event Format for CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.1/json-format.md). 
+- There are no agreements to deviate from the standard in any part.
+- If applicable then one SHOULD use JSON as primary event format:
+  - JSON is the only event format that [MUST be supported](https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md#14-event-formats) when HTTP structured content mode is used.
+  - JSON will be the primary format for APIs as formulated within the [API strategie voor de Nederlandse overheid - Extensies](https://docs.geostandaarden.nl/api/vv-hr-API-Strategie-ext-20190715/#json).

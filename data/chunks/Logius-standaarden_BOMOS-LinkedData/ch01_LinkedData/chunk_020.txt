@@ -1,0 +1,7 @@
+
+###Matey
+Het idee van Matey is dat het RML toegankelijker maakt.
+
+De RDF Mapping Language (RML) is een generieke mappingtaal om regels uit te drukken die gegevens in heterogene structuren en serialisaties (o.a. JSON, XML, CSV) toewijzen aan het RDF-gegevensmodel. Zie https://rml.io/docs/rml/introduction/ voor meer informatie over RML.
+
+YARRRML is een voor mensen leesbare op tekst gebaseerde weergave voor declaratieve regels voor het genereren van Linked Data. Het is een subset van YAML, een veelgebruikte data-serialisatie-taal die is ontworpen om mensvriendelijk te zijn. YARRRML kan worden gebruikt om RML-regels weer te geven. Zie https://rml.io/yarrrml/ voor meer informatie over YARRRML.

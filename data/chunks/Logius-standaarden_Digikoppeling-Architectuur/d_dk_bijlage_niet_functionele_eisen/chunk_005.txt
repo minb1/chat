@@ -1,0 +1,9 @@
+
+##Vindbaarheid en openbaarheid
+
+De standaard is vindbaar en toegankelijk op een laagdrempelige manier. De standaard en documentatie wordt gepubliceerd op de website van Logius: www.logius.nl/digikoppeling
+
+De standaard is tevens vindbaar via de ‘Pas toe of leg uit’-lijst van het Forum
+Standaardisatie: [https://www.forumstandaardisatie.nl/open-standaarden/verplicht](https://www.forumstandaardisatie.nl/open-standaarden/verplicht).
+
+Wijzigingen op de standaard worden conform het Beheermodel in openbaarheid besproken en beheerd

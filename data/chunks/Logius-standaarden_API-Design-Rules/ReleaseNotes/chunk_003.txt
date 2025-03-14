@@ -1,0 +1,19 @@
+
+##Samenvatting wijzigingen
+
+De wijzigingen in versie 2.0 zijn zowel technisch als inhoudelijk. Hieronder zijn de belangrijkste wijzigingen samengevat:
+
+- Technisch:
+  - het "API Design Rules" document is bijgewerkt naar Respec versie 34
+  - de publicatie van de standaard is verplaatst naar de uri "[https://gitdocumentatie.logius.nl/](https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0.0-rc.1/)"
+  - het overzicht van rules wordt gegenereerd en is gesplitst in functionele en technische rules
+  - rules hebben een type (Functional/Technical), op basis hiervan wordt de implication gegenereerd
+  - de Semantic versioning rule is uitgebreid met pre release opties
+- Functioneel:
+  - de algemene API Strategie Infographic is opgenomen in de bijgewerkte inleiding
+  - de nummering van de design rules is vervangen door logische namen
+  - alle rules zijn nu beschreven op basis van het Togaf template voor Principes (Name, Statement, Rationale, Implications)
+  - bij de technical type rules is een "how tot test" beschrijving opgenomen en een verwijzing naar het test script van developer.overheid.nl
+  - De module "Transport Security" is verplicht gesteld in par 3.8 voor alle APIs
+  - De module "Geospatial" is is verplicht gesteld in par 3.9 voor alle APIs met geospatial data of functies
+  

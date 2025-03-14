@@ -1,0 +1,22 @@
+
+##Format van dit document
+
+Het OASIS Implementation, Interoperability en Conformance (IIC) Technical
+Committee (TC) heeft voor deployment specificaties een sjabloon opgesteld
+[[?Deployment Guide 1.1]]. Dat sjabloon is al eerder toegepast door bepaalde
+sectoren zoals handel (GS1) en gezondheidszorg (HL7), en wordt daarmee een
+standaard manier van het beschrijven van configuraties. Dit document is
+opgesteld aan de hand van dat sjabloon. Het is slechts een summiere beschrijving
+van het specifieke gebruik van ebXML Messaging en bevat geen
+achtergrondinformatie, motivatie, voorbeelden en andere informatie die nuttig is
+voor het in de praktijk toepassen van deze specificatie.
+
+Dit document is direct afgeleid van [[?Deployment Guide 1.1]] en om praktische
+redenen (grotendeels) in het Engels opgesteld. Leveranciers van producten en
+diensten rond ebXML Messaging zijn bekend met dit sjabloon doordat het ook in
+andere sectoren wordt gebruikt. Leveranciers kunnen aan de hand van dit sjabloon
+eenvoudig nagaan in hoeverre hun product voldoet aan de gestelde eisen.
+
+Dit document is niet (geheel) zelfstandig te lezen maar bedoeld om geraadpleegd
+te worden samen met de technische specificatie [EBXML-MSG].
+

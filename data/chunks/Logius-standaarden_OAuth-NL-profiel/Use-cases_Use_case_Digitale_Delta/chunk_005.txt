@@ -1,0 +1,4 @@
+
+##Authorization server
+
+In this use case the resource owner also provides the Authorization server. The unique id's of the sensors are preloaded in the authorization server.

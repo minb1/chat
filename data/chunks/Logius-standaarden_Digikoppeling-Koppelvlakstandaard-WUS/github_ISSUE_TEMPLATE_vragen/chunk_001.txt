@@ -1,0 +1,10 @@
+---
+name: Vragen
+about: Voor vragen over de Standaard.
+title: "[VRAAG]"
+labels: question
+assignees: ''
+
+---
+
+##

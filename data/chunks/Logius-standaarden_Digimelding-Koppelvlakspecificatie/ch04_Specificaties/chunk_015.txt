@@ -1,0 +1,80 @@
+
+###DetailsTerugmeldingResponse
+
+Op basis van een UUID geeft een basisregistratie de annotatie met
+daaraan hangende leafs terug als antwoord. Op dit moment is dat altijd
+een toevoeging of wijziging (terugmelding) als root annotatie met
+daaraan altijd tenminste één van elk van de volgende leafs: contact,
+meldingskenmerk en/of status. Daarnaast worden optioneel één of meerdere
+leafs van het type: Bijlageverwijzing en Planningsverwachting
+meegegeven.
+
+Een basisregistratie moet het opvragen van root annotaties met eraan
+hangende boom ondersteunen, daarnaast mag een basisregistratie
+annotatie(bomen) teruggeven van niet root annotaties, dit is echter nu
+nog niet gerealiseerd of getest. Aangezien het statusoverzicht alleen
+root annotaties oplevert zal het opvragen van andere soorten annotaties
+in de praktijk ook niet snel voorkomen.
+
+Doordat de annotatiebasis in iedere annotatie zit wordt de annotatieboom
+een behoorlijk lijvige constructie. In de onderstaande berichten wordt
+deze daarom tot één regel afgekort. Zie paragraaf 4.1 voor een
+uitgebreide toelichting van wat er in de annotatiebasis staat. Elke
+annotatie kent een eigen instantie, zoals ook bij
+'AnnotatieToevoegenRequest' en elke annotatie kan slechts één van de
+volgende soorten annotaties bevatten: Terugmelding, Annotatiestatus,
+Referentiekenmerk, Contactinformatie, Bijlageverwijzing,
+Planningsverwachting en BehandelendeBronhouder.
+
+| **Berichttype**: DetailsTerugmeldingResponse |            |           |
+|----------------------------------------------|------------|-----------|
+| **Elementen/attributen**                     |            |           |
+| **AnnotatieBoom**          | *De container die de verzameling annotaties bevat die ofwel het gevraagde UUID als kenmerk hebben of daar middels een annotatieverwijzing naar verwijzen.* | \[1..1\]  |
+| **Annotatie.Terugmelding** | *De terugmelding (de annotatie die uiteindelijk de root annotatie zal worden)* | \[1..1\]  |
+| Terugmelding.**Annotatiebasis**              |            |           |
+| Terugmelding.Bronverwijzingen                | *Bronverwijzingen bestaande uit één of meerdere bronverwijzing(en)*<br>*Lijst van verwijzingen met basisregistratie elementen waarop wordt teruggemeld.* | \[1..1\]  |
+| Bronverwijzingen.Bronverwijzing              | *Bestaande uit een URI en een selectieverwijzing naar het basisregistratie element waarop wordt teruggemeld. Dit mogen er meerdere zijn, maar in de huidige praktijk is dit er altijd precies één.*  | \[1..\*\] |
+| Bronverwijzing.Uri                           | *De URI die de combinatie van basisregistratie en sleutel (bijvoorbeeld BSN of HRN) uniek identificeert.* | \[1..1\]  |
+| Bronverwijzing.Selectie                      | *Selectie van een element binnen de structuur die door de URI uniek geïdentificeerd wordt (bijvoorbeeld onderneming).* | \[0..\*\] |
+| Terugmelding.Attributenset | *De set van attributen die daadwerkelijk gewijzigd dienen te worden.* | \[1..1\]  |
+| Attributenset.Attribuut    | *Eén of meerdere attributen die gewijzigd dienen te worden.* | \[1..\*\] |
+| Attribuut.Uri              | De unieke aanduiding van het attribuut | \[1..1\]  |
+| Attribuut.BetwijfeldeWaarde  | *De bestaande waarde in de basisregistratie.* | \[0..1\]  |
+| Attribuut.VoorgesteldeWaarde | *De voorgestelde nieuwe waarde.* | \[0..1\]  |
+| Terugmelding.Peilmoment      | *De datum waarop de betwijfelde waarde geldig is en de voorgestelde waarde geldig zou moeten zijn.* | \[0..1\]  |
+|                                               |           |           |
+| **Annotatie.Annotatiestatus** | *Status van de terugmelding, de status met de meest recente datum GeannoteerdOp is de geldige status.* | \[1..\*\] |
+| Annotatiestatus.**Annotatiebasis**            |           |           |
+| Annotatiestatus.Status                        | *Zie bijlage B voor lijst met geadviseerde statussen voor aangesloten basisregistraties. Het is toegestaan om in de eigen catalogus afwijkende statussen op te  nemen) | \[1..1\]  |
+|                                               |           |           |
+| **Annotatie . Referentiekenmerk**  | *Eigen kenmerk terugmeldende organisatie (het mogen er meer zijn, in de huidige praktijk altijd precies één).* | \[1 \*\]  |
+| **Referentiekenmerk.Annotatiebasis**          |           |           |
+| Referentiekenmerk.Kenmerk          | *Eigen kenmerk terugmeldende organisatie.* | \[1..1\]  |
+|                                               |           |           |
+| **Annotatie.Contactinformatie**    | *Contactgegevens.* | \[1 \*\]  |
+| Contactinformatie.\@ContactType    | *kan alleen de waarden \'Melder\' of \'Behandelaar\' hebben* | \[1..1\]  |
+| **Contactinformatie.Annotatiebasis**   |                  |           |
+| Contactinformatie.Naam                 |                  | \[1..1\]  |
+| Contactinformatie.Telefoon             |                  | \[0..1\]  |
+| Contactinformatie.Email                |                  | \[1..1\]  |
+| Contactinformatie.Afdeling             |                  | \[0..1\]  |
+|                                        |                  |           |
+| **Annotatie . Bijlageverwijzing**      | *Metainformatie over bijlagen.*<br>*Wordt in de praktijk niet ondersteund door BRP, HR ondersteunt er maximaal 5.* | \[0..\*\] |
+| Bijlageverwijzing . **Annotatiebasis** |                  |           |
+| Bijlageverwijzing . Bestandsnaam       | *De naam van het bestand.* | \[1..1\]  |
+| Bijlageverwijzing . MIMEType           | *Het MIME type van de bijlage.* | \[1..1\]  |
+| Bijlageverwijzing . BijlageData        | *Het bestand zelf in Base64-binary encoding.<sup>5</sup> | \[1..1\]  |
+| Bijlageverwijzing . Beschrijving       | *Beschrijving van de bijlage. De bijlage zelf wordt nooit mee teruggeleverd bij het bevragen van een terugmelding/annotatie. | \[0..1\]  |
+|                                        |                  |           |
+| **Annotatie . Planningsverwachting**   | *Verwachte termijn voor behandeling, wordt alleen gebruikt door BRP en komt dan slechts eenmaal voor.* | \[0..\*\] |
+| Planningsverwachting . **Annotatiebasis**  |               |           |
+| Planningsverwachting . MijlpaalAanduiding  | *Beschrijving van de planningsverwachting.* | \[0..1\]  |
+| Planningsverwachting . MijlpaalTijdstempel | *Datum waarop de planning gereed is.*      | \[0..1\]  |
+|                                            |               |           |
+| **Annotatie . BehandelendeBronhouder**     | *Behandelende bronhouder, huidige behandelaar is leaf annotatie met meest recente tijdstempel.* | \[0 \*\]  |
+| BehandelendeBronhouder . **Annotatiebasis** |              |           |
+| BehandelendeBronhouder . Bronhouder         | *De bronhouder die de terugmelding momenteel in behandeling heeft.* | \[1..1\]  |
+
+<p class="note">
+<sup>5</sup> Dit veld wordt bij een bericht 'DetailsTerugmeldingResponse' leeg gelaten
+</p>

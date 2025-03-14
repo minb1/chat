@@ -1,0 +1,7 @@
+
+####Intermediary
+
+An "intermediary" receives a message containing an event for the purpose of
+forwarding it to the next receiver, which might be another intermediary or a
+[Consumer](#consumer). A typical task for an intermediary is to route the event
+to receivers based on the information in the [Context](#context).

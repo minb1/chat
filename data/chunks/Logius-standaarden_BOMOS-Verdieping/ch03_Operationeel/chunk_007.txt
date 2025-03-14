@@ -1,0 +1,7 @@
+
+####Aandachtspunten
+Bij de beoordeling en besluitvorming moet gekeken worden naar tal van aspecten:
+
+*   De wijze van inpassing in de standaard: is het technisch gezien mogelijk een wijziging in te passen en welke stappen zijn daarvoor nodig?
+*   De impact van de wijziging op bestaande systemen en processen.
+*   De toegevoegde waarde van de wijziging (in ITIL-termen de business justification): wat levert het op en staat dit in verhouding tot de kosten?

@@ -1,0 +1,4 @@
+
+###Connection to the Protected Resource
+
+<!-- ### [2.4.1.](#rfc.section.2.4.1) [Requests to the Protected Resource](#RequestsToProtectedResource) -->

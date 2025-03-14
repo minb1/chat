@@ -1,0 +1,8 @@
+
+###(Nr 2) Via Knooppunt A (waarbij eigen OIN van A gebruikt wordt voor TLS-verbindingen met verzender en ontvanger)
+
+In deze situatie verloopt de communicatie via een knooppunt A.
+
+Wanneer A een SAAS-partij is, is een aandachtspunt bij de communicatie van verzender naar de SAAS-partij de beveiliging van dit traject (wanneer dit niet via Digikoppeling loopt).
+
+Bij de communicatie van SAAS-partij naar ontvanger zijn de afspraken rond machtiging relevant. In deze situatie gebruikt de SAAS-partij het eigen OIN in het TLS-certificaat. De ontvanger zal dit moeten accepteren en de oorspronkelijke verzender afleiden uit de afspraken, de bericht header of inhoud of op basis van end-to-end signing met een signingcertificaat van de verzender.

@@ -1,0 +1,13 @@
+
+###Minor releases
+Een minor release geeft aan dat de nieuwe versie van de standaard zodanig is gewijzigd dat een implementatie van de voorgaande versie van de standaard voldoet aan de regels van de nieuwe versie. In een minor release kunnen wijzigingen doorgevoerd worden die de technische
+specificatie van een koppelvlak raken. Dat kunnen fouten zijn in de specificatie
+zijn of bv het verlichten van een restrictie. In de SEMVER aanpak voor software zijn
+minor releases technisch backwards compatible. Voor de uitwisselingsstandaarden zoals
+Digikoppeling is backwards compatibility lastiger te bepalen omdat uiteindelijk
+twee partijen met elkaar moeten meebewegen.
+**Minor Releases kunnen dus mogelijk technisch backwards incompatible zijn**.
+Voor Minor Releases wordt een uitgebreid vaststellingsprocedure gevolgd
+(conform het beheermodel van de standaard) en er kan in overleg met de deelnemers
+van het Technisch Overleg tot een migratiepad worden besloten. Dit migratiepad
+wordt in de release meegenomen.

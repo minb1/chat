@@ -1,0 +1,9 @@
+
+###(1) Bevoegdheid intermediair via afspraken
+
+![intermediair](media/intermediair.jpg "Intermediair") 
+
+Een intermediair in de rol van 'knooppunt' krijgt de bevoegdheid om dienst van B af te nemen (op basis van of passend in toepasselijke regelgeving). Voor B blijft achterliggende partij A buiten beeld. Of A bevoegd is om de dienst via de Intermediair af te nemen bepaalt de Intermediair op basis van de regelgeving en verantwoordelijkheid;\
+(een voorbeeld is een sector loket)
+
+(Bron: [Digikoppeling Identificatie en Authenticatie 1.4.2 ](https://gitdocumentatie.logius.nl/publicatie/dk/idauth/) )

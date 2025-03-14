@@ -1,0 +1,15 @@
+
+###Digikoppeling WUS voor synchrone bevragingen
+
+De [[[DK-WUS]]] ondersteunt het uitvoeren van synchrone requests tussen geautomatiseerde informatiesystemen.
+
+[[[DK-WUS]]] biedt de volgende functionaliteiten: 
+
+- Identificatie en authenticatie van partijen
+- Versleutelen van transport
+- Adresseringsinformatie voor routering ‘achter de voordeur’
+- Routeren via message-handlers
+- berichtuitwisseling vast leggen in standaard technisch contract formaat
+- Beveiligen van berichten d.m.v. technische handtekening
+- Beveiligen van berichten door de content te versleutelen
+- Foutmeldingen

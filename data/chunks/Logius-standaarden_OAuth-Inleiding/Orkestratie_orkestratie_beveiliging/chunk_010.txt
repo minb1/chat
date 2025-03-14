@@ -1,0 +1,6 @@
+
+###Implicaties
+
+- Er is een sterke vertrouwensband nodig tussen zowel de Client & Service alsook de Service en de Services. Deze vertrouwensband zal waarschijnlijk worden vertaald naar eisen, audits en contracten.
+- De aanbieder van Service Y, stel een gemeente, zal zorgvuldig moeten borgen en vastleggen dat de service die ze aanbieden alleen gegevens opvraagt bij de Services wanneer daar ook een expliciete vraag voor is van de User U. Er moet worden voorkomen dat in deze situatie een kwaadwillende toegang krijgt tot de service en daarmee alle Services van alle users kan bevragen.
+- Deze oplossing is technisch waarschijnlijk makkelijker te realiseren en vaker in gebruik maar kent ook veel grotere risico's dan de transparante orkestratie.

@@ -1,0 +1,13 @@
+
+##Bijlage A: Afkortingen, begrippen en symbolen
+
+| **Afkorting** | **Omschrijving**                           |
+|---------------|------------------------------------------- |
+|  BAG          |  Basisregistratie Adressen en Gebouwen     |
+|  BRP          |  Basisregistratie Personen                 |
+|  GEMMA        |  Gemeentelijke modelarchitectuur           |
+|  ICTU         |  ICT Uitvoeringsorganisatie                |
+|  KING         |  Kwaliteitsinstituut Nederlandse Gemeenten |
+|  HR           |  Handelsregister                           |
+|  NUP          |  Nationaal Uitvoeringsprogramma            |
+|  StUF         |  Standaarduitwisselingsformaat             |

@@ -1,0 +1,10 @@
+
+####Message
+
+Events are transported from a source to a destination via messages.
+
+A "structured-mode message" is one where the event is fully encoded using
+a stand-alone event format and stored in the message body.
+
+A "binary-mode message" is one where the event data is stored in the message
+body, and event attributes are stored as part of message meta-data.

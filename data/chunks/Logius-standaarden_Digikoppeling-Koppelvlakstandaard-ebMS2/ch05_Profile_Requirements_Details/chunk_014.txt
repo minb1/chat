@@ -1,0 +1,10 @@
+
+###Profile Requirement Item: Reference/Schema
+
+|[[EBXML-MSG]] | All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header element(s)|`/SOAP:Body/eb:Manifest/eb:Reference/eb:Schema`|
+| Are there any Schema elements required? If so, what are their location and version attributes?  | Schema elements are not required. Digikoppeling does not perform XML schema validation. |
+| Alignment | (empty) |
+| Test References | (empty) |
+| Notes  | (empty) |

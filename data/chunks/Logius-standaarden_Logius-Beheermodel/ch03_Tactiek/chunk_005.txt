@@ -1,0 +1,29 @@
+
+###Samenwerking met andere beheerorganisaties
+
+<aside class="example">
+Kennisplatform of community xxx is een initiatief van xxx, xxx, en
+Logius. Het doel van het Kennisplatform is om de kennis over het
+toepassen van xxx uit te wisselen en de aanpak bij verschillende
+organisaties op elkaar af te stemmen en waar nodig te standaardiseren.
+In het kennisplatform/community wordt gezamenlijk gekeken naar
+strategische en tactische vraagstukken rond het ontwikkelen van de
+standaard xxx door de overheid en gebruik van de standaard xxx buiten
+en binnen de overheid. Dit vanuit de gedachte dat we in een digitale
+samenleving eenvoudig met elkaar moeten kunnen samenwerken.
+
+De xxx standaard komt voort uit xxx die beheerd wordt door het
+Kennisplatform/community xxx en is door het kennisplatform/community
+ontwikkeld. Op het moment dat er in het kennisplatform consensus was
+over de kwaliteit van de xxx standaard en de wenselijkheid deze via
+het 'pas toe of leg uit' -principe normatief te laten verklaren is de
+standaard voorgedragen aan Forum Standaardisatie voor het verkrijgen
+van de voor overheden verplichte 'pas toe of leg uit' status en heeft
+Logius het beheer van dit normatieve deel op zich genomen.
+</aside>
+
+De xxx standaard sluit aan op onderstaande standaarden. De aansluiting
+vindt plaats binnen de vastgestelde releasetermijnen.
+
+1. ---
+2. ---

@@ -1,0 +1,7 @@
+
+###Autorisatie
+
+- De autorisatie is per Service dynamisch in te stellen
+- Service Y moet overweg kunnen met het feit dat Service A,B & C de autorisatie kunnen weigeren
+
+![Schematische weergave van Transparante-Orkestratie](../../../media/orkestratie-Transparante-Orkestratie.drawio.svg)

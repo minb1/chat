@@ -1,0 +1,7 @@
+
+##Stappen
+
+Uitwisseling van certificaten is vaak nodig voor gebruik binnen Digikoppeling verband.
+
+Voor het maken van CPA's kunnen organisaties gebruikmaken van het Digikoppeling CPA register.
+

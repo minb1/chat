@@ -1,0 +1,11 @@
+
+###Uitwisselen grote bestanden
+
+De situatie kan zich voordoen dat een bericht een omvang krijgt die niet meer efficiënt door de Digikoppeling-adapters verwerkt kan worden bijvoorbeeld vanwege de overhead bij eventuele hertransmissies. Ook kan het voorkomen dat er behoefte bestaat aan het sturen van aanvullende informatie naar systemen buiten de normale procesgang ('out-of-band').
+
+
+|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
+|---|---|---|
+|Digikoppeling Grote berichten| Bij ‘grote berichten’ worden grotere bestanden uitgewisseld via een van de Digikoppelingkoppelvlakken in combinatie met een (HTTPS-)download vanaf een beveiligde website. Grote berichten vormen een functionele uitbreiding op de Digikoppelvlakstandaarden voor de veilige bestandsoverdracht van berichten groter dan 20 MiB | Decentrale overheden uploaden hun archief bestanden bij de grote berichten service van het Nationaal archief en dragen via een Digikoppeling koppelvlak de verantwoordelijkheid voor de archiefstukken over |
+
+Tabel 5.4: Uitwisselen grote bestanden

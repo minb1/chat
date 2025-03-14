@@ -1,0 +1,13 @@
+
+#### Het Kennisplatform API's (community)
+
+Dit is het meest operationele gremium waarin iedere
+belangstellende/belanghebbende vragen kan stellen over de
+API Standaarden en suggesties kan doen voor de doorontwikkeling van de
+standaard. Dergelijke vragen en suggesties worden door Logius Standaardenbeheer
+verzameld en voorgelegd aan het Technisch Overleg en als issue geregistreerd.
+
+Omdat iedere belangstellende vragen of voorstellen tot wijziging in
+kan dienen is het niet nodig lid te worden van de community om een
+bijdrage te leveren. Iedereen die bijdraagt aan de standaard is
+daarmee lid van de community.

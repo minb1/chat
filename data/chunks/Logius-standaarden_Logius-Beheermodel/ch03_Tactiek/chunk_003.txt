@@ -1,0 +1,10 @@
+
+##Architectuur
+
+Beschrijf hoe de standaard zich verhoudt tot de enterprise en domein-architecturen.
+
+<aside class="example">
+De xxx standaard is een op zichzelf staande standaard en geen
+onderdeel van een bovenliggende standaard. Wel wordt er in de ADR
+verwezen naar verschillende andere (internationale) standaarden.
+</aside>

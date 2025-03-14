@@ -1,0 +1,10 @@
+
+###Profile Requirement Item: Persistent Confidentiality
+
+|[[EBXML-MSG]] Section 4.1.4.1 Section 4.1.4.5 Persistent Confidentiality| **Best effort**<br>**Reliable Messaging**|**End-to-End Security** |
+|------------------|---|---|
+|Header elements:<br>`/SOAP:Header/eb:Signature`|||
+| Is selective confidentiality of elements within an ebXML Message SOAP Header required? If so, how is this to be accomplished? [Not addressed by Messaging Specification 2.0.] | **Not applicable**.  | **Not applicable**. | Is payload confidentiality (encryption) required? [Yes, for Security Services Profiles 13, 14, 16, 17, 21, 22.] Which methods are allowed or required?   | **Not applicable**.  | Payload confidentiality is **optional**. [[[DK-beveiliging]]] describes what security standard must be used. |
+| Alignment | [Appears as BusinessTransactionCharacteristics/\@isConfidential=persistent in CPA.]   |  
+| Test References | (empty)| (empty)  |
+| Notes  | Applications submitting data to, or receiving data from, Digikoppeling message handlers can perform encryption at the payload processing level. The ebXML Messaging protocol is payload-neutral and therefore supports transport of encrypted payloads. However, any encryption and decryption of payloads is out of scope for these profiles. |

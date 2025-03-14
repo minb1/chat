@@ -1,0 +1,4 @@
+
+###Connections with clients
+
+<!-- ### [3.1.1.](#rfc.section.3.1.1) Grant types -->

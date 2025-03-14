@@ -1,0 +1,3 @@
+
+###RFC: XSD voor DK GB PUSH principe is onjuist
+Een element mag niet direct onder complexType worden opgenomen. De choice moet daarom blijven, al is er maar één keuze over door het niet toestaan van senderUrl.

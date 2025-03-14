@@ -1,0 +1,19 @@
+
+###Best practice Gebruik OAuth icm Digikoppeling REST_API
+
+_Wat is het issue of de wens?_
+
+De OAuth standaard biedt mogelijkheden om fijnmazig te autoriseren. De OAuth standaard (mn de client credentials flow) kan gebruikt worden om systemen specifieke, beperkte rechten te geven (middels OAuth tokens met een bepaalde scope), dit naast de autorisatie op organisatie niveau (middels een PKIO certificaat en
+2 zijdig TLS) .
+
+_Wat gaat er gebeuren?_
+
+Onderzocht gaat worden hoe OAuth ingezet kan worden bij M2M API connecties
+
+_Wat is het resultaat?_
+
+Een Best practice Gebruik OAuth icm Digikoppeling REST API
+
+_Wanneer gaat dit gebeuren?_
+
+Q3 2024-Q1 2025

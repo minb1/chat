@@ -1,0 +1,4 @@
+
+##Centrale OIN Raadpleegvoorziening (COR)
+
+Logius is beheerder van de Centrale OIN Raadpleegvoorziening (inclusief het OIN-register) in opdracht van BZK. De [=COR=] heeft niet het karakter van een basisregistratie of een sectorale registratie. De [=COR=] is een landelijke voorziening.

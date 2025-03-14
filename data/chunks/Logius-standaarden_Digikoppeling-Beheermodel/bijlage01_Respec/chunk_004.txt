@@ -1,0 +1,6 @@
+
+##Links
+- [Markdown documentatie](https://www.markdownguide.org/)
+- [ReSpec documentatie](https://respec.org/docs/)
+- [Respec wiki op de repository van W3C](https://github.com/w3c/respec/wiki)
+- [Logius fork van Respec, gebruikt voor deze documentatie](https://github.com/Logius-standaarden/respec)

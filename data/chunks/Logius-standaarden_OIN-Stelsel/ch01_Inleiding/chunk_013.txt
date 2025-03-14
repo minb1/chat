@@ -1,0 +1,16 @@
+
+##Leeswijzer
+
+De structuur van dit document is gebaseerd op de TOGAF standaard - TOGAF staat voor The Open Group Architecture Framework- .
+
+
+|Hoofdstuk|Inhoud|
+|---|---|
+|Architectuurvisie| beschrijft op hoofdlijnen het doel en de kaders van het OIN|
+|Businessarchitectuur| beschrijft de wijzingen en de rollen in het OIN|
+|ApplicatieArchitectuur| beschrijft de functies van de [=COR=]|
+|Het beheer van SubOINs in de [=COR=]| een apart hoofdstuk over uitgifte en beheer van SubOINs|
+|Data Architectuur|beschrijft de structuur van het OIN en SubOIN|
+|Technologie-Architectuur| geeft een technische beschrijving van de [=COR=] en de hieraan gekoppelde systemen en bronnen|
+|Bijlage A|Begrippenlijst|
+|Bijlage B|Nuttige links|

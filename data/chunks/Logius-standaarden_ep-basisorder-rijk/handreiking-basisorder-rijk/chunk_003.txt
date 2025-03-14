@@ -1,0 +1,5 @@
+
+##Opmaken basisorder Rijk
+In onderstaande tabellen vindt u alle ordergegevens die op een basisorder van het Rijk vermeld worden. De basisorder Rijk is gebaseerd op de [Peppol BIS standaard voor Ordering 3.2](https://docs.peppol.eu/poacc/upgrade-3/profiles/28-ordering/). Het omvat alle verplichte velden van de Peppol BIS en de Rijksbreed gebruikte verplichte en optionele velden.
+
+Bijlagen kunnen worden toegevoegd als binair base64 gecodeerd object. De totale bestandsgrootte van het order bericht (inclusief eventuele base64 bijlagen) mag niet groter zijn dan 20 MB.

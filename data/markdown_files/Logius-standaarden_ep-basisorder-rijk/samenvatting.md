@@ -1,0 +1,1 @@
+Deze handreiking is geschreven om leveranciers van de Rijksoverheid een richtlijn te geven over de set ordergegevens die door de Rijksoverheid opgenomen worden in een elektronische order (e-order). Door deze richtlijn te volgen kunnen e-orders van de Rijksoverheid eenduidig (geautomatiseerd) worden verwerkt.

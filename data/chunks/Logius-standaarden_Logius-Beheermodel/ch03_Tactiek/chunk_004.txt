@@ -1,0 +1,12 @@
+
+###Internationale, Europese en nationale standaardisatiegemeenschap
+
+<aside class="example">
+De xxx volgt de ontwikkeling van internationale standaarden (zoals
+bijvoorbeeld de HTTP standaarden van het IETF) in het algemeen. Meer
+specifiek volgen de specialisten van Logius en de leden van de TAG de
+standaarden waarnaar wordt gerefereerd in de standaard en bespreken
+deze ontwikkelingen ook in het Technisch Overleg. Indien relevant
+worden op basis van de internationale ontwikkelingen rfc's opgesteld
+om de xxx standaard aan te passen, verbeteren of actualiseren.
+</aside>

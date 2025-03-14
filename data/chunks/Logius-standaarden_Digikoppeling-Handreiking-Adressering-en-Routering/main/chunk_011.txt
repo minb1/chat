@@ -1,0 +1,4 @@
+
+###(Nr 1) Direct
+
+In deze situatie gebruikt de verzender het eigen (Sub)OIN als afzender en het (Sub)OIN van de ontvanger als bestemming. Identificatie en Authenticatie geschiedt op basis van de beide TLS-certificaten. Signing en encryptie kan gebruikt worden voor end-to-end beveiliging.

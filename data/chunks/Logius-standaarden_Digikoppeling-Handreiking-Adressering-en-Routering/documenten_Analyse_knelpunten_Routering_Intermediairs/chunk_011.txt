@@ -1,0 +1,15 @@
+
+##**3 Bevoegdheid intermediair/SAAS partij door 'machtigen'**
+
+3a. In dit geval acteert de SAAS partij onder het eigen OIN / SubOIN, Voor partij B is het duidelijk dat zij communiceren met de SAAS partij. Onderlinge afspraken bepalen of de SAAS partij gemachtigd is om namens A bepaalde diensten te gebruiken;
+
+3b. Gebruik van een machtigingen register
+
+De SAAS partij identificeert zich met het eigen OIN / SubOIN. In het machtigingen register kan worden nagegaan of de SAAS partij geautoriseerd is om bepaalde diensten namens een organisatie te verrichten.
+
+![machtigen](machtigen.jpg)
+
+In de handreiking Adressering en Routering zijn de verschillende mogelijkheden meer in detail uitgewerkt:
+
+Zie Handreiking Digikoppeling Adressering en Routering:
+https://github.com/Logius-standaarden/Digikoppeling-Handreiking-Adressering-en-Routering/blob/main/main.md

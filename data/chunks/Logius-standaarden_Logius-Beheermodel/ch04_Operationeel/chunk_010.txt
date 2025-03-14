@@ -1,0 +1,18 @@
+
+##Documentatie
+
+<aside class="example">
+Alle documenten m.b.t. de standaard en het beheer van de standaard
+worden openbaar en zonder drempels voor gebruik, gepubliceerd op
+logius.nl en onze Github pagina's. Logius publiceert tenminste de
+volgende documenten:
+
+De vergaderstukken van het Technisch overleg en overige
+besluitvormende gremia.
+
+De specificaties van de standaard
+
+De voorlopige specificaties van de nieuwe versie van de standaard.
+
+Versie xx van de xx is gepubliceerd op:
+</aside>

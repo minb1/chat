@@ -1,0 +1,163 @@
+
+###Organisatiestructuur
+
+In het BOMOS activiteitendiagram zijn de verschillende activiteiten
+opgesomd die kunnen plaatsvinden in een
+standaardisatiegemeenschap. [Onderstaande
+figuur](#fig-organisatiesmodel) schetst een globale
+organisatiestructuur hiervoor. Een belangrijk uitgangspunt is de
+scheiding tussen inhoudelijke activiteiten in de
+uitvoeringsorganisatie en de besluitvorming door het bestuur.
+
+![Organisatiemodel](images/BOMOS-1_Organisatiestructuur-blanco.png "Organisatiesmodel")
+
+Het bestuur geeft opdracht aan een (not-for-profit)
+uitvoeringsorganisatie die verantwoordelijk is voor een groot deel van
+de beheertaken. Het bestuur verenigt de behoeften in dezen van zijn
+achterban en heeft het mandaat namens dezen te besluiten over zaken
+die de betreffende standaarden betreffen. Bestuur en
+uitvoeringsorganisatie werken bij voorkeur met wederzijdse eenhoofdige
+aanspreekpunten. Het bestuur is voornamelijk belast met de taak
+'besluitvorming'. In de praktijk komt het bestuur een paar keer per
+jaar bij elkaar, wat geen belemmering mag zijn voor de gewenste
+besluitvorming. Het bestuur moet de uitvoeringsorganisatie voldoende
+mandaat geven. In de praktijk zien we dat sommige besluiten ook
+schriftelijk (e-mail) aan bestuursleden voorgelegd kunnen worden voor
+goedkeuring, of dat de verantwoordelijkheid van bepaalde activiteiten
+(bijv. communicatie) bij een enkel bestuurslid worden belegd. Dit
+maakt het eenvoudiger om bilateraal overleg tussen de
+uitvoeringsorganisatie en het verantwoordelijke bestuurslid te voeren
+en ook besluiten tussentijds te nemen (en kan als alternatief dienen
+voor de wederzijdse eenhoofdige aanspreekpunten).
+
+De kern is dat duidelijk moet zijn vastgelegd welke besluiten in de
+bestuursvergadering genomen dienen te worden; welke schriftelijk
+(e-mail) voorgelegd kunnen worden, welke door een specifiek
+bestuurslid genomen kunnen worden, en voor welke besluiten het mandaat
+bij de uitvoeringsorganisatie ligt. In de praktijk worden vaak
+jaarplannen gebruikt voor de opdrachtformulering van het bestuur aan
+de uitvoeringsorganisatie. Op basis van rapportages over het jaarplan
+legt de uitvoeringsorganisatie dan verantwoording af aan het
+bestuur. Het jaarplan beschrijft welke taken uitgevoerd moeten worden;
+welke werkgroepen er zijn of opgestart moeten worden, wat de doelen
+voor de werkgroep zijn, etc. Het jaarplan wordt goedgekeurd door het
+bestuur en is daarmee de opdracht voor de uitvoeringsorganisatie. Het
+Beheer- en Ontwikkelmodel kan als kapstok dienen om de taken in het
+jaarplan te benoemen. Het jaarplan maakt het ook goed mogelijk om
+afspraken te maken over uit te besteden taken. Feitelijke
+standaardontwikkeling vindt plaats in werkgroepen waarin de gebruikers
+van de standaarden participeren. De werkgroepen worden door de
+uitvoeringsorganisatie gecoördineerd. Veelal worden ook de
+daadwerkelijke uitwerkingen opgesteld door de uitvoeringsorganisatie
+op basis van discussies in de werkgroepen. De uitkomst van de
+werkgroep, een nieuwe versie van een standaard, kan door het bestuur
+vastgesteld worden en uitgebracht worden als nieuwe versie. De
+besluitvorming, wie (bestuur/werkgroep) bepaalt wat, moet helder
+geregeld zijn.
+
+<aside class="example" title="Informatiemodel Externe Veiligheid"> 
+Het Informatiemodel Externe Veiligheidsrisico's (IMEV) bevat afspraken over 
+de digitale structuur waarin overheden gegevens vastleggen over de opslag, 
+het transport en het gebruik van gevaarlijke stoffen. Al deze gegevens komen 
+bij elkaar in het Register Externe Veiligheidsrisico's van het ministerie van 
+Infrastructuur en Waterstaat. Op kaarten is vervolgens te zien waar externe 
+veiligheidsrisico’s van toepassing zijn. Geonovum beheert sinds 2021 het IMEV 
+in opdracht van het ministerie van Infrastructuur en Waterstaat. Het nieuwe 
+BOMOS verdieping heeft Geonovum en de opdrachtgever geholpen bij het inzichtelijk 
+maken van de organisatiestructuur. De sinds eind 2022 ingestelde adviesgroep 
+werkt conform deze structuur en heeft begin 2022 de leidraad voor komende 
+wijzigingen van het IMEV, het wijzigingsprotocol, vastgesteld. 
+</aside>
+
+Bij voorkeur wordt onderscheid gemaakt tussen verschillende zwaartes
+van wijzigingen in standaarden, zodat de lichtste wijzigingen door de
+betreffende werkgroep of de uitvoeringsorganisatie zelf kunnen worden
+afgehandeld en alleen de meest fundamentele wijzigingen betrokkenheid
+van het bestuur vragen, tot aan een bestuursbesluit. Een werkgroep die
+continu overruled wordt door het bestuur is niet werkbaar.
+
+Eventueel kan een adviesorgaan opgericht worden om het bestuur met
+gevraagd en ongevraagd advies ter zijde te staan. De uitkomst van een
+werk- groep zal in dat geval als voorstel naar het adviesorgaan gaan
+die daarover aan het bestuur zal adviseren. Het adviesorgaan bestaat
+bij voorkeur uit onafhankelijke en onbetwiste deskundigen, en kan een
+middel zijn om de onafhankelijkheid en expertise te versterken. Het is
+van belang dat deze deskundigen gekozen worden op basis van kennis en
+ervaring en niet op basis van belangen of vertegenwoordiging van een
+organisatie; immers aan hen wordt enkel gevraagd om inhoudelijk
+advies. De vertegenwoordiging van belangen is gevestigd in het
+bestuur.
+
+Een typische inhoudelijke categorische afbakening van werkgroepen
+vindt plaats langs de volgende (gelaagde) lijnen:
+
+*   Architectuur.
+*   Processen/services.
+*   Data/gegevens/berichten.
+*   Technische standaard/transactiestandaard.
+*   Beveiliging.
+
+Een andere veel gebruikte afbakening is op basis van het
+probleemdomein, bijvoorbeeld SETU heeft gewerkt met een tweetal
+werkgroepen, te weten Bemiddeling en Verwerking. De werkgroep
+Bemiddeling houdt zich bezig met de standaarden van offerteaanvraag
+tot aan de plaatsing van een uitzendkracht, terwijl de werkgroep
+Verwerking de standaarden van plaatsing tot aan factuur tot haar scope
+rekent. In de praktijk zullen bij complexere standaarden bepaalde
+categorieën werkgroepen (bijv. 'gegevens') weer onderverdeeld worden
+in werkgroepen per probleemdomein (bijv. 'facturatie'), waarmee een
+combinatie van beide indelingen wordt gerealiseerd.
+
+<aside class="example" title="SETU organisatiestructuur">
+Bij de SETU is de organisatiestructuur als volgt: Het bestuur bestaat 
+uit vertegenwoordigers van uitzendondernemingen. Zij houden vier keer 
+per jaar een bestuursvergadering. In de bestuursvergaderingen rapporteert 
+de uitvoeringsorganisatie, momenteel werknemers van TNO en de ABU, over de 
+voortgang van de werkzaamheden voor de SETU. Alle werkzaamheden staan vermeld 
+in het jaarplan dat voorafgaand aan ieder kalenderjaar wordt vastgesteld, 
+inclusief bijbehorende begroting. Onder deze werkzaamheden valt onder andere 
+het organiseren van de werkgroepen. Aan werkgroepen mogen zowel vertegenwoordigers 
+van uitzendondernemingen, inleners en leveranciers deelnemen. Actuele werkgroepen 
+zijn de werkgroep Planningsgegevens, die de SETU Standard for Planning & Scheduling 
+ontwikkelt, en de werkgroep Trends & ontwikkelingen, waarin veranderingen en 
+behoeftes in de sector worden geïdentificeerd die (mogelijk) impact hebben op 
+digitalisering en data-uitwisseling. Bij SETU is geen sprake van een 
+leveranciersgroep en adviesorgaan. 
+</aside>
+
+Bijzondere aandacht verdienen de leveranciers. Dit is regelmatig een
+heet hangijzer bij non-profit beheerorganisaties. Voor het welslagen
+van een standaard (zonder juiste implementatie geen werkende
+standaard') vaak cruciaal, maar leveranciers kunnen ook conflicterende
+belangen hebben. In beginsel kunnen leveranciers gewoon als deelnemer
+in de standaard acteren en rollen in de werkgroepen vervullen tot aan
+deelname in het bestuur. De praktijk laat zien dat
+softwareleveranciers veelal zeer nuttige bijdragen leveren in
+werkgroepen waardoor het zeker aan te raden is om leveranciers toegang
+tot de werkgroepen te verlenen. Vaak heerst er angst dat leveranciers
+te nadrukkelijk een stempel gaan drukken op de standaard. Een aparte
+leveranciersgroep zoals aangegeven in [bovenstaande
+figuur](#fig-organisatiesmodel) is dan een optie waarmee de
+leveranciers enerzijds een platform wordt geboden terwijl ze
+anderzijds buiten de werkgroepen en bestuur kunnen worden
+gehouden. Softwareleveranciers zijn dan verenigd in een
+leveranciersgroep, die de uitvoeringsorganisatie van advies kunnen
+voorzien en overleg kunnen voeren met het adviesorgaan.
+
+De besluitvorming binnen de werkgroep kan afhankelijk zijn van de
+mogelijke deelname van leveranciers, en ook afhankelijk zijn van de
+opstelling van de leveranciers. In de praktijk zal de keuze voor de
+mate van invloed ook afhangen van de manier waarop de gemeenschap is
+georganiseerd; indien de ontwikkeling van de standaard gedreven wordt
+vanuit het belang van de softwareleveranciers dan zullen deze een
+grotere invloed (willen) uitoefenen op 'hun' standaard. Wordt de
+ontwikkeling gedreven vanuit een (overheids-)gebruikersbehoefte dan
+zullen deze een grotere invloed (willen) uitoefenen.
+
+In het figuur is een eenvoudige basisstructuur geschetst van bestuur,
+uitvoeringsorganisatie en werkgroepen. Facultatief kan daar een
+adviesorgaan en/of leveranciersgroep aan toegevoegd worden. Naast deze
+geschetste mogelijkheden zijn er nog vele alternatieven, zowel
+eenvoudiger als complexer. Welke structuur ook gekozen wordt, bij
+voorkeur worden de verslagen van de verschillende gremia openbaar ter
+beschikking gesteld.

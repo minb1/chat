@@ -1,0 +1,22 @@
+#Specificaties Services
+
+Dit hoofdstuk beschrijft de berichten tussen terugmeldapplicatie,
+Digimelding Webservice en de LV van basisregistraties (gerouteerd via
+Digimelding Webservice)
+
+Het interactiediagram biedt overzicht in hoe de berichten zich tot
+elkaar verhouden en in welke volgorde de berichten worden gebruikt.
+
+Per bericht wordt aangegeven (indien relevant):
+
+-   berichtnaam;
+-   trigger van het bericht;
+-   verandering in terugmeldapplicatie/Digimelding Webservice/LV
+    basisregistratie ten gevolge van het bericht;
+-   lijst van objecten en velden in het bericht, en per veld:
+    -   specificatie van de vulling van het veld,
+    -   toelichting, bijvoorbeeld met de gebruikersactie of configuratie
+        die nodig is om de juiste vulling te krijgen.
+
+Tevens wordt bij de berichten een interactiediagram getoond waarin
+duidelijk wordt welk systeem het bericht initieert.

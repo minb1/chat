@@ -1,0 +1,4 @@
+
+###Naamgeving conventies
+
+Over het algemeen moet de service naam een goede weerspiegeling zijn van de context waarin de service wordt gebruikt. De operatienamen die door deze service ondersteund worden, moeten passen binnen de context van de service en overdadige lange tekststrings moeten worden voorkomen.

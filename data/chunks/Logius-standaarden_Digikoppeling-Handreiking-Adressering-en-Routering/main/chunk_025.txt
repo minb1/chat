@@ -1,0 +1,10 @@
+
+###Definitie van SAAS
+
+_**Software as a service**, vaak afgekort als **SaaS**, ook weleens **software on demand** genoemd, is software die als een online dienst wordt aangeboden. De klant hoeft de software niet aan te schaffen, maar sluit bijvoorbeeld een contract per maand per gebruiker af, eventueel in combinatie met andere parameters. De SaaS-aanbieder zorgt voor installatie, onderhoud en beheer, de gebruiker benadert de software over het internet bij de SaaS-aanbieder._
+
+Kenmerken:
+
+- *De klant hoeft de software en de daarvoor benodigde hardware niet aan te schaffen, maar betaalt slechts voor het gebruik ervan.*
+
+- *De software en hardware wordt niet bij de klant geïnstalleerd, maar bij de ASP / SaaS-aanbieder. De klant heeft toegang tot de software via internet of een privénetwerk.*

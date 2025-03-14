@@ -1,0 +1,6 @@
+
+##Agenda
+
+1. behandeling van de 4 openstaande Pull Requests (PR) die door Logius zijn opgesteld voor verwerking van issues die bij het kennisplatform APIs zijn ingedient.
+2. bespreken welke Rules we willen toevoegen uit de extenties
+3. bespreken openstaande issue's op het normatieve deel

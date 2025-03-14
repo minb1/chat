@@ -1,0 +1,5 @@
+
+##More information
+
+For more information about het API Standards visit [https://www.logius.nl/diensten/api-standaarden](https://www.logius.nl/diensten/api-standaarden)
+

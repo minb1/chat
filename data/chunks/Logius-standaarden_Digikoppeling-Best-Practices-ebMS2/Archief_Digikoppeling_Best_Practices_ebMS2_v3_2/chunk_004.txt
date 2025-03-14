@@ -1,0 +1,9 @@
+Opbouw Digikoppeling documentatie
+
+Digikoppeling is beschreven in een set van documenten. Deze set is als volgt opgebouwd:
+
+Figuur 1: Opbouw documentatie Digikoppeling
+
+Alle met de kleur groen aangegeven documenten vallen onder het beheer zoals geformaliseerd in het Beheermodel en releasebeleid.
+
+##

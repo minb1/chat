@@ -1,0 +1,13 @@
+
+####Programmeringstafels
+
+Dit overleg is verantwoordelijk voor het vaststellen van de
+doorontwikkel-roadmap, het vaststellen van major/minor releases van de
+standaard en dient als het voorportaal van het
+strategisch/besluitvormende gremium: de Programmeringsraad GDI.
+
+Binnen de MIDO structuur hebben de Programmeringstafels de rol van tactisch overleg. 
+Afhankelijk van het thema is die de Programmeringstafel Gegevensuitwisseling,
+Infrastructuur of Interactie.
+[Voor de programmeringstafel maakt Logius een deelagenda over standaarden](https://github.com/Logius-standaarden/Overleg/tree/main/Programmeringstafels/Gegevensuitwisseling)
+die deel kan uitmaken van de agenda van het overleg.

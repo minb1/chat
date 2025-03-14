@@ -1,0 +1,21 @@
+
+##De kosten en de opbrengsten (Activiteit: Financiën)
+
+Een financieel model voor de lange termijn hebben die opbrengsten
+garandeert in overeenstemming met de behoefte is het voornaamste doel
+van deze activiteit.  Een standaard ontwikkelen en beheren kost
+structureel geld. De hoeveelheid is sterk afhankelijk van de context
+en dynamiek van de standaard en het is niet eenvoudig hier generieke
+uitspraken over te doen. De eerste ontwikkelingen starten vaak met
+projecten die beginnen met budgetten vanaf 30.000 euro tot vele malen
+groter. Een eerste project levert ook niet direct een standaard op,
+maar heeft in een werkgroep de mogelijkheden en scope van een
+standaard onderzocht. Na de initiële ontwikkeling moet de standaard
+structureel worden beheerd en doorontwikkeld. Er zijn cases bekend die
+het beheer met budgetten in de order van 250.000 tot 900.000 euro (per
+jaar) hebben georganiseerd. Tot op heden is hier weinig onderzoek naar
+gedaan, met uitzondering van de Ethernet standaard: deze technische
+standaard heeft $10 miljoen dollar gekost om te ontwikkelen. Andere
+informatie bekend uit literatuur is dat de opbrengsten van verkoop van
+ISO standaarden voor de helft voorziet in de kosten die ISO maakt in
+de ontwikkeling en beheer van de ISO standaarden.

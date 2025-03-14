@@ -1,0 +1,14 @@
+
+##Helpdesk
+
+> Logius biedt ondersteuning en advies via verschillende kanalen:
+>
+> Online: als reactie op issue's in de Github van het Kennisplatform:
+>
+> xxxxx
+>
+> Per mail: <span class="underline">[xx](mailto:api@logius.nl)x</span>
+>
+> Telefonisch: xxxx
+>
+> Per post: xxxx

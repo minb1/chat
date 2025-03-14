@@ -1,0 +1,21 @@
+
+###Push Principe
+
+Het principe is dat de verzender het grote bestand aanbiedt aan de Grote
+Berichten File Service van de ontvanger (via een upload) en een bericht stuurt
+aan de ontvanger dat het grote bestand verstuurd is, de ontvanger kan het
+bestand vervolgens verwerken.
+
+![Uitwisseling groot bestand via Grote Berichten file service van de ontvanger](media/UitwisselingGrootbestandviaGBfileservice_ontvanger.png "Uitwisseling groot bestand via Grote Berichten file service van de ontvanger")
+
+In bovenstaand figuur is dit grafisch weergegeven.
+
+- Stap 1: De verzender verstuurt het grote bericht naar de Grote berichten File
+service van de ontvanger.
+
+- Stap 2: De verzender verstuurt het bericht met de meta-data van het bestand,
+bijvoorbeeld naam, locatie, grootte etc.
+
+Opmerking  
+De verzender maakt hiervoor het te verzenden bestand gereed, eventueel wordt dit
+in meerdere delen gesplitst als dit wenselijk is.

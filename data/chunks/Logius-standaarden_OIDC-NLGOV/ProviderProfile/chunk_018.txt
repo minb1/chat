@@ -1,0 +1,50 @@
+
+###Public keys
+
+The OpenID Provider MUST provide its public keys in JWK Set format, such as the following example JWK Set containing a PKIoverheid certificate chain and its 2048-bit RSA key (example certificates abbreviated):
+
+<aside class="example">
+  <pre>
+    {
+      "keys": [
+        {
+          "alg": "RS256",
+          "e": "AQAB",
+          "n": "o80vbR0ZfMhjZWfqwPUGNkcIeUcweFyzB2S2T-hje83IOVct8gVg9Fx
+                vHPK1ReEW3-p7-A8GNcLAuFP_8jPhiL6LyJC3F10aV9KPQFF-w6Eq6V
+                tpEgYSfzvFegNiPtpMWd7C43EDwjQ-GrXMVCLrBYxZC-P1ShyxVBOze
+                R_5MTC0JGiDTecr_2YT6o_3aE2SIJu4iNPgGh9MnyxdBo0Uf0TmrqEI
+                abquXA1-V8iUihwfI8qjf3EujkYi7gXXelIo4_gipQYNjr4DBNl
+                E0__RI0kDU-27mb6esswnP2WgHZQPsk779fTcNDBIcYgyLujlcUATEq
+                fCaPDNp00J6AbY6w",
+          "kty": "RSA",
+          "kid": "rsa-PKIo",
+          "x5c": [
+            "MIIE3jCCA8agAwIBAgICAwEwDQYJKoZIhvcNAQEFBQAwYzELMAkGA
+            1UEBhMCVVMxITAfBgNVBAoTGFRoZSBHbyBEYWRkeSBHcm91cCwgSW5
+            jLjExMC8GA1UECxMoR2[...]TVSzGh6O1mawGhId/dQb8vxRMDsxux
+            N89txJx9OjxUUAiKEngHUuHqDTMBqLdElrRhjZkAzVvb3du6/KFUJh
+            eqwNTrZEjYx8WnM25sgVjOuH0aBsXBTWVU+4=",
+            "MIIE+zCCBGSgAwIBAgICAQ0wDQYJKoZIhvcNAQEFBQAwgbsxJDAiB
+            gNVBAcTG1ZhbGlDZXJ0IFZhbGlkYXRpb24gTmV0d29yazEXMBUGA1U
+            EChMOVmFsaUNlcnQsIE[...]luYAzBgNVBAsTLFZhbGlDZXJ0IENsY
+            XNzIDIgUG9saWN5IFZhbGlkYXRpb24gQXV0aG9yaXR5MSEwHwYDVQQ
+            DExhodHRwOjZXRn453HWkrugp++85j09VZw==",
+            "MIIC5zCCAlACAQEwDQYJKoZIhvcNAQEFBQAwgbsxJDAiBgNVBAcTG
+            1ZhbGlDZXJ0IFZhbGlkYXRpb24gTmV0d29yazEXMBUGA1UEChMOVmF
+            saUNlcnQsIEluYy4xNT[...]AzBgNVBAsTLFZhbGlDZXJ0IENsYXNz
+            IDIgUG9saWN5IFZhbGlkYXRpb24gQXV0aMtsq2azSiGM5bUMMj4Qss
+            xsodyamEwCW/POuZ6lcg5Ktz885hZo+L7tdEy8W9ViH0Pd"
+          ],
+          "use": "sig",
+        }
+      ]
+    }
+    </pre>
+</aside>
+
+In case PKIoverheid certificates are used, the certificate and entire certificate chain up until the root certificate MUST be included as either an `x5c` or as `x5u` parameter, according to [[RFC7517]] Sections 4.6 and 4.7. Parties SHOULD support the inclusion of the certificate chain as `x5c` parameter, for maximum interoperability. Parties MAY agree to use `x5u`, for instance for communication within specific environments.
+
+The OpenID Provider SHOULD utilize the approaches described in [[OpenID.Core]], Sections 10.1.1 (signing keys) and 10.2.1 (encryption keys), to facilitate rotation of public keys.
+
+Please refer to [Algorithms](#algorithms) for more information on eligible cryptographic methods and keys that can be used by OpenID Providers.

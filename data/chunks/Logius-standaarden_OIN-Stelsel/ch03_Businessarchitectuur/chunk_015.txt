@@ -1,0 +1,6 @@
+
+###SubOIN-beheerder
+
+Een overheidsorganisatie die door Logius de status is verleend van SubOIN-beheerder en die op basis van geldige registraties met unieke identificerende nummers in de sectorregistratie die deze voor de uitvoering van zijn publiekrechtelijke taak beheert, voor eigen rekening en risico, [=SubOIN=]’s kan laten aanmaken, toekennen, beheren, corrigeren of intrekken.
+
+De [=SubOIN-beheerder=] draagt zorg voor de registratie van SubOINs voor organisaties die niet in een aangesloten register voorkomen maar die wel bij een broninstantie of op basis van brondocumenten kunnen worden geïdentificeerd en geverifieerd. De [=SubOIN-beheerder=] is verantwoordelijk voor het doorgeven van mutaties.

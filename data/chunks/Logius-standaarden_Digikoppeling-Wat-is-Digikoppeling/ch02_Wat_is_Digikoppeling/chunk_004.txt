@@ -1,0 +1,14 @@
+
+##Scope van Digikoppeling
+
+Om digitale berichten uit te wisselen moeten organisaties op drie niveaus afspraken maken:
+
+- Over de inhoud en betekenis van berichten (payload en eventuele bijlagen): de structuur, semantiek, waardebereiken enzovoort.
+
+- Over de logistiek (envelop): transportprotocollen (HTTP), messaging (SOAP), adressering, beveiliging (authenticatie en encryptie) en betrouwbaarheid.
+
+- Over het transport (netwerk): de protocollen van de TCP/IP stack (TCP voor Transport, IP voor Netwerk) en de infrastructuur, bijvoorbeeld Diginetwerk of Internet.
+
+Digikoppeling richt zich op de logistieke laag van de berichtuitwisseling in de publieke sector. Daarbij conformeert Digikoppeling zich aan de Nederlandse Overheid Referentie Architectuur (NORA) en het European Interoperability Framework.
+
+Digikoppeling is geen netwerk, beveiliging, Enterprise Service Bus (ESB) of gegevensstandaard.

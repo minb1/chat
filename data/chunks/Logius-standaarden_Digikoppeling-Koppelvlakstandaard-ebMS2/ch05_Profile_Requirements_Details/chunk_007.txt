@@ -1,0 +1,10 @@
+
+###Profile Requirement Item: MessageId
+
+|[[EBXML-MSG]] Section 3.1.6.1 | All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header elements|`/SOAP:Header/eb:MessageHeader/eb:MessageData/eb:MessageId`|
+| Although there is no requirement for an MSH to give control about MessageId to an application, some implementations may allow this. In this case, is there any requirement on the source of this ID? Any length and format restrictions when the ID is generated? | No recommendation made. The value of MessageId does not need to meet any requirements beyond the string format specified in [EBXML-MSG] and the global uniqueness constraint of [[rfc5322]]. |
+| Alignment | (empty) |
+| Test References | (empty)|
+| Notes  | (empty)|

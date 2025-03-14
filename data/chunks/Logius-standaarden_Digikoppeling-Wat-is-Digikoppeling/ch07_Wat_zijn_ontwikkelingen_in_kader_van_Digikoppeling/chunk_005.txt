@@ -1,0 +1,8 @@
+
+###Digikoppeling 3.0
+
+Er waren in versie 3.0 geen wijzigingen in de koppelvlakstandaarden van ebMS2 en van grote berichten.
+
+Digikoppeling 3.0 bevatte ondersteuning voor WS-RM. Digikoppeling 3.0 is vastgesteld door de toenmalige PSB, en aangeboden aan het Forum Standaardisatie voor plaatsing op de PToLU lijst. Na onderzoek is gebleken dat gebruik en ondersteuning voor WS-RM onvoldoende is. In 2016 is in de Stelseldiensten Afnemersraad besloten om WS-RM uit Digikoppeling te verwijderen en in 2017 is het verzoek voor plaatsing op de PToLU list ingetrokken.
+
+Ook versie 3.0 was ‘backwards compatible’. Organisaties die Digikoppeling 1.0, 1.1 of 2.0 gebruikten, konden daardoor blijven communiceren met partijen die nieuwere versies gebruikten. De nieuwe functionaliteiten waren dan echter niet beschikbaar.

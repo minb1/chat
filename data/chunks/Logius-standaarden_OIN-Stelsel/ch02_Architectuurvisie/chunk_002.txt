@@ -1,0 +1,4 @@
+
+##Doel OIN
+
+Het organisatie-identificatienummer ([=OIN=]) is het identificatienummer voor niet-natuurlijke personen ten behoeve van het digitale berichtenverkeer met de overheid. De toekenning van het [=OIN=] is gebaseerd op identificatie van de aanvrager van het [=OIN=] middels het Handelsregister dan wel een ander aangesloten overheidsregister.

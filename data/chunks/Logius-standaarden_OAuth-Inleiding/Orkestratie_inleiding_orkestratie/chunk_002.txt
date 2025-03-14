@@ -1,0 +1,4 @@
+
+##Wat is API Orkestratie?
+
+API orkestratie verwijst naar het proces waarbij meerdere  API-aanroepen worden gecoördineerd om een specifieke taak of workflow  uit te voeren. Dit kan bijvoorbeeld inhouden dat gegevens van  verschillende bronnen worden samengevoegd of dat meerdere services in  een bepaalde volgorde worden aangeroepen om een einddoel te bereiken.

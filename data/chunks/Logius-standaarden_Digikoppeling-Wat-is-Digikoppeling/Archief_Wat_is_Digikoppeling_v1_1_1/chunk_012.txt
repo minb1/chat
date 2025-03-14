@@ -1,0 +1,7 @@
+De Digikoppeling standaarden
+
+Digikoppeling is gebaseerd op internationale open standaarden van OASIS en W3C, twee wereldwijde standaardisatie-organen voor open standaarden.
+
+De Digikoppeling-standaarden bestaan uit *Koppelvlakstandaarden*. De koppelvlakstandaarden beschrijven de afspraken die nodig zijn om het berichtenverkeer tussen informatiesystemen mogelijk te maken (zoals onderliggende standaarden). Daarnaast zijn er afspraken gemaakt over de Identificatie en Authenticatie van het berichtenverkeer. Onderstaande paragrafen geven een toelichting welke vormen van berichtuitwisseling er zijn en welke koppelvlakstandaard daarbij van toepassing is.
+
+###

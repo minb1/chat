@@ -1,0 +1,48 @@
+
+##Examples
+
+Event with an attribute 'geheimnummer' having a null value and a 'data' attribute with a JSON value:
+```
+{
+  "specversion": "1.0",
+  "type": "nl.overheid.zaken.zaakstatus-gewijzigd",
+  "source": "urn:nld:oin:00000001823288444000:systeem:BRP-component",
+  "subject": "123456789",
+  "id": "f3dce042-cd6e-4977-844d-05be8dce7cea",
+  "time": "2021-12-10T17:31:00Z",
+  "nlbrpnationaliteit": "0083",
+  "geheimnummer": null,
+  "dataref": "https://gemeenteX/api/persoon/123456789",
+  "sequence": "1234",
+  "sequencetype": "integer",
+  "datacontenttype": "application/json",
+  "data": {
+    "bsn": "1234567789",
+    "naam": "Jan Jansen",
+    "gecontroleerd": "ja"
+  }
+}
+```
+
+Event with both the attribute 'datacontenttype' and 'data_base64' and a JSON string expression with Base64 encoded binary data as value of the 'data_base64' attribute:
+```
+{
+  "specversion": "1.0",
+  "type": "nl.overheid.zaken.zaakstatus-gewijzigd",
+  "source": "urn:nld:oin:00000001823288444000:systeem:BRP-component",
+  "id": "f3dce042-cd6e-4977-844d-05be8dce7cea",
+  "datacontenttype": "application/vnd.apache.thrift.binary",
+  "data_base64": "YWFwIG5vb3QgbWllcw=="
+}
+```
+
+Event with only the attribute 'data_base64' and a JSON string expression with Base64 encoded binary data as value of the 'data_base64' attribute:
+```
+{
+  "specversion": "1.0",
+  "type": "nl.overheid.zaken.zaakstatus-gewijzigd",
+  "source": "urn:nld:oin:00000001823288444000:systeem:BRP-component",
+  "id": "f3dce042-cd6e-4977-844d-05be8dce7cea",
+  "data_base64" : "YWFwIG5vb3QgbWllcw=="
+}
+```

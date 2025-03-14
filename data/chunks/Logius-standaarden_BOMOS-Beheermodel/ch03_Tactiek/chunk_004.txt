@@ -1,0 +1,11 @@
+Architectuur
+
+De belangrijkste toepassing van BOMOS is als hulpmiddel voor de verdere
+ontwikkeling van beheerorganisaties. De standaard is een op zichzelf
+staande open standaard en geen onderdeel van een bovenliggende standaard
+of stelsel. Er is dus geen afhankelijkheid met andere beheerorganisaties
+van stelsels of standaarden. De samenwerking met andere
+standaardisatieorganisaties is wel een belangrijk onderdeel voor de
+doorontwikkeling en beheer van BOMOS.
+
+##

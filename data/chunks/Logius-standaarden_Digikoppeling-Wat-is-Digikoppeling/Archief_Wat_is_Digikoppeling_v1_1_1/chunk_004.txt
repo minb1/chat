@@ -1,0 +1,21 @@
+Leeswijzer 
+
+In de volgende hoofdstukken wordt antwoord gegeven op de vragen:
+
+| Hoofdstuk 2 | Wat is Digikoppeling? En waaruit bestaat de Digikoppeling standaard?                                                                           |
+|-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| Hoofdstuk 3 | Waarom Digikoppeling gebruiken?                                                                                                                |
+| Hoofdstuk 4 | Wanneer Digikoppeling (verplicht) gebruiken?                                                                                                   |
+| Hoofdstuk 5 | Hoe werkt Digikoppeling en wat zijn de kenmerken? De koppelvlakstandaarden worden op hoofdlijn besproken.                                      |
+| Hoofdstuk 6 | Waaraan koppelen? Zoals op Basisregistraties en Voorzieningen.                                                                                 |
+| Hoofdstuk 7 | Wat zijn ontwikkelingen in het kader van Digikoppeling? Betreft een toelichting op de versies van Digikoppeling en toekomstige ontwikkelingen. |
+| Hoofdstuk 8 | Hoe aansluiten en wie biedt ondersteuning? Betreft aansluitprocedure en welke ondersteuning wordt geboden door Logius en leveranciers.         |
+| Hoofdstuk 9 | Wie is de eigenaar en beheerder van de standaard?                                                                                              |
+
+Begrippen worden zoveel mogelijk in dit document uitgelegd. Maar een overzicht van begrippen en afkortingen staat in het document Digikoppeling_Architectuur\_vx.x.pdf[^1].
+
+[^1]: Met “vx.x” wordt de laatst gepubliceerde versie op de Logius website bedoeld.
+
+Documenten of bronnen die relevant zijn om te raadplegen voor “meer informatie” worden aan het einde van een paragraaf opgesomd.
+
+##

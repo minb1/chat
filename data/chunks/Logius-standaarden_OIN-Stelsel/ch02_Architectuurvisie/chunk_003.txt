@@ -1,0 +1,6 @@
+
+##Inleiding
+
+Het Organisatie-identificatienummer [=OIN=], voorheen Overheidsidentificatienummer, is onderdeel van de Digikoppeling standaard. De standaard wordt gebruikt in elektronische gegevensuitwisseling met en door de overheid. Het [=OIN=] is een twintigcijferig nummer dat een organisatie identificeert in het digitale berichtenverkeer. Digikoppeling verplicht de opname van het [=OIN=] in het PKIoverheid certificaat zodat systemen kunnen worden geïdentificeerd en geauthenticeerd. Daarmee is het [=OIN=] een randvoorwaarde voor veilig digitaal verkeer.
+
+Een groot aantal voorzieningen van de digitale overheid maakt gebruik van het [=OIN=]. Dat gebeurt op verschillende manieren en met verschillende doeleinden: de identificatie, authenticatie en autorisatie van organisaties of organisatieonderdelen, en de routering van berichten naar organisaties,organisatieonderdelen of voorzieningen.

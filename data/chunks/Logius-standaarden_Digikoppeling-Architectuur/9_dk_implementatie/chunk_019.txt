@@ -1,0 +1,15 @@
+
+###Netwerken
+
+Digikoppeling is onafhankelijk van het onderliggende transportnetwerk.
+Gegevensuitwisseling via Digikoppeling stelt wel enkele eisen aan het transport:
+
+- Digikoppeling is gebaseerd op de TCP/IP stack, dus een TCP/IP transportnetwerk is noodzakelijk.
+
+- Standaarden zijn gebaseerd op ‘bindings’ – verbindingen of connecties - naar Uniform Resource Identifiers (URI’s). Het netwerk moet de ‘DNS resolving’ <sup>[33](#f33)</sup>van de domeinnaam uit de URI regelen en de routering naar het resulterende IP-adres. Het netwerk en/of DNS-resolving mag ook een lokaal netwerk/host zijn.
+
+- Digikoppeling past HTTPS toe. De netwerken (en firewalls) zullen daarom https-transport over TCP/IP moeten toestaan.
+
+Om goed te functioneren heeft Digikoppeling dus alleen basale connectiviteit nodig.
+
+ <br><sup><a name="f33"><dfn>33</dfn></a>: DNS ‘resolving’ is het opzoeken van de domeinnaam en het bijbehorend IP-adres, conform het DNS protocol.</sup>

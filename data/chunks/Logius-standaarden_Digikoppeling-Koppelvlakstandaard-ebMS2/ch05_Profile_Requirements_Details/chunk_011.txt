@@ -1,0 +1,10 @@
+
+###Profile Requirement Item: Description
+
+|[[EBXML-MSG]] Section 3.1.8 Description Element | All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header elements|`/SOAP:Header/eb:MessageHeader/eb:Description` |
+| Are one or more Message Header Description elements required? In what language(s)? Is there a convention for its contents? | No recommendation made. Description elements are not required. Message handlers **may** ignore Description elements. |
+| Alignment |(empty) |
+| Test References | (empty) |
+| Notes  | (empty) |

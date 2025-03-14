@@ -1,0 +1,13 @@
+2.3.4 Client Keys
+
+iGov-NL
+
+In case the Authorization Server, Resource Server and client are not operated under responsibility of the same organisation, each party MUST use PKIoverheid certificates with OIN.
+The PKIoverheid certificate MUST be included either as a <code>x5c</code> or as <code>x5u</code> parameter, as per [[rfc7517]] §4.6 and 4.7. Parties SHOULD at least support the inclusion of the certificate as <code>x5c</code> parameter, for maximum interoperability. 
+Parties MAY agree to use <code>x5u</code>, for instance for communication within specific environments.  
+
+/iGov-NL
+
+**reference to rationale: Detailed rationale 1 & 9**
+
+##

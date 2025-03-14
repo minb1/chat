@@ -1,0 +1,6 @@
+#Overzicht Use Cases
+
+In dit hoofdstuk beschrijven  we een aantal usecases waarbij er een specifiek Digikoppeling Koppelvlak vaak een voorkeur heeft.
+
+Voordat er een keuze wordt gemaakt voor een koppelvlak uit de opties die Digikoppeling biedt, is het belangrijkste dat goed geanalyseerd wordt wat eigenlijk de aard is van de uit te wisselen gegevens of bestanden is en de context waarin deze keuze gemaakt dient te worden. Een keuze voor het een of ander is bij voorbaat eigenlijk nooit goed of fout te noemen. Het gaan om welke implementatie het beste past bij de requirements van de betrokken organisatie(s) en de beschikbare capabiliteiten binnen de organisatie. 
+

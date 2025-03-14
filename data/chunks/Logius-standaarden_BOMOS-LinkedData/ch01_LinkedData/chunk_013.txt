@@ -1,0 +1,13 @@
+
+##Hulpmiddelen
+Hier zijn een aantal hulpmiddelen die voor beheerders van gemeenschappelijke ontologiën van nut kunnen zijn. Pool Party, Protégé en TopBraid Composer hebben aanzienlijke overlap; met alle drie is het mogelijk om ontologiën te modelleren. Semantic Treehouse is niet gericht op modelleren maar op het beheer- en doorontwikkelingsproces, en is de enige van de vier met een directe link met BOMOS. Matey (en de gerelateerde RML en YARRRML talen) zijn gericht op de transformatie van traditionele dataformaten zoals JSON, XML en CVS naar Linked Data die voldoet aan een specifieke ontologie.  
+
+| Middel                                                                       | Ontwikkelaar                           | Omschrijving                                                                          |
+| ---------------------------------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------- |
+| [NeoNeoLogism](https://netage.nl/neoneologism/)                              | Netage B.V.                            |Een met de webbrowser te gebruiken RDF Schema vocabulaire-editor en publicatieomgeving.                    |
+| [Pool Party](https://www.poolparty.biz/)                                     | Semantic Web Company GmbH              | Knowledge management, data analytics & content organization                         |
+| [Protégé](https://protege.stanford.edu/)                                     | Stanford University School of Medicine | Ontology editor (gratis en open source)                                               |
+| [Semantic Treehouse](https://www.semantic-treehouse.nl/)                     | TNO                                    | Publicatie- en beheeromgeving voor gezamenlijke ontologiën en andere datamodellen     |
+| [TopBraid Composer](https://www.topquadrant.com/products/TopBraid-composer/) | TopQuadrant                            | Integrated Development Environment (IDE) voor Semantic Web, inclusief ontology editor |
+| [VocBench](https://ec.europa.eu/isa2/isa2conf18/VocBench-3_en)               | EU Publicatiebureau                    | Open-source publicatie- en beheeromgeving van meertalige vocabulaires                 |
+| [Matey](https://rml.io/yarrrml/matey/)               | Universiteit Gent | Matey is een browsergebaseerde editor waarmee je YARRRML-regels kunt schrijven.                |

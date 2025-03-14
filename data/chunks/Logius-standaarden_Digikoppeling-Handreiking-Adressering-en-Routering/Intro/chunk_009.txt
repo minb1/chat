@@ -1,0 +1,22 @@
+
+###Werking
+
+In:
+* config bestand
+* content (in markdown)
+* afbeeldingen/media
+
+Verwerking:
+* conform parameters in config bestand
+* conform style en template configuratie
+
+Uit:
+* Respec document in HTML formaat
+
+Weergegeven in tabel:
+|In| Verwerking| Uit| 
+|---| ---|---| 
+| config bestand, content (in markdown), afbeeldingen/media       | conform parameters in config bestand & conform style en template configuratie  |  Respec document in HTML formaat | 
+
+
+

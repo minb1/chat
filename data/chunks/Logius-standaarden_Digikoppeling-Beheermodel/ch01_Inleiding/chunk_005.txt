@@ -1,0 +1,12 @@
+
+###Nut
+Doel van Digikoppeling is om door vergaande standaardisatie de
+interoperabiliteit tussen overheden te bevorderen.
+Als de 'envelop' van de 'berichten' is gestandaardiseerd kan
+ieder voorzieningen  voor postverzending inrichten die
+onafhankelijk zijn van de berichten in de 'envelop'.
+
+De systemen die Digikoppeling gebruiken zijn zowel
+frontoffice-systemen (die interactie met burgers en bedrijven
+  afhandelen) als systemen van andere overheden en in het
+bijzonder de basisregistraties (zie onderstaand figuur).

@@ -1,0 +1,15 @@
+
+###Profile Requirement Item
+
+|[[EBXML-MSG]] Section 4.2.3.2 Error Element | All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header elements|`/SOAP:Header/eb:ErrorList/eb:Error`<br> `/SOAP:Header/eb:ErrorList/ eb:Error/\@codeContext`<br> `/SOAP:Header/eb:ErrorList/ eb:Error/\@errorCode`|
+| Is an alternative codeContext used? If so, specify   | **Not applicable**  |
+| If an alternative codeContext is used, what is its errorCode list?  |  |
+| Profiling (c)   | When errors should be reported to the sending application, how should this be notified (e.g. using a logging mechanism or a proactive callback)?  | **Not applicable**  |
+| Alignment | (empty) |
+| Test References | (empty) |
+| Notes  | (empty) |
+
+Module : SyncReply
+----------------------

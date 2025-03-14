@@ -1,0 +1,16 @@
+
+####De Digikoppeling community
+Dit is het meest operationele gremium waarin iedere
+belangstellende/belanghebbende vragen kan stellen over de
+Digikoppeling standaard en suggesties kan doen voor de
+doorontwikkeling van de standaard.
+
+Het beheer van de Digikoppeling standaard is open. Dat wil zeggen dat
+alle documentatie van de standaard en de wijzigingen open beschikbaar is.
+Wijzigingsvoorstellen kunnen door iedereen ingediend worden.
+Voor contact met de Community maakt Logius gebruik van de Logius website en van [Github](#bijlage-gebruik-github-in-het-beheerproces).
+
+Omdat iedere belangstellende vragen of voorstellen tot wijziging in
+kan dienen is het niet nodig lid te worden van de community om een
+bijdrage te leveren. Iedereen die bijdraagt aan de standaard is
+daarmee lid van de community.

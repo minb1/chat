@@ -1,0 +1,22 @@
+
+##Algemene eisen aan de Centrale OIN Raadpleegvoorziening
+
+De Centrale OIN Raadpleegvoorziening voldoet aan de volgende eisen:
+
+- De authenticatie van beheerders verloopt via een beveiligd authenticatiemiddel.
+
+- Er is een systeemcontrole die voorkomt dat er duplicaten van OIN's of [=SubOIN=]s ontstaan.
+
+- Er is een systematiek(algoritme) voor het genereren van een uniek nummer die gaat dienen als [=SubOIN=]s.
+
+- De beheerder treft passende beveiligingsmaatregelen om de privacy van de verwerking van persoonsgegevens te waarborgen, zoals de Logiusbeveiligingsrichtlijnen (ISO27000-1 en ISO 27000-2) en IB policies.
+
+- Maakt gebruik van Nederlandse API Design Rules voor webservice.
+
+- Voorziet in een audittrail van mutaties op een registratie.
+
+- Voorziet in management rapportages die inzicht bieden in aantallen OIN, gebruikers, activiteiten OIN-houders enzovoort.
+
+- Voldoet aan Digitoegankelijk
+
+- Volgt de principes en kaders van NORA.

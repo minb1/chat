@@ -1,0 +1,10 @@
+
+##Vragen
+
+Dit hoofdstuk geeft antwoord op de volgende vragen met betrekking tot certificaten voor Digikoppeling:
+
+1. Wat zijn de consequenties van het authenticeren en autoriseren met certificaten op organisatorisch niveau?
+1. Welke organisaties kunnen een OIN krijgen?
+1. Moet ik dezelfde of verschillende certificaten gebruiken voor servicerequester en serviceprovider?
+1. Moet ik dezelfde of verschillende certificaten gebruiken voor WUS en ebMS2?
+1. Wat moet ik doen als ik al een certificaat heb?

@@ -1,0 +1,20 @@
+
+##Inhoud van een afsprakenstelsel
+
+De kern van een afsprakenstelsel zijn de spelregels, waar je de leveranciers en andere betrokken partijen zich aan moet houden om mee te mogen doen en om een product of dienst te mogen leveren.
+Deze spelregels bieden enerzijds de garantie voor de gebruiker dat je veilig en betrouwbaar het product of die dienst kan af nemen en anderzijds zijn dit onderlinge afspraken die de samenwerking succesvol maken. Elinor Ostrom beschrijft in het boek Governing the Commons de voorwaarden voor succesvolle samenwerking rond schaarse gemeenschappelijke voorzieningen zoals het beheer van waterputten. Deze principes zijn te herkennen in de samenwerking van succesvolle afsprakenstelsels. Deze zijn (vrij vertaald):
+-	Er zijn duidelijke grenzen op gebied van homogene functionaliteit/middelen en een homogene gebruikersgroep.
+-	Overeenstemming en balans in baten en lasten voor alle betrokkenen.
+-	Iedereen kan bijdragen aan verbeteringen.
+-	Controle (door transparantie) op alle betrokkenen.
+-	Graduele sancties op overtreden afspraken zijn aanwezig en worden uitgevoerd.
+-	Verschillen van inzicht kunnen snel en effectief opgelost worden.
+-	Stelsel (deelnemers) heeft mandaat om zichzelf te organiseren.
+-	Gebruik stelsels van stelsels om de individuele stelsels eenvoudig te houden.
+
+Deze principes staan aan de basis van de afspraken en regels over de onderstaande aspecten die terugkomen als onderdelen binnen een afsprakenstelsel:
+-	Informatie over rechten en plichten van deelnemende partijen: zoals definities, aansprakelijkheid, organen, besturing en taakverdeling.
+-	Financiën: het beheren van een afsprakenstelsel en het organiseren van besturing kost geld: wat zijn de afspraken over wie wat betaalt?
+-	Operatie: wie lost incidenten op? Wordt er gewerkt onder een label of merk? Denk aan communicatie, merkbeheer en afspraken over de operationele processen.
+-	Normenkaders: aan welke eisen moeten de diensten/producten van leveranciers voldoen?
+-	Architectuur en techniek: denk hierbij aan technische standaarden, use-cases en interface beschrijvingen.

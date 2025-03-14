@@ -1,0 +1,5 @@
+
+####Netwerk-poorten
+
+De Digikoppeling Beveiligingsstandaarden en voorschriften verplichten het gebruik van de netwerkpoort 443 voor data verkeer. FSC voegt daar het gebruik van port 8443 voor managementverkeer aan toe. E.g. toegang aanvragen voor een API. 
+* Zie [[[DK-beveiliging]]]

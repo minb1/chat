@@ -1,0 +1,12 @@
+
+###Bevragingen
+
+Betreft het stellen van een vraag en vervolgens het ontvangen van een antwoord. Een serviceafnemer<sup>4</sup> is de initiator van een bevraging. Zie Figuur 4.
+
+<sup>4</sup>: Een partij kan een service aanbieden – in de rol van serviceaanbieder – of een service afnemen – in de rol van serviceafnemer.
+
+Voorbeeld in een dagelijkse situatie: Het opvragen van het banksaldo via internetbankieren is een bevraging. De bank zal na ontvangst van de vraag om het saldo van de rekening in te zien een antwoord teruggeven.
+
+![Bij een Digikoppeling bevragingen stuurt een serviceafnemer een bevraging naar een serviceaanbieder en krijgt een antwoord terug.](media/berichtuitwisseling_bij_bevragingen.png "Berichtuitwisseling bij Bevragingen")
+
+Voor een bevraging is vereist dat de service op het moment van bevraging beschikbaar is. Er is sprake van een “best effort” want een antwoord op een bevraging kan bewust of om technische redenen niet altijd plaatsvinden. Bevragingen kunnen rechtstreeks of via een intermediair verlopen. Meer informatie, zie §5.3.

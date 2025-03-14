@@ -1,0 +1,6 @@
+
+###Step 4. Authorization Grant
+
+Note: applicable to the Authorization Code Flow only.
+The Authorization Server redirects the user-agent back to the Client, with a Authorization Response.
+This Authorization Response holds an Authorization Grant and is send to the `redirect_uri` endpoint from the Authorization request.

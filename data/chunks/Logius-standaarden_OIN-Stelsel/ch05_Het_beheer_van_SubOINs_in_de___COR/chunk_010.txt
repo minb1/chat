@@ -1,0 +1,4 @@
+
+###Intrekkingsplicht
+
+De [=OIN-houder=] is verplicht een [=OIN=] in te trekken in de [=COR=], indien het voor frauduleus handelen kan worden of wordt gebruikt, of de betreffende organisatie of organisatieonderdeel ophoudt te bestaan of overgaat naar een andere organisatie of rechtspersoon. Daarnaast beschikken de SubOIN-beheerders en Logius over de bevoegdheid tot het intrekken van SubOINs.

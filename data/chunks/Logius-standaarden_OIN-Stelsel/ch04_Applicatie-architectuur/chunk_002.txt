@@ -1,0 +1,14 @@
+
+##Gebruik van de Centrale OIN Raadpleegvoorziening
+
+Het OIN van een rechtspersoon is publiek raadpleegbaar via de Centrale OIN Raadpleegvoorziening ([=COR=]). De [=COR=] registreert organisaties en stelt het OIN samen op basis van de OIN-systematiek (zie bijlage A). Voor de registratie baseert de [=COR=] gebruikt zich waar mogelijk op registers met een wettelijke of formele taak, zoals het Handelsregister en het FI register. De gebruiker kan in de [=COR=] zoeken op nummer of naam. De zoekresultaten worden aan de gebruiker getoond.
+
+De [=COR=] is sinds 2017 als publiek toegankelijke voorziening beschikbaar.
+
+De [=COR=] bestaat uit de volgende kern-onderdelen:
+
+- Een publiek toegankelijk raadpleegvoorziening.
+
+- Een webservice die een Restful API aanbiedt
+
+- Een beheermodule waarmee Logius beheerders de registraties in de [=COR=] bijhouden.

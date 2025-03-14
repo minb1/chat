@@ -1,0 +1,61 @@
+
+###De business case
+
+De business case van standaardisatie is een veel gehoord
+onderwerp. Voordat het besluit tot investering genomen kan worden is
+eerst inzicht in de business case noodzakelijk. Eigenlijk gaat het om
+verschillende business cases:
+
+1. De business case van de standaard (oftewel de keten)
+2. De business case van een individuele organisatie om de standaard te implementeren
+3. De business case van een nieuwe versie van een standaard.
+
+De eerste business case is voor de overheid interessant om beleid rond
+standaardisatie op af te stemmen. Vaak onderdeel van beleid rond een
+groter maatschappelijk of economische vraagstuk. Uiteraard is deze
+business case ook relevant voor de standaardisatie-organisatie, maar
+een individuele organisatie kan er niet veel mee. Deze heeft een
+andere business case nodig, specifiek voor haar rol in de keten.
+
+Kwantitatieve onderzoeken naar de business case van standaardisatie
+zijn lastig uit te voeren en leiden niet altijd tot nuttige
+inzichten. Dit neemt niet weg dat kwalitatief onderzoek wel relevant
+kan zijn en wel goed uitvoerbaar is. Alleen al het inzicht te weten
+bij welke partijen de voordelen zitten en het identificeren van de
+organisaties die geen voordelen hebben is waardevol. Daarnaast is het
+waardevol om te weten welke partijen relatief meer voordeel hebben dan
+andere partijen ook al hebben ze dezelfde rol. Zo kan bijvoorbeeld de
+marktleider minder voordeel hebben ten opzichte van de runner-up, net
+zoals een organisatie die een moderne back-office heeft mogelijk meer
+voordeel kan hebben. Op basis van deze inzichten kan potentieel het
+gedrag van de deelnemers in de werkgroepen worden verklaard. De
+kwantitatieve business case is lastig omdat standaarden geen doel zijn
+maar een middel om het doel van interoperabiliteit te behalen. De
+business case gaat dan feitelijk ook om interoperabiliteit. In lijn
+hiermee zijn er in de praktijk vaak geen projecten die als doel hebben
+een standaard te implementeren, maar juist projecten die
+interoperabiliteit voor bijvoorbeeld inkoop realiseren. Dit betekent
+dat de business case van het project breder is dan de
+standaard. Bijvoorbeeld regelmatig zien we projecten die van een
+papieren uitwisseling overstappen naar een digitale gestandaardiseerde
+uitwisseling waarbij ook procesoptimalisatie gaat plaatsvinden. De
+standaard is daarmee een (belangrijk) onderdeel geworden van een veel
+groter project. Het is daarbij lastig toe te wijzen welke opbrengsten
+en kosten aan de standaard toekomen binnen het grotere
+project. Daarbij is er ook sprake van kwalitatieve baten, die
+vervolgens kwantitatief uitgedrukt moeten worden.
+
+Bijzondere aandacht verdient ook business case type 3: Vervangende
+standaard/ nieuwe versie. Hiervoor is het relatief eenvoudig de
+business case op te stellen, maar deze is in de praktijk niet positief
+te krijgen. Bijvoorbeeld rond e-facturatie: Als een organisatie al
+e-factureert met bijvoorbeeld UBL of SETU, dan is de business case
+naar een nieuwe standaard (UN/CEFACT Cross Industry Invoice) niet of
+nauwelijks positief te krijgen. Daarom zullen er altijd een zeer lange
+tijd ook nog oude standaarden (bijv. EDI) in gebruik zien, omdat er
+geen positieve business case voor de nieuwe/andere standaard is,
+zolang er geen interoperabiliteitsprobleem is. Eén van wereldwijd
+meest succesvolle standaard, [RosettaNet](https://www.gs1us.org/resources/rosettanet),
+illustreert dit ook: ondanks dat deze standaard al jaren een XML
+versie heeft ontwikkeld is er nauwelijks migratie vanuit de oude EDI
+versie, en lang een lage adoptie van de XML versie heeft gehad.

@@ -1,0 +1,4 @@
+
+###Samenwerkingsverbanden
+
+Een deelnemer binnen een (publiek) samenwerkingsverband zonder rechtspersoonlijkheid mag een [=OIN=] uitgeven aan het samenwerkingsverband, mits de betreffende deelnemer een rechtpersoon is en zelf een [=OIN=] heeft. De deelnemer wordt dan [=SubOIN-beheerder=]. Het samenwerkingverband mag zelf geen rechtspersoon zijn en nog geen [=OIN=] of [=SubOIN=] hebben. De deelnemers dienen onderling te borgen dat de aanvrager is gemandateerd om een aanvraag te doen namens de overige deelnemers.

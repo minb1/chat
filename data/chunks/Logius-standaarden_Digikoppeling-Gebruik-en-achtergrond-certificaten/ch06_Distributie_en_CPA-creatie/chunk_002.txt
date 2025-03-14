@@ -1,0 +1,8 @@
+
+##Vragen
+
+Dit hoofdstuk geeft antwoord op de volgende vragen met betrekking tot certificaten voor Digikoppeling:
+
+1. Op welke wijze kan ik anderen mijn certificaat ter beschikking stellen t.b.v. authenticatie en hoe verkrijg ik certificaten van anderen?
+1. Wat is de rol van het serviceregister bij distributie van certificaten?
+1. Wat is de rol van een CPA bij distributie van certificaten?

@@ -1,0 +1,6 @@
+
+##Context Centrale OIN Raadpleegvoorziening ([=COR=])
+
+In onderstaand diagram wordt de relatie tussen [=COR=] met de omgeving weergegeven.
+
+![Context diagram OIN-raadpleegvoorziening en OIN spelregels](media/contextdiagram.jpg "Context diagram OIN-raadpleegvoorziening en OIN spelregels")

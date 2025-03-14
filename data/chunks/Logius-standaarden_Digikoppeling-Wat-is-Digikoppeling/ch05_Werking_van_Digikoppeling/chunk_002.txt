@@ -1,0 +1,4 @@
+
+##Welke vormen van berichtuitwisseling zijn er?
+
+Digikoppeling onderscheidt twee hoofdvormen van uitwisseling, te weten bevragingen en meldingen.

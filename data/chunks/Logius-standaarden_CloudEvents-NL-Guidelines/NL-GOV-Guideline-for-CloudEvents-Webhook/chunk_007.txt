@@ -1,0 +1,48 @@
+
+##Examples
+
+Validation request:
+```
+OPTIONS /endpoint HTTP/1.1
+Host: webhook.example.com
+WebHook-Request-Origin: eventemitter.example.com
+WebHook-Request-Callback: https://example.com/confirm?id=12345&key=...base64..
+WebHook-Request-Rate: 120
+```
+
+Validation response:
+```
+HTTP/1.1 200 OK
+Allow: GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS
+Access-Control-Allow-Origin: https://eventemitter.example.com
+Access-Control-Allow-Methods: GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS
+Access-Control-Allow-Headers: Content-Type 
+WebHook-Allowed-Origin: eventemitter.example.com
+WebHook-Allowed-Rate: 120
+```
+
+Delivery request: 
+- [HTTP structured content mode](https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md#32-structured-content-mode) with a
+- [JSON event format](https://github.com/cloudevents/spec/blob/v1.0.1/json-format.md) encoded event with a
+-  [OAuth 2.0 Bearer](https://tools.ietf.org/html/rfc6750#section-2.1) token
+```
+POST /myresource HTTP/1.1
+Host: server.example.com
+Authorization: Bearer mF_9.B5f-4.1JqM
+WebHook-Request-Origin: eventemitter.example.com
+Content-Type: application/cloudevents+json; charset=utf-8
+Content-Length: nnnn
+
+{
+  "specversion": "1.0",
+  "type": "nl.overheid.zaken.zaakstatus-gewijzigd",
+  "source": "urn:nld:oin:00000001823288444000:systeem:BRP-component",
+  "id": "f3dce042-cd6e-4977-844d-05be8dce7cea",
+   ... further attributes omitted ...
+}
+```
+
+Delivery response:
+``` 
+HTTP/1.1 204 No Content
+```

@@ -1,0 +1,6 @@
+
+###Identity
+
+- Service A,B&C kennen de Identity van user U 
+  (de recources zijn namelijk aan de User gerelateerd of de User is vanuit zijn functie gemachtigd de Services te raadplegen)
+- Service Y kent de Identity van user U niet

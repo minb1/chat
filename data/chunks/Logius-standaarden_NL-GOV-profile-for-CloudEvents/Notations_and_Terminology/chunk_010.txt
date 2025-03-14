@@ -1,0 +1,7 @@
+
+####Context
+
+Context metadata will be encapsulated in the
+[Context Attributes](#context-attributes). Tools and application code can use
+this information to identify the relationship of Events to aspects of the system
+or to other Events.

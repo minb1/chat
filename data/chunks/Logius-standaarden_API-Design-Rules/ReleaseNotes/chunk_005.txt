@@ -1,0 +1,10 @@
+
+##Tot slot
+
+- de wijzigingen mbt edelivery zijn afgewezen zodat nader onderzoek kan worden gedaan naar de impact 
+- zie voor de actuele status van de nog te bespreken wijzigingen:
+  - https://github.com/Logius-standaarden/API-Design-Rules/pulls?q=is%3Aopen+is%3Apr+label%3A%22Status%3A+In+review%22
+- Zie voor een overzicht van reeds besproken wijzigingen:
+  - https://github.com/Logius-standaarden/API-Design-Rules/pulls?q=is%3Apr+is%3Aclosed+label%3A%22Status%3A+In+review%22
+- De laatste conceptversie van de API designrules 2.0.0 is te vinden op:
+  - https://logius-standaarden.github.io/API-Design-Rules/ 

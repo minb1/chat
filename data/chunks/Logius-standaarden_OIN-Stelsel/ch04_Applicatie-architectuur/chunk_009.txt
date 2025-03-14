@@ -1,0 +1,15 @@
+
+###Registratie in het besloten gedeelte van de [=COR=]
+
+De beheerder van de [=COR=] registreert in het besloten gedeelte van de [=COR=]:
+
+- Het uitgeven van een nieuw [=OIN=] en [=SubOIN=].
+
+- Het intrekken van een bestaand [=OIN=] of [=SubOIN=].
+
+- Het verlengen van de geldigheidsdatum van een [=OIN=] of [=SubOIN=]
+
+- Het verlengen van een [=OIN=] of [=SubOIN=] die was ingetrokken na de standaard geldigheidsduur
+
+- Wijzigingen in de registratie van organisatie(onderdelen) of voorzieningen.
+

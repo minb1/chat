@@ -1,0 +1,5 @@
+
+##Best practices 
+
+De best practices voor inrichting en gebruik zijn beschreven in *Gebruik en achtergronden Digikoppeling certificaten*.
+

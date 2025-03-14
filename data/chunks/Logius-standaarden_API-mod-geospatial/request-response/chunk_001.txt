@@ -1,0 +1,12 @@
+#Request and response
+
+Providing requested resources is the essence of any API. This also applies to REST APIs that handle geospatial data. There are, however, some specific aspects when dealing with geospatial data in REST APIs. The most important aspects are described in this chapter: 
+- how to encode geometries in APIs
+- how to supply a spatial filter in the call (request)
+- how to return results of a spatial search
+
+When requesting information, for example about cadastral parcels, users do not necessarily require the geometry, even if they used a spatial filter. A name or parcel ID may be sufficient.
+
+<aside class="note">
+The Geospatial Module is focused on JSON-based encoding of data. However, consider also supporting <code>text/html</code>, as recommended in OGC API Features [[ogcapi-features-1]]. Sharing data on the Web should include publication in HTML, as this allows discovery of the data through common search engines as well as viewing the data directly in a browser.
+</aside>

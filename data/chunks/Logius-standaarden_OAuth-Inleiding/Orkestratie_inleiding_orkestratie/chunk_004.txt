@@ -1,0 +1,8 @@
+
+##Use cases
+
+Er zijn reeds enkele voorbeelde van uwe cases waarbij orkestratie een belangrijke rol speelt:
+
+- [IMX-Geo](https://www.geonovum.nl/geo-standaarden/imx-geo-semantisch-model-basis-en-kernregistraties) (Geonovum), Bestuurlijke Gebieden (BZK), Gebouwdossier (Kadaster)
+- Diverse Digital Twin use cases (navraag doen bij Bart en/of Koos)
+- [Digilab](https://digilab.overheid.nl/) use cases: opkopersbescherming (RVIG/VNG), maximale huurverhoging (Belastingdienst)

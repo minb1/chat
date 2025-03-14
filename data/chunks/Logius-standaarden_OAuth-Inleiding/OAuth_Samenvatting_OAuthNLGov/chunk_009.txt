@@ -1,0 +1,4 @@
+
+###6. Security overwegingen
+
+- Alle transacties moeten worden versleuteld met TLS en het is aanbevolen om hierbij de richtlijnen van het NCSC op te volgen ([§  6](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#security-considerations))

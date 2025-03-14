@@ -1,0 +1,6 @@
+
+##Automatisering en scripts
+GitHub ondersteunt automatisering van taken door scripts. Standaard
+is de publicatie via _github pages_. Binnen de Logius standaarden maken
+we gebruik van scripts om documenten te publiceren, links te checken en om een paar eenvoudige
+tests op digitoegankelijkheidseisen uit te voeren.

@@ -1,0 +1,14 @@
+#Implementatieondersteuning
+Nadat een Digikoppeling onderdeel de status “In Gebruik” heeft gekregen
+kunnen gebruikersorganisaties het betreffende Digikoppeling onderdeel
+in hun softwareproducten implementeren en toepassen.
+
+De aanvang en de tijdsduur van het implementeren in software kan sterk variëren.
+Afhankelijk van de wijziging kan deze zich beperken tot een (kleine)
+herconfiguratie van adapter-software tot aanpassing van bestaande
+informatiesystemen die Digikoppeling toepassen. De website van Logius en
+de Digikoppeling community bieden handige handvatten en ook Logius biedt
+implementatie-ondersteuning.
+
+Het feitelijk implementeren van Digikoppeling of een nieuwe release of
+onderdeel ervan in softwareproducten valt grotendeels buiten het beheermodel.

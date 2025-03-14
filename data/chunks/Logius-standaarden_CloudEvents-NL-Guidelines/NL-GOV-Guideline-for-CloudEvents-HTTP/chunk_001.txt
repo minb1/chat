@@ -1,0 +1,8 @@
+#Guideline for the use of the HTTP Protocol Binding for CloudEvents
+
+The CloudEvent-NL message format can be used when using different formats and protocols and patterns. In order to be able to use the GOV-NL profile properly in practice, agreements must also be made when and in what way a certain format, protocol or pattern is used. 
+
+
+The Serverless Working Group has described how the HTTP protocol can be used in a standardized way in combination with the CloudEvents message format: [HTTP Protocol Binding for CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md). The specification defines how the elements defined in the CloudEvents specification are to be used in HTTP 1.1 requests and response messages.
+
+Similar to what happened in the NL GOV profile for the CloudEvents specification, this guideline makes recommendations about the use of the HTTP specification within the context of the Dutch government. These are intended to make use of the specification more unambiguous and to work towards standardisation in the long term.

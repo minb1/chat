@@ -1,0 +1,4 @@
+
+###Onderdelen van de [=COR=]
+
+De [=COR=] bestaat uit een publiek toegankelijk gedeelte en een besloten gedeelte. Het publiek toegankelijke deel wordt ontsloten door een website en een webservice met een Restful API.

@@ -1,0 +1,4 @@
+
+###Validatie& certificatie
+Er zijn stelsels die validatie-tooling beschikbaar stellen waarmee deelnemers hun implementatie mee kunnen testen. Het is van groot belang dat de leveranciers betrokken zijn met de realisatie en toetsing van dergelijke tooling om te voorkomen dat pas in een laat stadium (tijdens de realisatie) onvolkomenheden en onduidelijkheden in specificaties boven tafel komen.
+Rond inspectie en certificatie: dit is normaliter een taak van de partij die de rol van toezichthouder vervult. De toezichthouder kijkt of het afgesproken normenkader goed is geïmplementeerd bij de leverancier. Er zijn afspraken wanneer de leverancier zelf actief de toezichthouder informeert om een toetsing uit te voeren. Denk hierbij aan wijzigingen op processen die raakvlak hebben met het normenkader.

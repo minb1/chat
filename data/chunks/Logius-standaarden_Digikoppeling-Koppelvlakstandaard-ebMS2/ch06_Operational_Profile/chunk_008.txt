@@ -1,0 +1,6 @@
+
+##Additional Deployment or Operational Requirements
+
+|| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+| Operational or deployment aspects which are object to further requirements or recommendations. | Pending.  |

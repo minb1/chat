@@ -1,0 +1,11 @@
+4.1 Proof of Possession Tokens
+
+iGov-NL
+
+Proof of possession can be implemented using various methods. An example of such an implementation is using TLS with mutual authentication, where the client is using a PKIoverheid certificate. The authorized party (azp) can then be verified with the client certificate to match the authorized party. As an alternative, the authorization server can include a cnf parameter in the JWT by the authorization server, see [rfc7800]. The key referenced in cnf can be validated using a form of client authentication, e.g. using an private_key_jwt.
+
+/iGov-NL
+
+**reference to rationale: self explanatory: additional information (non normative) on how to implement requirement**
+
+##

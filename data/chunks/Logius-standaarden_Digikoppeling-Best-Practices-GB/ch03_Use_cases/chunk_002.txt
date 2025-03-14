@@ -1,0 +1,10 @@
+
+##Download
+
+In deze use case is een benodigde gegevensset al beschikbaar in een download-server bij de service provider. De client dient echter nog de beschikking te krijgen over een verwijzing naar de gewenste gegevensset. Daartoe worden de volgende processtappen doorlopen:
+
+![Use case 'Download'](media/use_case_download.svg "Use case 'Download'")
+
+1. De service requester / client bevraagt (REST-API, WUS of ebMS2 request) de service provider met kenmerkende criteria voor de gezochte gegevensset. Eventueel kan deze bevraging in enkele tussenstappen verlopen als deze initieel te veel mogelijkheden oplevert.
+2. De service provider levert een verwijzing naar de gezochte gegevens set in de vorm van Meta-data (WUS-response of ebMS2).
+3. De service requester haalt de gewenste gegevensset op (Groot Bericht) en krijgt deze op grond van autorisatie (OIN).

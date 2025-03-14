@@ -1,0 +1,9 @@
+
+###Specificatie van de koppelvlakstandaard
+
+De koppelvlakspecificatie beschrijft de eisen waar de adapters aan moeten
+voldoen om interoperabel met elkaar te kunnen communiceren.
+
+De Digikoppeling Grote Berichten Standaard beschrijft dan ook niet de inhoud van
+het grote bericht. Wel richt de standaard zich op de beschrijving (metadata) van
+het grote bericht.

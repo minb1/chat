@@ -1,0 +1,8 @@
+
+##Reliability Profile
+
+|| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+| If reliable messaging is required, by what method(s) may it be implemented? [The ebXML Reliable Messaging protocol, or an alternative reliable messaging or transfer protocol.] | **Not applicable**   | The ebXML reliable messaging protocol **must be** used.  | **Optional**. Depends on the use of best effort or reliable messaging. |
+| Which Reliable Messaging feature combinations are required? [Refer to Section 6.6 of Message Service Specification.]   |   | Reliable Messaging profile 2: Duplicate elimination Yes AckRequested ToPartyMSH Yes AckRequested NextMSH No |   |
+| Others  |   |

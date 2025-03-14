@@ -1,0 +1,36 @@
+
+###Geschiktheid van opbrengsten bronnen
+
+De vorige paragraaf schetste een beeld van potentiële opbrengsten. De
+keuze van welke bronnen voor opbrengsten aangeboord worden is
+situationeel, maar deze paragraaf tracht te ondersteunen bij het maken
+van de keuzes voor geschikte bronnen van inkomsten.
+
+De geschiktheid van een type opbrengst wordt algemeen geldend bepaald door:
+
+*  Kosten en opbrengsten in evenwicht brengend.
+*  Open en transparant.
+*  Voldoende breed draagvlak.
+
+In andere woorden, opbrengstbronnen die geen draagvlak hebben, niet
+transparant zijn en de beheerorganisatie winstgevend maken zijn niet
+geschikt.
+
+Om geschikte bronnen van inkomsten te bepalen is een onderscheid in
+verschillende situaties noodzakelijk:
+
+1. Onderscheid tussen ontwikkeling en beheer.
+2. Mate van volwassenheid: onderscheid tussen een bewezen standaard en een standaard in de beginfase van de levenscyclus.
+
+Daarnaast hanteren we een drietal uitgangspunten:
+
+*  Aansluiten bij open standaard (toegankelijk).
+*  Adoptie niet belemmerend.
+*  Waar het voordeel zit, vindt betaling plaats.
+
+Op basis van deze uitgangspunten hebben licenties vanwege de beperkte
+openheid, maar vooral omdat het adoptie belemmerend werkt, een
+twijfelachtige status. Dit geldt zowel voor betalen voor het
+specificatiedocument, als wel op betalen voor gebruik van de
+standaard. Gezien de ongewenstheid wordt dit niet beschouwd als
+potentiële opbrengsten bron voor een open standaard.

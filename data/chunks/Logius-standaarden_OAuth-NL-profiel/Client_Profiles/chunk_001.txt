@@ -1,0 +1,4 @@
+##Client Profiles
+<!-- ### [2.](#rfc.section.2) [Client Profiles](#ClientProfiles) -->
+
+<!-- ### [2.1.](#rfc.section.2.1) [Client Types](#ClientTypes) -->

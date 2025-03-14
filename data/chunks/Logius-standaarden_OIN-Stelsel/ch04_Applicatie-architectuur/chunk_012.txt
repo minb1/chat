@@ -1,0 +1,4 @@
+
+###Gebruik van de [=COR=] API
+
+De [=COR=] API is publiek beschikbaar voor systemen. De beheerder van de [=COR=] kan de toegang reguleren, bijvoorbeeld door het verstrekken van zogenaamde API-keys, of door gebruik te maken van tweezijdig TLS.

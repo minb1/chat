@@ -1,0 +1,23 @@
+
+###Standaarden voor grote berichten
+
+De Digikoppeling Koppelvlakstandaard Grote Berichten (KVS GB) maakt gebruik van WUS en ebMS2 voor het verzenden van metadata. Voor ophalen van het grote bestand maakt de standaard gebruik van HTTPS-downloads. Daardoor zijn reliability en security gelijkwaardig aan WUS en ebMS2. Ook is het gebruik van transparante intermediairs mogelijk. De KVS GB regelt de volgende functionaliteiten voor meldingen of bevragingen, in aanvulling op WUS of ebMS2:
+
+- Identificatie en authenticatie van partijen (OIN),
+
+- Versleutelen van transport,
+
+- Routeren via (http) proxies,
+
+- Bestand correleren aan bericht,
+
+- Ondersteuning voor foutafhandeling,
+
+- Na onderbreking hervatten waar de overdracht is afgebroken (‘resume’),
+
+- Optioneel beperkte tijdsperiode om bestand beschikbaar te stellen.
+
+| **Meer informatie over:** | **Zie document in de aansluitkit:** | **Doelgroep:** |
+|---|---|---|
+| Inhoudelijke beschrijving KVS GB | Digikoppeling_Koppelvlakstandaard_GB  | [A&D] [OT&B] |
+| Best practices GB | Digikoppeling_Best_Practices_GB | [OT&B] |

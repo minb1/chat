@@ -1,0 +1,11 @@
+
+###Profile Requirement Item: Persistent Signed Receipt
+
+|[[EBXML-MSG]] Section 4.1.4.2 Persistent Signed Receipt| **Best effort**<br>**Reliable Messaging**|**End-to-End Security** |
+|------------------|---|---|
+|Header elements:<br>`/SOAP:Header/eb:Signature`|||
+| Is a digitally signed Acknowledgment Message required? [Yes, for Security Services Profiles 7, 8, 10, 12, 14, 15, 17, 19-21. See the items beginning with Section 4.1.4.1 for specific Signature requirements.] | **Not applicable**.  | Signing acknowledgements is **required**. |
+| If so, what is the Acknowledgment or Receipt schema?   | **Not applicable**.  | [[xmldsig-core-20020212]]  |   |
+| Alignment | Appears as BusinessTransactionCharacteristics/\@isNonRepudiationReceiptRequired=persistent in CPA.  | |
+| Test References | (empty) |(empty) |
+| Notes  | (empty) |(empty) |

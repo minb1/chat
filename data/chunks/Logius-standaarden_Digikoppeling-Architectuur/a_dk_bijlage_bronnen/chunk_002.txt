@@ -1,0 +1,20 @@
+
+##Digikoppeling-standaarden en gerelateerde documenten
+
+| Documentnaam                                          | Auteur(s)                       |
+|-------------------------------------------------------|---------------------------------|
+| Digikoppeling Architectuur (dit document)             | Logius   |
+| [[[DK-RESTAPI]]]        | Logius   |
+| [[[DK-WUS]]]             | Logius   |
+| [[[DK-ebMS]]]           | Logius   |
+| [[[DK-GB]]] | Logius   |
+| [[[DK-Beheermodel]]]                         | Logius   |
+| [[[DK-Beveiliging]]]                | Logius   |
+| [[[DK-IDAuth]]]         | Logius   |
+| [[[DK-Doc]]]                | Logius   |
+| [[[?DK-gbachtcert]]]               | Logius   |
+| [[[?DK-BPWUS]]]                 | Logius   |
+| [[[?DK-BPebMS]]]               | Logius   |
+| [[[?DK-BPGB]]]     | Logius   |
+
+Tabel 10.1: Digikoppeling-standaarden en gerelateerde documenten

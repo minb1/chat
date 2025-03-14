@@ -1,0 +1,3 @@
+
+###Hergebruik
+Ontologies ontstaan zelden in een `green-field` scenario. Juist digitale waardeketens waar al vergevorderde uitwisselingsafspraken gemaakt zijn maken sneller de stap naar een oplossing op basis van Linked Data. De documentatie van deze standaarden bevat vaak veel informatie die van waarde is voor de nieuwe oplossing, zoals gedetailleerde beschrijvingen van ketenprocessen en bedrijfsregels (_business rules_ in het Engels). Het is belangrijk dat die kennis en informatie zoveel mogelijk wordt hergebruikt.  Hergebruik zorgt niet alleen voor tijdsbesparing in het ontwikkelproces van de nieuwe oplossing, maar ook voor meer vertrouwen in het eindresultaat en dus voor betere adoptie door de gebruikersgemeenschap.

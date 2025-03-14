@@ -1,0 +1,17 @@
+
+##Opbouw van dit document
+
+Hoofdstuk 1 bevat een aantal algemene inleidende onderwerpen.
+
+Hoofdstuk 2 bevat de kern van de standaard met achtergrond en gebruik van de
+ebMS Deployment Profile.
+
+Hoofdstukken 3 tot en met 5 beschrijven de parameters van het ebMS2 profiel
+zoals dat gekozen is voor Digikoppeling.
+
+Begrippen en afkortingen worden toegelicht in het document [Digikoppeling
+Architectuur]. Deze zit in de Digikoppeling standaarddocumentatie.
+
+Dit document en andere documentatie is beschikbaar op
+[www.logius.nl/digikoppeling](http://www.logius.nl/digikoppeling)
+

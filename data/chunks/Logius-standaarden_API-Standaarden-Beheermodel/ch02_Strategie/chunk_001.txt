@@ -1,0 +1,5 @@
+#Strategie
+
+De strategische activiteiten van BOMOS bestaan uit de onderdelen
+Visie, Governance en Financiering. Deze onderdelen en hun toepassing op
+het beheer van de API Standaarden worden hieronder beschreven.

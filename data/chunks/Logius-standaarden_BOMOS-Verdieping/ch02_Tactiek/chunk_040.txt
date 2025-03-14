@@ -1,0 +1,72 @@
+
+####Waarop wordt getoetst?
+
+Conformance aan een standaard is niet triviaal. Veel semantische
+standaarden zijn uitgedrukt in XML Schema. Om uitspraken over
+conformance te doen is het niet voldoende om te controleren of de XML
+instantie technisch valideert ten opzichte van het XML Schema. Dit
+laatste is technisch prima uit te voeren (ook al moeten er wel
+meerdere XML schema validators gebruikt worden voor goede resultaten),
+maar zegt niks over de vraag of de juiste informatie ook op de juiste
+plek is ingevuld. Immers als Amsterdam de waarde is van het element
+'Achternaam' en 'Jansen' de waarde van het element 'Woonplaats', dan
+zal dit technisch prima valideren (tenzij woonplaats een waarde moet
+bevatten uit een lijst), maar toch voldoet het hoogstwaarschijnlijk
+niet aan de standaard. Deze semantische validatie is een lastig uit te
+voeren. Voorgaand voorbeeld was misschien helder, maar stel dat het
+zou gaan om de elementen 'geboorteplaats' en 'woonplaats', dan is
+correct gebruik niet te controleren zonder bewijsstukken of iets
+dergelijks. Nu JSON dominant als uitwisselingsformaat defacto
+standaard is geworden kan validatie plaatsvinden door middel van SHACL
+validatiergels.
+
+<aside class="example" title="Validatie van GWSW">
+De kwaliteit van gemeentelijke data op het gebied van stedelijk water 
+en de daarvoor benodigde infrastructuur is een belangrijk aandachtpunt 
+in het vakgebied. Bronhouders kunnen de basiskwaliteit van een 
+rioleringsbestand controleren ten opzichte van in het 
+Gegevenswoordenboek Stedelijk Water vastgelegde conformiteitsklassen 
+(elke toepassing heeft eigen eisen). De generieke applicatie Nulmeting 
+is vrij beschikbaar op de [GWSW-server](https://apps.gwsw.nl). Aangezien 
+rioleringsgegevens conform de GWSW-standaard in RDF (linked data) 
+uitgedrukt zijn, vindt de kwaliteitsmeting plaats met behulp van SHACL 
+(Shapes Constraint Language).
+</aside>
+
+Daarnaast is verschil in harde (onbetwistbare en betekenisvol op het
+gebied van interoperabiliteit) toetsing en zachte toetsing
+(betwistbaar of betekenisloos op het gebied van interoperabiliteit.)
+Bijvoorbeeld een zachte toetsing is de belofte van een organisatie om
+de standaard te implementeren door ondertekening van een convenant:
+dit is niet betwistbaar (convenant is wel/ niet ondertekend), maar
+betekent op dit moment niet veel op het gebied van
+interoperabiliteit. Het moge duidelijk zijn dat zachte toetsing
+relatief eenvoudig is en harde toetsing complexer.
+
+De exacte invulling van de toetsingsprocedure (het toetsingskader) en
+de aspecten waarop getoetst zal worden (pakket van eisen) moet
+ingevuld worden en is situatieafhankelijk. We stellen wel een aantal
+uitgangspunten voor:
+
+* De toets moet zo objectief ('hard') mogelijk zodat bij certificeringtrajecten eenduidig aangetoond kan worden waarom een partij wel of juist niet gecertificeerd wordt. Dit voorkomt onnodige discussies en risico's. Bovendien kan alleen getoetst worden op zaken die ook vastgelegd zijn in de standaard (of het pakket van eisen).
+* Naast de structuur van berichten (syntax) is het wenselijk om de inhoud van berichten te controleren. Dit kan deels door gebruik te maken van in de standaard vastgelegde 'business rules'. Ook is het in sommige gevallen wenselijk om de samenhang tussen berichten te toetsen.
+
+Personen zijn bijvoorbeeld eenvoudiger toetsbaar op basis van een
+examen. Organisaties zijn eenvoudig toetsbaar op intenties en
+beloftes. Het proces is ook relatief eenvoudig toetsbaar, maar bij
+projecten, producten en organisaties (anders dan op intenties) wordt
+het complex.
+
+Andere variaties zijn er op het gebied dat voor een
+organisatie-certificaat bijvoorbeeld de organisatie alleen de
+standaard mag gebruiken (en geen alternatieven), of in een aantal
+(percentage) gevallen de standaard inzet, of minimaal één geval (dan
+is men 'in staat').
+
+Sommige certificaten vereisen dat er een aantal instanties
+(voorbeelden) worden ingeleverd die vervolgens worden
+gevalideerd. Uiteraard moet er dan nagedacht worden over wat een goede
+hoeveelheid voorbeelden is, en daarnaast moet men zich wel realiseren
+dat men de bron van de voorbeelden niet kan garanderen: bijvoorbeeld
+misschien komen ze wel niet uit het te certificeren systeem, maar zijn
+ze met de hand aangemaakt.

@@ -1,0 +1,6 @@
+
+##Standaarden
+
+| Standaarden | Status | Genoemd in |
+| --- | --- | --- |
+| PKIoverheid certificaten & CRL Profile  | Verplicht | PKIoverheid Programma van Eisen [[PKI Policy]], [[rfc3447]]|

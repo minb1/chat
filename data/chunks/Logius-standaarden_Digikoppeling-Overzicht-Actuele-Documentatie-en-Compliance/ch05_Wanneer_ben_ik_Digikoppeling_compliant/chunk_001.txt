@@ -1,0 +1,3 @@
+#Wanneer ben ik Digikoppeling compliant?
+
+Voor de implementatie van een bepaald koppelvlak volgens de Digikoppeling standaard gebruikt u de algemene documenten van de standaard samen met de technische specificatie van het specifieke koppelvlak (bv WUS, EBMS2, API of Grote Berichten).

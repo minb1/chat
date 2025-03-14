@@ -1,0 +1,8 @@
+
+###OIN 2016: *Organisatie* Identificatienummer
+
+In 2016 zijn na brede afstemming met gebruikers de regels verduidelijkt van wie in aanmerking kwam voor een OIN en SubOINs.  De onderbouwing van de regels werden vastgelegd in het document [OIN stelsel v1](#inleiding). De spelregels van het OIN zijn vastgelegd in de [[[DK-Voorwaarden]]] en de [[[DK-Gebruiksvoorwaarden]]].
+
+<aside class="note">
+Sinds de wijziging van 2016 staat de afkorting voor OIN voor <strong>Organisatie</strong> Identificatienummer.
+</aside>

@@ -1,0 +1,27 @@
+  
+Componenten in de logistieke Digikoppeling-keten
+
+Op een hoog abstractieniveau maken de volgende componenten onderdeel uit van de Digikoppeling-keten van berichtuitwisseling.
+
+| **Componenten**                       | **Toelichting**                                                                                                                                                                                                                                                                                                                                                                    |
+|---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Applicatie                            | Een systeem waarmee gegevens worden geproduceerd, vastgelegd en gebruikt. En berichten worden gegenereerd en/of geïnterpreteerd.                                                                                                                                                                                                                                                   |
+| Broker of Enterprise Servicebus (ESB) | Een component waarmee berichten worden aangeboden, afgenomen, gemonitord en verwerkt. Dit type systeem wordt gebruikt in de integratielaag. Een ESB, broker of message handler zijn voorbeelden van een dergelijke component.Een broker of ESB is een veelgebruikte component, maar niet per se een standaard component.                                                           |
+| Digikoppeling-adapter                 | Een software-adapter voor systemen die door een ICT-leverancier wordt geleverd en die de Digikoppeling-koppelvlakstandaarden implementeert. De Digikoppeling-adapter handelt alle aspecten van de berichtverwerking af, inclusief de versleuteling/ontsleuteling, ondertekening etc. Een broker of ESB voorziet vaak in de basis van een (configureerbare) Digikoppeling adapter.  |
+| Gegevens                              | Informatie die wordt beheerd en opgeslagen. Gegevens worden voor een specifieke uitwisseling in een bericht geplaatst.                                                                                                                                                                                                                                                             |
+| PKIoverheid certificaten              | Identificatie en authenticatie vindt plaats op basis van het PKIoverheidscertificaat. Zie voor nadere uitleg de documenten “Digikoppeling Identificatie en Authenticatie” en “Achtergrond en gebruik van Digikoppeling certificaten.                                                                                                                                               |
+| Servicecontract                       | Een technisch formaat voor het vastleggen van afspraken over de inhoud van de gegevensuitwisseling tussen partijen. Een servicecontract wordt vormgegeven d.m.v. een CPA[^16] (voor ebMS2) en een WSDL[^17] (voor WUS) en wordt ingelezen in de Digikoppeling-adapter. Partijen stellen samen een servicecontract op.                                                              |
+|                                       |                                                                                                                                                                                                                                                                                                                                                                                    |
+
+[^16]: Collaboration Protocol Agreement: Servicecontract voor ebMS services.
+
+[^17]: Servicecontract voor WUS services.
+
+Tabel 3: Componenten van de Digikoppeling-keten.  
+In het document “Voorbeelden van generieke inrichtingen met Digikoppeling” worden een aantal varianten van inrichtingen met bovenstaande componenten weergegeven.
+
+| **Meer informatie**                                      | **Zie document in aansluitkit**                    | **Doelgroep**      |
+|----------------------------------------------------------|----------------------------------------------------|--------------------|
+| Voorbeelden van generieke inrichtingen met Digikoppeling | Digikoppeling\_Voorbeelden_generieke_inrichtingen  | [PL] [A&D]  [OT&B] |
+
+##

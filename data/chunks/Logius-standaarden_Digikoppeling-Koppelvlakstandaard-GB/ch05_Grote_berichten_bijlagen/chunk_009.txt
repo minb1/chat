@@ -1,0 +1,46 @@
+
+###Data-reference-response bericht 2 (PUSH)
+
+Hieronder volgt een voorbeeld van een Grote Berichten data-reference-response bericht voor de PDF bestand genaamd file.pdf met een grootte van 2048MB, die is ge-upload en gezipped in de volgende 2 zip parts:
+
+- file.001.zip met een grootte van 1024MiB is ge-upload naar `https://my.host.nl/files/file.001.zip`
+- file.002.zip met een grootte van 765MiB is ge-upload naar `https://my.host.nl/files/file.002.zip`
+
+Waarbij `file.001.zip` correct is geupload en `file.002.zip` niet is gevonden.
+
+```XML
+<gb:digikoppeling-external-data-references-response profile="digikoppeling-gb-4.0"                                                 
+  xmlns:gb="http://www.logius.nl/digikoppeling/gb/2020/09" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <gb:data-reference-response>
+    <gb:compression>ZIP4J</gb:compression>
+    <gb:content contentType="application/pdf">
+      <gb:filename>file.pdf</gb:filename>
+      <gb:checksum type="MD5">01234567890123456789012345678901</gb:checksum>
+      <gb:size>2048</gb:size>
+      <gb:status>FILE_NOT_FOUND</gb:status>
+      <gb:reason></gb:reason>
+      <gb:transport>
+        <gb:location>
+          <gb:receiverUrl type="xs:anyURI">https://my.host.nl/files/</gb:receiverUrl>
+        </gb:location>
+        <gb:part>
+          <gb:filename>file.pdf.z01</gb:filename>
+          <gb:checksum type="MD5">12345678901234567890123456789012</gb:checksum>
+          <gb:size>1024</gb:size>
+          <gb:status>OK</gb:status>
+        </gb:part>
+        <gb:part>
+          <gb:filename>file.pdf.zip</gb:filename>
+          <gb:checksum type="MD5">23456789012345678901234567890123</gb:checksum>
+          <gb:size>765</gb:size>
+          <gb:status>FILE_NOT_FOUND</gb:status>
+        </gb:part>
+      </gb:transport>
+    </gb:content>
+  </gb:data-reference-response>
+</gb:digikoppeling-external-data-references-response>
+```
+
+Alle errors behalve UNKNOWN_ERROR zijn recoverable en hebben geen reason nodig.
+

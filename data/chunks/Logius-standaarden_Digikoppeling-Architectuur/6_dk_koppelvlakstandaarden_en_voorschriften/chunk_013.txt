@@ -1,0 +1,24 @@
+
+###Digikoppeling ebMS2 voor betrouwbare, asynchone uitwisseling  
+
+De [[[DK-ebMS]]] ondersteunt het uitvoeren van asynchrone berichten tussen geautomatiseerde informatiesystemen.
+
+Het protocol regelt de betrouwbare ontvangst van een bericht en eventueel de onweerlegbaarheid (non-repudiation) in de vorm van een ondertekende ontvangstbevestiging. Hoewel Digikoppeling-meldingen (op de logistieke laag) asynchroon zijn kan de business-laag wel synchroon werken als de verzender wacht op een retourmelding.`
+
+De Koppelvlakstandaard ebMS2 regelt de volgende functionaliteiten: :
+
+- Identificatie en authenticatie van partijen
+- Versleutelen van transport
+- Adresseringsinformatie voor routering ‘achter de voordeur’
+- Routeren via message-handlers
+- Asynchroon berichten correleren d.m.v. message ID
+- Meerdere berichten logisch samenvoegen
+- Berichten voorzien van een beveiligde datum en tijdstempel (time-stamping)
+- Berichtuitwisseling vast leggen in standaard technisch contract formaat (servicecontract)
+- Beveiligen van berichten d.m.v. technische handtekening
+- Beveiligen van berichten door de content te versleutelen
+- Onweerlegbaarheid op protocolniveau (non-repudiation)
+- Betrouwbaar asynchroon berichten versturen met ontvangstbevestigingen
+- Ondersteuning voor foutafhandeling op asynchrone berichten
+- Volgorde van berichten zo mogelijk handhaven
+- Hertransmissies op protocolniveau totdat ontvangst is bevestigd

@@ -1,0 +1,68 @@
+
+##Community
+Veel verschillende partijen hebben direct dan wel indirect belang bij
+de ontwikkeling, de implementatie en het gebruik van de
+Digikoppeling-standaard. Dit geldt dus ook voor het beheer en
+onderhoud ervan. In onderstaand schema zijn de belanghebbenden
+aangegeven.
+
+```mermaid
+mindmap
+  root)Belang bij<br>Digikoppeling(
+    {{Vraag}}
+      (Sectorregiseurs)
+        VNG
+        DUO
+        BKWI
+      (Gebruikers)
+        Indivduele overheden
+        Sectoren
+        Bronhouders van basisregistraties
+      (eOverheids projecten)
+        MijnOverheid
+        eHerkenning
+        eID
+    {{Ondersteuning}}
+      (Expertise)
+        Adviesbureaus
+        ICT–experts
+      (Beheer en onderhoud)
+        Domeinexpert
+        Logius
+    {{Aanbod}}
+      (Standaardisatie organisaties)
+        OASIS
+        W3C
+        NIST
+        Forum Standaardisatie
+        Europese Commissie
+      (Leveranciers)
+        Diensten
+        Producten
+```
+<figure>
+<figcaption>Belang bij Digikoppeling</figcaption>
+</figure>
+		
+
+De Digikoppeling standaard wordt in stand gehouden en doorontwikkeld
+door participatie van de belanghebbenden. Ruwweg zijn drie rollen te
+onderkennen, de vraagkant, de aanbodkant en de ondersteuningskant:
+* De vraagkant bestaat uit organisaties die Digikoppeling koppelingen
+  gebruiken voor de eigen informatievoorziening, sectoren die
+  Digikoppeling gebruiken als standaard voor
+  (keten)integratiedoeleinden en e-overheidsprojecten die
+  Digikoppeling toepassen.
+* De aanbodkant bestaat uit ICT leveranciers die de producten maken
+  voor ondersteuning van de open standaarden waarop Digikoppeling is
+  gebaseerd (adapter-leveranciers of diensten-leveranciers). Onder de
+  aanbodkant rekenen we ook standaardisatie-organisaties (OASIS, W3C
+  e.d.) waar de standaarden waarop Digikoppeling is gebaseerd vandaan
+  komen.
+* De ondersteuningskant bestaat uit de beheerders van de
+  Digikoppeling-standaarden en beheerders van de
+  Digikoppeling-voorzieningen. Expertise voor Digikoppeling is ook
+  verkrijgbaar in de markt.
+
+Afhankelijk van eigen doelstellingen, verantwoordelijkheden en
+belangen zullen belanghebbenden op een andere wijze participeren.

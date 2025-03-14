@@ -1,0 +1,18 @@
+
+##Categorieën
+
+Bij gegevensuitwisseling kunnen er fouten optreden door verschillende oorzaken. Fouten kunnen in één van de volgende categorieën ingedeeld worden:
+
+1. syntax fouten, hebben betrekking op de structuur van de berichten (XSD) en standaarden zoals WSA en SOAP
+
+1. inhoudelijke fouten, hebben betrekking op inhoudelijke verwerking en zijn context/domein of sector specifiek en worden niet binnen DK gestandaardiseerd
+
+1. protocolfouten, hebben betrekking op TLS of HTTP
+
+1. fouten doordat een service niet (onvoldoende QoS) beschikbaar is, waaronder ook time-out en autorisatie problemen/fouten.
+
+Per categorie kan op hoofdlijnen een procedure voor de foutafhandeling gedefinieerd worden.
+
+1. bij syntax fouten dient zo mogelijk aangegeven te worden welk element fout is (zoals in foutmeldingen 0005 t/m 0008 aangegeven staat)
+
+2. Zo mogelijk aangeven waarom. Bij inhoudelijke fouten aangeven dat het bericht vanwege inconsistentie niet verwerkt kan worden. (dit is eigenlijk geen transport/koppelvlak probleem, maar veeleer een business probleem met een bijbehorende afhandelingsprocedure, vgl. de terugmelding in het stelsel).

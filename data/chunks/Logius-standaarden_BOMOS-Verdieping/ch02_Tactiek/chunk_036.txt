@@ -1,0 +1,35 @@
+
+####Doel van certificeren
+
+Vanuit een standaardisatie-organisatie bekeken kan certificering een
+positieve bijdrage leveren aan:
+
+**Interoperabiliteit en transparantie.** Indien het correct gebruiken
+  van de standaard gemarkeerd wordt met een certificaat zal het voor
+  organisaties eenvoudiger zijn om samenwerkingspartners te vinden met
+  wie men interoperabel is.
+
+**Adoptie bevorderen.** Early adopters de kans geven zich er positief
+  mee te onderscheiden. Voor leveranciers kan het noodzaak worden om
+  een certificaat te verkrijgen omdat ze anders buiten de markt
+  vallen. Certificaat kan dan bijvoorbeeld gevraagd worden in
+  aanbestedingen.
+
+**Financieën.** Certificering kan ingezet worden als potentiële bron
+  van inkomsten om het beheer van standaarden te
+  financieren. Uitgangspunt hierbij is gebruikers van de standaard
+  betalen voor de ontwikkeling hiervan.
+
+Dit zijn verschillende doelstellingen die niet altijd verenigbaar
+zijn: bijvoorbeeld de uitvoering van een
+interoperabiliteitscertificaat zal grondiger uitgevoerd moeten worden
+dan een adoptie-certificaat. Dat betekent dat de kosten voor
+uitvoering hoger zullen liggen waardoor er minder 'winst' gemaakt kan
+worden op het certificaat, en daardoor een kleinere bijdrage voor de
+financiën van een standaardisatie-organisatie zal opleveren, en eerder
+kosten-neutraal zal zijn.
+
+Samenvattend kan certificering ingezet worden als:
+- Interoperabiliteits-instrument
+- Adoptie-instrument
+- Financieel instrument

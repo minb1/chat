@@ -1,0 +1,20 @@
+Identificatie en Authenticatie
+
+Voor de toepassing van Digikoppeling zijn in het kader van informatiebeveiliging afspraken gemaakt over de Identificatie en Authenticatie van partijen en het gebruik van certificaten. In de documenten Identificatie en Authenticatie en Gebruik en Achtergrond Digikoppeling Certificaten worden de afspraken nader gespecificeerd.
+
+Figuur 2: De Digikoppeling standaarden.
+
+De Digikoppeling standaarden (zie Figuur 2) zijn nader uitwerkt in verschillende documenten. In Tabel 2 staat een overzicht om welke documenten het gaat en is kort toegelicht wat deze beschrijven.
+
+| **Document**                                                                         | **Wat beschrijft deze?**                                                                                                                                             | **Doelgroep** |
+|--------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| Digikoppeling Koppelvlakstandaard WUS                                                | Het gebruik van WUS voor bevragingen en de WUS profielen.                                                                                                            | [A&D]  [OT&B] |
+|                                                                                      |                                                                                                                                                                      |               |
+| Digikoppeling Koppelvlakstandaard ebMS2                                              | Het gebruik van ebMS2 voor meldingen en de ebMS2 profielen                                                                                                           |               |
+| Digikoppeling Koppelvlakstandaard Grote Berichten                                    | Voor de uitwisseling van grote berichten maakt gebruik van WUS met HTTPS bestandsoverdracht of ebMS2 met HTTPS bestandsoverdracht                                    |               |
+|                                                                                      |                                                                                                                                                                      |               |
+| Identificatie en Authenticatie en Gebruik en Achtergrond Digikoppeling Certificaten  | Beschrijft de identificatie van partijen, het opzetten van een tweezijdige beveiligde TLS-verbinding en het ondertekenen en versleutelen van berichten en bijlagen.  | [A&D]  [OT&B] |
+
+Tabel 2: Documenten met inhoudelijke uitwerking van de Digikoppeling-standaarden
+
+##

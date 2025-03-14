@@ -1,0 +1,25 @@
+Voordelen
+
+De toepassing van Digikoppeling heeft enkele grote voordelen:
+
+-   Gestructureerde gegevensuitwisseling door eenduidige logistieke afspraken,
+
+-   Snelle gegevensuitwisseling door efficiënte samenwerking van overheden,
+
+-   De implementatie van Digikoppeling (en de bijbehorende investering) is eenmalig. Na implementatie zijn nieuwe gegevensuitwisselingen met andere organisaties snel en tegen lagere kosten te realiseren,
+
+-   Organisaties die Digikoppeling implementeren, kunnen veilig digitaal berichten uitwisselen met andere organisaties die ook Digikoppeling gebruiken,
+
+-   Optimaal rendement door koppeling met de infrastructuur van de e-overheid,
+
+-   Digikoppeling is niet sectorgebonden: het kan door alle partijen gebruikt worden voor berichtuitwisseling tussen systemen,
+
+-   Borging aanvullende logistieke afspraken (tekenen voor ontvangst, herhaald aanbieden retour afzender etc.).
+
+-   Figuur 3 geeft een grafische weergave van de voordelen.
+
+![Image3.png](media/5802c066169fe957cd1e4af139e95e48.png)
+
+Figuur 3: Voordelen op een rij wanneer gegevensuitwisseling met Digikoppeling plaatsvindt.
+
+##

@@ -1,0 +1,4 @@
+
+##Client
+
+The Air sensor itself functions as a client, uploading each measurement to the API of the Resource owner via the LoRaWAN network.

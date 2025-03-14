@@ -1,0 +1,16 @@
+
+##Opbouw van dit document
+
+[Hoofdstuk 1 bevat een aantal algemene inleidende onderwerpen.](#inleiding)
+
+[Hoofdstuk 2 bevat de aanbevelingen, werkwijze en best practices.](#werkwijze-aanbevelingen-best-practices)
+
+[Hoofdstuk 3 gaat in op de kenmerken van een CPA.](#cpa-gebruik-en-kenmerken)
+
+[Hoofdstuk 4 gaat over bericht volgordelijkheid.](#het-gebruik-van-berichtvolgordelijkheid)
+
+> Begrippen en afkortingen worden toegelicht in het document [[Digikoppeling-Architectuur]].  
+> Dit document is onderdeel van de Digikoppeling standaard.
+
+<div class="note">Dit document en alle andere Digikoppeling documentatie is beschikbaar op [de website van Logius](http://www.logius.nl/digikoppeling).
+</div>

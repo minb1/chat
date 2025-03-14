@@ -1,0 +1,5 @@
+Verwerking in de organisatie
+
+Als de berichten op Digikoppeling in volgorde moeten worden afgeleverd, zal dit tot gevolg hebben dat diezelfde berichten ook in de juiste volgorde aangeboden worden aan de verwerkende applicatie in de organisatie.
+
+##

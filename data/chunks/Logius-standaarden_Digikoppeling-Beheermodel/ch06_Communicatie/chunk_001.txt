@@ -1,0 +1,16 @@
+#Communicatie
+Als een Digikoppeling onderdeel de status „In Gebruik‟ heeft, worden
+verschillende zaken gepubliceerd. De Digikoppeling beheerder publiceert
+de volledige specificatie („In Gebruik‟) van een Digikoppeling onderdeel
+en een kort bericht op het publieke deel van zijn website. Publicatie houdt
+in dat de nieuwe release van een Digikoppeling onderdeel openbaar wordt
+gemaakt voor inbouw in software, brede uitrol en ingebruikname.
+
+Verder wordt een persbericht uitgegeven, waarin de publicatie van de
+nieuwe release van het Digikoppeling onderdeel wordt aangekondigd. Ook
+wordt er door de beheerder een bericht in relevante nieuwsbrieven geplaatst.
+
+Naast de nieuwe release van de standaard en nieuws- en persberichten worden
+ook additionele producten gepubliceerd na aangepast ze zijn. Factsheets,
+opleidingsmateriaal, presentaties, maar ook releasebeleid en Roadmap zullen
+worden gepubliceerd.

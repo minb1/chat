@@ -1,0 +1,14 @@
+2.3.2 Response from the Authorization Endpoint
+iGov-NL
+
+Response parameters
+
+code
+Mandatory. MUST be a cryptographic random value, using an unpredictable value with at least 128 bits of entropy.
+state
+Mandatory. MUST be a verbatim copy of the value of the state parameter in the Authorization Request.
+/iGov-NL
+
+**reference to rationale: Detailed rationale 5**
+
+##

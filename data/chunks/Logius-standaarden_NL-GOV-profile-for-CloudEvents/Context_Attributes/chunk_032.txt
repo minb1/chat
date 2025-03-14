@@ -1,0 +1,5 @@
+
+#####SequenceType Values
+
+This specification defines the following values for `sequencetype`. Additional
+values MAY be defined by other specifications.

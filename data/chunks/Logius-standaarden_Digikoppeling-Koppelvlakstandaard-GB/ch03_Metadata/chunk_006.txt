@@ -1,0 +1,23 @@
+
+###PUSH response bericht statuscodes
+
+De volgende statuscodes zijn voorgedefinieerd in het PUSH responsebericht:
+
+- OK
+
+- FILE_NOT_FOUND
+
+- CHECKSUM_TYPE_NOT_SUPPORTED
+
+- CHECKSUM_ERROR
+
+- INCORRECT_FILE_SIZE
+
+- COMPRESSION_NOT_SUPPORTED
+
+- DECOMPRESSION_ERROR
+
+- UNKNOWN_ERROR
+
+Zie ook de XSD’s in de bijlage.
+

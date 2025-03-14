@@ -1,0 +1,9 @@
+
+####CloudEvents-NL
+- The time the event was logged SHOULD be used (in many cases this is the only 
+  time that can be determined unambiguously).
+- The exact meaning of `time` MUST be clearly documented.
+- The time when an event occurred in reality SHOULD NOT be used (if there is a need for this 
+  among consumers, this can be included in payload data).
+- If the time when an event occurred in reality is needed for things like 
+  routing or filtering, it can be included as a context attribute by the producer.

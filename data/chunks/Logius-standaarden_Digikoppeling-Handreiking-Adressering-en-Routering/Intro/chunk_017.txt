@@ -1,0 +1,4 @@
+
+####Automatic pluralization
+
+[=Standards=] are important in ICT

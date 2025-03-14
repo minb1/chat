@@ -1,0 +1,14 @@
+
+###Randvoorwaarden transport
+
+Digikoppeling stelt ook randvoorwaarden op het niveau van het transport:
+
+- Gebruik van HTTPS
+
+- Gebruik van TCP/IP stack.
+
+- Gebruik van HTTPS voor grote berichten.
+
+- Gebruik van tweezijdig TLS voor het veilig transporteren van gegevens via internet  is verplicht.
+
+Randvoorwaardelijk wil zeggen dat bovenstaande standaarden nodig zijn om Digikoppeling-koppelvlakstandaarden te kunnen gebruiken.

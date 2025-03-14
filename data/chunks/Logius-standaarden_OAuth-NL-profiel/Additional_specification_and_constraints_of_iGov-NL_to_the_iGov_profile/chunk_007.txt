@@ -1,0 +1,24 @@
+3.1.10 Token Response
+
+iGov-NL
+
+The Token Response has the following contents:
+
+access_token
+Mandatory. Structured access token a.k.a. a JWT Bearer token. The JWT MUST be signed.
+token_type
+Mandatory. The type for a JWT Bearer token is Bearer, as per [rfc6750]
+refresh_token
+Under this profile, refresh tokens are supported.
+expires_in
+Optional. Lifetime of the access token, in seconds.
+scope
+Optional. Scope(s) of the access (token) granted, multiple scopes are separated by whitespace. The scope MAY be omitted if it is identical to the scope requested.
+For best practices on token lifetime see section Token Lifetimes. 
+
+/iGov-NL
+
+
+**reference to rationale: Detailed rationale 5**
+
+##

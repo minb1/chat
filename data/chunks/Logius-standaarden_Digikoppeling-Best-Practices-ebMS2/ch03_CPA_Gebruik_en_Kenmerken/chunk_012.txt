@@ -1,0 +1,12 @@
+
+###PartyId Type
+
+Deze heeft de waarde `urn:osb:oin` voor PartyId's met een OIN.(Dit is ook de default waarde voor de CPA's zoals die door het CPA register wordt gehanteerd.)
+
+De PartyId type wordt als volgt opgenomen in het ebMS2 contract (met een voorbeeld van de PartyId waarde `0123456789`):  
+
+```XML
+<tns:PartyId tns:type="urn:osb:oin">123456789</tns:PartyId>
+```
+
+Het is toegestaan om een andere PartyId type te hanteren als de organisatie reeds andersoortige (geen OIN's) PartyId’s heeft voor de organisatie identificatie. Het moge duidelijk zijn dat het in overleg met de samenwerkende organisaties vastgesteld moet worden. Zie ook EB014 in hoofdstuk 2.

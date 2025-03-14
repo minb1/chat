@@ -1,0 +1,6 @@
+
+###Architectuur
+
+Er zijn verschillende manieren of viewpoints (zie Archimate) om naar de architectuur te kijken: vanuit strategie, business, de applicaties en onderliggende componenten. Deze variatie aan zienswijze heeft vaak te maken met de verschillende rollen die partijen hebben binnen een stelsel. Idealiter zijn die allemaal beschreven, maar de praktijk kan dat per stelsel verschillen hoe dat is uitgewerkt. Het hebben van deze modellen helpt om makkelijker met elkaar te communiceren en de impact en kansen van veranderingen goed in te schatten. Het verlaagt ook de drempel voor nieuwe partijen die deel uit willen maken van een stelsel.
+Binnen een stelsel speelt interoperabiliteit een belangrijke rol en dat zie je terugkomen in de aandacht voor de architectuur van de technische koppelvlakken tussen de verschillende partijen.  Onder architectuur vallen ook de keuzes welke (technische) standaarden binnen een stelsel gebruikt moeten worden door de deelnemers.
+Het hebben en samen bepalen van architectuurprincipes voor een stelsel (zie NORA) is een waardevol kader om wijzigingsvoorstellen te toetsen.

@@ -1,0 +1,23 @@
+
+##Vastlegging, audittrail
+
+Met vastlegging wordt hier bedoeld het vastleggen (loggen, bijvoorbeeld in een
+audittrail) van het resultaat van authenticatie en autorisatie. De eisen die
+daaraan gesteld worden, zijn belangrijk. Moet jaren later nog voor de rechter
+bewezen kunnen worden dat dit subject op dit tijdstip een specifieke service
+vraag gesteld heeft, of wordt alleen vastgelegd ten behoeve van latere
+statistische bewerkingen.
+
+De eisen die gesteld worden aan vastlegging, zijn weliswaar belangrijk, maar ze
+hebben met name betrekking op zaken als traceerbaarheid van authenticatie; heeft
+authenticatie wel plaatsgevonden en hoe dan wel enzovoort Ze hoeven geen rol te
+spelen bij de bepaling van de gewenste (niveau van) identiteit.
+
+Dat kan anders zijn als de eisen aan niveau van zowel autorisatie als
+vastlegging verschillen. Dat zou het geval kunnen zijn als er regels gelden
+zoals: 'iedere medewerker van een geautoriseerde partij heeft toegang, maar er
+moet wel onweerlegbaar worden vastgelegd welke medewerker het betrof'
+(autorisatie op niveau van partij, vastlegging op niveau van medewerker). De
+eisen vanuit de behoefte aan autorisatie en de noodzakelijke vastlegging voor
+bewijs achteraf kunnen dus verschillen.
+

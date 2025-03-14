@@ -1,0 +1,13 @@
+WSDL 
+
+Een WSDL is een formeel xml-document om de gebruikte functionele en technische eigenschappen van de berichtuitwisseling via WUS vast te leggen. Elke service heeft één WSDL, die door de serviceaanbieder wordt opgesteld. Deze is door alle afnemers te gebruiken. Door importeren van de WSDL in de Digikoppeling-adapter van een afnemer wordt de berichtuitwisseling geconfigureerd.
+
+De wijze waarop een WSDL wordt toegepast staat beschreven in Digikoppeling Best Practices WUS.
+
+| **Meer informatie over:**                                           | **Zie document in de aansluitkit:**    | **Doelgroep:** |
+|---------------------------------------------------------------------|----------------------------------------|----------------|
+| Inhoudelijke beschrijving KVS WUS Digikoppeling (huidige standaard) | Digikoppeling_Koppelvlakstandaard_WUS  | [A&D] [OT&B]   |
+|                                                                     |                                        |                |
+| Best practices Digikoppeling WUS                                    | Digikoppeling_Best_Practices_WUS       | [OT&B]         |
+
+##

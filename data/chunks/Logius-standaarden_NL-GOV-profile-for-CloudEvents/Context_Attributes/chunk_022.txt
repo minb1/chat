@@ -1,0 +1,16 @@
+
+###Extension Context Attributes
+
+A CloudEvent MAY include any number of additional context attributes with
+distinct names, known as "extension attributes". Extension attributes MUST
+follow the same [naming convention](#attribute-naming-convention) and use the
+same [type system](#type-system) as standard attributes. Extension attributes
+have no defined meaning in this specification, they allow external systems to
+attach metadata to an event, much like HTTP custom headers.
+
+Extension attributes are always serialized according to binding rules like
+standard attributes. However this specification does not prevent an extension
+from copying event attribute values to other parts of a message, in order to
+interact with non-CloudEvents systems that also process the message. Extension
+specifications that do this SHOULD specify how receivers are to interpret
+messages if the copied values differ from the cloud-event serialized values.

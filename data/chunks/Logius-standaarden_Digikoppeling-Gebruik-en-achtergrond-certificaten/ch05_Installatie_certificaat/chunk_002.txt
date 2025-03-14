@@ -1,0 +1,8 @@
+
+##Vragen
+
+Dit hoofdstuk geeft antwoord op de volgende vragen met betrekking tot certificaten voor Digikoppeling:
+
+1. Waarom is het belangrijk om de privésleutel van mijn certificaat te beveiligen?
+1. Hoe moet ik de privésleutel van een certificaat opslaan?
+1. Hoe beveilig ik de toegang tot deze sleutel?

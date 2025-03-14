@@ -1,0 +1,10 @@
+
+###Profile Requirement Item: Signed attribute
+
+|[[EBXML-MSG]] Section 6.3.1.2 Signed attribute| All profiles:<br> **Best effort**<br>**Reliable Messaging**|**End-to-End Security** |
+|------------------|---|---|
+|Header elements:<br>`/SOAP:Header/eb:AckRequested`/|||
+| Must MSH Acknowledgments be (requested to be) signed?  | **Not applicable**.  | **Not applicable**.| Signing of acknowledgements is **required**. |   |
+| Alignment | [Appears as MessagingCharacteristics/ \@ackSignatureRequested in CPA.]   |   |
+| Test References | (empty) ||
+| Notes  | (empty) ||

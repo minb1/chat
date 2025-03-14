@@ -1,0 +1,5 @@
+
+##Impact op standaardisatie en beheer
+Oorspronkelijk werd in BOMOS geen nader onderscheid gemaakt tussen de soorten semantische standaarden. Het is bij zowel de conventionele aanpak als bij de Linked Data-benadering van toepassing. Maar de precieze invulling van de activiteiten verschilt wel degelijk tussen de twee. Invulling geven aan het BOMOS-model was overigens altijd al een opgave, omdat elke context maatwerk behoeft. Maar bij de Linked Data-benadering tot semantische standaarden komen nieuwe uitdagingen kijken.
+
+Hieronder volgen wat uitdagingen en lessen uit het FIT with Ontologies-innovatietraject van de uitzendbranche. De volgorde is grofweg van vroege ontwikkelingsfase naar beheerfase.

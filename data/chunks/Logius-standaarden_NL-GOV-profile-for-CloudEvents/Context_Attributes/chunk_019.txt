@@ -1,0 +1,11 @@
+
+####CloudEvents-NL
+
+Constraints:
+- Decision on whether or not to use the attribute and/or the exact interpretation is postponed. 
+To be determined partly on the basis of future agreements about subscription and filtering.
+
+Example:
+  - `source: urn:nld:oin:00000001823288444000:systeem:BRP-component`
+  - `type: nl.brp.persoon-gehuwd`
+  - `subject: 999990342` (citizen service number)

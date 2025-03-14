@@ -1,0 +1,11 @@
+
+###EchoRequest
+
+De structuur van het echoverzoek is als volgt:
+
+| **Berichttype: EchoRequest**            |               |          |
+|-----------------------------------------|---------------|----------|
+| EchoRequest.OinBasisregistratie         | *Het OIN van de basisregistratie waar het echoverzoek naar toe moet* | \[1..1\] |
+| EchoRequest.OinBasisregistratie         | Het OIN van de houder van een landelijke voorziening van de basisregistratie | \[1..1\] |
+| EchoRequest.Registratie                 | Code (maximaal 3 letterig) waarmee de basisregistratie wordt aangeduid wanneer de houder van een landelijke voorziening meer dan 1 basisregistratie beheert (bv BRT, BGT). | \[0..1\] |
+| EchoRequest.Echo                        | De string die geëchood moet worden | \[1..1\] |

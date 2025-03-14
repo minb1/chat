@@ -1,0 +1,8 @@
+
+###Reliable Messaging Module [ebMS 2.0] Section 6
+
+| Profile(s)| Usage: required/optional/never used in this profile |Notes|
+|------------------|---|---|
+|**Best effort**|**Never used** in this profile. |The ebXML reliable messaging protocol is not used. Acknowledgment Messages must not be sent or requested, and the receiver should not eliminate duplicate messages. |
+|**Reliable Messaging**|**Required** in this profile. Reliable Messaging profile 2, Once-And-Only-Once Reliable Messaging at the End-To-End level only based upon end-to-end retransmission. |In this profile the FromParty MSH (message origination) must request, and the ToParty MSH (message final destination) must send an acknowledgment message. The ToParty MSH must also filter any duplicate messages based on ebXML MessageId. Any intermediate NextMSH ebXML-aware nodes (see caveat in section 'Multi-Hop Module' in this chapter) have no reliable messaging functionality. Acknowledgment messages must not be consumed by any such intermediary but routed like any ebXML Message back to the original (true) sender. |
+|**End-to-End Security**|**Optional used** in this profile. See profile Best Effort or profile Reliable Messaging for details. |(empty)|

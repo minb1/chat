@@ -1,0 +1,4 @@
+
+##Resource server
+
+The resource server is provided by the sensor provider, e.g. a local government or city, the resource server provides the API where all sensors write their data.

@@ -1,0 +1,4 @@
+
+###Routeringstabel
+
+In veel gevallen wordt door het knooppunt een routeringstabel (of  mappingtabel) gebruikt. In de tabel wordt beschreven naar welk endpointadres een bericht wordt verstuurd op basis van het TO-adres dat in het bericht is vermeld.

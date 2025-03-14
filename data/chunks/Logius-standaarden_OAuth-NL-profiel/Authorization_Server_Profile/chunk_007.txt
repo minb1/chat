@@ -1,0 +1,147 @@
+
+####Discovery
+
+The authorization server MUST provide an [OpenID Connect service discovery] [[OpenID.Discovery]] endpoint listing the components relevant to the OAuth protocol:
+
+<dl>
+
+<dt>issuer</dt>
+
+<dd style="margin-left: 8">REQUIRED. The fully qualified issuer URL of the server</dd>
+
+<dt>authorization_endpoint</dt>
+
+<dd style="margin-left: 8">REQUIRED. The fully qualified URL of the server's authorization endpoint defined by [OAuth 2.0] [[rfc6749]]</dd>
+
+<dt>token_endpoint</dt>
+
+<dd style="margin-left: 8">REQUIRED. The fully qualified URL of the server's token endpoint defined by [OAuth 2.0] [[RFC6749]]</dd>
+
+<dt>introspection_endpoint</dt>
+
+<dd style="margin-left: 8">OPTIONAL. The fully qualified URL of the server's introspection endpoint defined by [OAuth Token Introspection] [[rfc7662]] </dd>
+
+<dt>revocation_endpoint</dt>
+
+<dd style="margin-left: 8">OPTIONAL. The fully qualified URL of the server's revocation endpoint defined by [OAuth 2.0 Token Revocation] [[rfc7009]] </dd>
+
+<dt>jwks_uri</dt>
+
+<dd style="margin-left: 8">REQUIRED. The fully qualified URI of the server's public key in [JWK Set] [[rfc7517]] format</dd>
+
+</dl>
+
+If the authorization server is also an OpenID Connect Provider, it MUST provide a discovery endpoint meeting the requirements listed in Section 3.6 of the iGov OpenID Connect profile.
+
+<aside class="example">
+The following example shows the JSON document found at a discovery endpoint for an authorization server:
+<!-- iGov-NL : Start of the additional content -->
+<aside class=" addition">
+<b>iGov-NL : Additional content</b></br>  
+Added `tls_client_auth`
+</aside>
+<!-- iGov-NL : End of the additional content -->
+<pre>{
+  "request_parameter_supported": true,
+  "registration_endpoint": "https://idp-p.example.com/register",
+  "userinfo_signing_alg_values_supported": [
+    "HS256", "HS384", "HS512", "RS256", "RS384", "RS512"
+  ],
+  "token_endpoint": "https://idp-p.example.com/token",
+  "request_uri_parameter_supported": false,
+  "request_object_encryption_enc_values_supported": [
+    "A192CBC-HS384", "A192GCM", "A256CBC+HS512",
+    "A128CBC+HS256", "A256CBC-HS512",
+    "A128CBC-HS256", "A128GCM", "A256GCM"
+  ],
+  "token_endpoint_auth_methods_supported": [
+    "private_key_jwt", "tls_client_auth"
+  ],
+  "jwks_uri": "https://idp-p.example.com/jwk",
+  "authorization_endpoint": "https://idp-p.example.com/authorize",
+  "require_request_uri_registration": false,
+  "introspection_endpoint": "https://idp-p.example.com/introspect",
+  "request_object_encryption_alg_values_supported": [
+    "RSA-OAEP", ?RSA1_5", "RSA-OAEP-256"
+  ],
+  "service_documentation": "https://idp-p.example.com/about",
+  "response_types_supported": [
+    "code", "token"
+  ],
+  "token_endpoint_auth_signing_alg_values_supported": [
+    "HS256", "HS384", "HS512", "RS256", "RS384", "RS512"
+  ],
+  "revocation_endpoint": "https://idp-p.example.com/revoke",
+  "request_object_signing_alg_values_supported": [
+    "HS256", "HS384", "HS512", "RS256", "RS384", "RS512"
+  ],
+  "grant_types_supported": [
+    "authorization_code",
+    "implicit",
+    "urn:ietf:params:oauth:grant-type:jwt-bearer",
+    "client_credentials",
+    "urn:ietf:params:oauth:grant_type:redelegate"
+  ],
+  "scopes_supported": [
+    "profile", "openid", "email", "address", "phone", "offline_access"
+  ],
+  "op_tos_uri": "https://idp-p.example.com/about",
+  "issuer": "https://idp-p.example.com/",
+  "op_policy_uri": "https://idp-p.example.com/about"
+}
+</pre>
+</aside>
+
+Clients and protected resources SHOULD cache this discovery information. It is RECOMMENDED that servers provide cache information through HTTP headers and make the cache valid for at least one week.
+
+The server MUST provide its public key in JWK Set format. The key MUST contain the following fields:
+
+<dl>
+
+<dt>kid</dt>
+
+<dd style="margin-left: 8">The key ID of the key pair used to sign this token</dd>
+
+<dt>kty</dt>
+
+<dd style="margin-left: 8">The key type</dd>
+
+<dt>alg</dt>
+
+<dd style="margin-left: 8">The default algorithm used for this key</dd>
+
+</dl>
+
+<aside class="example">
+The following is an example of a 2048-bit RSA public key:
+
+<pre>{
+  "keys": [
+    {
+      "alg": "RS256",
+      "e": "AQAB",
+      "n": "o80vbR0ZfMhjZWfqwPUGNkcIeUcweFyzB2S2T-hje83IOVct8gVg9FxvHPK1R
+eEW3-p7-A8GNcLAuFP_8jPhiL6LyJC3F10aV9KPQFF-w6Eq6VtpEgYSfzvFegNiPtpMWd7C43
+EDwjQ-GrXMVCLrBYxZC-P1ShyxVBOzeR_5MTC0JGiDTecr_2YT6o_3aE2SIJu4iNPgGh9Mnyx
+dBo0Uf0TmrqEIabquXA1-V8iUihwfI8qjf3EujkYi7gXXelIo4_gipQYNjr4DBNlE0__RI0kD
+U-27mb6esswnP2WgHZQPsk779fTcNDBIcYgyLujlcUATEqfCaPDNp00J6AbY6w",
+      "kty": "RSA",
+      "kid": "rsa1"
+    }
+  ]
+}
+</pre>
+</aside>
+
+Clients and protected resources SHOULD cache this key. It is RECOMMENDED that servers provide cache information through HTTP headers and make the cache valid for at least one week.
+
+<!-- iGov-NL : Start of the additional content -->
+<aside class=" addition">
+<b>iGov-NL : Additional content</b></br>  
+
+iGov requires that the authorization server provides an OpenIDConnect service discovery endpoint. Recently OAuth 2.0 Authorization Server Metadata [[rfc8414]] has been finalized, this provide the same functionality in a more generic way and could replace this requirement in a future version of the iGov-NL profile.
+
+</aside>
+<!-- iGov-NL : End of the additional content -->
+
+<!-- ### [3.1.6.](#rfc.section.3.1.6) Revocation -->

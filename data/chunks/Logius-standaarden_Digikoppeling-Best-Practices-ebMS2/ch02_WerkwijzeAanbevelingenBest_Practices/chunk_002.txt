@@ -1,0 +1,4 @@
+
+##EB001 ebMS2 Producten
+
+Gebruik een ebMS2 product met aantoonbare ervaring binnen het Digikoppeling domein. Op de [website van Logius is een overzicht van Digikoppeling leveranciers](https://logius.nl/domeinen/gegevensuitwisseling/digikoppeling/ict-leveranciers) te vinden. De [GEMMA softwarecatalogus](https://www.softwarecatalogus.nl/pakketten?zoek=digikoppeling+ebms) van de VNG geeft een overzicht van softwareproducten voor de gemeentelijke markt die de Digikoppeling ebMS koppelvlakspecificatie ondersteunen.

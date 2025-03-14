@@ -1,0 +1,26 @@
+
+###Stakeholders-betrokkenheid
+
+Het is duidelijk hoe stakeholders betrokken worden en hoe ze mee kunnen
+participeren en wat hun rol daarbij is. Relevante typen stakeholders
+moeten een plek kunnen krijgen ergens in de gekozen structuur van het
+stelsel, en niet principieel worden buitengesloten. Dat wil niet zeggen
+dat elk type stakeholder per definitie dezelfde rechten en plichten
+heeft. Zorg daarnaast ervoor dat binnen die groepen vooral organisaties
+aangesloten zijn die zich committeren aan de doelstellingen van de
+standaard.
+
+Betrokkenheid van de Community bij de verdere ontwikkeling van de
+standaard is voor het gebruik en de draagvlak ervan van groot belang.
+Voor de standaard geldt dat geen onderscheid wordt gemaakt tussen
+publieke en private organisaties en bijvoorbeeld kennisinstellingen. Zij
+vormen samen de community. Aan de inspraak in het wijzigingsproces zijn
+voor hen geen kosten verbonden. Logius informeert en betrekt de
+community via de website en de verschillende nieuwsbrieven. Uit de
+community worden de werkgroepen gevormd op het moment dat dit benodigd
+is. De vergaderdata en verslagen van deze werkgroepen zijn beschikbaar
+voor een ieder via
+[BOMOS Fundament](https://github.com/Logius-standaarden/BOMOS-Fundament)
+en [BOMOS Verdieping](https://github.com/Logius-standaarden/BOMOS-Verdieping).
+Inschrijven voor bijeenkomsten is mogelijk via xxxxx (via toekomstige
+weblink)

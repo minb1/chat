@@ -1,0 +1,5 @@
+
+###Added
+
+- (BOR) Technische documentatie toegevoegd - voor de inhoud, zie [technische-documentatie/README.md](./technische-documentatie/README.md).
+- Algemene [.gitattributes](./.gitattributes) toegevoegd ter ondersteuning van het bepalen van de bestanden voor de technische release.

@@ -1,0 +1,3 @@
+#Inleiding
+
+ API orkestratie is een cruciaal concept binnen de moderne  ICT-architectuur, vooral in de context van het integreren van  verschillende applicaties en services. Het stelt organisaties in staat  om complexe workflows te beheren door verschillende API's te coördineren en hun interacties te stroomlijnen. Dit biedt voordelen zoals verhoogde efficiëntie, verbeterde dataconsistentie en een betere  gebruikerservaring.

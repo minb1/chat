@@ -1,0 +1,7 @@
+
+##Wat wijzigt in de Digikoppeling Architectuur
+
+- opheffen onderscheid tussen 'WUS voor bevragingen' en 'ebMS voor meldingen' 
+- toevoegen profiel voor [Rest API](https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-REST-API/)
+
+verder zijn kleine verbeteringen en updates doorgevoerd 

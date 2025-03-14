@@ -1,0 +1,14 @@
+
+##NATting
+
+Als een transparante-intermediair zich bevindt op de rand tussen intern en extern netwerk (b.v. Diginetwerk) is vaak ook vertaling van interne naar externe IP-adressen nodig (NATting). Ook in andere situaties kan dit wenselijk zijn. Dit vraagstuk bevindt zich grotendeels buiten de scope van Digikoppeling/Diginetwerk. Enkele mogelijkheden om aan te denken zijn:
+
+- Bereikbaarheid van externe file-servers is eenvoudig in te regelen via een constructie met 'default gateway' voor bereikbaarheid van de firewall en NATting door de firewall.
+
+- Bereikbaarheid van interne file-servers voor organisaties op het externe netwerk kent enkele alternatieven:
+
+   1. ken elke interne file-server een eigen publiek (b.v. Diginetwerk) IP-adres toe dat door de Firewall geNAT wordt naar een intern IP-adres;
+   2. gebruik één publiek IP-adres dat gerouteerd wordt naar één gemeenschappelijke reverse-proxy en laat deze proxy afhankelijk van url naar de juiste interne IP-adressen doorrouteren;
+   3. hetzelfde als "alternatief 2." maar nu vindt geen 'rewrite' naar een intern ip-adres maar naar een interne (andere) url plaats.
+
+> Bij alternatief 2. en 3. zal de TLS-sessie getermineerd moeten worden om in de proxy de url van het http-protocol te kunnen zien. Controle of de url is toegestaan voor het OIN in dit certificaat zal dan ook door de proxy moeten plaatsvinden danwel de proxy moet dit OIN doorgeven (b.v. met http basic authentication).

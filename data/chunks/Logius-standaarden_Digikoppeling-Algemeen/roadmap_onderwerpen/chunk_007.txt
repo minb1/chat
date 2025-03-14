@@ -1,0 +1,20 @@
+
+###Periodiek actualiseren beveiligingsvoorschriften
+
+_Wat is het issue of de wens?_
+
+De Digikoppeling beveiligingsvoorschriften dienen periodiek te worden bijgewerkt om goed aan te blijven aansluiten bij de NCSC beveiligingsvoorschriften en de ontwikkelingen in de beveiligingsstandaarden;
+
+_Wat gaat er gebeuren?_
+
+_Bijwerken van het huidige beveiligingsvoorschriften document_
+
+_Wat is het resultaat?_
+
+Een nieuwe versie van het beveiligingsvoorschriften document
+
+_Wanneer gaat dit gebeuren?_
+
+Q3 2024 & Q3 2025
+
+

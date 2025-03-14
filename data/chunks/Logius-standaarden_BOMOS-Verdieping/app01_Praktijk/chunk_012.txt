@@ -1,0 +1,8 @@
+
+##Operationeel: Gereedschap voor standaardenbeheer
+
+Voor de implementatie en ondersteuning van het beheerproces is (digitale) gereedschap 
+nodig. Wijzigingsvoorstellen moeten kunnen worden ingediend (bijvoorbeeld online)
+en gedocumenteerd. Documentatie moet (open) worden gepubliceerd, vragen en verzoeken 
+van stakeholders moeten behandeld en beantwoord en agenda's voor overleggen moeten 
+worden opgesteld. 

@@ -1,0 +1,40 @@
+
+####Wat moet er dan gebeuren?
+
+Ook laat het onderzoek zien dat de kwaliteit van een standaard
+essentieel is om het uiteindelijke doel van interoperabiliteit te
+behalen (meer dan 90 procent van de respondenten is die mening
+toegedaan). Minder overtuigend maar nog steeds zeer nadrukkelijk is de
+relatie tussen het kwaliteitsniveau en de kans op succesvolle adoptie
+van een standaard. Er is dus ruimte voor kwaliteitsverbeteringen die
+kunnen leiden tot betere interoperabiliteit en betere adoptie van de
+standaarden. Het is echter lastig de kwaliteit te verbeteren als de
+kwaliteit niet bekend is. De respondenten (meer dan 80 procent) willen
+een instrument gebruiken om de kwaliteit van hun standaarden te
+bepalen. Maar dan moet dit wel beschikbaar zijn.
+
+Overigens laten de uitkomsten ook zien dat
+standaardisatieontwikkelaars zeker geneigd zijn om hoge kwaliteit na
+te streven en open te staan voor een kritische blik op hun werk door
+toepassing van een kwaliteitsinstrument. Een eventueel gebrek aan
+kwaliteit van een standaard heeft meerdere oorzaken, maar uit te
+sluiten valt de motivatie van de standaardisatieontwikkelaars. Eerder
+onderzoek heeft aangetoond dat juist bij semantische standaarden de
+ontwikkelaars intrinsiek gemotiveerd zijn; dat wil zeggen dat ze hun
+werk als hun hobby beschouwen.
+
+Een grotere waarschijnlijkheid is de relatie tussen het budget en de
+kwaliteit van standaarden. Standaarden worden vaak met een miniem
+budget ontwikkeld wat ongetwijfeld consequenties heeft voor de
+kwaliteit, bijvoorbeeld doordat het budget op is de standaard wordt
+opgeleverd terwijl eigenlijk nog een ronde van review en verwerking
+een betere standaard zou opleveren.
+
+Een andere mogelijke reden is het gebrek aan
+standaardisatie-expertise, aangezien het nog te weinig als 'vak' wordt
+gezien. Ook het polderen bij het standaardiseren met werkgroepen
+draagt niet positief bij. Regelmatig worden te veel opties in
+standaarden opgenomen om alle deelnemers in werkgroepen tegemoet te
+komen. Het resultaat is een te complexe standaard die in de praktijk
+slecht implementeerbaar is en leidt tot niet interoperabele
+implementaties die allemaal wel voldoen aan de standaard.

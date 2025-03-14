@@ -1,0 +1,14 @@
+
+##Autorisatie
+
+Autorisatie is het proces waarin een subject rechten krijgt op het benaderen van
+een service. De autorisatie wordt toegekend door de service-eigenaar. Het
+leidende principe (met name bij persoonsgegevens) is doelbinding: je mag alleen
+zien wat je voor je taak nodig hebt.
+
+De primaire reden voor het vaststellen van de identiteit van een subject is om
+op basis daarvan vervolgens vast te stellen of dat subject ook gerechtigd is om
+de gewenste service af te nemen. Die autorisatie (al of niet mede op basis van
+rollen, machtigingen, vertegenwoordigingen enzovoort) is nadrukkelijk een op de
+authenticatie volgende, aparte stap. De geauthenticeerde identiteit is dus nodig
+om autorisatie te kunnen doen. Autorisatie stelt eisen aan authenticatie.

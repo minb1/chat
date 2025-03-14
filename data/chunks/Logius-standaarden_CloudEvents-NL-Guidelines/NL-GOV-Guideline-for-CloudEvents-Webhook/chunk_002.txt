@@ -1,0 +1,9 @@
+
+##Summary with points for attention 
+
+The 'HTTP 1.1 Web Hooks for Event Delivery' specification prescribes rules constraining the use and handling of specific HTTP methods and headers and defines:
+1. a HTTP method by how notifications are delivered by the sender
+2. an authorization model for event delivery to protect the delivery target
+3. a registration handshake that protects the sender from being abused for flooding arbitrary HTTP sites with requests.
+For each of the mechanisms it is described which agreements apply to both sender and receiver.
+The specification 

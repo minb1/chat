@@ -1,0 +1,5 @@
+2 Use of local standards and best practices for TLS
+Implementations MUST support TLS. Which version(s) ought to be implemented will vary over time, and depend on the widespread deployment and known security vulnerabilities at the time of implementation.
+iGov-NL implementations MUST implement the Forum Standaardisatie TLS standard  https://www.forumstandaardisatie.nl/standaard/tls.
+
+##

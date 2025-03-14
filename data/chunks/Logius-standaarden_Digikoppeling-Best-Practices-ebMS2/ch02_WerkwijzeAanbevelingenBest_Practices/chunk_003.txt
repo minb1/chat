@@ -1,0 +1,10 @@
+
+##EB002 CPA Gebruik
+
+Voor het definiëren van een CPA geldt het volgende advies:
+
+1. Raadpleeg het hoofdstuk 3 'CPA Gebruik en Kenmerken'.
+
+1. Maak gebruik van het online CPA Register<sup>1</sup>, zie het [CPA Register gebruikershandleiding](https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/cpa-register-gebruikershandleiding)
+
+> <sup>1</sup>. Het online CPA Register wordt gehost door Justid en is beschikbaar op [https://cparegister.minvenj.nl/logius](https://cparegister.minvenj.nl/logius)

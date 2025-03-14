@@ -1,0 +1,3 @@
+
+###Beoordeling en besluitvorming
+Periodiek moet de lijst met _requests for change_/_wijzigingsverzoeken_ worden doorlopen. Daarbij moeten de wijzigingsverzoeken worden beoordeeld en moet worden besloten of een wijziging wordt doorgevoerd in de standaard.

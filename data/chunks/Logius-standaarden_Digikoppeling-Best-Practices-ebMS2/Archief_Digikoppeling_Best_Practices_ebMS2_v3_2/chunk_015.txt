@@ -1,0 +1,5 @@
+EB008 Overdrachtskarakteristieken
+
+De karakteristieken voor de betrouwbare overdracht worden uitgedrukt in ‘RetryInterval’ en ‘RetryCount’. Digikoppeling Koppelvlakstandaard ebMS2 heeft hiervoor een aanname gemaakt. Evalueer met de betrokken partijen of deze waardes van toepassing zijn. Wijzig de waardes zo nodig. Houd hierbij rekening met zowel de bedrijfsmatige verwerking van de meldingen als met de netwerk karakteristieken (beschikbare bandbreedte, omvang van de payload, quality of service en dergelijke) tussen de twee overheidsinstanties. Raadpleeg voor meer informatie hoofdstuk 3 'CPA Gebruik en Kenmerken'.
+
+##

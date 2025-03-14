@@ -1,0 +1,18 @@
+
+###Wat kan van een leverancier verwacht worden om minimaal te leveren?
+
+Dit is natuurlijk afhankelijk van de afspraken tussen de leverancier en de organisatie. Van een leverancier die een Digikoppeling adapter levert mag verwacht worden dat zij de adapter:
+
+- Inrichten voor uitwisseling van berichten tussen de eigen organisatie en de externe organisatie (zoals een landelijke voorziening en/of basisregistratie) waar men een koppeling mee wil realiseren;
+
+- Inrichten volgens de eisen van informatiebeveiliging voor berichtuitwisseling. Denk bijvoorbeeld aan een PKIoverheid-certificaat voor de externe koppeling op betrokken servers;
+
+- Volgens een (vooraf) afgesproken servicecontract beheren en verstoringen verhelpen wanneer die zich voordoen;
+
+- Inrichten zodat communicatie met interne applicaties (of ESB) kan plaatsvinden;
+
+- Testen van de koppeling in de keten.
+
+| **Meer informatie** | **Zie** | **Doelgroep** |
+|---|---|---|
+| Toelichting over de Digikoppeling adapter en selectiecriteria | Digikoppeling_adapter\_en_selectie  | [PL] [A&D] [OT&B] |

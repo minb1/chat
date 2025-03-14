@@ -1,0 +1,4 @@
+
+##Leeswijzer
+
+Dit document beschrijft hoe Logius, afdeling Standaarden (hierna: Logius) de API Standaarden beheert en hoe de bijbehorende governance is ingericht.

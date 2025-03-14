@@ -1,0 +1,46 @@
+
+###Plugfest
+
+Een zogenoemd 'plugfest' of 'plugtest' (ook wel 'connectathon'
+genoemd) is een adoptiemiddel op het gebied van samenwerken &
+faciliteren. De kern van een plugfest is om leveranciers die de
+standaard geïmplementeerd hebben bij elkaar te laten komen, en
+interoperabiliteit tussen de leveranciers/systemen ter plekke gaan
+testen aan de hand van scenario's.
+
+Tijdens een plugfest wordt in een bijeenkomst de implementatie van een
+standaard getoetst door te onderzoeken of de door de standaard beoogde
+informatie-uitwisseling tot stand komt. Om dit te toetsen kunnen
+scenario's gebruikt worden. In deze scenario's worden stappen
+doorlopen die tijdens normaal dagelijks gebruik van de standaard ook
+worden doorlopen. De scenario's richten zich op de uitwisseling van
+informatie tussen applicaties.
+
+Indien een scenario niet succesvol wordt doorlopen dan kan worden
+onderzocht waar dit aan ligt. Dit hoeft overigens niet altijd aan de
+implementatie van de standaard te liggen, maar kan ook andere oorzaken
+hebben die de interoperabiliteit in de weg staan. Indien mogelijk
+wordt het euvel ter plaatse verholpen waarna het scenario nogmaals
+doorlopen kan worden.
+
+Vanuit een standaardisatie-organisatie bekeken kan het organiseren van
+een plugfest een positieve bijdrage leveren aan:
+
+**interoperabiliteit:** plugfests bieden leveranciers die de standaard
+  hebben geïmplementeerd de mogelijkheid de implementatie van die
+  standaard te toetsen tegen andere implementaties van andere
+  leveranciers. Eventuele fouten kunnen direct of in later stadium
+  gecorrigeerd worden en onderdelen van de standaard die nog
+  onvoldoende helder gespecificeerd blijken, komen op deze manier
+  boven tafel.
+
+**transparantie:** leveranciers weten na afloop van een plugfest met
+  welke collegae zij kunnen samenwerken op basis van de
+  standaard. Indien er publiek aanwezig is bij het plugfest dan krijgt
+  dit een beeld van de wijze waarop verschillende leveranciers met de
+  standaard omgaan en welke applicaties van leveranciers goed
+  samenwerken.
+
+**adoptie:** leveranciers kunnen zich onderscheiden door te
+  participeren aan een plugfest. Door publiek uit te nodigen kan de
+  standaard ook onder aandacht van eindgebruikers gebracht worden.

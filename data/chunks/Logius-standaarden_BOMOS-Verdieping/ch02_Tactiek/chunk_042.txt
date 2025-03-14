@@ -1,0 +1,83 @@
+
+####Andere vormen van certificering
+
+Een voor- maar ook nadeel van certificering is de impact die het heeft
+op de markt. Dit houdt in dat rekening gehouden moet worden met
+juridische zaken (bijvoorbeeld een leverancier die de
+beheerorganisatie gaat aanklagen omdat het ook een certificaat wil),
+maar ook dat beheerorganisatie zijn onafhankelijkheid en daardoor
+draagvlak verliest. Of als opmaat, of om geen risico's te nemen wordt
+er vaak gebruik gemaakt van een alternatief. Naast certificering is er
+validatie. In feite is certificering het geven van een stempel na
+succesvolle validatie. Echter als het certificeringdoel wegvalt kunnen
+er lagere eisen gesteld worden aan validatie. Ondanks het wegvallen
+van het 'stempel' kan validatie toch deels voor dezelfde
+doelstellingen gebruikt worden:
+
+**Interoperabiliteit:** In principe kan dezelfde test voor certificatie ook als validatie worden uitgevoerd, maar dan zonder stempel.  
+**Financiën:** Ook voor een service gericht op validatie kan geld gevraagd worden. Echter dat zal nooit veel meer zijn dan de daadwerkelijke kosten van validatie, waarmee het geen cash cow zal worden.  
+**Adoptie:** Het beschikbaar hebben van een helpdesk waarin validatie vragen gesteld kunnen worden helpt de adoptie. Echter certificering zal een veel groter effect hebben op de adoptie.
+
+Vooral de interoperabiliteit doelstelling is prima te realiseren met
+validatie, en wordt door veel beheerorganisaties al ingezet. Tooling
+is hiervoor laagdrempelig beschikbaar.
+
+Met een plugfest wordt interoperabiliteit in de keten getoond door te
+laten zien dat de samenwerking tussen meerdere systemen werkt die aan
+elkaar geplugd zijn. Een plugfest met adoptie doelstelling is een
+openbare demonstratie van interoperabiliteit door meerdere
+leveranciers, en is ook een vorm van publieke validatie waarbij de
+resultaten een vorm van certificering zijn; immers de winnaar zal de
+winst gaan uitdragen in commerciële uitingen. Zowel certificering als
+plugfest hebben als doel transparantie richting de markt, om de markt
+in beweging te brengen. Maar een plugfest kan ook gebruikt worden voor
+een interoperabiliteit doelstelling, daarmee krijgt het plugfest een
+besloten karakter en worden de resultaten niet gepubliceerd. [Voor
+meer informatie over plugfests zie sectie Plugfest](#plugfest).
+
+Validatie kijkt ook naar individuele systemen maar dan zonder doel van
+transparantie van de markt maar als doel ondersteuning richting
+organisaties en projecten. Tot slot kunnen er pilot projects gestart
+worden om interoperabiliteit in de keten te testen.
+
+<aside class="note">
+<b>Validatie</b>
+
+De meeste beheerorganisaties bieden hulpmiddelen voor het valideren van het gebruik van standaarden, zoals:
+
+* Geonovum:  
+  [Validatie services van Geonovum](http://validatie.geostandaarden.nl/)
+
+* Kennisnet:  
+  [Edustandaard Testvoorziening](https://testvoorziening.edustandaard.nl/)
+* SETU:  
+  [SETU Support tool](https://setu.semantic-treehouse.nl/#/ext/eValidator)  
+(alleen toegankelijk voor deelnemers in SETU).
+
+Overigens is de techniek die validatie van semantische standaarden mogelijk maakt zeer generiek.
+</aside>
+
+
+Overigens zou het dus goed mogelijk zijn om validatie te gebruiken
+voor de interoperabiliteit doelstelling, en daarnaast op een andere
+manier certificatie in te richten voor adoptie of financiële
+doelstellingen. De volgende tabel laat zien waar de verschillende
+concepten voor gebruikt kunnen worden.
+
+|    Middel    |    Wanneer geschikt                 | Risico/Inspanning/Opbrengst  |
+| --- | --- | --- |
+| Certificeren | De markt moet gaan bewegen.         | Risico: Hoog |
+|              | Ervaring is opgedaan met validatie. | Inspanning: Hoog |
+|              | Partijen zijn die compliancy claimen, maar het mogelijkerwijs niet zijn.	| Opbrengst: Continu |
+| Plugfest (adoptie-doelstelling) | Als adoptie redelijk gaat, maar nog een paar partijen achterblijven. | Risico: Middel |
+|                                 | Bij een relatief nieuwe standaard. | Inspanning: Middel  |
+|                                 |                                    | Opbrengst: Eenmalig |
+| Validatie-service / Helpdesk    | De markt continu wil ondersteunen. | Risico: Laag |
+|                                 | De kwaliteit van de implementaties wilt gaan verhogen. | Inspanning: Middel |
+|                                 |                                    | Opbrengst: Continu |
+| Plugfest (interoperabiliteit-doelstelling) | De markt wil ondersteunen. | Risico: Laag    |
+|                                            | Een beeld krijgen of de standaard in de praktijk voldoet en hoe die gebruikt wordt. | Inspanning: Middel |
+|                                            |                            | Opbrengst: Eenmalig |
+| Pilot ondersteuning | Eerste oefeningen met de standaard.                   | Risico: Laag |
+|                     | Nog mogelijkheden zijn om de standaard aan te passen. | Inspanning: Laag |
+|                     | Belangrijk project, als voorloper voor andere projecten. | Opbrengst: Eenmalig |

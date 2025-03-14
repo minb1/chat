@@ -1,0 +1,20 @@
+
+##Koppelvlak & koppelvlakstandaard
+
+Een koppelvlak is een interface die volgens standaarden de gegevensuitwisseling
+verzorgt. Het werken met vaste standaarden is essentieel voor een koppelvlak.
+Hierdoor wordt implementatie vergemakkelijkt. Ook wordt het mogelijk diverse
+soorten berichten door te sturen met een grote mate van interoperabiliteit,
+omdat via de standaard afspraken over hun inhoud gemaakt is.
+
+Een van de belangrijkste eisen die door de overheid gesteld worden bij de
+inrichting van generieke voorzieningen is dat er niet veel maatwerk ontwikkeld
+hoeft te worden, maar dat er van “off the shelf” commercieel of OPEN geleverde
+software gebruik gemaakt kan worden. Voor Digikoppeling, dus voor de logistieke
+laag, betreft dat het niet willen ontwikkelen van software voor de adapters. Dit
+doel kan bereikt (benaderd) worden doordat gekozen wordt voor internationale (de
+jure of de facto) vastgelegde standaards, die door “alle” leveranciers
+interoperabel zijn geïmplementeerd.
+
+Een andere eis is dat met name afnemers gebruik kunnen maken van één “stekker”
+(één logistiek koppelpunt).

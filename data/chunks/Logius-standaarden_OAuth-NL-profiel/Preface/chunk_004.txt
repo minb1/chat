@@ -1,0 +1,7 @@
+
+###Resource Server
+
+The service is provided by a public/governmental organization.
+Assumed is the Resource Server is known (by the Authorization Server) prior to actual authorization of the User.
+A Resource Server is assumed to possess a means for identification of the Resource Server and/or encrypted information, optionally by using a PKI certificate.
+Furthermore, a Resource Server is assumed to be provided over HTTP using TLS, other protocols are out of scope for this profile.

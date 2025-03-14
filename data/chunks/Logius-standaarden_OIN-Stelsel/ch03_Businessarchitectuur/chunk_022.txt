@@ -1,0 +1,4 @@
+
+###Handelsregister
+
+Een OIN is -waar mogelijk- afgeleid van bestaande identificerende nummers uit het Handelsregister.

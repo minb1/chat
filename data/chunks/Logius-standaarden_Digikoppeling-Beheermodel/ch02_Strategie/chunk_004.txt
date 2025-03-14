@@ -1,0 +1,6 @@
+
+###Governancestructuur
+Digikoppeling sluit aan op de MIDO governance op tactisch en strategisch
+niveau. Voor de governance van Digikoppeling zelf zijn meer governance
+lagen nodig, met name voor operationeel niveau. Digikoppeling beheer omvat
+de volgende gremia:

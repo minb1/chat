@@ -1,0 +1,11 @@
+
+###Profile Requirement Item: \#wildCard, Id
+
+|[[EBXML-MSG]] Section 2.3.6, 2.3.7, 2.3.8| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+| **(Section 2.3.6)** \#wildcard Element Content: Are additional namespace-qualified extension elements required? If so, specify.  | **Not applicable**. No additional namespace-qualified extension elements are required. The toPartyMSH and any intermediaries **must** ignore any extension elements. |
+| **(Section 2.3.7)** Is a unique “id” attribute required for each (or any) ebXML SOAP extension element, for the purpose of referencing it alone in a digital signature? | **Not applicable**. Digital Signing is **not supported.**   |
+| **(Section 2.3.8)** Is a version other than "2.0" allowed or required for any extension elements?  | These profiles are limited to ebXML Messaging version 2.0 [EBXML-MSG].  |
+| Alignment | (empty) |
+| Test References | (empty) |
+| Notes  | (empty) |

@@ -1,0 +1,52 @@
+
+###Meerdere bestanden in één bericht
+
+Niet ieder groot bestand hoeft als een afzonderlijk bericht verzonden te worden. Het is ook toegestaan om meerdere bestanden te combineren in één bericht. Voor ieder afzonderlijk bestand dient dan wel een afzonderlijke data-reference te worden opgenomen in het bericht.
+
+```XML
+<schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" profile="digikoppeling-gb-1.0" xmlns:tns="http://www.logius.nl/digikoppeling/gb/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xi:schemaLocation="http://www.logius.nl/digikoppeling/gb/2010/10/gb-meta.xsd">
+	<data-reference contextId="12345-1">
+		<lifetime />
+		<content contentType="application/xml">
+			<filename>
+				Bijlage-1NCName
+			</filename>
+			<checksum type="MD5">
+				0123456789abcdef0123456789abcdef
+			</checksum>
+			<size>
+				1024
+			</size>
+		</content>
+		<transport>
+			<location>
+				<senderUrl type="xs:anyURI">
+					https://my.host.nl/12345-1-c3c3281c-e561-4be8-8519
+				</senderUrl>
+			</location>
+		</transport>
+	</data-reference>
+	<data-reference contextId="12345-2">
+		<lifetime />
+		<content contentType="application/xml">
+			<filename>
+				Bijlage-2
+			</filename>
+			<checksum type="MD5">
+				0123456789abcdef0123454321abcdef
+			</checksum>
+			<size>
+				2048
+			</size>
+		</content>
+		<transport>
+			<location>
+				<senderUrl type="xs:anyURI">
+					https://my.host.nl/12345-2-c3c3281c-e561-4be8-8519
+				</senderUrl>
+			</location>
+		</transport>
+	</data-reference>
+</schema>
+
+```

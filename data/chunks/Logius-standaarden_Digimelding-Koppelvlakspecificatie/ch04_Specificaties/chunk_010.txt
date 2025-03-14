@@ -1,0 +1,6 @@
+
+##Status bevragen
+
+Deze interactie wordt gebruikt door de afnemer om meer informatie te
+verkrijgen over de door zijn organisatie gedane terugmeldingen en de
+huidige status van deze terugmeldingen.

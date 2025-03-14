@@ -1,0 +1,12 @@
+
+####Claims for Authorization Outside of Delegation Scenarios
+
+<!-- iGov-NL : Start of the additional content -->
+<aside class=" addition">
+<b>iGov-NL : Additional content</b></br>
+
+If there is a need to include resource owner memberships in roles and groups that are relevant to the resource being accessed, entitlements assigned to the resource owner for the targeted resource that the authorization server knows about. The authorization server SHOULD include such attributes as claims in a JWT access token as defined in section 2.2.3.1 of [[rfc9068]].
+
+</aside>
+<!-- iGov-NL : End of the additional content -->
+

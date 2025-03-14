@@ -1,0 +1,11 @@
+
+###WSDL
+
+Een webservice wordt deels formeel en automatisch verwerkbaar gedefinieerd
+(beschrijving – description) door een WSDL. Deze WSDL geeft een beschrijving van
+de eisen die ten aanzien van de communicatie gesteld worden. Een WSDL kan onder
+andere bestaan uit meerdere schema definities in aparte XSD’s en policy
+definities. Gezamenlijk vormt dit een abstracte definitie van de webservice. De
+webservice communiceert feitelijk door middel van SOAP berichten, die
+gegenereerd worden op basis van de WSDL. Adressering en naamgeving zijn
+specifieke aandachtsgebieden.

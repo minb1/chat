@@ -1,0 +1,4 @@
+
+###Grote berichten ondersteund door standaard
+
+In de WUS en ebMS koppelvlakken is de grootte van een bericht beperkt. Daarom is voor deze koppelvlakken een aanvullend koppelvlak nodig voor grote berichten

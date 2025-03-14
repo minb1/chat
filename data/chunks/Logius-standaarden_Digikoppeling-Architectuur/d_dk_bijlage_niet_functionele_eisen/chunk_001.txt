@@ -1,0 +1,13 @@
+#Niet-functionele eisen
+
+Standaarden op de Pas-toe of leg uit lijst dienen te voldoen aan enkele niet-functionele eisen.
+
+De volgende eisen zijn specifiek voor de Digikoppeling van belang:
+
+- Ontkoppeling inhoud, logistiek en transport.
+
+- Leveranciersonafhankelijke open standaarden.
+
+- Interoperabiliteit.
+
+- Vindbaarheid en openbaarheid: de standaarden en services zijn vindbaar, het beheerproces is openbaar.

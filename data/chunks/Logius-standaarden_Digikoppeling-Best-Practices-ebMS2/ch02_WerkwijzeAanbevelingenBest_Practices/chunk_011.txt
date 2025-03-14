@@ -1,0 +1,8 @@
+
+##EB010 Geldigheidsperiode van een CPA
+
+Laat de start- en einddatum van de CPA mede afhangen van de geldigheid van de gebruikte client- & servercertificaten.
+
+Een CPA voor testdoeleinden kan een korte geldigheidsperiode krijgen, afgestemd op de test periode.
+
+Een geldigheidsperiode langer dan 10 jaar is niet gebruikelijk.

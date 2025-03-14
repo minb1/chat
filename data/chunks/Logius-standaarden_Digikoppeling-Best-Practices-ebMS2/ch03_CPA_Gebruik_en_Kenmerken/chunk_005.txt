@@ -1,0 +1,8 @@
+
+##Wat zijn de uitgangspunten voor de CPA?
+
+De kenmerken van het ebMS2 verkeer op Digikoppeling zijn beschreven in het document:
+
+' Digikoppeling Koppelvlakstandaard ebMS2'. Dit document is op de website van Digikoppeling te vinden [[?Digikoppeling Logius website]].
+
+De kenmerken zijn vertaald naar relevante onderdelen van een CPA. Deze CPA onderdelen worden hieronder beschreven in termen zoals benoemd in [[ebCPP]].

@@ -1,0 +1,4 @@
+
+###Aanvragen PKIoverheidscertificaat
+
+De [=OIN-houder=] vraagt een PKIoverheidscertificaat aan ten behoeve van identificatie/authenticatie, signing of encryptie. De [=TSP=] verstrekt het PKIoverheidcertificaat aan de houder van het [=OIN=]. Als een PKI Overheid certificaat wordt aangevraagd door de [=OIN-houder=] ten behoeve van een [=OIN-houder=], dan neemt de [=TSP=] daarin het [=OIN=] op en de bijbehorende naam uit het OIN-register.

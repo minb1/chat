@@ -1,0 +1,28 @@
+
+###Labels
+
+Om GitHub issues te classificeren en te agenderen voor het juiste overleg maken we gebruik van een aantal standaard labels. We labelen binnenkomende issues als:
+
+1. **Type** Alle soorten issues kunnen binnenkomen. Met Type sorteren we de issues in vragen, correcties en wijzigingen.
+   1. Correctie
+   2. Documentatie
+   3. Vraag
+   4. Wijziging
+2. **Scope** Vooral relevant voor wijzigingsvoorstellen. Hiermee wordt aangegeven of het een kleine of grote wijziging betreft. Dit heeft betrekking op de impact van een wijziging en daarmee op de [versienummering](#versienummering).
+   1. Klein
+   2. Groot
+3. **Overleg** Het label Overleg heeft alleen betrekking op wijzigingsvoorstellen. Wanneer deze labels gebruikt worden wordt het voorstel geagendeerd voor het betreffende overleg.
+   1. TO-DK
+   2. TO-Auth
+   3. Gegevensuitwisseling
+   4. Toegang
+   5. Interactie
+   6. Infrastructuur
+4. **Status**
+   1. In onderzoek
+   2. In bewerking
+   3. Uitwerking door derden
+   4. In review
+   5. Klaar voor review
+   6. Gereed
+   7. Afgewezen

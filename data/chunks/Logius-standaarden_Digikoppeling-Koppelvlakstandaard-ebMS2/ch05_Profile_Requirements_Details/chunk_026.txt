@@ -1,0 +1,15 @@
+
+###Profile Requirement Item: SyncReply
+
+|[[EBXML-MSG]] Section 4.3 SyncReply| **Best effort**|**Reliable Messaging**|**End-to-End Security** |
+|------------------|---|---|---|
+|Header elements:<br>`SOAP:Header/eb:SyncReply`||||
+| Is SyncReply mode allowed, disallowed, or required, and under what circumstances? [May be process-specific.]  | **Not applicable**.   | SyncReply is restricted to **none** (default) or **mshSignalsOnly** (on condition) Condition for usage of msghSignalsOnly mode is: both parties MSH are able to activate syncReplyMode=msghSignalsOnly see also [Best Practice]| See profile Best Effort or profile Reliable Messaging for details |
+| If SyncReply mode is used, are MSH signals, business messages or both expected synchronously?  | **Not applicable** | If SyncReply mode used only MSH signals are expected synchronously  | See profile Reliable Messaging for details   |
+| Alignment | [Affects setting of 6.4.7 syncReplyMode element. Appears as MessagingCharacteristics/\@syncReplyMode in CPA.] | |   | |
+| Test References | (empty) | |   | |
+| Notes  |   | Asynchronous messaging does not preclude support of a “near real time” response quality of service required for e.g. interactive applications. The ebXML MessageId and RefTo MessageId header elements encode correlation of request and response messages. |   | |
+
+
+Module : Reliable Messaging
+---------------------------

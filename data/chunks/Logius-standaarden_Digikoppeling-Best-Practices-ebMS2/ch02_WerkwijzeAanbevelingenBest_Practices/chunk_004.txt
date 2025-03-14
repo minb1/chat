@@ -1,0 +1,4 @@
+
+##EB003 Productie- en ontwikkelomgevingen
+
+Het is raadzaam om test- en productieservices ('OTAP') op aparte machines onder te brengen om het onderscheid tussen beide helder te houden. Geef ze een eigen DNS naam (en dus verschillende PKI overheid certificaten), bijvoorbeeld door het gebruik van verschillende subdomeinnamen.

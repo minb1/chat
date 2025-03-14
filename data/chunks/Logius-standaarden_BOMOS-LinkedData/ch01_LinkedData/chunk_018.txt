@@ -1,0 +1,3 @@
+
+###TopBraid Composer
+TopBraid Composer is een desktoptool om ontologiemodellen mee te maken en gegevensbronnen te integreren. Het ondersteunt visuele bewerking van ontologiën en kan verbinden met database-backends zoals Oracle en verschillende populaire triplestores. De uitgebreide editie is een IDE die de mogelijkheid toevoegt om snel semantische webapplicaties te ontwikkelen.

@@ -1,0 +1,36 @@
+
+##De Stelselvoorzieningen
+
+Onderstaande Figuur 9 wordt toegelicht aan de hand van de rode kaders. De figuur geeft een toelichting op welke Stelselvoorzieningen er zijn, waar de Stelselvoorzieningen zich bevinden binnen het Stelsel van Basisregistraties en welke rol de Stelselvoorzieningen spelen. Bij alle onderdelen komt de rode Digikoppeling icoon voor.
+
+![De Stelselvoorzieningen](media/de_stelselvoorzieningen.png "De Stelselvoorzieningen")
+
+1. Basisregistraties: Het Stelsel van Basisregistraties speelt een belangrijke rol in de gegevenshuishouding van de overheid. Het stelsel omvat 11 basisregistraties voor het verzamelen en ontsluiten van kwalitatief goede gegevens op het gebied van o.a. personen, bedrijven, gebouwen, onroerende zaken, geografische basiskaarten en adressen. Vier Stelselvoorzieningen ondersteunen de basisregistraties om hun product- en dienstenportfolio’s eenduidig te (gaan) ontsluiten naar de afnemers.<br>
+In de Basisregistraties zitten de zogenaamde basisgegevens, die de spil vormen voor meervoudig gebruik van gegevens binnen de overheid. Door het eenmalig verzamelen van gegevens worden niet alleen de administratieve lasten voor burgers en bedrijven beperkt, maar worden tegelijkertijd forse kwaliteitsverbeteringen en kostenbesparingen voor de overheid zelf gerealiseerd.<br>
+De Basisregistraties:<br>
+BRP - Basisadministratie persoonsgegevens<br>
+NHR - Nieuwe Handelsregister<br>
+BAG - Basisregistraties Adressen en Gebouwen (bestaat uit twee basisregistraties)<br>
+BRT - Basisregistratie Topografie<br>
+BRK - Basisregistratie Kadaster<br>
+BRV - Basisregistratie Voertuigen (kentekenregister)<br>
+BRI - Basisregistratie Inkomen<br>
+WOZ - Basisregistratie Waardering Onroerende Zaken<br>
+BGT - Basisregistratie Grootschalige Topografie (voorheen GBKN)<br>
+BRO - Basisregistratie Ondergrond (voorheen ook wel DINO)<br>
+Het aansluiten van de registraties is een succesbepalende factor aangezien de afnemers daarna gaan volgen.
+
+2. Afnemers: Organisaties met een publieke taak die gegevens uitwisselen met bijvoorbeeld de basisregistraties.
+
+3. Stelselvoorzieningen: Naast de basisregistraties bevat het Stelsel nog een aantal generieke voorzieningen, hiervan vormt Digikoppeling de basis voor het aansluiten op de Stelselvoorzieningen. Deze voorzieningen ondersteunen bij de berichtuitwisseling tussen basisregistraties en hun afnemers.<br>
+Een uitwerking van de generieke voorzieningen van het stelsel is hieronder opgenomen (muv Digikoppeling):<br>
+- Digimelding: Basisregistraties moeten zo betrouwbaar mogelijk zijn. Gebruikers maken daarom melding van mogelijk onjuiste gegevens. Het huidige Digimelding portaal versie is een centraal punt voor het melden van onjuistheden aan basisregistraties.
+- Digilevering: Digilevering verzorgt de berichtgeving over gebeurtenissen van basisregistraties naar alle afnemers die daar, middels hun abonnement, recht op hebben. Digilevering is de voorziening die ervoor zorgt dat dit op een uniforme, betrouwbare en efficiënte manier gebeurt. Gemeenten, provincies, waterschappen en uitvoeringsorganisaties, die aansluiten, krijgen met één aansluiting op Digilevering berichten over wijzigingen die zich voordoen in de verschillende basisregistraties.
+
+4. Meta-informatie: Twee voorzieningen leveren informatie over de diensten en gegevens van de basisregistraties. De Stelselcatalogus is een online catalogus die de structuur van het Stelsel van Basisregistraties en de definities van begrippen, (authentieke) gegevens en feiten beschrijft. Met die informatie kunnen gebruikers gegevens uit de basisregistratie(s) eenvoudig inpassen in hun eigen werkprocessen. Het Serviceregister biedt een overzicht van alle diensten die worden aangeboden op basis van Digikoppeling, waaronder dus de basisregistraties.
+
+| **Meer informatie** | **Zie document in de aansluitkit** | **Doelgroep** |
+|---|---|---|
+| Digimelding | Online: [Logius.nl](https://logius.nl/diensten/digimelding) (link) | [PL] [A&D]  [OT&B] |
+| Digilevering | Online: [Logius.nl](https://logius.nl/diensten/digilevering) (link) | |
+| Stelselcatalogus | Online: [Logius.nl](https://logius.nl/diensten/stelselcatalogus) (link)  | |

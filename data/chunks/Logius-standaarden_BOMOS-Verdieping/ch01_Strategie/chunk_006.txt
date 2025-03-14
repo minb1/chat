@@ -1,0 +1,164 @@
+
+###De organisatievorm
+
+Of het nu slechts een deel van de taken of alle taken door de nieuwe
+organisatie uitgevoerd moeten gaan worden, de nieuwe organisatie moet
+in beide gevallen opgericht worden waarvoor een rechtsvorm nodig
+is. Nederland kent tal van organisatie rechtsvormen. Openheid van de
+standaard is absoluut een essentieel uitgangspunt. De definitie van
+openheid schrijft voor dat de (besluitvorming van de) standaard belegd
+wordt bij een not-for-profit organisatie. Daarmee worden een groot
+deel van de organisatievormen uitgesloten, en zijn slechts enkel voor
+de hand liggen, te weten:
+
+1. Stichting.
+2. Vereniging.
+3. Overheidsorganisatie (als verzamelterm).
+
+**De stichting:** Een stichting is een rechtspersoon en wordt
+  opgericht bij notariële akte, door één of meerdere natuurlijke of
+  rechtspersonen. In de regel heeft een bestuur een voorzitter,
+  secretaris en penningmeester. Het bestuur is het enige verplichte
+  orgaan van een stichting. Daarnaast kan er nog een raad van toezicht
+  zijn, die toezicht houdt op het stichtingsbestuur. In tegenstelling
+  tot een vereniging heeft een stichting geen leden. Een stichting kan
+  wel donateurs hebben, maar die hebben geen zeggenschap. Een
+  stichting kan ook vrijwilligers hebben.
+
+<aside class="example" title="Stichting RIONED">
+De standaard Gegevenswoordenboek Stedelijk Water wordt verder ontwikkeld, 
+maar is ook in beheer en wordt operationeel gebruikt. Transparantie en 
+kwaliteit in beheer zijn hierbij cruciaal voor de continuïteit en kwaliteit 
+van en het draagvlak voor de standaard. Stichting RIONED committeert zich 
+aan een zorgvuldig en transparant beheerproces met heldere procedures en een 
+duidelijke organisatie. Zodat leveranciers en gebruikers met vertrouwen de 
+standaard kunnen implementeren en gebruiken. De beheerprocedures en -organisatie 
+zijn gebaseerd op de BOMOS-standaard en kennen een programmerende lijn, een 
+uitvoerende lijn en een vaststellende lijn. Net als bij andere activiteiten van 
+Stichting RIONED geldt dat belanghebbenden desgewenst op allerlei manieren mogen 
+meedenken en meebeslissen.
+</aside>
+
+**De vereniging:** Een vereniging is een rechtspersoon voor de
+  Nederlandse wet. Een vereniging wordt meestal opgericht door bij de
+  notaris hiervan een akte op te maken. Dit is niet noodzakelijk, maar
+  zonder notaris heeft de vereniging beperkte rechtsbevoegdheid (de
+  bestuurders zijn hoofdelijk aansprakelijk). Wanneer een vereniging
+  bij de notaris opgericht is, zijn er ook statuten. Hierin staat
+  tenminste het doel van de vereniging, de verplichtingen van de
+  leden, het bijeenroepen van de algemene (leden)vergadering en het
+  benoemen/ontslaan van de bestuurders. Een vereniging heeft een doel
+  dat nagestreefd wordt. Dit doel mag niet het verdelen van winst
+  onder de leden zijn. Wat niet wil zeggen dat er geen winst gemaakt
+  mag worden, maar deze moet ingezet worden voor een bepaald doel
+  (zoals het doel van de vereniging, kennisdeling, verbetering van de
+  kwaliteit, liefdadigheid, etc.). Een vereniging heeft leden. Dit
+  zijn mensen die lid zijn van de vereniging omdat zij het doel
+  steunen. De leden betalen meestal contributie om de vereniging
+  draaiend te houden. Leden hebben invloed in het beleid van de
+  vereniging via een algemene (leden)vergadering (ALV). Zo'n
+  vergadering wordt minstens jaarlijks gehouden en elk lid is hiervoor
+  uitgenodigd en stemgerechtigd. De ALV heeft alle bevoegdheden die
+  niet door de wet of de statuten geregeld zijn en is dus het hoogste
+  orgaan van de vereniging.
+
+**De overheidsorganisatie:** Er zijn verschillende vormen van
+  overheidsorganisaties, waardoor een korte bespreking onmogelijk
+  is. Het inzetten van een overheidsorganisatie zou op verschillende
+  manieren kunnen: één overheidsorganisatie als beheerorganisatie voor
+  alle aan de overheid gerelateerde standaarden, of per standaard één
+  overheidsorganisatie. Daarnaast kan een enkele overheidsorganisatie
+  de uitvoering van het beheer op zich nemen, maar kunnen meerdere
+  overheden zich ook verenigen. Dit kan bijvoorbeeld in een
+  vereniging. De keuze van de rechtsvorm dient weloverwogen te
+  gebeuren, waarbij ook zaken als de eenvoud van het opzetten moet
+  worden meegenomen. Bij een stichting speelt dat het mogelijk lastig
+  is voor overheidspartijen om aan een stichting deel te nemen, en dat
+  een stichting geen leden mag hebben. Bij een vereniging speelt de
+  grote macht van de ALV. Met een stichting en vereniging is het wel
+  eenvoudig om openheid aan te tonen. Bij zowel de stichting als de
+  vereniging zijn de statuten belangrijk; deze regelen in feite het
+  mandaat van de rollen in de organisatie.
+
+Ondanks het feit dat een stichting geen leden kan hebben spreekt men
+bij HL7 Nederland wel over leden, maar hanteert men strikt formeel de
+term _aangeslotenen_. SETU kent geen leden, maar wel
+participanten. Een samenwerkingsverband zonder rechtsvorm kan in de
+praktijk goed werken voor het beheer maar kan in praktische zaken weer
+nadelig zijn doordat het samenwerkingsverband als zodanig geen
+bevoegdheden heeft tot het aangaan van overeenkomsten; hierbij zal
+altijd één van de partners deze overeenkomst moeten aangaan. Mogelijke
+nadelen die hieraan kleven zijn het verlies van identiteit; het
+gebonden zijn aan regels en beperkingen van de partner; minder
+slagvaardigheid etc. Het voordeel van een dergelijke organisatievorm
+is dat deze eenvoudig is in te richten en op te heffen zonder
+juridische consequenties. De organisatie-inrichting kan in enige mate
+de vrijblijvendheid reduceren of op zijn minst expliciteren. De
+vrijblijvendheid van de deelnemers in standaarden is zeker een serieus
+aandachtspunt in het kader van een duurzaam toegepaste standaard.
+
+<p class="comment" style="color:red">
+<aside class="example" title="Het CCvD Datastandaarden">
+Besluitvorming over wijzigingen op een standaard of over de strategie 
+voor een standaard zal over het algemeen bij de beheerorganisatie liggen. 
+Maar in bepaalde gevallen kan de strategie belegd zijn bij een orgaan 
+_naast_ de beheerorganisatie. Een voorbeeld is het Centraal College 
+van Deskundigen Datastandaarden (CCvD-Datastandaarden). Dit is een 
+gezamenlijk overleg met stakeholders waarin het Informatiehuis Water (IHW), 
+Stichting Kwaliteitsborging Bodembeheer (SIKB) en stichting RIONED 
+gezamenlijk de wijzigingen op hun standaarden en hun (strategische) plannen
+vaststellen. Hiervoor is gekozen omdat de standaarden en de gebruikersgemeenschappen
+sterk overlappen. Één standaard is zelfs in gezamenlijk beheer bij SIKB en IHW.
+Gezamenlijke vaststelling van nieuwe versies is in dit geval noodzakelijk.
+
+Nieuwe versies van de standaarden worden na vaststelling door het 
+CCvD Datastandaarden nog wel bekrachtigd door de besturen van de 
+beheerorganisaties. Het CCvD is immers geen _eigenaar_ van de standaarden 
+en kan geen nieuwe versie of strategie (formeel) vaststellen. 
+Boven het CCvD staan de besturen van de deelnemende beheerorganisaties. 
+</aside>
+
+<aside class="note">
+<b>Naast 'harde' invulling ook aandacht voor 'zachte' facetten</b>
+
+Dit hoofdstuk beschrijft veelal relatief 'harde' invulling van de
+organisatie, de valkuil is om de 'zachte' facetten uit het oog te
+verliezen. Bij standaardisatie zijn vaak ook de zachte factoren van
+groot belang voor het succes van een standaard. Het smeden van een
+consortium waarin partijen elkaar vertrouwen en constructief kunnen
+samenwerken zonder dat elk incident gelijk een bom legt onder het
+voort-bestaan van het consortium is een bijzonder sociaal en organisch
+proces.  
+</aside>
+
+<p class="comment" style="color:red">
+<aside class="example" title="Template voor beheerdocument en rekenmodel van Geonovum">
+
+Om opdrachtgevers meer inzicht te geven in de activiteiten in het
+beheerproces van standaarden, heeft Geonovum een generiek
+beheerdocument opgesteld. Hierin staat wat Geonovum doet in elk
+activiteitengroep van het BOMOS-model. Voor elke door Geonovum te
+beheren standaard stelt Geonovum daarnaast een specifiek
+beheerdocument op. In dit specifieke beheerdocument zijn de
+aanvullende afspraken vastgelegd voor een standaard. In wezen biedt
+het specifieke beheerdocument het overzicht van meer- en minderwerk
+uitgaand van het generieke beheerdocument.
+
+Om de kosten van beheer optimaal inzichtelijk te maken, heeft Geonovum
+op basis van het generieke en het specifieke beheermodel, onlangs ook
+een [BOMOS rekenmodel](https://www.geonovum.nl/themas/standaardisatie#Beheer) 
+ontwikkeld. Op basis van een reeds bekende en
+beheerde standaard is de benodigde basis inzet berekend. Deze basis
+gebruiken we vervolgens om een gerichte inschatting te kunnen maken
+van meer- en minderwerk zoals beschreven in het specifieke
+beheerdocument. Hierdoor kunnen we beheerkosten realistisch en
+onderbouwd inschatten.
+
+Dit is ook voor andere organisaties te gebruiken: om het rekenmodel te
+kunnen gebruiken, kunnen zij een eigen generiek beheerplan maken, en
+voor de door hen beheerde standaarden een specifiek beheerplan. Die
+twee documenten zijn dan input voor het bijbehorende rekenmodel.
+
+</aside>
+
+</p>

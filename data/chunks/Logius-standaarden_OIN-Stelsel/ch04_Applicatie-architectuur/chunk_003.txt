@@ -1,0 +1,10 @@
+
+##Publieke raadpleegvoorziening
+
+De [=COR=] biedt de volgende services voor gebruikers:
+
+- Online zoeken naar OINs en [=SubOIN=]s op basis van nummers, organisatienamen of delen ervan
+
+- Restful API functionaliteit
+
+- Export van alle geregistreerde organisaties in CSV formaat

@@ -1,0 +1,18 @@
+
+##Betrokken partijen in het Stelseldomein
+
+Naast Logius en haar klanten zijn er nog een aantal partners die actief zijn in het Stelseldomein.
+
+- KING: is in 2012 begonnen met Operatie NUP. Deze operatie is er op gericht gemeenten te ondersteunen bij het grootschalig implementeren van de NUP bouwstenen.
+
+- Leveranciers: klanten van Logius zijn bij het aansluiten op de Stelselvoorzieningen bijna altijd afhankelijk van hun leverancier. Zie verder §8.3.
+
+- Manifestpartijen: Er zijn 15 Manifestpartijen. Het betreft de volgende partijen, ook wel uitvoeringsorganisaties genoemd: de Belastingdienst, CBS, CJIB, CVZ, Dienst Regelingen, DUO, IND, Kadaster, KvK, RDW, SVB, UWV, Agentschap NL, CAK en CIZ. Zij kunnen zowel leverancier in de vorm van een basisregistratie zijn als afnemer van de gegevens uit het stelsel, of beide (bijv. BD als afnemer en registratiehouder BRI). Bovendien beheren de manifestpartijen naast soms een basisregistratie ook veel authentieke registraties die niet als een van de 13 basisregistraties zijn getypeerd. Zij spelen een belangrijke rol in het succesvol maken van het Stelsel en de Stelselvoorzieningen.
+
+- Basisregistraties: De Basisregistraties (zie §6.1) leveren gegevens voor de Stelselvoorzieningen die afnemers gebruiken in hun processen.
+
+- In de marktbewerking zal nadrukkelijk samenwerking worden gezocht met deze partijen.
+
+- Andere aansluitende overheden: naast de Basisregistraties en de Manifestpartijen zijn ook de gemeenten, waterschappen en provincies betrokken als aansluitende partijen.
+
+- Programmaraad Stelsel van Basisregistraties: Zij is opdrachtgever voor het realiseren van een werkend Stelsel van Basisregistraties.

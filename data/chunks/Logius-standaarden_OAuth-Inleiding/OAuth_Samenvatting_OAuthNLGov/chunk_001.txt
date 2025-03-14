@@ -1,0 +1,4 @@
+#OAuth - Samenvatting van de OAuth-NL standaard
+
+> link naar de standaard: https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0
+> Versie 1.0 vastgesteld op 09 juli 2020

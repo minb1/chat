@@ -1,0 +1,7 @@
+EB013 MessageId
+
+De Koppelvlakstandaard ebMS2 schrijft het gebruik van een MessageId voor conform RFC2822, in de vorm van “[UUID@URI](mailto:UUID@URI)”.
+
+De URI in de MessageId kan ook het domein kan zijn van Digikoppeling messagehandler.
+
+##

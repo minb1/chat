@@ -1,0 +1,6 @@
+
+###Vereiste voor gebruik
+- Kennis van git/github
+- Kennis van markdown en/of HTML
+- Kennis van de vorm van een Javascript object
+- Een webserver om de documentatie te hosten

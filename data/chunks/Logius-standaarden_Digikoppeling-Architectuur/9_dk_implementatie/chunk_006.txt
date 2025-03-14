@@ -1,0 +1,13 @@
+
+###Servicebeschrijvingen
+
+Gestructureerde gegevensuitwisseling wordt vormgegeven door services. Een service bestaat uit een servicebeschrijving (een servicecontract) en berichtdefinitie waarmee de inhoud van een bericht is gespecificeerd. Deze worden op voorhand tussen partijen afgesproken en uitgewerkt.
+
+De servicebeschrijving bevat de gemaakte afspraken over de kwaliteit en vorm van uitwisseling. De berichten of antwoorden van een service zelf zijn in een technisch formaat (XML bij WUS en ebMS, JSON bij REST API) beschreven. Servicebeschrijvingen worden opgesteld door een serviceaanbieder (bijvoorbeeld een basisregistratie).
+
+Een servicecontract voor een ebMS2 service heet een CPA. Dit contract wordt afgesloten tussen de serviceaanbieder en serviceafnemer. Een CPA moet worden gecreëerd via het CPA-Register en wordt daarna ingelezen in de systemen van de serviceaanbieder en serviceafnemer.
+
+Een servicecontract voor een WUS service heet een WSDL. Dit contract wordt afgesloten tussen de serviceaanbieder en serviceafnemer(s). Een WSDL voor een bevraging (synchrone request) kan door meerdere afnemers worden gebruikt. Een WSDL wordt door een aanbiedende partij opgesteld.
+
+De beschrijving voor een REST API service heet een OAS. Deze beschrijving wordt opgesteld door de aanbieder van de service. Een OAS voor een API Servicecall kan door meerdere afnemers worden gebruikt.
+

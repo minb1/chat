@@ -1,0 +1,5 @@
+
+##Validatie & Certificatie
+Certificatie van Digikoppeling is op dit moment niet mogelijk.
+Er zijn voldoende operationele implementaties om een nieuwe
+implementatie tegen te testen.

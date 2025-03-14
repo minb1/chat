@@ -1,0 +1,7 @@
+
+##Nieuw in deze versie
+
+In deze versie wordt de Digikoppeling Grote Berichten PUSH variant
+geïntroduceerd, naast de reeds bestaande PULL variant. We hebben ervoor gekozen
+de beschrijving van de PULL variant te integreren in de bestaande PUSH versie,
+omdat de voorwaarden en regels voor beide richtingen vrijwel identiek zijn.

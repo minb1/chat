@@ -1,0 +1,7 @@
+
+###Security Module [ebMS 2.0] Section 4.1
+
+| Profile(s)| Usage: required/optional/never used in this profile |
+|------------------|---|
+| **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** | The Security Module is **required** in this profile. <br>Security profile 3 [[EBXML-MSG]]/Appendix C **must be used**: “Sending MSH authenticates and both MSH's negotiate a secure channel to transmit data”. The HTTPS connection uses encryption to provide in transit confidentiality of the complete ebXML message and performs both certificate-based Client and Server authentication during the TLS handshake.  |
+|**End-to-End Security** |Security profile 8 [[EBXML-MSG]]/Appendix C **must be used**: “Sending MSH applies XML/DSIG structures to message and passes in secure communications channel. Sending MSH applies XML/DSIG structures to message and Receiving MSH returns a signed receipt.”|

@@ -1,0 +1,24 @@
+
+####Grote berichten (GB)
+
+De situatie kan zich voordoen dat een bericht een omvang krijgt die niet meer efficiënt door de Digikoppeling-adapters of achterliggende systemen verwerkt kan worden, bijvoorbeeld vanwege de overhead bij eventuele hertransmissies. Ook kan het voorkomen dat er behoefte bestaat aan het sturen van aanvullende informatie naar systemen buiten de normale procesgang ('out-of-band'). In die gevallen zal dit grote bestand op een andere wijze uitgewisseld moeten worden: middels de Digikoppeling Koppelvlakstandaard Grote Berichten.
+
+Bij ‘grote berichten’ worden grotere bestanden uitgewisseld via een melding of een bevraging in combinatie met een (HTTPS-)download vanaf een beveiligde website. Grote berichten vormen een functionele uitbreiding op bevragingen en meldingen voor de veilige bestandsoverdracht van berichten groter dan 20 MiB.
+
+Digikoppeling Grote Berichten kent verschillende toepassingsvormen. De best-practice, in een apart document, beschrijft de volgende vormen:
+
+- Upload – grote hoeveelheid gegevens uploaden.
+
+- Download – grote hoeveelheid gegevens downloaden.
+
+- Selectie – een selectie van grote hoeveelheden gegevens verkrijgen.
+
+- Verzending – grote hoeveelheid gegevens versturen.
+
+- Multi-distributie – grote hoeveelheid gegevens aan meerdere ontvangers versturen.
+
+| **Meer informatie** | **Zie document in aansluitkit** | **Doelgroep** |
+|---|---|---|
+| Inhoudelijke beschrijving KVS WUS (huidige standaard) | Digikoppeling_\_Koppelvlakstandaard_WUS | [A&D]  [OT&B] |
+| Inhoudelijke beschrijving KVS ebMS2 | Digikoppeling_Koppelvlakstandaard\_ebMS2 | |
+| Inhoudelijke beschrijving KVS GB | Digikoppeling_Koppelvlakstandaard \_Grote_Berichten | |

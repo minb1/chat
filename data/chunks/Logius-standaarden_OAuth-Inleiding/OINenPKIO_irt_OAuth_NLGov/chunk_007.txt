@@ -1,0 +1,22 @@
+
+###Vragen DUO:
+
+De stapjes binnen Edustandaard over het toepassen van OAUTH gaan langzamer dan ik zou willen, maar zeker wel de goede kant op. Ondertussen heb ik ook een nieuwe 'proposed' versie van NL-GOV (10 juli 2024) gezien.  (Terzijde,  er is ook een versie van 13 mei  vindbaar, zonder dat duidelijk is dat die is vervangen, dat kan verwarrend zijn).  Ook in deze nieuwe versie zit iets of juist niet, wat DUO denkt nodig hebben. Vandaar dat ik er een vraag over stel.
+
+Eén van de requirements is redelijk scherp,  "de identiteit (OIN) van de client wordt onomstotelijk vastgesteld".
+
+In deze versie lees ik dit:
+
+2.3.3 In addition to private_key_jwt, the client authentication method tls_client_auth [rfc8705https://logius-standaarden.github.io/OAuth-NL-profiel/#bib-rfc8705] MAY also be used. 2.3.4 Clients using the authorization code grant type or direct access clients using the client credentials grant type MUST have a public and private key pair for use in authentication to the token endpoint. These clients MUST register their public keys in their client registration metadata by either sending the public key directly in the jwks field or by registering a jwks_uri that MUST be reachable by the authorization server 2.3.4 In case the Authorization Server, Resource Server and client are not operated under responsibility of the same organisation, each party MUST use PKIoverheid certificates with OIN.
+
+Hieruit spreekt  dezelfde intentie uit als onze requirement. Dat is goed. Maar wordt het waar gemaakt?  Het idee van DUO:
+
+- Bij mTLS wel. - De server leest de metadata van het PKI certificaat uit. Haalt daaruit het root - certificaat (NL overheid) en ook het OIN (het SSN-veld) van de certificaat-houder.
+
+- Bij private_key_jwt niet. - De publieke sleutel wordt uitgelezen met het  jwks- of jwks_uri-veld. Deze versie van NL-GOV beschrijft een JSON Web Key Set (JWK set) van metagegevens dat daarmee toegankelijk is.  Dus wel de publieke sleutel, maar niet het root-certificaat en  het SSN-veld met OIN.  Een kwaadwillende kan met een self signed certificaat een legitieme client faken.
+
+Als dat inderdaad zo is, dan is private-key-jwt ongeschikt voor client credentials en hoort het niet thuis in dit deel van deze standaard.
+
+---
+
+

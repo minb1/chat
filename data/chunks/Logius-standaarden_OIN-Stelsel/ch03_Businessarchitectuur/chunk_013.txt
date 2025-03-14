@@ -1,0 +1,4 @@
+
+###Beheerder COR
+
+Logius beheert de Centrale OIN Raadpleegvoorziening ([=COR=]). Logius Team Interfaces, onderdeel van het Productiehuis van Logius voert het dagelijks beheer en de doorontwikkeling uit van de [=COR=]. Logius heeft de zorgplicht om de [=COR=] online toegankelijk te houden voor de gebruikers van de [=COR=].

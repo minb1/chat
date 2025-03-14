@@ -1,0 +1,13 @@
+
+###3. Authorization Server profiel
+
+- De Authorization Server moet alle communicatie versleutelen met TLS en voldoen aan alle security eisen ([§  3](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#authorization-server-profile))
+- De Authorization Server moet dynamic client registration toestaan. De autorisatie server mag de Scopes beperken van dynamisch geregistreerde clients ([§  3.1.3](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#dynamic-registration))
+- De Authorization Server moet de user laten weten welke Client is geregistreerd en welke access die Client vraagt ([§  3.1.4](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#dynamic-registration))
+- De Authorization Server moet OpenID.Discovery aanbieden ([§  3.1.5](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#discovery))
+- De Authorization Server moet op verzoek van de Client tokens intrekken ([§  3.1.6](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#revocation))
+- De Authorization Server moet JWT tokens verstrekken die de API kan verifiëren ([§  3.2.1](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#jwt-bearer-tokens))
+- De Authorization Server moet authenticatie vereisen voor de revocation en introspection endpoints ([§  3.2.2](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#introspection))
+- Alle uitgegeven tokens mogen worden ingetrokken ([§  3.4](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#token-lifetimes))
+- Access tokens hebben verschillende lifetimes ([§  3.4](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#token-lifetimes))
+- De Authorization Server zou Scopes moeten definiëren en documenteren ([§  3.5](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#scopes))

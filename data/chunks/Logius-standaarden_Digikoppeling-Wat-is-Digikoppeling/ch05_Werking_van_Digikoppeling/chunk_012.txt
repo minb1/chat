@@ -1,0 +1,6 @@
+
+###Achtergrond: API Standaarden
+
+Koppelvlakken volgens REST API principes zijn ontwikkeld vanuit de idee dat interactie tussen appliacties eenvoudiger moest kunnen. De voorgaande koppelvlakstandaarden werden voor bepaalde gevallen als te uitgebreid en restrictief ervaren. REST API koppelvlakken zijn een poging om met een frisse blik naar interactie tussen applicaties te kijken.
+
+REST staat voor _representational state transfer_. REST is geen standaard maar een ontwerpprincipe, en laat nog veel vrijheid in het structureren van API's. In REST is een applicatie te bevragen als _resource_ via een URI. De status van het resource (en wat je bij een bevraging terugkrijgt) is de _resource representation_. Een belangrijk principe van REST is dat de bevraging _stateless_ is. De server houdt geen sessie bij; iedere bevraging bevat zelf de relevante context. Op een vraag komt een antwoord en daarmee is de transactie afgesloten. Een applicatie kan niet op eigen initiatief berichten naar een gebruiker sturen. Ieder antwoord is het gevolg van een vraag van een gebruiker.

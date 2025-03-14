@@ -1,0 +1,12 @@
+
+###Profile Requirement Item: HTTP Headers
+
+|[[EBXML-MSG]] Appendix B.2.2 Sending ebXML Service messages over HTTP| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header elements|MIME parts|
+| Is a (non-identity) content-transfer-encoding required for any of the MIME multipart entities? | Content transfer encoding **should not** be used. |
+| If other than "ebXML" what must the SOAPAction HTTP header field contain? | The value of the SOAPAction HTTP header field MUST be “ebXML” |
+| What additional MIME-like headers must be included among the HTTP headers?   | Additional MIME-like headers **should not** be included with the HTTP header. Any ebXML MSH **should** ignore any such additional HTTP header. |
+| Alignment | (empty) |
+| Test References | (empty) |
+| Notes  | (empty) |

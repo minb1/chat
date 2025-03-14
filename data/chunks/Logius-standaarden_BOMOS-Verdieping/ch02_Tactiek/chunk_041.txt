@@ -1,0 +1,10 @@
+
+####Hulpmiddel voor keuzes rond certificaten
+
+In deze sectie is tot nu laten zien dat certificering complex is, en
+er meerdere keuzes gemaakt kunnen worden.
+
+De figuur laat vrij eenvoudig zien dat doelstellingen rond adoptie en
+financiën in enige mate te combineren zijn, maar dat met name een
+interoperabiliteit doelstelling een andere invulling van certificering
+nodig maakt in vergelijking met de andere doelstellingen.

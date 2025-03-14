@@ -1,0 +1,39 @@
+
+###Afspraken over de inhoud en interactie van de uitwisseling
+
+Om tot uitwisseling van gegevens te kunnen komen, moeten de uitwisselende partijen afspraken maken over de inhoud en vorm van de gegevensuitwisseling.
+
+Denk hierbij aan de volgende onderwerpen:
+
+- Welk doel heeft de gegevensuitwisseling?
+
+- Welke gegevens worden uitgewisseld?
+
+- Wie is de bronhouder van de gegevens?
+
+- Hoe verloopt de gegevensuitwisseling? Worden gegevens bilateraal uitgewisseld of via een intermediair of knooppunt?
+
+- Welke vorm van interactie wordt gebruikt? Meldingen, bevragingen en/of grote berichten?
+
+- Zijn de service contracten tussen de partijen gedefinieerd?
+
+- Zijn de berichten, resources en/of interfaces gedefinieerd?
+
+- Is er sprake van grote berichten (bestanden groter dan 20 MiB)?
+
+- Worden er bijlagen meegestuurd?
+
+- Zijn de eindpunten (endpoints) gedefinieerd?
+
+- Maken de partijen gebruik van hetzelfde protocol? Indien nee, hoe wordt voorzien in de protocolvertaling?
+
+- Welke profielen worden toegepast?
+  - Betrouwbare (reliable)?
+  - Ondertekend (signed)?
+  - Versleuteld (encrypted)?
+
+- Hoe worden berichten binnen de organisatie geadresseerd en gerouteerd?
+
+- Gebruiken beide partijen dezelfde codering en karakterset (UTF-8 of Unicode)?
+
+- Beschikken de betrokken partijen over elkaars publieke PKIoverheid sleutel?

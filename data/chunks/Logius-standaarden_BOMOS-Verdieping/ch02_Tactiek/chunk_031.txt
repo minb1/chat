@@ -1,0 +1,15 @@
+
+####Wat vinden de standaardisatieorganisaties zelf van de kwaliteit?
+
+Een onderzoek onder 37 beheerorganisaties van standaarden (waaronder
+internationale standaarden zoals XBRL, HR-XML, ACORD en HL7 en
+nationale standaarden zoals SETU, StUF en Aquo) laat zien dat meer dan
+90 procent van de ondervraagde opstellers van standaarden vindt dat de
+kwaliteit van hun standaard verbeterd kan worden (zie onderstaande
+figuren). Daarnaast vindt ook een zeer ruime meerderheid dat een
+verbetering in kwaliteit van hun standaarden zal bijdragen aan betere
+interoperabiliteit.
+
+![Resultaten van een gebruikersonderzoek naar het standaardisatieproces](images/BOMOS-10_Resultaten-van-een-gebruikersonderzoek-naar-proces.png "Resultaten van een gebruikersonderzoek naar het standaardisatieproces")
+
+![Resultaten van een gebruikersonderzoek naar kwaliteit van standaarden](images/BOMOS-11_Resultaten-van-een-gebruikersonderzoek-naar-kwaliteit.png "Resultaten van een gebruikersonderzoek naar kwaliteit van standaarden")

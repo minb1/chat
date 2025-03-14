@@ -1,0 +1,4 @@
+
+##Architectuur
+
+De ADR standaard is een op zichzelf staande standaard en geen onderdeel van een bovenliggende standaard. Wel wordt er in de ADR verwezen naar verschillende andere (internationale) standaarden.

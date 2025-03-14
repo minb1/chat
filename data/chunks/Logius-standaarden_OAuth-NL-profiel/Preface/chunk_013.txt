@@ -1,0 +1,5 @@
+
+###Step 2. Authorization Request
+
+The user-agent sends the Authorization request to the Authorization Endpoint.
+The Authorization Server receives and validates the request.

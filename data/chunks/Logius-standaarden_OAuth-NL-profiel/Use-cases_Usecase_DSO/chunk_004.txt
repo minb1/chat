@@ -1,0 +1,4 @@
+
+##Client
+
+In this use case the client is the software that the authorized authority (e.g. the local authority, municipality, county etc.) who wants to retrieve information from the digital system, uses. 

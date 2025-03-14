@@ -1,0 +1,13 @@
+
+###PUSH Schema
+
+Het PUSH schema kent een request en een response bericht definitie.
+
+De PUSH request biedt de mogelijkheid om eventueel aan te geven in het bericht
+dat het grote bestand uit meerdere onderdelen (‘parts’) bestaat.
+
+Gebruik van de PUSH response definitie is optioneel. Partijen mogen ook
+overeenkomen om een eigen berichtstructuur voor de response te gebruiken. Indien
+het responsebericht van het PUSH XML Schema wordt gebruikt moet het volledig
+worden ingevuld (D.w.z. de ontvangststatus van het grote bestand en van de
+eventuele onderdelen zowel bij succesvolle ontvangst als bij fouten).

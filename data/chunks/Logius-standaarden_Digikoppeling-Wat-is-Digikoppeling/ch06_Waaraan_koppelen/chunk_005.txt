@@ -1,0 +1,29 @@
+
+##Welke keuze maken voor de vorm van berichtuitwisseling?
+
+De keuze welke vorm (bevragingen / meldingen) van berichtuitwisseling van toepassing is voor de eigen organisatie is situatieafhankelijk. In principe bepaalt de aanbieder van gegevens (serviceaanbieder) welke vorm van toepassing is en dus welke koppelvlakstandaard ondersteund wordt. Tevens zal bepaald moeten worden welke kenmerken voor de koppeling van toepassing zijn. Onderstaande opsomming geeft richting aan deze voorbereiding.
+
+Maak inzichtelijk:
+
+- Welke gegevens wil de organisatie gebruiken en uitwisselen?
+
+- Welke partij / partijen beschikken over de informatie om te bevragen danwel zouden informatie moeten ontvangen? Basisregistraties hebben als bronhouder specifieke afspraken voor berichtuitwisseling. Deze afspraken en welke vorm van berichtuitwisseling van toepassing is zijn bij de basisregistratie zelf op te vragen. Zie de Logius website voor meer informatie.
+
+- Welke gegevensstromen zijn er tussen de bron en de bestemming? En, aan welke functionele eisen moet het proces van gegevensuitwisseling voldoen? Er zijn namelijk meerdere varianten mogelijk (ook wel profielen genoemd) in de berichtuitwisseling bij zowel bevragingen als meldingen. De functionele eisen gaan over synchroniciteit, beveiliging en betrouwbaarheid. In de documenten met koppelvlakstandaarden zijn de ondersteunde varianten uitgewerkt. Vragen om te stellen zijn:
+
+  - Zijn er eisen gesteld aan de uitwisseling van de gegevens? Bijvoorbeeld op gebied van informatiebeveiliging, zoals wel/geen encryptie.
+
+  - Is een synchrone of een asynchrone (proces)koppeling gewenst? Synchroon houdt in dat er een onmiddellijke reactie op het verzoek volgt. Asynchroon houdt in dat er geen onmiddellijke reactie komt, of deze ontbreekt volledig.
+
+  - Wie neemt het initiatief in de uitwisseling per gegevensstroom? Een bevraging (vraag-antwoord interactie) wordt geïnitieerd door de vragende partij. Een melding (betrouwbaar bericht) kan worden geïnitieerd door elke partij.
+
+- Welke technische kenmerken van de berichtuitwisseling zijn van toepassing? Denk aan gebruik en plaatsing van PKIOverheid certificaten, zie het document Achtergrond en gebruik certificaten. En de netwerkkeuze (Diginetwerk of Internet).
+
+Een antwoord is voor elke organisatie maatwerk. Maar meestal heeft een organisatie zowel bevragingen als meldingen nodig. Aangeraden wordt om een specialist op dit gebied te bevragen. Ook is het mogelijk om onafhankelijk advies te vragen aan partijen als KING, LOGIUS, de ICTU, in de markt of bij soortgelijke overheidsdiensten.
+
+| **Meer informatie** | **Zie document in aansluitkit** | **Doelgroep** |
+|---|---|---|
+| Inhoudelijke beschrijving KVS WUS (huidige standaard) | Digikoppeling_Koppelvlakstandaard_WUS | [A&D]  [OT&B] |
+| Inhoudelijke beschrijving KVS ebMS2 | Digikoppeling_Koppelvlakstandaard\_ebMS2 \_ | |
+| Inhoudelijke beschrijving KVS GB | Digikoppeling_Koppelvlakstandaard \_Grote_Berichten | |
+| Gebruik en achtergrond certificaten | Digikoppeling\_Gebruik_en_achtergrond_certificaten  | |

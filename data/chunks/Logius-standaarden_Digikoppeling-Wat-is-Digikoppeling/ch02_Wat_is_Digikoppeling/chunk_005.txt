@@ -1,0 +1,8 @@
+
+###Definitie Digikoppeling
+
+Definitie van Digikoppeling volgens Logius:
+
+*Digikoppeling faciliteert gegevensuitwisselingen tussen (semi-) overheidsorganisaties door standaardisatie van koppelvlakken. Een koppelvlak is een overeengekomen set middelen en afspraken.*
+
+*Een koppelvlakstandaard regelt de opmaak en de veilige, en zo nodig betrouwbare, verzending en ontvangst van een bericht - met header (de envelop), inhoud en eventuele bijlage(n).*

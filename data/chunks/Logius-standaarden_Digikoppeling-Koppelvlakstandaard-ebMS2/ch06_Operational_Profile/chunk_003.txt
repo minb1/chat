@@ -1,0 +1,11 @@
+
+##Security Profile
+
+|| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+| Which security profiles are used, and under what circumstances (for which Business Processes)? [Refer to Appendix C of Message Service Specification. May be partially captured by BPSS isConfidential, is Tamperproof, isAuthenticated definitions.] | Security profile 3 [ebMS 2.0] Appendix C]: “Sending MSH authenticates and both MSHs negotiate a secure channel to transmit data” **must be** applied. The HTTPS connection uses encryption to provide in transit confidentiality regarding the complete ebXML message and performs **both** certificate-based Client and Server authentication during the TLS handshake. | Security profile 8 [ebMS 2.0 Appendix C] **must be** used: “Sending MSH applies XML/DSIG structures to message and passes in a secure communications channel. Sending MSH applies XML/DSIG structures to send messagesand Receiving MSH returns a signed receipt.” Security profile 14 [ebMS 2.0 Appendix C] is **optional**: “Sending MSH applies XML/DSIG structures to message **and** applies confidentiality structures (XML-Encryption) and Receiving MSH returns a signed receipt”. |
+| (section 4.1.5) Are any recommendations given, with respect to protection or proper handling of MIME headers within an ebXML Message?  | **Not applicable**. No additional recommendations made. |  |   |
+| Are any specific third-party security packages approved or required? | No recommendation made.  |  |   |
+| Whichsecurity and management policies and practices are recommended? | Pending.  |  |   |
+| Any particular procedure for doing HTTP authentication, e.g. if exchanging name and password, how? | Besides the client authentication in HTTPS, no additional procedures are applied. |  |   |
+| Others   | (empty) |  

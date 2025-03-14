@@ -1,0 +1,10 @@
+
+##Waaruit bestaat de Digikoppeling-keten?
+
+De Digikoppeling-keten bestaat uit:
+
+- Deelnemende publieke organisaties die gegevens met elkaar uitwisselen (partijen). Een partij kan een service aanbieden – in de rol van serviceaanbieder – of een service afnemen – in de rol van serviceafnemer.
+
+- Intermediairs: organisaties die voor deze deelnemende organisaties bemiddelen in de uitwisseling van gegevens. Partijen maken onderling (of via een intermediair) afspraken over de inhoud en vorm van de gegevensuitwisseling.
+
+- Componenten die de Digikoppeling-keten vormgeven.

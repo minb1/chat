@@ -1,0 +1,3 @@
+
+###NeoNeoLogism
+NeoNeologisme is een eenvoudig hulpmiddel voor het schrijven en publiceren van vocabulaires in RDF(S), niets zoals TopBraid, Protégé, VocBench of PoolParty. Het is bedoeld om eenvoudig maar expressief genoeg te zijn om subklassen en subattributen en verschillende vormen van relaties te ondersteunen.

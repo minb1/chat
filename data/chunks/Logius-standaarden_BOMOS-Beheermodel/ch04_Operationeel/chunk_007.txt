@@ -1,0 +1,17 @@
+Documentatie
+
+Alle documenten m.b.t. de standaard en het beheer van de standaard
+worden openbaar en zonder drempels voor gebruik, gepubliceerd op
+logius.nl, Github en Confluence pagina\'s. Logius publiceert tenminste
+de volgende documenten:
+
+- Dit Beheer-beheermodel
+- De vergaderstukken van het Technisch overleg en overige besluitvormende gremia.
+- De specificaties van de standaard
+- De voorlopige specificaties van de nieuwe versie van de standaard.
+- Versie 3.0 van BOMOS
+
+Versie 3.0 van BOMOS is gepubliceerd op:
+[BOMOS Fundament](https://github.com/Logius-standaarden/BOMOS-Fundament)
+en [BOMOS Verdieping](https://github.com/Logius-standaarden/BOMOS-Verdieping).
+En vindbaar via de [Logius website](https://www.logius.nl/diensten/bomos)

@@ -1,0 +1,12 @@
+
+##Helpdesk
+
+Logius biedt ondersteuning en advies via verschillende kanalen:
+
+Online: als reactie op issue\'s in de [Github repository van het Kennisplatform](https://github.com/Logius-standaarden/BOMOS-Fundament/issues)
+
+Algemeen Contactformulier: [Algemeen contactformulier Logius](https://www.logius.nl/contact/formulieren/algemeen-contactformulier)
+
+Telefonisch: 0900 - 555 45 55
+
+Per post: Logius, Postbus 96810; 2509 JE Den Haag, (t.a.v. Standaarden).

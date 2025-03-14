@@ -1,0 +1,24 @@
+
+###Adoptie binnen gebruikersorganisaties
+
+Een standaardisatie-organisatie heeft doorgaans vooral een
+netwerkperspectief op de adoptie van hun open standaarden. Een ander
+perspectief is dat van een individuele organisatie. Deze individuele
+organisatie moet keuzes maken op het gebied van de te gebruiken
+standaarden. Sturingsmiddelen voor een organisatie om gericht te
+sturen op de adoptie van open standaarden zijn onder andere:
+
+**Compliance management:** waarin een organisatie definieert hoe het met verplichte standaarden omgaat.  
+**Het IT-beleid:** waarin een organisatie de grote lijnen op het gebied ICT en open standaarden definieert. Architectuur management: de modellen en principes (waaronder de toe te passen standaarden) waaruit het ICT-landschap is opgebouwd.  
+**Portfolio management:** de kwaliteitscriteria van projecten, de inzet van middelen voor ICT-innovatie en vernieuwingsprojecten. Dit is bijvoorbeeld van belang voor het toekennen van middelen aan een migratie naar een bepaalde (nieuwe) open standaard.  
+**Inkoop en leveranciersmanagement:** de eisen die aan leveranciers worden gesteld.
+
+Voor een standaardisatie-organisatie zijn dit aangrijpingspunten om de
+adoptie binnen een specifieke partij te stimuleren. Daar zit ook de
+samenhang met de adoptiemiddelen die een standaardisatie-organisatie
+kan inzetten. Bijvoorbeeld:
+
+1. Door juridische middelen (pas toe of leg uit, opname in de wet) wordt een organisatie gedwongen om binnen het compliance managementproces te bepalen hoe een bepaalde standaard wordt ingebed.
+2. Door voorbeelden te geven of referentiemodellen te bieden kan gestimuleerd worden dat een organisatie een standaard opneemt in de doelarchitectuur.
+3. Via financiële middelen kan de migratie naar een standaard meer prioriteit krijgen in het portfolio management proces.
+4. Tenslotte kan door bijvoorbeeld het bieden van modelbestekken de adoptie worden versneld op het gebied inkoop.

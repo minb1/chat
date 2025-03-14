@@ -1,0 +1,75 @@
+
+###Kostenbesparingen bij standaardisatie
+
+Natuurlijk wordt de vraag gesteld of standaarden niet goedkoper kunnen
+worden ontwikkelt en beheert. Dat is niet eenvoudig want veel
+standaardisatie-initiatieven, in het bijzonder ook in
+industriestandaardisatie, hebben de volgende kenmerken:
+
+*  Minimale kostenoriëntatie.
+*  Hobbyisme in de positieve zin van het woord.
+
+Dat wil zeggen dat er veelal geen vet zit op de budgetten, en dat
+standaardisatieorganisaties keuzes moet maken in wat wel en niet
+uitvoerbaar is binnen het budget. Een relevante vraag is dan ook hoe
+verstandig de minimale kostenoriëntatie is in relatie tot de kwaliteit
+van de standaard en ook de adoptie van een standaard.
+
+Een complexe standaard ontwikkelen kan miljoenen kosten, de
+voornaamste kosten zijn niet voor de ontwikkelen beheerorganisatie,
+maar voor de individuele deelnemers zoals:
+
+*  De tijd van de experts (vrijwilligers).
+*  De reis en vergaderkosten.
+*  Memberships fees en kosten voor aanschaf andere standaarden.
+
+Efficiëntie kan mogelijk behaald worden in de doorlooptijd van het
+standaardisatie-proces. Tijd is geld en het ontwikkelproces voor
+standaarden is regelmatig extreem tijdrovend. Een tijdsbesparing in
+het ontwikkelproces kan veel kosten besparen. Voorbeeld hiervoor is de
+pressure cooker in de afvalbranche, waarin in een week het fundament
+voor de standaarden is gelegd.
+
+De verschillende standaardisatieorganisaties per sector willen nog wel
+eens het wiel opnieuw gaan uitvinden, meestal uit onwetendheid, wat
+ook inefficiëntie tot gevolg heeft. Bijvoorbeeld de ontwikkelen
+beheerprocessen kunnen waarschijnlijk gekopieerd worden van een andere
+standaard in plaats van deze zelf te ontwikkelen. Daarnaast
+bijvoorbeeld is de kern van een validatie-service hetzelfde voor elke
+XML (of JSON) gebaseerde standaard; toch bouwen nog veel
+beheerorganisaties hun eigen validatie-service. Algemeen kan gesteld
+worden dat door middel van online tools de inzet van de vrijwilligers
+efficiënter gemaakt worden. Onderstaande tabel geeft als samenvatting
+een aantal suggesties weer om standaardisatie efficiënt in te vullen:
+
+| Onderdeel in standaardisatie proces: | Efficiënter te maken door: |
+| --- | --- |
+| Formeren handvest | Een specifiek en gedetailleerd handvest wat strak bepaald wat in/uit scope van het standaardisatie initiatief is. |
+| Opzetten ontwikkel en beheerprocessen | Hergebruik van beschrijvingen (bv. gebruik van procedure document van andere standaardisatieorganisaties) |
+| Inrichting beheerorganisatie | Hergebruik van (validatie) tools, maar ook tools om standaarden te maken  |
+| Voorbereiding | Optimale en strakke planning met verdeling van de werkzaamheden. Ook duidelijke wensen en eisen aan de oplossing definiëren om “scope creep” te voorkomen. (“scope creep” is het fenomeen dat tijdens het ontwikkelproces de scope van de standaard geleidelijk verschuift.) Daarnaast al in een vroeg stadium de bronnen (andere standaarden) die potentieel hergebruikt kunnen worden identificeren.  |
+| Ontwikkelproces | Innovatieve ontwikkelaanpakken voor standaarden (bv. gebruik van een pressure cooker), maar ook tools zoals een wiki om gezamenlijk aan te werken. |
+| Review van de standaard | Efficiënt review proces en gebruik van templates voor het verzamelen van opmerkingen.  |
+| Vaststellen van de standaard | Online tools voor het stemmen. |
+
+Besparingen door middel van innovatieve aanpakken in het
+ontwikkelproces kunnen ook een valkuil zijn. Een grote kostenpost zijn
+de face-to-face meetings. Besparingen hierop zijn de vele online
+mogelijkheden zoals online videoconferencing, fora, mailinglijsten,
+etc. Met name in de open source gemeenschap is de mening dat
+face-to-face meetings overbodig zijn en dat asynchrone communicatie
+voldoende moet zijn, ook om wereldwijd met alle tijdzones te kunnen
+opereren. Echter open source software ontwikkelen is niet gelijk aan
+open standaard ontwikkeling. Hetzelfde proces hanteren is dus een
+valkuil. Bij standaarden gaat het om complexe materie en
+functionaliteit, waarbij wederzijds begrip en ook vertrouwen van groot
+belang zijn. Directe communicatie, face-to-face, is belangrijk. In de
+COVID pandemie zijn de online ontwikkelingen snel gegaan, en ook
+geaccepteerd geraakt; uiteraard is het wel verstandig om hiervan te
+profiteren. Efficiëntie betekent de juiste mate van face-to-face,
+online meetings, en ander gebruik van online tools voor communicatie
+en het afhandelen van de technische zaken. In andere woorden:
+innovatieve ontwikkelaanpakken zoals [de pressure cooker en gebruik
+van het Web](#voorbeelden-uit-de-operationele-praktijk) kunnen zeker
+besparingen opleveren, maar zullen kostbare face-to-face meetings niet
+vervangen.

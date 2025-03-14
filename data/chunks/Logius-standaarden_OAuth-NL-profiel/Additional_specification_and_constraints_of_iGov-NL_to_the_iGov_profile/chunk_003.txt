@@ -1,0 +1,26 @@
+2.3.1 Requests to the Authorization Endpoint
+iGov-NL
+
+Native clients MUST apply PKCE, as per RFC7636. As code_verifier the S256 method MUST be applied. Effectively this means that a Native Client MUST include a cryptographic random code_challenge of at least 128 bits of entropy and the code_challenge_method with the value S256.
+
+Request fields:
+
+client_id
+Mandatory. MUST have the value as obtained during registration.
+scope
+Optional.
+response_type
+Mandatory. MUST have value `code` for the Authorization Code Flow.
+redirect_uri
+Mandatory. MUST be an absolute HTTPS URL, pre-registered with the Authorization Server.
+state
+Mandatory, see above. Do not use the SessionID secure cookie for this.
+code_challenge
+In case of using a native app as user-agent mandatory. (Eg. an UUID [rfc4122])
+code_challenge_method
+In case `code_challenge` is used with a native app, mandatory. MUST use the value `S256`.
+/iGov-NL
+
+**reference to rationale: PKCE in Detailed rationale 7, Authorization Request in Detailed rationale 5**
+
+##

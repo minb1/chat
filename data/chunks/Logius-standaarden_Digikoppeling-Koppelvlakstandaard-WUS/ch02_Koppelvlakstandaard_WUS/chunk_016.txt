@@ -1,0 +1,9 @@
+
+###Naamgeving, namespaces
+
+Er worden geen aanvullende eisen gesteld aan de namespaces. In de header mogen
+alleen velden voorkomen conform OASIS/W3C standaarden (gebaseerd op de daar
+gedefinieerde namespaces), of service-specifieke namen, gedefinieerd door de
+provider met een namespace gedefinieerd door de provider. Ook aan de naamgeving
+van services, operations etc. worden vanuit Digikoppeling geen eisen gesteld. De
+prefix “Digikoppeling” is gereserveerd voor mogelijk toekomstig gebruik.

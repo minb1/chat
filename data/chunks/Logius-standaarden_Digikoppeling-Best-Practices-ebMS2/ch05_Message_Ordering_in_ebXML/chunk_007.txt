@@ -1,0 +1,12 @@
+
+####Specificatie (Design Time)
+
+- Voeg aan de specificatie van het bericht een element 'Volgnummer' toe.
+
+- Definieer een 'Aanvang' en en een 'Afsluit'-bericht waarmee de ontvangde partij geinformeerd wordt over de te verwerken berichten. Dit kan met name van belang zijn als er meerdere parallelle stromen van berichten zijn die ieder afzonderlijk gebruik maken van volgordelijkheid. Het is dan wel van belang de ConversationId te gebruiken.
+
+- Indien gewenst kan er een bericht gedefinieerd worden waarmee de ontvangende partij de verzendende partij kan informeren over de verwerkings toestand.
+
+- De applicatie moet bijhouden wat het volgnummer is van het laatst verwerkte bericht.
+
+- Er is een 'berichtenpool' beschikbaar waar berichten met een volgnummer in bewaard worden. Hierbij is het volgnummer een sleutel om berichten uit de ‘berichtenpool' te halen.

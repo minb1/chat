@@ -1,0 +1,3 @@
+#Releasenotes API Design Rules versie 2.0.0 (ADR2)
+
+De standaard REST API Design Rules geeft een brede verzameling functionele en technische regels voor structuur en naamgeving waarmee de overheid op een uniforme en eenduidige manier veilige REST-API's aanbiedt. Dit maakt het voor ontwikkelaars gemakkelijker om betrouwbare applicaties  te ontwikkelen met API's van de overheid. Versie 2 van de standaard sluit nauw aan bij de modulaire opbouw van het Kennisplatform API's en bevat nu ook regels voor Transport Security & Geospatial API's. Naast al deze aanvullingen is ook de opmaak en structuur van de regels verbeterd voor een eenduidige gebruikservaring.

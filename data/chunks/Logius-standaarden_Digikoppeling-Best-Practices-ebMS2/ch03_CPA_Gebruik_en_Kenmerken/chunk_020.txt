@@ -1,0 +1,20 @@
+
+###MessagingCharacteristic
+
+Deze heeft de waarde:
+
+```XML
+<tns:MessagingCharacteristics
+
+tns:syncReplyMode="none"
+
+tns:ackRequested="always"
+
+tns:actor="urn:oasis:names:tc:ebxml-msg:actor:toPartyMSH"
+
+tns:ackSignatureRequested="never"
+
+tns:duplicateElimination="always"/>
+```
+
+Geen gebruik van Signing of (payload) Encryption. (Alleen op HTTP nivo wordt informatie beveiligd)

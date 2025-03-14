@@ -1,0 +1,12 @@
+
+####Tactisch overleg: De Programmeringstafel
+
+Dit overleg is verantwoordelijk voor het goedkeuren van de
+roadmap voor doorontwikkeling van de standaard, het goedkeuren 
+van major/minor releases van de standaard en dient als het 
+voorportaal van het strategische overleg en het besluitvormende overleg.
+
+Binnen de MIDO structuur heeft de programmeringstafel Gegevensuitwisseling
+de rol van tactisch overleg.
+[Voor de programmeringstafel maakt Logius een deelagenda over standaarden](https://github.com/Logius-standaarden/Overleg/tree/main/Programmeringstafels/Gegevensuitwisseling)
+die deel uitmaakt van de agenda van het overleg.

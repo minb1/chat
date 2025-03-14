@@ -1,0 +1,8 @@
+
+###Changed
+
+- (BOR) Container `doc:Order/cac:OrderLine/cac:LineItem/cac:Delivery` is Out of Scope → Geen leveringsinformatie op regelniveau.
+- Prefix `ep` uit de repositorynaam gehaald.
+- Logboek van wijzigingen voor schematron samengevoegd met deze [CHANGELOG.md](CHANGELOG.md).
+- Cosmetische aanpassingen van de document-koptekst.
+

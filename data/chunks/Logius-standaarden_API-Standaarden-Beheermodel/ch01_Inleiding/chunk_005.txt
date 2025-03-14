@@ -1,0 +1,8 @@
+
+###Nut
+
+De overheid ontsluit gegevens en applicaties steeds vaker met standaarden. Voorbeelden hiervan zijn te zien op de website developer.overheid.nl, in Common Ground, Haal Centraal en het Digitaal Stelsel Omgevingswet.
+
+Representational state transfer (REST) is een ontwerpprincipe dat wereldwijd veel gebruikt wordt voor het bouwen van programmeerinterfaces over het web (API's). REST is geen standaard maar een ontwerpprincipe, en laat nog veel vrijheid in het structureren van API's.
+
+Deze standaarden maken het voor ontwikkelaars gemakkelijker om betrouwbare applicaties te ontwikkelen met API's van de overheid.

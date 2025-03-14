@@ -1,0 +1,3 @@
+
+###Restrict HTTP methods
+Apply a whitelist of permitted HTTP Methods e.g. `GET`, `POST`, `PUT`. Reject all requests not matching the whitelist with HTTP response code `405 Method not allowed`.

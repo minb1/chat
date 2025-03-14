@@ -1,0 +1,10 @@
+
+###Profile Requirement Item: SOAP Actor attribute
+
+|[[EBXML-MSG]] Section 6.3.1.1 SOAP Actor attribute | **Best effort**|**Reliable Messaging**|**End-to-End Security** |
+|------------------|---|---|---|
+|Header elements:<br>/SOAP:Header/eb:AckRequested/  ||||
+| SOAP Actor attribute: Are point-to-point (nextMSH) MSH Acknowledgments to be requested? [Yes, for RM Combinations 1, 3, 5, 7; refer to ebMS section 6.6. Appears as MessagingCharacteristics/\@ackRequested with \@actor=nextMSH in CPA.] | **Not applicable**.  |**Not applicable** | **Not applicable**  |
+| Are end-to-end (toParty) MSH Acknowledgments to be requested? [Yes, for RM Combinations 1, 2, 5, 6. Appears as MessagingCharacteristics/\@ackRequested with \@actor=toPartyMSH in CPA.]   | **Not applicable**.  | It is **required** that the final recipient MSH returns a receipt acknowledgment message. | **Optional**: See profiles Best Effort or Reliable Messaging for details. |
+| Test References | (empty) |||
+| Notes  | (empty) |||

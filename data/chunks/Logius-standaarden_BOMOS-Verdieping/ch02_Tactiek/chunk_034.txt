@@ -1,0 +1,46 @@
+
+####Het kwaliteitsinstrument gebruiken
+
+De relatie tussen interoperabiliteit en standaarden is die van doel-middel. 
+Zonder het kwaliteitsaspect in ogenschouw te nemen worden standaarden te veel 
+gezien als heilige graal. De standaard wordt het doel, in plaats van een middel 
+om op een effectieve en efficiënte manier interoperabiliteit te bereiken. 
+Een aandachtsverschuiving naar de kwaliteit van standaarden voorkomt dat 
+standaarden een doel op zich worden en zal de relatie tussen standaarden en 
+interoperabiliteit versterken.
+
+Dit kwaliteitsmodel, in onderstaand figuur samengevat kan daarvoor een bruikbaar 
+hulpmiddel zijn. Bij toepassing is het sterk aan te raden om het complete 
+instrument te bestuderen [[[folmer2012]]], en zelfs te overwegen om een maatwerk 
+instrument te maken door slechts een selectie uit het kwaliteitsmodel mee te nemen. 
+
+![Kwaliteitsinstrumenten](images/BOMOS-12_Kwaliteitsinstrumenten-blanco.png "Kwaliteitsinstrumenten")
+
+Het kwaliteitsmodel is een startpunt om te gebruiken om de kwaliteit van een standaard 
+te bekijken. Maar het moet wel kosteneffectief worden ingezet. In veel gevallen is het 
+gewenst dat een kwaliteitsmeting in enkele uren uitgevoerd kan worden. In dat geval 
+zijn de kosten vrij beperkt, en zullen de opbrengsten de kosten al snel overtreffen. 
+
+Inzet van het kwaliteitsmodel kan ook heel geschikt zijn als zelf-evaluatie door de 
+standaardisatie-ontwikkelaar die de eigen standaard goed kent en het model als 
+denkkader kan gebruiken om de eigen standaard mee te analyseren. Immers het kwaliteitsmodel 
+is niet bedoeld om goed/fout aan te geven, maar puur bedoelt om mogelijke verbeteringen 
+te identificeren.
+
+Wat zou het gebruik van het kwaliteitsinstrument voor standaarden kunnen opleveren. Kort samengevat:
+
+-	een model om naar de standaard te kijken: een frisse blik / inzicht in wat van invloed is 
+  op de kwaliteit van een standaard.
+-	ideeën voor verbetering van de standaard.
+-	ideeën voor aanpassingen in het standaardisatieproces.
+
+Het helpt de standaardisatieontwikkelaar om met een frisse blik naar de standaard te 
+kijken en daarbij een gevoel te krijgen hoe de kwaliteit te beïnvloeden is. Gedurende 
+het gebruik zal de standaardisatieontwikkelaar ideeën ontwikkelen hoe de standaard te 
+verbeteren is of mogelijkheden zien om het standaardisatieproces te veranderen om een 
+hogere kwaliteit te bereiken.
+
+In de complete vorm is het kwaliteitsinstrument een meetinstrument (zoals een 
+thermometer) voor standaarden, dat wil zeggen een compleet gereedschap inclusief 
+'tool' en 'gebruikshandleiding'. Maar ook alleen het kwaliteitsmodel, met een stevig 
+fundament, kan als 'bril' worden gebruikt om standaarden in de praktijk mee te toetsen.

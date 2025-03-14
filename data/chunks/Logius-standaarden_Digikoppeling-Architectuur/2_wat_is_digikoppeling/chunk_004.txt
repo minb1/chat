@@ -1,0 +1,4 @@
+
+###Open en Closed Data
+
+[Open Data zijn gegevens die in een open formaat door iedereen voor alle doeleinden vrij gebruikt, hergebruikt en gedeeld kunnen worden](https://data.overheid.nl/ondersteuning/open-data/wat-is-open-data). De nadruk voor Open Data ligt met name bij de gegevens van de overheid. Gegevens die om reden van privacy, veiligheid, wettelijke verplichtingen en dergelijk niet onder de definitie vallen noemen we in dit document *Closed Data*.

@@ -1,0 +1,3 @@
+
+###Stelselrisico analyse (extra activiteit)
+Het afsprakenstelsel vormt de basis om veilig en betrouwbare gegevensuitwisseling mogelijk te maken tussen verschillende partijen. Daarvoor is het ook van belang om als governance een goed beeld te hebben hoe het gesteld is met dreigingen en risico’s op het stelsel zelf. Wat kan er misgaan, wat kan ik doen om dit te voorkomen en in het geval dat de dreiging realiteit wordt: wat zijn dan de stappen en wie betrek ik hierbij?

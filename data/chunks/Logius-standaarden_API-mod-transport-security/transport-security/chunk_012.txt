@@ -1,0 +1,4 @@
+
+###Error handling
+- Respond with generic error messages - avoid revealing details of the failure unnecessarily.
+- Do not pass technical details (e.g. call stacks or other internal hints) to the client.

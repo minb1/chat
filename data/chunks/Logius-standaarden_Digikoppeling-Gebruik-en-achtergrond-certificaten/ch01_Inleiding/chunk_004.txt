@@ -1,0 +1,14 @@
+
+##Achtergrond
+
+Een belangrijk aspect voor beveiliging van Digikoppeling is de juiste identificatie, authenticatie en autorisatie van organisaties. Voor Digikoppeling is daarbij gekozen om certificaten toe te passen die voldoen aan de eisen van PKIoverheid<sup>1</sup>. Het juist toepassen van deze certificaten is essentieel voor een goede beveiliging. Helaas is dit toepassen ook complex. Digikoppeling heeft daarom aanvullend aan de door PKIoverheid gestelde eisen een aantal afspraken gemaakt die enerzijds de beveiliging conform PKIoverheid garanderen en anderzijds de complexiteit beheersbaar maken<sup>2</sup>. De praktische toepassing van deze afspraken is uitgewerkt in dit document. Het bevat daarvoor:
+
+<sup>1</sup>: Zie [http://www.logius.nl/pkioverheid](http://www.logius.nl/pkioverheid)
+
+<sup>2</sup>: Zie het document [Digikoppeling Identificatie en Authenticatie](https://gitdocumentatie.logius.nl/publicatie/dk/idauth/)
+
+- een uitwerking van de consequenties van deze authenticatie-afspraken;
+
+- voorstellen / best practices voor het gebruik van certificaten.
+
+In document wordt duidelijk aangegeven of het een uitwerking betreft (die verplicht is vanuit deze afspraken) of een voorstel (waar men van af kan wijken).

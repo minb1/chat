@@ -1,0 +1,5 @@
+
+##Referenties
+
+Referentie uit locale lijst - bijvoorbeeld [[Logius website]]. Lijst staat in `organisation-config.js`. Alleen referenties die in de tekst voorkomen worden getoond.
+

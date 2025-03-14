@@ -1,0 +1,11 @@
+ebMS2 voor vragen met een uitgesteld antwoord 
+
+In sommige sectoren wordt een vraag verstuurd met ebMS2 en komt het (uitgestelde) antwoord ook via ebMS2 retour. Deze vorm van uitwisseling is asynchroon en voldoet dus niet aan de definitie voor bevragingen, omdat een bevraging synchroon is. Digikoppeling biedt hiervoor meldingen (ook ingeval van WUS). Bij dit type gebruik is de betrouwbaarheid eigenlijk overbodig. Het ebMS2 best effort profiel van de koppelvlakstandaard ebMS2 kan ook voor dit type vragen met uitgestelde antwoorden worden gebruikt, als partijen dit onderling afspreken. Dit gebruik wordt niet op landelijk of intersectoraal niveau toegestaan en is dus uitsluitend optioneel binnen sectoren.
+
+| **Meer informatie over:**           | **Zie document in de aansluitkit:**      | **Doelgroep:** |
+|-------------------------------------|------------------------------------------|----------------|
+| Inhoudelijke beschrijving KVS ebMS2 | Digikoppeling_Koppelvlakstandaard\_ebMS2 | [A&D] [OT&B]   |
+| Best practices ebMS2                | Digikoppeling_Best_Practices\_ebMS2      | [OT&B]         |
+| Handleiding CPA register            | CPA\_register                            | [A&D] [OT&B]   |
+
+##

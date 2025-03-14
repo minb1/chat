@@ -1,0 +1,10 @@
+
+###Profile Requirement Item: Action
+
+|[[EBXML-MSG]] Section 3.1.5 Action Element| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header elements|`/SOAP:Header/eb:MessageHeader/eb:Action`|
+| Are actions defined for each party to each business process? List them, or provide a reference to the source of these values. [Per-process; may reference BusinessAction values in BPSS definitions. Example – within the EAN•UCC system, approved values are specified by the EAN•UCC Message Service Implementation Guide. \<eb:Action\>Confirmation\</eb:Action\> | No recommendation made. |
+| Alignment | Appears as ThisPartyActionBinding/\@action in CPA.]   |
+| Test References | (empty) |
+| Notes  | The text content of the Action element in the header **must not** contain white space. |

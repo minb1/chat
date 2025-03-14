@@ -1,0 +1,42 @@
+
+####Wie geeft het certificaat uit en wie doet de toetsing?
+
+Voor het uitgeven van het certificaat zijn er logische kandidaten: de
+standaardisatie-beheer organisatie, de branche-organisatie, formele
+standaardisatieorganisaties (NEN), onafhankelijke kennisinstellingen
+(zoals bv. TNO), certificeringsinstellingen (bv. DNV) of andere
+belangenbehartigers. Er is een belangrijk onderscheid tussen de
+toetser en de uitgever. Beide rollen kan bij dezelfde partij zijn
+belegd, maar kan ook opgedeeld worden tussen verschillende partijen
+wat een onafhankelijkheid en betrouwbaarheid waarborgt. Dat laatste
+verdient de aanbeveling want de betrouwbaarheid van een certificaat is
+van groot belang. De uitgever heeft eindverantwoordelijkheid en geeft
+de certificaten uit, en stelt het toetsingskader op. De uitvoering van
+de toets (op basis van het toetsingskader) kan dan door een andere en
+zelfs meerdere partijen worden uitgevoerd. Het stelt wel eisen aan het
+toetsingskader, immers onafhankelijk van de toetser zou het resultaat
+van de toets gelijk moeten zijn.
+
+In veel gevallen zou de uitgever en opsteller van het toetsingskader
+de standaard beheerorganisatie kunnen zijn al dan niet in samenwerking
+met de branche-organisatie. De uitvoering kan dan belegd worden bij
+een onafhankelijke kennisinstelling, certificeringsorganisatie, of bij
+meerdere consultancybureaus. Als de toetsing licht van aard is, dan is
+de splitsing minder logisch.
+
+Scheiding tussen uitgever en toetser draagt bij aan de
+onafhankelijkheid van de toetsing en indien fixed-price afspraken
+gemaakt kunnen worden over de kosten van een toetsing wordt tevens het
+(financieel) risico voor de standaardisatie-organisatie
+beperkt. Keuzes kunnen nog gemaakt worden wie het aanspreekpunt is,
+waar de aanvraag tot certificeren wordt ingediend, gebruik van
+certificaat/logo en ondermeer een klachtenprocedure.
+
+Het pakket van eisen is de publieke versie van het toetsingskader, en
+geeft aan de certificatieaanvrager aan waarin de implementatie moet
+voldoen. Het toetsingskader is niet publiek beschikbaar en geeft aan
+hoe de meting/ beoordeling plaatsvindt.
+
+Daarnaast moet er een beroepsprocedure zijn met een partij als
+aanspreekpunt indien er een meningsverschil is over de al dan niet
+toekenning van een certificaat.

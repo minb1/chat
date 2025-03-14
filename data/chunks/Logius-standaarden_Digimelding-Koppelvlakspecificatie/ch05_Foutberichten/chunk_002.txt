@@ -1,0 +1,11 @@
+
+##Autorisatiefouten
+
+Wanneer een systeem van de afnemer op transportniveau of
+applicatieniveau niet geautoriseerd is bij het leverende systeem dan
+krijgt deze een Digikoppeling-foutmelding 'niet geautoriseerd' terug.
+
+Optioneel kan de basisregistratie in de SOAP Fault-detail meer
+informatie verstrekken.\
+Indien een basisregistratie een eigen specifiekere foutcode heeft dan
+mag deze ook verzonden worden in plaats van de Digikoppeling-melding.

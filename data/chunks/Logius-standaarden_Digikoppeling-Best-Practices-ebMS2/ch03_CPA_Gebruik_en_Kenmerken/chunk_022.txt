@@ -1,0 +1,15 @@
+
+##Hoe wordt een CPA gemaakt?
+
+Op basis van de hierboven genoemde CPA onderdelen kan alleen een 'CPA template' gemaakt worden. Wat ontbreekt zijn de specifieke zaken rondom:
+
+- De services en functies (Actions in ebMS2 terminologie) die aangesproken kunnen worden, inclusief procesnaam waar ze deel van uitmaken.
+
+- De technische gegevens van een ebMS-gateway van een organisatie, zoals de te hanteren transport URL, de publieke sleutels van de client en server certificaten ende PartyId van de organisatie
+
+In het document 'Digikoppeling CPA Creatiehandleiding' is te lezen met welke gegevens een CPA gemaakt wordt, in combinatie met Digikoppeling CPA Creatievoorziening.
+
+| Meer informatie     | Zie document in de aansluitkit               | Doelgroep |
+|-------------------------|--------------------------------------------------|---------------|
+| Handleiding CPA register | [https://www.logius.nl/diensten/digikoppeling/aanvragen/voorbereiden](https://www.logius.nl/diensten/digikoppeling/aanvragen/voorbereiden) | [A&D] [OT&B]  |
+

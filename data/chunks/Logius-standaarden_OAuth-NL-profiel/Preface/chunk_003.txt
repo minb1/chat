@@ -1,0 +1,7 @@
+
+##Introduction
+
+For the Client credentials flow and Authorization code flow usecases to work properly the following application building blocks need to be in place:
+1. the **Resource Server** (usually described as the API)
+2. the **Authorization Server**
+3. the **Client** (application)

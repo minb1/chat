@@ -1,0 +1,50 @@
+
+####Wie of wat kan worden gecertificeerd?
+
+Bij een certificeringtraject is er altijd iets of iemand dat
+gecertificeerd wordt. Dit kan een natuurlijk persoon, een organisatie,
+een implementatie-proces, een product of zelfs een project zijn. Er
+moet echter wel een keus gemaakt worden, het is niet mogelijk om
+hetzelfde certificaat uit te reiken aan (bijvoorbeeld) zowel een
+persoon als een pakket.
+
+**Organisatie:** Een organisatie kan gecertificeerd worden indien de
+  organisatie zich bijvoorbeeld gecommitteerd heeft aan bepaalde
+  afspraken, zoals de implementatie van de standaard voor een bepaalde
+  datum, of een hoeveelheid van implementaties. Daarnaast kan een
+  organisatie certificaat ook als kapstok certificaat
+  dienen. Bijvoorbeeld een organisatiecertificaat wordt uitgedeeld als
+  er een minimale hoeveelheid aan implementaties van de standaard in
+  projecten, producten, personen of processen heeft plaatsgevonden.
+
+**Natuurlijke personen:** Een persoon kan gecertificeerd worden op
+  basis van zijn kennis en expertise, bijvoorbeeld door het volgen en
+  succesvol afronden van een opleiding, of door het (aantoonbaar)
+  uitvoeren van een hoeveelheid aan projecten met de standaard.
+
+**Projecten:** Semantische standaarden worden vaak ingezet in de
+  uitwisseling van informatie. Een project tussen twee (of meer
+  organisaties), waarin eventueel ook producten worden ingezet, kan
+  dan gecertificeerd worden.
+
+**Producten:** Voor veel standaarden is het cruciaal dat de standaard
+  is geïmplementeerd in producten en diensten die aangeboden worden op
+  de markt. Door aanschaf van een gecertificeerd product kan een
+  organisatie eenvoudig gebruik maken van de standaard.
+
+**Implementatieproces:** Als het proces (de aanpak) gecertificeerd is
+  dan geeft dat vertrouwen in het resultaat van dat proces. In het
+  geval bij standaardisatie zou een projectaanpak voor gebruik van de
+  standaard in projecten kunnen certificeren, wat vertrouwen geeft dat
+  het projectresultaat een succesvolle implementatie van de standaard
+  bevat.
+
+**Opleidingsmateriaal:** Als de opleiding, of het opleidingsmateriaal,
+  is gecertificeerd dan geeft dat vertrouwen in de kennis die wordt
+  verkregen om op basis daarvan een project te kunnen uitvoeren.
+
+Bij het toekennen van het certificaat hoort meestal het gebruik maken
+van een logo dat door de beheerorganisatie wordt uitgegeven. Openheid
+en het voorkomen van intellectueel eigendomsrecht betekent niet dat er
+geen beschermd logo gebruikt mag worden. Uiteraard staat dat openheid
+niet in de weg.

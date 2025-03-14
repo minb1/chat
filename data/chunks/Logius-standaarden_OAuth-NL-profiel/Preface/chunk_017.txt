@@ -1,0 +1,6 @@
+
+###Step 6. Access Token Response
+
+The Authorization Server responds to the client with an Access Token Response.
+This response contains an Access Token, specific to the requested authorization.
+The client receives and validates the Access Token and can use the Access Token to send requests to the Service API.

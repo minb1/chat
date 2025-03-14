@@ -1,0 +1,6 @@
+
+##Additional Messaging Features beyond ebMS Specification
+
+| | All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+| Are there additional features out of specification scope, whichare part of this messaging profile, as an extension to the ebMS profiling? | No. |

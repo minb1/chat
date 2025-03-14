@@ -1,0 +1,29 @@
+
+###Voorbeelden van gelaagdheid van standaarden
+
+Tot slot, ook binnen de standaarden zelf kan weer gelaagdheid
+ontstaan, op verschillende manieren. Tussen verticalen sector modellen
+en horizontale standaarden, en daarnaast worden ook andere
+(bv. technische) standaarden vaak samen toegevoegd om een totaal
+oplossing te bieden voor interoperabiliteit.
+
+<aside class="example" title="XBRL">
+XBRL is een voorbeeld van een internationale verticale standaard (in
+de financiële sector) waarvoor nationale taxonomieën zijn opgesteld,
+bijvoorbeeld de US GAAP of in Nederland door het SBR programma.
+
+In het kader van e-factureren heeft de Nederlandse overheid gekozen
+voor een internationale horizontale standaard (UBL), en heeft men
+vervolgens zelf een factuurmodel ontwikkeld om de vrijheidsgraden te
+beperken. Dus ook hier is er sprake van een nationaal
+toepassingsprofiel om uiteindelijk interoperabiliteit te kunnen
+bereiken.
+</aside>
+
+<aside class="example" title="Metamodel voor Informatiemodellering">
+Om alle informatiemodellen in Nederland nog beter op elkaar aan te 
+laten sluiten is een metamodel ontwikkeld voor informatiemodellering 
+(MIM). Hierin komt de modelleringskennis van onder meer Geonovum, 
+Kadaster en VNG Realisatie samen. Met deze standaard wordt interoperabiliteit 
+tussen andere standaarden bevordert. 
+</aside>

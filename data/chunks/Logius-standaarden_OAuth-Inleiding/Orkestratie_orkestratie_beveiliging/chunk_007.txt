@@ -1,0 +1,6 @@
+
+###Identity
+
+- Service A,B & C kennen de identity van Service Y, niet van Client X of User U
+
+- Service Y kent de Identity van User U en of Client X

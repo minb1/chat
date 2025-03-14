@@ -1,0 +1,5 @@
+
+##Initiatie
+
+1. Uitbreidingen en aanpassingen in de OAuth-NL Standaard komen tot stand door participatie van de verschillende belanghebbenden.
+2. Belanghebbenden kunnen op vier manieren participeren: als lid van de Community en/of de Technische Architectuur Groep en/of als lid van de Adviesraad of als lid van het OBDO.

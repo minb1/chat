@@ -1,0 +1,13 @@
+
+##Kaders en bronnen
+
+De volgende kaders en bronnen zijn gehanteerd bij de uitwerking van het OIN-stelselv1 en v2:
+
+- NORA is het kader voor de uitwerking van de Centrale OIN Raadpleegvoorziening.
+
+- Memo OIN: *Gebruik van OIN, knelpunten en oplossingen Het memo met opleggers zijn op aangeboden aan de Regieraad Gegevens van 14 januari 2016. De stukken zijn schriftelijk besproken.
+
+- [[[DK-Voorwaarden]]]: De Voorwaarden Digikoppeling bevatten de specifieke voorwaarden die gelden tussen Logius en [=Afnemers=] in het kader van Digikoppeling in aanvulling op de [[Algemene Voorwaarden Logius]], van toepassing op alle diensten van Logius.  
+
+- [[[DK-Gebruiksvoorwaarden]]]: De Gebruiksvoorwaarden Digikoppeling bevatten de specifieke voorwaarden die gelden tussen Logius en [=Gebruikers=] in het kader van Digikoppeling in aanvulling op de [[Algemene Voorwaarden Logius]], van toepassing op alle diensten van Logius.
+

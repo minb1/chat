@@ -1,0 +1,159 @@
+\[\^([0-9]+)\] replace <sup>$1</sup>
+
+
+Colofon
+
+| Logius Servicecentrum:  | Postbus 96810 2509 JE Den Haag  t. 0900 555 4555 (10 ct p/m) e. [servicecentrum@logius.nl](mailto:servicecentrum@logius.nl)   |
+|-------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+|                         |                                                                                                                               |
+
+Documentbeheer
+
+| Datum    | Versie | Auteur | Opmerkingen                                         |
+|----------|--------|--------|-----------------------------------------------------|
+| 03/06/14 | 1.0    | Logius | Samengesteld en inhoudelijke check laten uitvoeren. |
+| 20/09/17 | 1.1    | Logius | Verwijzingen naar WS-RM verwijderd                  |
+| 10/07/18 | 1.1.1  | Logius | Aanpassen versionering                              |
+|          |        |        |                                                     |
+|          |        |        |                                                     |
+|          |        |        |                                                     |
+|          |        |        |                                                     |
+|          |        |        |                                                     |
+
+Inhoud
+
+[1	Inleiding	5](#_Toc496080862)
+
+>   [1.1	Doel en scope	5](#_Toc496080863)
+
+>   [1.2	Leeswijzer	5](#_Toc496080864)
+
+>   [1.3	Doelgroep van dit document	5](#_Toc496080865)
+
+[2	Wat is Digikoppeling?	6](#_Toc496080866)
+
+>   [2.1	Inleiding	6](#_Toc496080867)
+
+>   [2.2	Doel van Digikoppeling	6](#_Toc496080868)
+
+>   [2.3	Scope van Digikoppeling	6](#_Toc496080869)
+
+>   [2.3.1	Definitie Digikoppeling	7](#_Toc496080870)
+
+>   [2.3.2	Gebruik van Digikoppeling door (semi-)overheidsorganisaties	7](#_Toc496080871)
+
+>   [2.4	De Digikoppeling standaarden	8](#_Toc496080872)
+
+>   [2.4.1	Koppelvlakstandaarden voor berichtenuitwisseling	8](#_Toc496080873)
+
+>   [2.4.2	Identificatie en Authenticatie	9](#_Toc496080874)
+
+>   [2.5	Succesvolle toepassingen met Digikoppeling	10](#_Toc496080875)
+
+[3	Waarom Digikoppeling gebruiken?	11](#_Toc496080876)
+
+>   [3.1	Voordelen	11](#_Toc496080877)
+
+>   [3.2	Besparingen binnen het stelsel van Basisregistraties	11](#_Toc496080878)
+
+[4	Wanneer Digikoppeling gebruiken?	12](#_Toc496080879)
+
+>   [4.1	Wanneer verplicht gebruik van Digikoppeling?	12](#_Toc496080880)
+
+>   [4.2	Bredere toepassing buiten de (publieke) overheid mogelijk	12](#_Toc496080881)
+
+[5	Werking van Digikoppeling?	13](#_Toc496080882)
+
+>   [5.1	Welke vormen van berichtuitwisseling zijn er?	13](#_Toc496080883)
+
+>   [5.1.1	Bevragingen	13](#_Toc496080884)
+
+>   [5.1.2	Meldingen	13](#_Toc496080885)
+
+>   [5.1.3	Omgaan met Grote Berichten (GB)	14](#_Toc496080886)
+
+>   [5.1.4	Inhoudelijke verdieping: Bevragingen, meldingen en GB	14](#_Toc496080887)
+
+>   [5.2	Inleiding koppelvlakstandaard ebMS2	15](#_Toc496080888)
+
+>   [5.2.1	Achtergrond: ebMS familie van standaarden	15](#_Toc496080889)
+
+>   [5.2.2	ebMS2 voor meldingen	16](#_Toc496080890)
+
+>   [5.2.3	CPA voor vastleggen gegevensuitwisseling	16](#_Toc496080891)
+
+>   [5.2.4	ebMS2 voor vragen met een uitgesteld antwoord	16](#_Toc496080892)
+
+>   [5.3	Inleiding koppelvlakstandaard WUS	17](#_Toc496080893)
+
+>   [5.3.1	Achtergrond: WUS familie van standaarden	17](#_Toc496080894)
+
+>   [5.3.2	WUS voor bevragingen	17](#_Toc496080895)
+
+>   [5.3.3	WSDL	17](#_Toc496080896)
+
+>   [5.4	Inleiding koppelvlakstandaard Grote berichten	18](#_Toc496080897)
+
+>   [5.4.1	Werking grote berichten	18](#_Toc496080898)
+
+>   [5.4.2	Standaarden voor grote berichten	18](#_Toc496080899)
+
+>   [5.5	Informatiebeveiliging voor berichtuitwisseling	19](#_Toc496080900)
+
+>   [5.6	Waaruit bestaat de Digikoppeling-keten?	19](#_Toc496080901)
+
+>   [5.6.1	Partijen	20](#_Toc496080902)
+
+>   [5.6.2	Intermediairs	20](#_Toc496080903)
+
+>   [5.6.3	Componenten in de logistieke Digikoppeling-keten	21](#_Toc496080904)
+
+>   [5.7	Hoe ziet de berichtuitwisseling-dialoog eruit voor bevragingen en meldingen?	22](#_Toc496080905)
+
+>   [5.7.1	Bilaterale uitwisseling tussen partijen	22](#_Toc496080906)
+
+>   [5.7.2	Bilaterale uitwisseling via een transparante intermediair	22](#_Toc496080907)
+
+[6	Waaraan koppelen?	24](#_Toc496080908)
+
+>   [6.1	De Stelselvoorzieningen	24](#_Toc496080909)
+
+>   [6.2	Aansluiten op Landelijke Voorzieningen	26](#_Toc496080910)
+
+>   [6.3	Betrokken partijen in het Stelseldomein	26](#_Toc496080911)
+
+>   [6.4	Welke keuze maken voor de vorm van berichtuitwisseling?	26](#_Toc496080912)
+
+>   [6.4.1	Overzicht koppelvlakstandaarden Landelijke Voorzieningen	27](#_Toc496080913)
+
+[7	Wat zijn ontwikkelingen in kader van Digikoppeling?	28](#_Toc496080914)
+
+>   [7.1	Ontwikkeling van Digikoppeling versies	28](#_Toc496080915)
+
+>   [7.1.1	Digikoppeling 1.0 en 1.1	28](#_Toc496080916)
+
+>   [7.1.2	Digikoppeling 2.0	28](#_Toc496080917)
+
+>   [7.1.3	Digikoppeling 3.0	28](#_Toc496080918)
+
+>   [7.2	Toekomstige ontwikkelingen op gebied van de standaard	29](#_Toc496080920)
+
+[8	Hoe aansluiten en wie biedt ondersteuning?	30](#_Toc496080921)
+
+>   [8.1	Aansluitprocedure	30](#_Toc496080922)
+
+>   [8.2	Welke ondersteuning biedt Logius?	30](#_Toc496080923)
+
+>   [8.2.1	Contact met het Servicecentrum	30](#_Toc496080924)
+
+>   [8.2.2	Digikoppeling community	30](#_Toc496080925)
+
+>   [8.3	Welke ondersteuning bieden leveranciers?	30](#_Toc496080926)
+
+>   [8.3.1	Wat kan van een leverancier verwacht worden om minimaal te leveren?	31](#_Toc496080927)
+
+>   [8.4	KING en Logius: Markscan Digikoppeling	31](#_Toc496080928)
+
+[9	Wie is de eigenaar en beheerder van de standaard?	32](#_Toc496080929)
+
+#

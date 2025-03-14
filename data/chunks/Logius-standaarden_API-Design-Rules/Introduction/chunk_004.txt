@@ -1,0 +1,4 @@
+
+##Authors
+
+Despite the fact that two authors are mentioned in the list of authors, this document is the result of a collaborative effort by the members of the *API Design Rules Working Group*.

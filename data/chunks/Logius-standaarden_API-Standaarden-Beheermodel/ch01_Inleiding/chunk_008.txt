@@ -1,0 +1,9 @@
+
+##BOMOS
+
+Het activiteitendiagram toont welke lagen het model onderscheidt en welke activiteiten daarbinnen onderscheiden worden. De lagen en de ondersteunende
+activiteiten worden elk in een hoofdstuk besproken.
+
+![BOMOS activiteitendiagram](images/bomos_activiteiten.png "BOMOS activiteitendiagram")
+
+Voor meer details of BOMOS verwijzen we naar de documentatie: [BOMOS, het fundament](https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/) en [BOMOS, de verdieping](https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/)

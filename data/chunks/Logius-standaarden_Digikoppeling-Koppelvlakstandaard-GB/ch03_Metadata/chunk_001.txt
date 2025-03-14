@@ -1,0 +1,4 @@
+#Metadata
+
+De metadata beschrijft de informatie over het bestand dat verstuurd wordt met
+HTTP 1.1. De metadata zelf wordt verzonden via een (WUS/ebMS/API) Digikoppeling Koppelvlak 

@@ -1,0 +1,30 @@
+
+###Implementatie invoering eDelivery/ebMS3/AS4
+
+_Wat is het issue of de wens?_
+
+De ebMS2 standaard wordt niet verder doorontwikkeld. Het ligt daarom voor de hand om te kijken of ebMS2 vervangen kan worden ebMS3. En dan met name het AS4 profiel hierop. Dit is ook onderdeel van de EU eDelivery standaard voor gegevensuitwisseling over landsgrenzen heen.
+In 2018 heeft Digikoppeling laten onderzoeken of en wanneer het zinnig is om ebMS2 vervangen door de nieuwe versie. Naar aanleiding van dat onderzoek besloot het TO dat er toen geen directe aanleiding was om ebMS2 actief te vervangen.
+
+Begin 2020 is in het TO besloten om ebMS2 weliswaar nog niet actief te vervangen, maar dat het wel zinnig is om als Digikoppeling bij te houden hoe de ondersteuning van ebMS2, vanuit leveranciers, zich ontwikkeld en al eens te verkennen welk ebMS3 profiel eventueel bruikbaar zal zijn binnen de Digikoppeling standaard.
+Het eDelivery ebMS3/AS4 profiel is in principe geschikt bevonden bij deze verkenning.
+
+In 2021/2022 zijn de ontwikkelingen verder gevolgd en werd binnen het TO Digikoppeling aangegeven dat actieve vervanging wenselijk was gezien de teruglopende ondersteuning van ebMS2 in de markt en de noodzaak om aan te sluiten op actief onderhouden standaarden.
+
+In 2023 is ook binnen het MIDO besproken dat vervanging van het ebMS2 profiel door een ebMS3/AS4 profiel wenselijk is, en is een impact analyse gestart om te bepalen wat hiervan de impact zou zijn en welk invoeringsplan hierbij het beste gevolgd kan worden.
+
+
+_Wat gaat er gebeuren?_
+
+Digikoppeling beheer gaat op basis van de bespreking van de impact analyse en een positief besluit op het invoerplan door het MIDO de standaard documentatie aanpassen door een ebMS3/AS4 profiel op te nemen.
+(in 2025 zal de nadruk liggen op ondersteuning van organisaties in het migratie proces) 
+
+_Wat is het resultaat?_
+
+Een Digikoppeling standaard voorzien van een ebMS3/AS4 profiel op basis van eDelivery en een migratieplan voor de overgang van ebMS2 naar ebMS3/AS4
+
+_Wanneer gaat dit gebeuren?_
+
+Q1 2024-Q4 2025
+
+

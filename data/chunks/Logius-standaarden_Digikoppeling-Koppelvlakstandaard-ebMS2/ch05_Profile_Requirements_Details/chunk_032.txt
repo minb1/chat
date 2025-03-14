@@ -1,0 +1,11 @@
+
+###Profile Requirement Item: Reliability Protocol
+
+|[[EBXML-MSG]]Section 6.5.3, 6.5.7 | **Best effort**|**Reliable Messaging**|**End-to-End Security** |
+|------------------|---|---|---|
+| Usage: required/optional/never used in this profile, Profiled: yes / no   | **Never** used in this profile.   | The Reliable Messaging Protocol in [[EBXML-MSG]] must be used.   | **Optional** in this profile: depends on the use of best effort or reliable messaging. |
+| Must a response to a received message be included with the acknowledgment of the received message? Are they to be separate, or are both forms allowed? | **Not applicable**  | Receipt acknowledgment messages are standalone messages. They **must** not to be bundled with business response messages or other ebXML messages. | |
+| If a DeliveryFailure error message cannot be delivered successfully, how must the error message's destination party be informed of the problem?  | Each collaborating party is responsible for defining procedures for handling these issues. |   | |
+| Alignment | (empty) | ||
+| Test References | (empty) |||
+| Notes  | (empty) |||

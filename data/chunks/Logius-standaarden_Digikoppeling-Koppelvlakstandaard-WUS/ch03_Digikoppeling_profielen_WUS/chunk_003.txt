@@ -1,0 +1,21 @@
+
+##WUS Profiel Digikoppeling 2W-be-S 
+
+<dl>
+<dt>Beveiliging</dt>
+<dd>
+Dit profiel maakt voor de beveiliging gebruik van tweezijdig TLS en tevens
+worden de berichtonderdelen ondertekend zoals vermeld in hoofdstuk 2, paragraaf
+End-to-End beveiliging.
+</dd>
+<dt>Headerblocks</dt>
+<dd>
+In dit profiel zijn de WS-Addressing en WS-Security 1.0 ondertekening
+(wsse:Security) headers van toepassing (zie [[[?Voorbeelden]]]).
+</dd>
+<dt>MTOM</dt>
+<dd>
+De geoptimaliseerde (MTOM) voorbeeldberichten voor profiel Digikoppeling 2W-be-S
+worden weergegeven in [[[?Voorbeelden]]].
+</dd>
+</dl>

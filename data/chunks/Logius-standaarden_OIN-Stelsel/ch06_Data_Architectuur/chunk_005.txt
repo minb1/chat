@@ -1,0 +1,15 @@
+
+##SubOIN: een betekenisloos nummer
+
+Een [=SubOIN=] is een *betekenisloos* nummer dat wordt gegeneerd tijdens de registratie. Betekenisloos houdt in dat het nummer zelf geen aanwijsbare relatie heeft met het OIN van de [=SubOIN-beheerder=]. De relatie is alleen te raadplegen via de [=COR=] API. Een [=SubOIN=] is een [=OIN=] voor entiteiten zonder rechtspersoonlijkheid, zoals een organisatie die niet is ingeschreven in het Handelsregister, een organisatie-onderdeel of een voorziening. Het nummer van een organisatie dat voorkomt in een aangesloten register wordt ook beschouwd als een [=OIN=].
+
+Het prefix verwijst naar het OIN-register.
+
+| **Element** | **Lengte** | **Waarde** |
+|-----------------|------------|--------------------|
+| **Prefix**| 8 posities | 00000004 |
+| **Hoofdnummer** | 9 posities | Gegenereerd nummer |
+| **Suffix**| 3 posities | 000|
+
+
+<div class="note">

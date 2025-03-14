@@ -1,0 +1,77 @@
+
+##Ondersteunde varianten
+
+De ebXML Messaging 2.0-standaard is de basis van deze specificatie. Deze
+standaard biedt een hogere mate van configureerbaarheid dan in
+Digikoppeling-praktijk wenselijk is. Om redenen van interoperabiliteit, eenvoud
+en overzichtelijkheid onderscheidt deze koppelvlakstandaard een drietal
+varianten van uitwisselingen. Elke variant veronderstelt bepaalde
+voorgedefinieerde keuzen voor parameters als synchroniciteit, beveiliging en
+betrouwbaarheid en is daarmee een “profiel” voor ebXML Messaging.
+
+Elke uitwisseling op basis van het ebXML Messaging versie 2.0 protocol over
+Digikoppeling zal moeten voldoen aan één van de volgende Digikoppeling ebMS2
+profielen:
+
+- Best Effort: dit zijn asynchrone uitwisselingen die geen faciliteiten voor
+ betrouwbaarheid (ontvangstbevestigingen, duplicaateliminatie etc.) vereisen.
+ Voorbeelden zijn toepassingen waar het eventueel verloren raken van sommige
+ berichten niet problematisch is en waar snelle verwerking gewenst is.
+
+- Reliable Messaging: asynchrone uitwisseling met ontvangst bevestigingen en
+ duplicaateliminatie door de ontvangende message handler\*. Dit profiel is
+ onder meer geschikt voor alle berichtenstromen die leiden tot updates van
+ gegevensverzamelingen.
+
+ *: In bepaalde gevallen mag een acknowledgement synchroon verstuurd
+ worden. Zie par 4.4
+
+- End-to-End Security: op basis van Reliable Messaging of Best Effort wordt
+ een bericht beveiligd tussen de uiteindelijke Consumer en de uiteindelijke
+ Provider, ook wanneer er zich intermediairs bevinden in het pad tussen die
+ twee. Het betreft hier authenticatie van de Consumer organisatie, conform
+ het Digikoppeling authenticatiemodel, waarbij alleen de identiteit van de
+ Consumerorganisatie relevant is, en encryptie van het bericht onderweg. Voor
+ de authenticatie en encryptie wordt gebruik gemaakt van XML digitale
+ handtekening [[xmldsig-core-20020212]] en XML-versleuteling [[xmlenc-core]], conform ebMS2.0.
+
+Voor alle profielen gelden de volgende eigenschappen:
+
+- Vertrouwelijkheid en authenticatie van zender en ontvanger wordt als volgt
+ gerealiseerd:
+
+- Voor Point-to-Point Security, door middel van twee-zijdig TLS op
+ transport-niveau (in het HTTP kanaal). (De toepassing ervan wordt dus ook
+ verplicht verklaard bij gebruik van security op berichtniveau.)
+
+- Voor End-to-End Security, door middel van signing (ondertekening) en
+ (optioneel) encryptie (versleuteling) op bericht-niveau in combinatie met
+ (point-to-point) twee-zijdig TLS in het HTTP kanaal.
+
+- De berichtenuitwisseling is *in principe* asynchroon: een business request
+ wordt in een eigen synchrone HTTP request/response sessie verzonden, terwijl
+ de acknowledgement en optionele business response via een separaat HTTP
+ request/response sessie verzonden worden. In bepaalde gevallen (zie 4.4) mag
+ een acknowledgement of een error synchroon verstuurd worden,
+ Business*responses* worden altijd asynchroon, in een separaat HTTP sessie
+ verzonden.
+
+De onderstaande tabel geeft in essentie de eigenschappen van de verschillende
+Digikoppeling profielen weer. Ten behoeve van het CPA register is de kolom 'CPA
+Creation' toegevoegd. Voor alle profielen wordt twee-zijdig TLS gebruikt op
+transport niveau (HTTPS).
+
+| Profile Names                       | Transport characteristics |              |          |        |           |             |
+| ----------------------------------- | ------------------------- | ------------ | -------- | ------ | --------- | ----------- |
+| Digikoppeling ebMS2                 | CPA Creation              | 2-zijdig TLS | Reliable | Signed | Encrypted | Attachments |
+| Best Effort                         | osb-be                    | √            | N/A      | ―      | ―         | Optional    |
+| Reliable Messaging                  | osb-rm                    | √            | √        | ―      | ―         | Optional    |
+| Best Effort – Signed<sup>1</sup>    | osb-be-s                  | √            | N/A      | √      | ―         | Optional    |
+| Reliable – Signed<sup>1</sup>       | osb-rm-s                  | √            | √        | √      | ―         | Optional    |
+| Best Effort – Encrypted<sup>1</sup> | osb-be-e                  | √            | N/A      | √      | √         | Optional    |
+| Reliable – Encrypted<sup>1</sup>    | osb-rm-e                  | √            | √        | √      | √         | Optional    |
+
+N/A = Not applicable<br>
+<sup>1</sup> End-to-End Security
+
+Met betrekking tot CPA-creatie: zie [[[#deployment-and-processing-requirements-for-cpas]]].

@@ -1,0 +1,6 @@
+
+###(Nr 4) Via Knooppunt B (waarbij B eigen OIN van B gebruikt voor TLS-verbindingen met verzender)
+
+In deze situatie is B gemachtigd om berichten te ontvangen en door te geven aan ontvanger;
+
+Hierbij gelden vergelijkbare aandachtspunten als bij punt 2.

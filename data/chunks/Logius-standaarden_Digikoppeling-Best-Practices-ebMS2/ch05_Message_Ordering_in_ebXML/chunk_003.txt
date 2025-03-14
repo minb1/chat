@@ -1,0 +1,10 @@
+
+###MessageOrder Element**
+
+> The MessageOrder element is an OPTIONAL extension to the SOAP Header requesting the preservation of message order in this conversation.
+
+De ebMS standaard biedt daarmee de mogelijkheid om de volgordelijkheid van berichten te garanderen.
+
+Maar het is wel een OPTIONAL<sup>6</sup> element, dus bekijk per product of het ook daadwerkelijk ondersteund wordt.
+
+> <sup>6</sup>. OPTIONAL, uit [[EBXML-MSG]]: “This word means that an item is truly optional. One vendor may choose to include the item because a particular marketplace requires it or because the vendor feels that it enhances the product while another vendor may omit the same item.”

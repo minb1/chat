@@ -1,0 +1,10 @@
+
+###Profile Requirement Item: Retries and RetryInterval
+
+|[[EBXML-MSG]]Section 6.4.3, 6.4.4 Retries and RetryInterval | **Best effort**|**Reliable Messaging**|**End-to-End Security** |
+|------------------|---|---|---|
+|Header elements:<br>`/SOAP:Header/eb:AckRequested/` ||||
+| (a) If reliable messaging is used, how many times must an MSH attempt to redeliver an unacknowledged message? <br> (b) What is the minimum time a Sending MSH should wait between retries of an unacknowledged message?  | **Not applicable** | Some organizations using the Digikoppeling may not have 24x7 support for their ebXML Messaging services. A system crash may not be remedied until the next working day. Where possible, the values of Retries and RetryInterval **should** be set to allow reliable delivery of messages even after prolonged unavailability. If no value is defined by the parties, a value of 5 days is used. | Depends on the use of best effort or reliable messaging. |
+| Alignment | (a) [Appears as ReliableMessaging/Retries in CPA.] (b) [Appears as ReliableMessaging/RetryInterval in CPA.] | | | |
+| Test References | (empty) || | |
+| Notes  | | If **reliable messaging** is used: Some ebXML messaging software products have a transport retry mechanism, in addition to the ebXML retry mechanism. In this case the ebXML retry interval **should** be set in such a way that any such transport retries have been completed first. | | |

@@ -1,0 +1,17 @@
+
+###Registerhouders van overheidsregisters
+
+Logius maakt afspraken met registerhouders over het gebruik van overheidsregisters ten behoeve van het kunnen raadplegen van deze registers via de [=COR=].Registers kunnen worden aangesloten op het OIN-stelsel indien ze voldoen aan de volgende voorwaarden:
+
+- Er is een juridische grondslag voor het register.
+
+- Er is een beheerder die het inhoudelijk en technisch beheer voert.
+
+- De beheerder controleert de identiteit van de rechtspersoon aan de hand van het Handelsregister.
+
+- Het identificerende nummer is gekoppeld aan een rechtspersoon.
+
+- Het overheidsregister is publiek raadpleegbaar.
+
+- Er is een webservice beschikbaar.
+

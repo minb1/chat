@@ -1,0 +1,15 @@
+
+###Internationale, Europese en nationale standaardisatiegemeenschap
+
+De ADR-Standaard volgt de ontwikkeling van internationale standaarden (zoals bijvoorbeeld de HTTP standaarden van het IETF) in het algemeen. Meer specifiek volgen de specialisten van Logius en de leden van de TAG de standaarden waarnaar wordt gerefereerd in de standaard en bespreken deze ontwikkelingen ook in het Technisch Overleg. Indien relevant worden op basis van de internationale ontwikkelingen rfc&#39;s opgesteld om de ADR-standaard aan te passen, verbeteren of actualiseren. Onderstaand is het overzicht overgenomen van de standaarden waaraan wordt gerefereerd in de ADR:
+
+1. **[OPENAPIS]** <br>
+[_OpenAPI Specification_](https://www.openapis.org/). Darrell Miller; Jeremy Whitlock; Marsh Gardiner; Mike Ralphson; Ron Ratovsky; Uri Sarid; Tony Tam; Jason Harmon. OpenAPI Initiative. URL: [https://www.openapis.org/](https://www.openapis.org/)
+1. **[rfc3986]** <br>
+[_Uniform Resource Identifier (URI): Generic Syntax_](https://datatracker.ietf.org/doc/html/rfc3986). T. Berners-Lee; R. Fielding; L. Masinter. IETF. January 2005. Internet Standard. URL: [https://datatracker.ietf.org/doc/html/rfc3986](https://datatracker.ietf.org/doc/html/rfc3986)
+1. **[rfc5789]** <br>
+[_PATCH Method for HTTP_](https://httpwg.org/specs/rfc5789.html). L. Dusseault; J. Snell. IETF. March 2010. Proposed Standard. URL: [https://httpwg.org/specs/rfc5789.html](https://httpwg.org/specs/rfc5789.html)
+1. **[rfc7231]**<br>
+[_Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content_](https://httpwg.org/specs/rfc7231.html). R. Fielding, Ed.; J. Reschke, Ed.. IETF. June 2014. Proposed Standard. URL: [https://httpwg.org/specs/rfc7231.html](https://httpwg.org/specs/rfc7231.html)
+1. **[SemVer]**<br>
+[_Semantic Versioning 2.0.0_](https://semver.org/). T. Preston-Werner. June 2013. URL: [https://semver.org](https://semver.org/)

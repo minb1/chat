@@ -1,0 +1,6 @@
+
+###Added
+
+- (BOR) In alle `assert` elementen de attributen `id` (ten behoeve van het melding-ID) en `flag` (ten behoeve van het severity level) toegevoegd in [Schematron BOR OHNL 1.9](./technische-documentatie/basisorder-rijk-ohnl-1.9.sch) (v0.8.1 → v0.9.0).
+
+

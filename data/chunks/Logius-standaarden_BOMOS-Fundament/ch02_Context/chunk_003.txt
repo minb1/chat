@@ -1,0 +1,102 @@
+
+##Definities
+
+**Beheer en Ontwikkelen van standaarden (kortweg: beheer)**
+Alle activiteiten gericht op het structureel werken aan, beschikbaar
+stellen, en houden van een (set van) standaard(en) die steeds past bij
+de actuele behoefte van de belanghebbenden.
+
+Een onderscheid is te maken tussen ontwikkeling en beheer. Het beheer
+van standaarden heeft betrekking op het beschikbaar stellen en
+aanpassen van bestaande standaarden op basis van nieuwe wensen en
+eisen zonder dat er sprake is van functionele uitbreidingen. Dit bevat
+dus ondermeer het verspreiden van de standaard bijvoorbeeld op een
+website, het bieden van ondersteuning, het verzamelen van wensen en
+eisen en het uitbrengen van nieuwe versies.
+
+Het ontwikkelen van standaarden heeft betrekking op de ontwikkeling
+van een standaard als oplossing voor een nieuw functioneel
+terrein. Dit kan betekenen dat op basis van de ontwikkeling de
+bestaande standaard wordt uitgebreid of dat er een nieuwe standaard
+ontstaat.
+
+Beheer en ontwikkeling, in de brede zin, voor een standaard bevat ook
+onderwerpen als adoptie en certificering.
+
+**Beheer- en Ontwikkelmodel**
+Het Beheer- en Ontwikkelmodel is een gelaagde structuur van
+onderwerpen die nodig zijn voor het ontwikkelen en beheren van een
+open standaard, en is weergegeven als een activiteitendiagram. Het is
+de kern van BOMOS.
+
+**Community**
+Elke specifieke gemeenschap of groep in het elektronische
+(overheids-)veld die zich bezighoudt met de ontwikkeling en/of het
+beheer van een specifieke (set van) standaard(en), vanuit een
+expliciete gezamenlijke behoefte. Omdat dergelijke behoeften vaak
+zowel in het private als in het publieke domein worden gevoeld, kan
+een community een publiek-private samenwerkingsvorm zijn.
+
+**Open standaard**  
+Er zijn vele meningen over de definitie van een open standaard, vooral
+vanwege belangen van verschillende organisaties is het nooit gelukt om
+dit goed te definiëren. In BOMOS hanteren we een definitie die in de
+start periode van het European Interoperability Framework werd
+gehanteerd en ook door de Nederlandse overheid werd overgenomen. Later
+zijn aanpassingen, en met name afzwakkingen geïntroduceerd, maar de
+oorspronkelijke definitie is relatief het meest open.  Onder een ‘open
+standaard’ verstaan we een standaard die voldoet aan de volgende
+eisen:
+1. De standaard is goedgekeurd en zal worden gehandhaafd door een
+   not-for-profit organisatie, en de lopende ontwikkeling gebeurt op
+   basis van een open besluitvormingsprocedure die toegankelijk is voor
+   alle belanghebbende partijen (consensus of meerderheidsbeschikking);
+2. De standaard is gepubliceerd en over het specificatiedocument van
+   de standaard kan vrijelijk worden beschikt of het is te verkrijgen
+   tegen een nominale bijdrage. Het moet voor een ieder mogelijk zijn om
+   het te kopiëren, beschikbaar te stellen en te gebruiken om niet of
+   tegen een nominale prijs;
+3. Het intellectuele eigendom - m.b.t. mogelijk aanwezige patenten -
+   van (delen van) de standaard is onherroepelijk ter beschikking gesteld
+   op een royalty-free basis;
+4. Er zijn geen beperkingen omtrent het hergebruik van de standaard.
+
+**Semantische interoperabiliteit**
+Betekent dat samenwerkende partijen aan gegevens, die uitgewisseld
+worden, dezelfde betekenis toekennen.
+
+**Semantische standaarden**  
+Zijn afspraken over de betekenis van gegevens.
+
+**Werkgroep**  
+Een groep binnen de community met een afgebakende deelactiviteit met
+een eenduidig gedefinieerd eindresultaat als doel.
+
+Voor meer informatie over interoperabiliteit en standaarden:
+
+Open Standaard:  
+https://forumstandaardisatie.nl/open-standaarden
+
+Standardisation Handbook:
+
+https://en.wikipedia.org/wiki/Open_standard
+
+https://open-stand.org/
+
+European Interoperability Framework:  
+https://ec.europa.eu/isa2/eif_en
+
+BSI Guide to Standardization:  
+https://www.bsigroup.com/en-GB/standards/Information-about-standards/how-are-standards-made/The-BSI-Guide-to-Standardization/
+
+Standardisation Handbook:  
+https://en.wikipedia.org/wiki/Open_standard
+
+Handreiking Standardisatie voor onderzoekers:
+https://op.europa.eu/en/publication-detail/-/publication/db289e47-140b-11eb-b57e-01aa75ed71a1/
+
+Verplichte open standaarden in Nederland:
+https://www.forumstandaardisatie.nl/open-standaarden/lijst/verplicht/
+
+Nederlandse Overheids Referentie Architectuur (NORA):  
+https://www.digitaleoverheid.nl/dossiers/nederlandse-overheid-referentie-architectuur-nora/

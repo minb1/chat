@@ -1,0 +1,4 @@
+
+##Interactiepatronen
+
+Afhankelijk van de situatie zijn verschillende interactiepatronen mogelijk. Deze patronen verschillen qua initiatief en qua aanpak.

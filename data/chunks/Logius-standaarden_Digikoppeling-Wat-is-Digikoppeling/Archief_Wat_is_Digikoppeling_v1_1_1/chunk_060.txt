@@ -1,0 +1,5 @@
+Digikoppeling na versie 3.0
+
+Voor de Digikoppeling standaard is na versie 3.0 de versionering op het hoofdniveau beëindigd. Er zal alleen nog worden gerefereerd aan de Digikoppeling standaard en de versionering wordt op document niveau bijgehouden.
+
+##

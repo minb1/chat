@@ -1,0 +1,8 @@
+
+###EchoResponse
+
+De structuur van het echo-antwoord is als volgt:
+
+| **Berichttype: EchoResponse** |        |      |
+|-----------------------------|----------|------|
+| EchoResponse.Echo           | De teruggestuurde echo string | \[1..1\] |

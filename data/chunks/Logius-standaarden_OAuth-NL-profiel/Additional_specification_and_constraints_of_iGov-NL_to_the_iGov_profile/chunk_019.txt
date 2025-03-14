@@ -1,0 +1,4 @@
+OpenID connect out of scope
+The expertgroup that authored the expert advice on OAuth met on the 7th of juli and on 22nd september 2016. Based on their discussion OpenIDConnect was placed out of scope and not (yet) reccomended as a mandatory standard.
+
+##

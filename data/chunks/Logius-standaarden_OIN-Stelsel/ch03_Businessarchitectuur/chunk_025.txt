@@ -1,0 +1,4 @@
+
+###OIN
+
+Organisaties, organisatieonderdelen en/of voorzieningen die niet in een aangesloten overheidsregister voorkomen, komen mogelijk toch in aanmerking voor een OIN. (In enkel bijzondere gevallen ook voor een OIN. Het gaat dan om het OIN dat wordt toegekend aan een onderdeel van de Staat der Nederlanden). Deze worden geregistreerd in het OIN-register. Een [=SubOIN=] is een identificerend nummer voor niet-rechtspersonen. Het [=SubOIN=] heeft dezelfde structuur als het OIN. Een [=SubOIN=] is altijd herleidbaar tot een rechtspersoon die is ingeschreven in het Handelsregister en valt onder de juridische verantwoordelijkheid van deze rechtspersoon.

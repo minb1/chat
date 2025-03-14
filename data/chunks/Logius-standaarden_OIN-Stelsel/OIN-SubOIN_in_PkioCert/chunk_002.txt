@@ -1,0 +1,11 @@
+
+##Inleiding
+Dit hoofdstuk beschrijft Invulling (Sub)OIN en Organisatienaam, en –onderdeel/voorziening/samenwerking in velden van het PKIO certificaat, zie [[[PKIO-PvE]]].
+
+| Field/Attribute  | C\*  |  |  |
+| --- | --- | --- | --- |
+| Subject.organizationName | V  | The full name of the subscriber's organization in accordance with the accepted document or Basic Registry  | The subscriber organization is the organization with which the TSP has entered into an agreement and on behalf of which the certificate holder (server) communicates or acts  |
+| Subject.organizationalUnitName  | O  | Optional specification of an organizational entity. This attribute MUST NOT include a function indication or similar  | This attribute MAY appear several times. The field MUST contain a valid name of an organizational entity of the subscriber in accordance with an accepted document or registry.  |
+| Subject.serialNumber  | O  | The TSP is responsible for safeguarding the uniqueness of the subject (service). The Subject.serialNumber MUST be used to identify the subject uniquely. The use of 20 positions is only allowed for OIN and HRN after additional arrangements with Logius  | The number is determined by the TSP and/or the government. The number can differ for each domain and can be used for several applications.  |
+
+\*<span style="font-size:smaller">C=Criteria: V=Compulsory, O=Optional</span>

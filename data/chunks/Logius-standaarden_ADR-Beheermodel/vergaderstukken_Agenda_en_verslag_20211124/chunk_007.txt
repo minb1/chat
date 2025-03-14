@@ -1,0 +1,12 @@
+
+###3. bespreken openstaande issue's op het normatieve deel
+> Martin: Semantic versioning willen we ook opnemen in Bomos-structuur. We moeten eerst langs Forum Standaardisatie; volgende gepubliceerde versie wordt minor.
+
+> Martin: PATCH staat onevenredig prominent in document; dit wordt aangepast.
+
+> Martin: Verdere onderbouwing voor design rules wordt in de toekomst aangepast.  
+> Roel: iedere regel moet toetsbaar zijn.  
+> Martin: ADR moet volledig herschreven worden. Dit willen we bij de eerst volgende release toepassen.  
+> Hotting: Forum wil testbare regels en rapportage, hiervoor wordt een opdracht verstrekt door het Forum.   
+> Martin: 7 regels worden nu al getest. Niet alle regels zijn toetsbaar. We willen onderscheid tussen design en runtime in ADR. Runtime betreft testbare regels. Design time betreft toelichting en principes voor het design.  
+> Roes: Manier vinden om aan te geven aan welke extensies getracht is te voldoen om enkel op deze getoetst te worden.  

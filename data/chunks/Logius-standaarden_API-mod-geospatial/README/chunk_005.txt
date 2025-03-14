@@ -1,0 +1,6 @@
+
+##Issues
+
+Issues mogen bij het Kennisplatform API's worden ingediend.
+
+https://github.com/Geonovum/KP-APIs/issues

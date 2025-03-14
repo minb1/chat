@@ -1,0 +1,4 @@
+
+###Certificaten
+
+Er moet gebruik gemaakt worden van certificaten die voldoen aan de eisen van de PKI Overheid.

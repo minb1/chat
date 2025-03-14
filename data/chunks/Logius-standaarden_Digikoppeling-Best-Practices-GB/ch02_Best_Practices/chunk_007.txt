@@ -1,0 +1,6 @@
+
+####REST-API
+
+Bij het Bevragen van grote hoeveelheden informatie kan naast ebMS2 en WUS (zie hiervoor) ook van het REST-API profiel gebruik gemaakt worden. Hierbij wordt dan een meta-bericht en een bijbehorende groot bestand gegenereerd. Het meta-bericht wordt als antwoord op het API-request verstuurd via de synchrone response of middels een asynchrone webhook call. Dit kan vervolgens door de ontvanger gebruikt worden om het betreffende grote bestand op te halen.
+
+Afhankelijk van de ingestelde timeouts en de verwachte tijd die nodig is om het grote bericht klaar te zetten dient men te kiezen voor een synchrone response of een asynchrone call naar een webhook.

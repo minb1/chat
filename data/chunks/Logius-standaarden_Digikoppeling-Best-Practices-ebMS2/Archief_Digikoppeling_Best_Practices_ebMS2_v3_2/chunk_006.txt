@@ -1,0 +1,17 @@
+Opbouw van dit document
+
+Hoofdstuk 1 bevat een aantal algemene inleidende onderwerpen.
+
+Hoofdstuk 2 bevat de aanbevelingen, werkwijze en best practices.
+
+Hoofdstuk 3 gaat in op de kenmerken van een CPA.
+
+Hoofdstuk 4 gaat over bericht volgordelijkheid.
+
+Begrippen en afkortingen worden toegelicht in het document “DigikoppelingArchitectuur”. Deze zit in de Digikoppeling standaard.
+
+Dit document en andere documentatie is beschikbaar op
+
+[www.logius.nl/digikoppeling](http://www.logius.nl/digikoppeling).
+
+#

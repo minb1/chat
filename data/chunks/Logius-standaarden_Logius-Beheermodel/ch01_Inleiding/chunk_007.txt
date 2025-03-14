@@ -1,0 +1,10 @@
+
+###Status
+
+_Beschrijf hier de status van de standaard_
+
+<aside class="example">
+De actuele versie van de ADR-standaard is 1.0. Deze versie is op
+09-07-2020 door het OBDO vastgesteld op advies van het Forum
+Standaardisatie.
+</aside>

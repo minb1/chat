@@ -1,0 +1,12 @@
+
+####Client Approval
+
+When prompting the end user with an interactive approval page, the authorization server MUST indicate to the user:
+
+*   Whether the client was dynamically registered, or else statically registered by a trusted administrator, or a public client.
+*   Whether the client is associated with a software statement, and in which case provide information about the trusted issuer of the software statement.
+*   What kind of access the client is requesting, including scope, protected resources (if applicable beyond scopes), and access duration.
+
+For example, for native clients a message indicating a new App installation has been registered as a client can help users determine if this is the expected behaviour. This signal helps users protect themselves from potentially rogue clients.
+
+<!-- ### [3.1.5.](#rfc.section.3.1.5) [Discovery](#Discovery) -->

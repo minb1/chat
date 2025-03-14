@@ -1,0 +1,10 @@
+
+###Profile Requirement Item: Status Response message
+
+|[[EBXML-MSG]]  Section 7.1.2 Message Status Response| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header element(s)|`Eb:MessageHeader/eb:StatusResponse`|
+| If used, must Message Status Response Messages be digitally signed?   | **Not applicable**. |
+| Alignment | (empty) |
+| Test References | (empty) |
+| Notes  | (empty) |

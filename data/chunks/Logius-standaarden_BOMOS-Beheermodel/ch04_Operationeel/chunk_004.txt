@@ -1,0 +1,33 @@
+Wensen en Eisen
+
+RFC\'s kunnen binnen komen via verschillende kanalen rechtstreeks bij
+Logius, tijdens overleggen, via de website of mail.
+
+Vanuit verschillende overleggen:
+
+-   BOMOS Community - Operationeel
+
+-   Uitvoeringsorganisatie (Uitvoering Groep - UG) Operationeel
+
+-   Adviesorgaan BOMOS (Advies Groep - AG) Tactisch
+
+-   Directie Digitale Samenleving (Bestuur groep - BG) Strategisch
+
+RFC\'s worden als issue's in de repository van het kennisplatform BOMOS
+op Github:[BOMOS Fundament](https://github.com/Logius-standaarden/BOMOS-Fundament)
+of [BOMOS Verdieping](https://github.com/Logius-standaarden/BOMOS-Verdieping)
+geregistreerd als deze vanuit de BOMOS Community of Adviesorgaan
+binnenkomen. Komt het rechtstreeks vanuit Logius zelf binnen dan worden
+deze in Confluence of Jira geregistreerd. Om te voorkomen dat er
+verschillende lijsten met issues en verzoeken ontstaan, is afgesproken
+dat ieder issue en verzoek als eerste wordt beoordeeld door een lid van
+de Uitvoeringsorganisatie en BOMOS adviesorgaan zorgt voor het overzicht
+van de stromen met RFC\'s.
+
+Dit houdt concreet in dat RFC\'s die rechtstreeks bij Logius afdeling
+standaarden worden neergelegd, door een lid van de
+Uitvoeringsorganisatie en het BOMOS adviesorgaan wordt opgepakt en
+doorgespeeld aan de BOMOS werkgroep zodat daar de eerste
+beoordeling kan plaatsvinden.
+
+##

@@ -1,0 +1,16 @@
+
+###Maak gebruik van MessageID
+
+Binnen WS-Addressing wordt de wsa:MessageID gebruikt om een bericht uniek te definiëren. Dit veld is verplicht binnen de specificatie. De meeste frameworks/toolkits genereren daarom standaard een unieke messageID voor elk bericht indien deze niet is meegegeven door de applicatie.
+
+Hoewel dit in de meeste gevallen prima werkt, is het aan te raden om gebruik van de MessageID en deze via de applicatie te laten bepalen.
+
+Bijvoorbeeld in het scenario dat een bericht wordt verstuurd door een andere interne applicatie proces, kan door gebruik te maken van het interne proces nummer als onderdeel van de messageID, een correlatie over verschillende processen tot stand gebracht worden. Van een foutbericht kan via de relatesTo eenvoudig bepaald worden welke interne applicatie proces een fout heeft veroorzaakt.
+
+Daarnaast zou het formaat van een messageID ook gebruikt kunnen worden om naast een unieke waarde ook gedeeltelijk aan te vullen met een logische waarde. Indien bijvoorbeeld gewerkt wordt met een interactie waarbij meerdere berichten uitgewisseld worden voor 1 business conversatie, kan het correleren versimpeld worden door een conversationID te verwerken in de messageID.
+
+Voorkeur is om consistentie in de opbouw van de messageID aan te houden. De volgende opbouw heeft de voorkeur: `CUSTOM@UUID@URI` of `CUSTOM@GUID@URI`. UUID of GUID volgens [[rfc4122]]
+
+URI is een anyURI volgens [http://www.w3.org/2001/XMLSchema](http://www.w3.org/2001/XMLSchema)
+
+De URI kan de domeinnaam zijn van Digikoppeling messagehandler of de web service namespace.

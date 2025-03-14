@@ -1,0 +1,27 @@
+
+###Deelname
+
+Uitbreidingen en aanpassingen in de API Standaarden komen tot stand door
+participatie van de verschillende belanghebbenden. Belanghebbenden
+kunnen op vijf manieren participeren aan het wijzigings- en
+besluitvormingsproces:
+
+1.  Als lid van de Community. Er is geen formeel lidmaatschap nodig om een issue/wijziging in te dienen. Iedereen die een issue indient is daarmee lid van de community.
+2.  Als lid van de Technisch Overleg
+    1.  Leden van het technisch overleg dienen een aantoonbaar belang
+        te hebben bij de standaard.
+    2.  De omvang en samenstelling moet een goede vertegenwoordiging
+        bevatten van de verschillende belangen rond de standaard.
+        We gaan uit van 1 deelnemer per organisatie.
+    3.  Het belang van de Nederlandse overheid dient voldoende geborgd
+        te zijn in het technisch overleg.
+3.  Als lid van de Programmeringstafel Gegevensuitwisseling
+    1. Stakeholders van de Logius Gegevensuitwisselingsdiensten worden
+       uitgenodigd.
+4.  Als lid van de Programmeringsraad GDI.
+5.  Als lid van het OBDO.
+
+Personen/partijen die willen deelnemen aan het Technisch Overleg
+kunnen contact opnemen met Logius waarin zij aangeven wat hun belang is
+bij de standaard. Met inachtneming van bovenstaande punten, beoordeelt
+Logius de aanvraag.

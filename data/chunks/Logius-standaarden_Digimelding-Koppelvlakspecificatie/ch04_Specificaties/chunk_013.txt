@@ -1,0 +1,29 @@
+
+###StatusoverzichtResponse
+
+Het statusoverzicht geeft een lijst met annotaties terug. Dit zijn in
+dit geval altijd 'root' annotaties waar een annotatieboom aan hangt. Dit
+is noodzakelijk omdat een aantal van de kenmerken die in de
+annotatielijst verplicht worden meegegeven afkomstig zijn uit leaf
+annotaties van een annotatieboom.
+
+Wanneer het antwoord op een statusoverzichtbevraging niets oplevert
+wordt een lege lijst meegegeven. In lijn met het 'gemeenschappelijke
+afspraken berichtstandaarden'-voorstel voor 'geen waarde' wordt hierbij
+als reden meegegeven 'geenWaarde'. Een regulier antwoordbericht is in
+deze foutsituaties op zijn plaats omdat dit geen kritieke fouten zijn en
+het aan de afnemer is om te bepalen of hier actie op moet worden
+ondernomen.
+
+| **Berichttype**: StatusoverzichtResponse |                |           |
+|------------------------------------------|----------------|-----------|
+| **Elementen/attributen**    |                             |           |
+| **AnnotatieLijst**          |                             | \[1..\*\] |
+| Annotatie                   |                             | \[0..\*\] |
+| Annotatie . Tijdstempel     | *Datum/tijd waarop de annotatie heeft plaatsgevonden* | \[1..1\]  |
+| Annotatie . Uuid            | *Unieke verwijzing naar de root annotatie van een annotatieboom.* | \[1..1\]  |
+| Annotatie . Meldingskenmerk | *Eigen kenmerk terugmeldende organisatie.* | \[1..1\]  |
+| Annotatie . Bronverwijzing  |                             | \[1..1\]  |
+| Annotatie . Bronverwijzing . Uri | *Een combinatie van OIN en de unieke sleutel van het brongegeven zodat een unieke referentie ontstaat naar het brongegeven (bijv. OIN en HRN).* | \[1..1\]  |
+| Annotatie . Bronverwijzing . Selectie | *Object waarop is teruggemeld.* | \[0..1\]  |
+| Annotatie . Annotatiestatus | *Laatste status annotatie van de terugmelding.* | \[1..1\]  |

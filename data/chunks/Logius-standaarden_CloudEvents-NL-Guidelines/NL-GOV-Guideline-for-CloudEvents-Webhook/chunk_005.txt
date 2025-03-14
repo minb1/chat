@@ -1,0 +1,14 @@
+
+###Abuse protection 
+
+It must be prevented that notifications are sent to recipients who have not requested this themselves. A legitimate delivery target needs to indicate that it agrees with notifications being delivered to it. Reaching the delivery agreement is realized using a validation handshake:
+- A handshake can either be executed immediately at registration time or as a "pre-flight" request immediately preceding a delivery.
+- Delivery targets SHOULD support the abuse protection feature. If a target does not support the feature, the sender MAY choose not to send to the target, at all, or send only at a very low request rate.
+
+- The _validation request_ uses the HTTP [OPTIONS](https://tools.ietf.org/html/rfc7231#section-4.3.7) method with header fields:
+    - WebHook-Request-Origin (required):  a DNS expression that identifies the sending system
+    - WebHook-Request-Callback (optional): a callback URL that allows the delivery target to grant send permission asynchronously, via a simple HTTPS callback.
+    -  WebHook-Request-Rate (optional): a positive integer number that expresses the request rate in "requests per minute"
+- The _validation response_ MUST be sent if the delivery target does allow delivery of events with header fields:
+    - WebHook-Allowed-Origin (required): MUST either be the origin name supplied in the WebHook-Request-Origin header, or a singular asterisk character ('*'), indicating that the delivery target supports notifications from all origins.
+    - WebHook-Allowed-Rate (depends): MUST be returned if the request contained the WebHook-Request-Rate, otherwise it SHOULD be returned; an integer number expresses the permitted request rate in "requests per minute" or asterisk when there is no rate limitation.

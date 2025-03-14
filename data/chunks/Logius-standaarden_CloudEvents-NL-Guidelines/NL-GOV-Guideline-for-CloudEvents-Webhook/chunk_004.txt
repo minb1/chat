@@ -1,0 +1,6 @@
+
+###Authorization
+
+The delivery request MUST use one of the following two methods (both of which lean on the OAuth 2.0 Bearer Token [RFC6750](https://tools.ietf.org/html/rfc6750) model):
+-  The access token is sent in the Authorization request header field; for [OAuth 2.0 Bearer](https://tools.ietf.org/html/rfc6750#section-2.1) tokens, the "Bearer" scheme MUST be used.
+-  The access token is added to the HTTP Request URI Query component as described in [URI Query Parameter](https://github.com/cloudevents/spec/blob/v1.0.1/http-webhook.md#32-uri-query-parameter). 

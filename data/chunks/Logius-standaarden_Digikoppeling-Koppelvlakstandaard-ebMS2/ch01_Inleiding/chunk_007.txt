@@ -1,0 +1,11 @@
+
+###Specificatie van de koppelvlakstandaard 
+
+De koppelvlakstandaard beschrijft de eisen waar de adapters aan moeten voldoen
+om interoperabel met elkaar te kunnen communiceren. Digikoppeling gaat over
+logistiek, dus over de envelop en niet over de inhoud. De hele set info die
+tezamen nodig is voor een complete generieke Digikoppeling koppelvlakdefinitie
+(Raamwerk Specificatie genoemd) bestaat uit:
+
+- interfacedefinitie “on the wire”, (voorbeeld)listing van SOAP headers, en
+ informatie over velden en hun specifieke inhoud.

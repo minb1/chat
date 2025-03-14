@@ -1,0 +1,12 @@
+
+##**2 Bevoegdheid intermediair/SAAS partij door verlenen certificaat**
+
+Organisatie A geeft een certificaat aan de SAAS partij waarmee de SAAS partij zich naar buiten toe identificeert als A. Voor partij B is het dan alsof deze direct met A communiceert
+
+Aandachtspunt:
+
+In de gevallen waarbij certificaten (van A) aan een SAAS leverancier worden afgegeven is dit de manier waarop de SAAS leverancier gemachtigd wordt om namens A te acteren;
+
+Nadeel van deze manier van werken is dat de SAAS leverancier over een 'sleutelbos' van certificaten gaat beschikken wanneer de diensten aan meerdere partijen worden aangeboden.
+
+(Dit vraagt om specifieke aandacht voor certificaatbeheer en beveiligingsaspecten / mogelijk misbruik, denk hierbij bv aan het intrekken van een machtiging)

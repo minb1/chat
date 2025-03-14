@@ -1,0 +1,3 @@
+#Wat is Digikoppeling
+
+In dit hoofdstuk opzet beschrijven we de belangrijkste facetten van de Digikoppeling Architectuur.

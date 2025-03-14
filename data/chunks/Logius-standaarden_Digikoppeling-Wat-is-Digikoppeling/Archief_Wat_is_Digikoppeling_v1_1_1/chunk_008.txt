@@ -1,0 +1,10 @@
+Doel van Digikoppeling
+
+Organisaties willen diensten klantgericht, efficiënt, flexibel en rechtmatig aanbieden aan burgers en bedrijven. Daarvoor moeten zij gegevens en documenten op een generieke manier met elkaar kunnen uitwisselen.
+
+Digikoppeling voorziet in een standaard om deze uitwisseling van gegevens en documenten te definiëren. Met deze logistieke standaardisatie bevordert Digikoppeling de interoperabiliteit tussen   
+(semi-)overheidsorganisaties. Digikoppeling richt zich op de 'envelop' van het bericht, niet op de inhoud. Daardoor kan iedere organisatie die Digikoppeling gebruikt, de postverzending onafhankelijk van de inhoud inrichten.
+
+Digikoppeling is primair bedoeld voor gegevensuitwisseling tussen systemen van overheidsorganisaties, in het bijzonder de basisregistraties en landelijke of intersectorale gegevensdiensten. Digikoppeling wordt echter breder ingezet in de (semi-)publieke sector. Digikoppeling is beschikbaar voor elke organisatie die veilig en betrouwbaar gegevens wil uitwisselen met andere organisaties in de publieke sector. Tevens is Digikoppeling beschikbaar voor gebruik in de private sector.
+
+##

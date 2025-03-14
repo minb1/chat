@@ -1,0 +1,54 @@
+
+####References
+
+[[WebIDL]]
+[[NEN3610]]
+
+
+<script>
+  var respecConfig = {
+    xref: ["WebIDL", "PaymentRequest"],
+  };
+</script>
+
+
+  <!-- We also define a concept "feline", and an interface "Cat". -->
+  <p>A <dfn>feline</dfn> has 4 legs and makes sound.</p>
+
+  <p>A <dfn>cat</dfn> has 4 legs and makes sound.</p>
+
+  <pre class="idl">
+  interface Cat {}
+  </pre>
+
+  <!-- ...and we can reference them as: -->
+  <p>A {{Cat}} is a [=feline=] if it meows.</p>
+
+
+<dfn>PaymentRequest</dfn>
+
+{{PaymentRequest}}
+
+<dfn>link</dfn>
+
+<aside class="example" title="Dit is een voorbeeld">
+
+<script>
+  var respecConfig = {
+    xref: ["HTML", "link"],
+  };
+</script>
+
+
+The [^link^] element is defined in the [[HTML]] spec.
+</aside>
+
+<!--
+// #### Escaping references
+
+
+// #### Adding missing references
+// #### Extra links at top of the document
+// #### Custom Styles
+
+-->

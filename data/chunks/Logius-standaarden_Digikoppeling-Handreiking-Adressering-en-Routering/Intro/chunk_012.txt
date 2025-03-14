@@ -1,0 +1,15 @@
+
+####Examples
+
+<aside class="example" title="Dit is een voorbeeld">
+  <p>
+    Een voorbeeld kan op deze manier getoond worden.
+  <p>
+  <pre class="js">
+    function myFunction() {
+      // stuff goes here...
+    }
+  </pre>
+</aside>
+
+<!-- #### External Includes --> 

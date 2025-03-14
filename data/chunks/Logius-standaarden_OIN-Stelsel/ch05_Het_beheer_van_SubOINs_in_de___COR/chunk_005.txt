@@ -1,0 +1,4 @@
+
+####Organisaties in andere registers dan het Handelsregister
+
+Organisaties die geregistreerd staan in andere aangesloten registers dan het Handelsregister worden beschouwd als houders van een [=OIN=]. Voor deze organisaties gelden dezelfde regels als houders van [=SubOIN=]s die door rechtspersonen zijn aangemaakt.

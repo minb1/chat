@@ -1,0 +1,21 @@
+
+##Waarom Linked Data?
+Linked Data maakt het mogelijk om rijke datasets te delen en gecontroleerd open te stellen zonder dat de die dataset de bron hoeft te verlaten. De Europeana Collections zijn hier een voorbeeld van. Niet alleen de data binnen zo een dataset is gelinkt, ook de datasets onderling zijn dat. Met een query-taal als SPARQL wordt het vervolgens mogelijk om de hele set van datasets te bevragen. Dit is waar de visie van het Semantische Web over gaat. Hoe meer Linked Data, hoe krachtiger de query's die mogelijk worden.  
+
+Met name overheden gebruiken Linked Data steeds meer om data openbaar te maken voor het publiek, het liefst op een manier waarmee geïnteresseerden de data makkelijk automatisch kunnen opvragen en verwerken. Hier is het bekende vijf-sterren model op van toepassing:
+
+**1 ster:** de data is beschikbaar via internet; in welk formaat maakt niet uit.  
+**2 sterren:** de beschikbare data heeft een machine-leesbaar structuur (geen scan bijvoorbeeld).  
+**3 sterren:** de data is beschikbaar in een niet-gepatenteerd formaat (zoals .csv en niet MS Excel).  
+**4 sterren:** Linked Data gepubliceerd met behulp van W3C standaarden (RDF en SPARQL).  
+**5 sterren:** al het bovenstaande en de dataset is gelinkt aan andere Linked Open Data.  
+
+Linked Data wordt ook ingezet door digitaliserende organisaties om hun data en systemen verder te integreren, zoals te zien bij Rijkswaterstaat en ProRail met hun OTLs. De scope van dit soort inspanningen is vaak eerst intern en breidt zich vervolgens uit naar grote leveranciers of andere vaste partnerorganisaties. Door die uitbreiding wordt er met relatief weinig inspanning extra voordeel uit de stap naar Linked Data behaald.
+
+Linked Data maakt het verder mogelijk voor machines om automatisch de betekenis (semantiek) van data in te lezen en zo zelf nieuwe verbindingen te leggen, verbindingen die normaal gesproken alleen door mensen gelegd konden worden. Linked Data is een essentieel component van nieuwe generatie Kunstmatige Intelligentie (A.I.) technieken, waarbij enorme hoeveelheden ruwe data wordt gecombineerd met geformaliseerde domeinbeschrijvingen om steeds slimmere machines te bouwen.
+
+Ten slotte vormt Linked Data de kern van een nieuwe aanpak tot het vergroten van interoperabiliteit tussen partijen in een branche of waardeketen. De semantische standaard die men hiervoor vastlegt, bevat dan een of meer ontologiën. Net als bij andere soorten semantische standaarden is het doel om het voor de gebruikers zo makkelijk mogelijk te maken om onderling koppelvlakken in te richten die aan alle wensen voldoen. Het Flexible IT with Ontologies-project van de uitzendbranche is een voorbeeld van een gebruikersgemeenschap die de overstap verkent naar informatie-uitwisseling middels een gestandaardiseerde ontologie.
+
+Het gebruik van Linked Data is onderhevig aan het bekende netwerk-effect. Voor elk van bovenstaande toepassingen geldt: hoe meer wijdverspreid het gebruik van Linked Data wordt, des te groter de voordelen voor gebruikers.
+
+Ga naar de website van Platform Linked Data Nederland ([www.pldn.nl](https://www.pldn.nl/)) voor meer informatie over hoe Linked Data in zijn werk gaat

@@ -1,0 +1,10 @@
+
+##Beveiligingsaspecten
+
+Deze specificatie maakt gebruik een aantal standaarden op het gebied van
+beveiliging en voldoet op het moment van schrijven aan geldende richtlijnen en
+best practices. Aangezien in de loop der tijd kwetsbaarheden kunnen worden
+ontdekt in de cryptografische algoritmen waarop deze standaarden zijn gebaseerd,
+is het van belang dat deze specificatie regelmatig op geldigheid hiervan wordt
+bezien. De specifieke toegepaste referenties zijn beschreven in 
+[[[DK-beveiliging]]].

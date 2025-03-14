@@ -1,0 +1,18 @@
+Informatiebeveiliging voor berichtuitwisseling
+
+Als een overheidsorganisatie berichten wil uitwisselen met een andere organisatie met gebruik van Digikoppeling, zal vastgesteld moet worden of dat is toegestaan. Deze vaststelling (autorisatie) gebeurt door de aanbiedende organisatie, die dus moet weten wie informatie wil afnemen, om te kunnen bepalen of dat mag. Daartoe moet de afnemer geïdentificeerd worden, dat wil zeggen: zijn identiteit moet geverifieerd worden (authenticatie) bij de aanbieder.
+
+Digikoppeling schrijft het gebruik van PKIoverheidcertificaten met een OIN[^15] voor om de identiteit van een website of server te controleren (authenticatie). Voor het opzetten van een beveiligde verbinding tussen servers en voor de ondertekening en versleuteling van berichten moet het OIN van de organisatie in de PKIoverheidcertificaten worden opgenomen. Elke overheidsorganisatie die digitaal zaken doet kan een uniek Organisatieidentificatienummer (OIN) krijgen.
+
+[^15]: Nadere informatie over aanvragen van een OIN en gebruik in combinatie met PKIOverheid certificaat wordt apart beschreven, zie de tabel met “meer informatie”.
+
+Uitgangspunten en principes voor identificatie- en authenticatieafspraken zijn beschreven in het document *Identificatie en Authenticatie*. Het gaat in op de identificatie van partijen, het opzetten van een tweezijdige beveiligde TLS-verbinding en het ondertekenen en versleutelen van berichten en bijlagen. De uitgangspunten en principes zijn onafhankelijk van de te gebruiken protocolfamilie, dat wil zeggen dat ze bij ebMS2 en WUS (functioneel) gelijk zijn.
+
+| **Meer informatie over:**                 | **Zie document in de aansluitkit:**                    | **Doelgroep:**    |
+|-------------------------------------------|--------------------------------------------------------|-------------------|
+| Aanvragen en gebruik OIN                  | Aanvragen_en_gebruik_OIN_v                             | [PL] [A&D] [OT&B] |
+| Identificatie en Authenticatie            | Digikoppeling\_Identificatie_en_Authenticatie \_       | [A&D] [OT&B]      |
+| Beveiligings standaarden en voorschriften | Digikoppeling_Beveiligingsstandaarden_en_voorschriften |                   |
+| Gebruik en achtergrond certificaten       | Digikoppeling\_Gebruik_en_achtergrond_certificaten     |                   |
+
+##

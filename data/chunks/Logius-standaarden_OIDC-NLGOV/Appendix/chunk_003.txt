@@ -1,0 +1,10 @@
+
+##Acknowledgements
+
+Special thanks go to the following people for their involvement in the working group and for their contributions to the specification:
+
+<i>
+
+Anouschka Biekman (Logius), Arjen Monster (Gemeente Den Haag), Arnout van Velzen (Logius/RV), Bart Geesink (Surfnet), Bart Kerver (VWS), Bob te Riele (RVIG), Dennis Reumer (RVO), Dolf Smits (Belastingdienst), Elsbeth Bodde (iShare), Erwin Reinout (Kennisnet), Frank van Es (Logius), Frans de Kok (Logius/ETD), Jan Geert Koops (Dictu), Jan Jaap Zoutendijk (CIV), Jeroen de Ruig (Lost Lemon), Joost van Dijk (Surfnet), Joris Joosten (VZVZ/MedMij), Lakeshia Tjin Liep Shie (Logius), Mark Nijmeijer (Justid), Martin Borgman (Kadaster), Peter Haasnoot (Logius/CvS), Peter Kooi (Belastingdienst), Pieter Heering (Logius), Redouan Ahaloui (Forum Standaardisatie), Remco Schaar (Logius), Rob Post (RVIG), Robin Gelhard (Forum Standaardisatie), Timen Olthof (VNG), and Victor den Bak (iShare).
+
+</i>

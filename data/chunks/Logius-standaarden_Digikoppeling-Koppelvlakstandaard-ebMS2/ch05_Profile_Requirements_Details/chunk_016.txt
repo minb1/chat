@@ -1,0 +1,17 @@
+
+###Profile Requirement Item: Signature generation
+
+|[[EBXML-MSG]] Section 4.1.4.1 Persistent Digital Signature| **Best effort**<br>**Reliable Messaging**|**End-to-End Security** |
+|------------------|---|---|
+|Header elements:<br>SOAP:Header/Signature|||
+| (a) Must messages be digitally signed? [Yes, for Security Services Profiles 1, 6-21.]  | ****Not applicable****. These profiles do not support XML Digital Signatures at the message handler level.| **Required** in this profile.   |
+| Are additional Signature elements required, by whom, and what should they reference?  | **Not applicable**.   | **Never used** in this profile. |   |
+| What canonicalization method(s) must be applied to the data to be signed? | **Not applicable**.   | The use of XML canonicalization is **required**. [[xml-exc-c14n]] |
+| What canonicalization method(s) must be applied to each payload object, if different from above?  | **Not applicable**.   | **Not applicable**.  |
+| What signature method(s) must be applied?   | **Not applicable**.   | The applied signature method is described in [[[DK-beveiliging]]]  |   |
+| What Certificate Authorities (issuers) are allowed or required for signing certificates? | **Not applicable**.   | The use of PKI Overheid certificates is **required** in which an OIN is used in the Subject.serialNumber. [[[DK-beveiliging]]] |   |
+| Are direct-trusted (or self-signed) signing certificates allowed?   | **Not applicable**.   | This profile is **never used**. Only used in testing and Proof of Concept environments   |   |
+| What certificate verification policies and procedures must be followed?   | The requirements as stated in [[[PKIO-PvE]]] have to be used. The use of certificate revocation lists (CRL) from the trusted CAs is required.   |The requirements as stated in [[[PKIO-PvE]]] have to be used. The use of certificate revocation lists (CRL) from the trusted CA's is required.|
+| Alignment|(a) Appears as BusinessTransactionCharacteristics/\@isAuthenticated=persistent and BusinessTransactionCharacteristics/\@isTamperProof=persistent in CPA | |
+| Test References | (empty)  | (empty)  |
+| Notes  | Applications submitting data to, or receiving data from, Digikoppeling ebXML Message service handlers can perform signing at the message payload level. The ebXML Messaging protocol is payload-neutral and therefore supports signed payloads. In that case, the Digikoppeling is not aware of the presence of signatures and does not perform signature verification. | for more information see [[[DK-beveiliging]]] |   |

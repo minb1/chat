@@ -1,0 +1,30 @@
+
+###DetailsTerugmeldingRequest
+
+Het bericht DetailsTerugmeldingRequest wordt gebruikt in de communicatie
+tussen Afnemer en LV/Basisregistratie alsook tussen LV/Basisregistratie
+en Bronhouder om details van een bepaalde terugmelding op te vragen.
+
+Ter illustratie onderstaand de interactie tussen Afnemer en
+Basisregistratie.
+
+![Interactiediagram details terugmelding bevragen via Digimelding Webservice](images/image8.png "Interactiediagram details terugmelding bevragen via Digimelding Webservice")
+
+![Interactiediagram detail terugmelding bevragen rechtstreeks](images/image9.png "Interactiediagram detail terugmelding bevragen rechtstreeks")
+
+Het doel van dit bericht is het opvragen van alle informatie over één
+terugmelding bij een basisregistratie. Hiervoor wordt het OIN van de
+afnemer meegegeven en de basisregistratie waar de detailopvraging wordt
+gedaan, tot slot wordt de UUID van de annotatie meegegeven. In de
+huidige praktijk gaat het altijd om een UUID van een root annotatie.
+Volgens het protocol kan ook een individuele leaf annotatie of een
+deelboom worden opgevraagd. Dit is nu in theorie mogelijk maar wordt in
+de praktijk niet toegepast en is niet getest.
+
+| **Berichttype**: DetailsTerugmeldingRequest |              |          |
+|---------------------------------------------|--------------|----------|
+| **Elementen/attributen**                    |              |          |
+| OinVragendeOrganisatie      | *Identificatie d.m.v. OIN-vragende organisatie.* | \[1..1\] |
+| OinBasisregistratie         | Het OIN van de houder van een landelijke voorziening van de basisregistratie | \[1..1\] |
+| Registratie                 | Code (maximaal 3 letterig) waarmee de basisregistratie wordt aangeduid wanneer de houder van een landelijke voorziening meer dan 1 basisregistratie beheert (bv BRT, BGT). | \[0..1\] |
+| Uuid                        | *UUID van root annotatie.*                       | \[1..1\] |

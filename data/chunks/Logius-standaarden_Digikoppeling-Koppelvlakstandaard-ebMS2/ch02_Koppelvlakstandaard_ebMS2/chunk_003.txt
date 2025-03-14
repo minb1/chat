@@ -1,0 +1,20 @@
+
+##Terminologie in dit document
+
+Dit document biedt organisaties die gebruik gaan maken van Digikoppeling de
+basis voor de configuratie van de ebXML Messaging software. Een correcte
+configuratie is van belang voor het uitwisselen van berichten. Mocht er voor een
+bepaald onderdeel geen specifieke richtlijn gegeven zijn, dan wordt dit
+aangegeven met één van de volgende waardes:
+
+- **Not applicable**: Dit is voor onderdelen die niet relevant zijn voor
+ Digikoppeling, of voor mogelijkheden die niet gebruikt worden.
+
+- **No Recommendation**: geeft aan dat er geen wijziging of voorkeur voor een
+ bepaalde invulling van het onderdeel is op het algemene niveau waar dit
+ document zich op richt. Specifieke toepassingen van deze specificatie (voor
+ specifieke berichtstromen) zullen hier in sommige gevallen wel nog
+ aanvullende eisen voor stellen.
+
+- **Pending**: voor onderdelen die nog nader onderzocht worden en mogelijk in
+ toekomstige versies nader uitgewerkt worden.

@@ -1,0 +1,4 @@
+
+##Resource owner
+
+The resource owner is the citizen that provided the information during the permit request. 

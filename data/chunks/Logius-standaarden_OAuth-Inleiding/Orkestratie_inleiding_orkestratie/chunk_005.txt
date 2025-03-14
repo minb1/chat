@@ -1,0 +1,12 @@
+
+##Aandachtsgebieden van Orkestratie
+
+Interessante onderwerpen die sterk gerelateerd zijn aan orkestratie zij:
+
+- Fouttolerantie (graceful degradation, resiliency, retry policies, automatisch terugmelden).
+- Doodlopende links (afwijkingen van informatiemodel, actualiteits-issues, etc.)
+- Mapping en herleidbaarheid (zie IMX)
+- Historie en tijdreizen (separate module in concept)
+- Batching (separate module in concept)
+
+- Orkestratie in OAuth (o.a. Token Exchange, eHerkenning, FSC, etc.)

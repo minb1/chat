@@ -1,0 +1,47 @@
+
+###Technische documentatie
+
+*Technische documentatie algemeen*
+
+- *DK Architectuur*
+
+    Overzicht van de standaard, samenhang en architectuur. Dit document beschrijft op hoofdlijnen welke manier de standaard moet worden toegepast;
+
+- *DK Identificatie en Authenticatie* 
+    Uitgangspunten en principes voor identificatie- en authenticatieafspraken die gehanteerd worden tussen overheidsorganisaties bij gebruik van de Digikoppeling standaard;
+
+- *DK Beveiliging standaarden en voorschriften* 
+    Centraal document van beveiligingsvoorschriften en -standaarden die door de Digikoppeling Standaard verplicht worden gesteld;
+
+*Technische documentatie koppelvlakken*
+
+- *DK Koppelvlakstandaard WUS*   
+    Koppelvlakspecificatie voor het gebruik van WUS conform Digikoppeling;
+
+- *DK Koppelvlakstandaard EBMS2*  
+    Koppelvlakspecificatie voor het gebruik van ebMS 2.0 conform Digikoppeling;
+
+- *DK Koppelvlakstandaard REST API*  
+    Koppelvlakspecificatie voor het gebruik van REST-API (gebaseerd op ADR) conform Digikoppeling;
+
+- *DK Koppelvlakstandaard Grote Berichten*  
+    Koppelvlakspecificatie voor het uitwisselen van grote berichten conform Digikoppeling. Grote berichten zijn XML berichten of bijlagen die een bepaalde bestandsgrootte overschrijden;
+
+*Ondersteunende Documentatie*
+
+- *DK Best Practices WUS*  
+    Best Practices voor WUS implementatie;
+
+- *DK Best Practices EBMS2*  
+    Best Practices voor EBMS2 implementatie;
+
+- *DK Best Practices REST API*  
+    Best Practices voor REST API implementatie;
+	(toekomstige uitbreiding)
+
+- *DK Best Practices Grote Berichten*  
+    Best Practices voor Grote Berichten implementatie;
+
+- *DK Gebruik en achtergrond certificaten*  
+    Toelichting gebruik en achtergrond DK certificaten;
+

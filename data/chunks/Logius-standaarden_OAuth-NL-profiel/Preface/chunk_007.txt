@@ -1,0 +1,10 @@
+
+##Use case: Client credentials flow
+
+The client credentials flow can be used in usecases where there is an Client to Resource server connection where no user information is needed by the resource server.
+Two examples are:
+* An application does a system API call. For instance a ping service to see if an API is available. The user does not need to be logged in for this and there is no relation to the identity of the end user.
+* A batch application processes a large number of transactions asynchronously at at later scheduled time. The original access_tokens of the preceding synchronous proces is no longer available.
+The flow for such a machine to machine interaction is shown in the figure below.
+
+![Use case Client credentials flow](media/use_case_client_credentials.svg "Use case Client credentials flow")

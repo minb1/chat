@@ -1,0 +1,16 @@
+
+###Concrete tips voor openheid
+
+Op basis van het voorgaande zijn er een aantal concrete tips op te
+stellen: Maak besluitvorming open door:
+
+*   Publiceren van de notulen van verschillende gremia.
+*   Consensus besluitvorming.
+*   Geen partijen uitsluiten bij bijeenkomsten.
+*   Een website met daarop alle documenten (ook drafts) kosteloos beschikbaar.
+*   Een duidelijke wijzigingsprocedure.
+*   Het testbaar maken van de standaard door middel van testprocedures, validatie, certificatie en/of plugfests.
+*   Regel structurele financiering.
+*   Veel aandacht besteden aan de relatie met andere standaarden in de omgeving.
+*   De rechten expliciet hebben vastgelegd; de intellectuele eigendomsrechten op de standaarden, copyrights op documenten, de bijdrage van personen in werkgroepen en in de totstandkoming van de standaarden. Versiebeheer vastleggen: hoe om te gaan met backward en forward compatabiliteit, en daarnaast de ondersteuning vastleggen op basis van de levenscyclus van een standaard.
+*   Het vastleggen in een document van de ontwikkelen beheeraspecten.

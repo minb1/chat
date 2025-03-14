@@ -1,0 +1,4 @@
+
+##Resource owner
+
+The resource owner depends on the implementation of the API. In general, it is the provider of the implementation of the API.

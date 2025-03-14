@@ -1,0 +1,11 @@
+
+###Profile Requirement Item: DuplicateElimination
+
+|[[EBXML-MSG]] Section 6.4.1 | **Best effort**|**Reliable Messaging**|**End-to-End Security** |
+|------------------|---|---|---|
+|Header elements:<br>`/SOAP:Header/eb:AckRequested/`  ||||
+| Is elimination of duplicate messages required? [Yes, for RM Combinations 1-4.] | Duplicate Elimination is **never used**.  | Duplicate Elimination is **required** | Duplicate Elimination is optional. See profiles Best Effort or Reliable Messaging for details. |
+| What is the expected scope in time of duplicate elimination? In other words, how long should messages or message ID's be kept in persistent storage for this purpose? |  (empty) | Message ID's **should** minimally be kept in persistent storage to prevent duplicate delivery during the time interval in which the From Party MSH may be attempting to resend unacknowledged messages. The minimum is (1+Retries)\*RetryInterval.   | (empty)  |
+| Alignment | Appears as MessagingCharacteristics/ \@duplicateElimination in CPA |   |   |   |
+| Test References | (empty) |  |   |   |
+| Notes  |  |   | Message ID's in ebXML are based on [[rfc5322]], and must therefore be globally unique, which in theory prevents accidental re-use of ID's for distinct messages. Factors like system load, disk space, database table limitations, period maintenance schedules **may** be used in message purging policies. Cleaning message ID stores often (temporarily) affects responsiveness of a system. |   |

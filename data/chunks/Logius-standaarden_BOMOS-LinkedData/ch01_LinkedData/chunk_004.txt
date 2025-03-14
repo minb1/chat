@@ -1,0 +1,12 @@
+
+##Private sector
+In de private sector komen Linked Data-ontwikkelingen in alle lagen voor: op het niveau van de branche en ketenprocessen, in individuele bedrijven, en in specifieke bedrijfsprocessen.
+
+In het bedrijfsleven zijn er branches en gemeenschappen waar de rol van Linked Data steeds groter wordt, al is dat meestal in een verkennende fase. Het bedrijfsleven lijkt vooral nieuwsgierig naar de enorme hoeveelheid werk die in de academische wereld is verricht naar semantische technologieën en wat dit concreet kan betekenen om hun problemen te adresseren.
+
+Een voorbeeld is te vinden in de uitzendbranche. Partijen uit die branche hebben in samenwerking met TNO het meerjarige Flexible IT (FIT) with Ontologies-project opgezet. Met dit project testen zij de voordelen van een overstap van uitwisseling middels de SETU-berichtstandaarden naar flexibelere uitwisseling middels de SETU-ontologie.
+
+Daarnaast zijn er individuele bedrijven die met Linked Data aan de slag gaan. Bijvoorbeeld firma NXP Semiconductors, die in 2015 met hun Enterprise Datahub in de prijzen vielen in Nederlandse en Europese Linked Data competities. Dit systeem zorgt ervoor dat data hun vele producten (meer dan 20.000) uit verschillende databases geÃƒÂ¯ntegreerd kunnen worden. Waar mogelijk heeft NXP gebruik gemaakt van
+bestaande standaard ontologiën als Dublin Core, SKOS, FOAF en Schema.org. Omdat er een aantal voor de sector benodigde termen en concepten ontbraken, is ook een NXP-vocabulaire ontwikkeld en aan de eerdergenoemde set gekoppeld. Op deze manier kan  NXP Semiconductors de data rijk genoeg beschrijven en kunnen externe gebruikers de betekenis van begrippen gemakkelijker nagaan.
+
+Tot slot worden Linked Data technologiën steeds meer toegepast in de processen in het bedrijfsleven. Een bekend voorbeeld is te vinden in de online marketing, specifiek in zoekmachineoptimalisatie (Engels: search engine optimization, of SEO). Met SEO streven bedrijven ernaar om een webpagina zo hoog mogelijk te laten scoren in de zoekresultaten van een zoekmachine. Tegenwoordig past men hiervoor JSON-LD toe. JSON-LD, een methode om Linked Data over te dragen via het bekende JSON-formaat, wordt gebruikt door zoekmachines om informatie over websites te verzamelen om zo de gewenste zoekresultaten te bepalen. Google, eigenaar van 's werelds meest gebruikte zoekmachine, raadt de toepassing van JSON-LD aan. De opkomst van JSON-LD is ook een voorbeeld van Linked Data die verbinding vindt met veelgebruikte data-formaten.

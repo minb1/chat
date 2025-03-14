@@ -1,0 +1,5 @@
+
+###Changed
+
+- (BOR) Meldingstekst BR-NL-BOR-21 aangepast vanwege uniformiteit in [Schematron BOR Peppol BIS 3](./technische-documentatie/basisorder-rijk-peppol-bis-3.sch) (v0.8.0 → v0.8.1).
+

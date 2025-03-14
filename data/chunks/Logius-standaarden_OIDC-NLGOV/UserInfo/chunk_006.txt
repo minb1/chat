@@ -1,0 +1,7 @@
+
+##Claims Response
+
+Response to a UserInfo request MUST match the scope and Claims requested to avoid having a OpenID Provider over-expose an End-User's identity information.
+OpenID Providers MUST NOT provide any personal identifiable information without applicable consent.
+
+Claims responses MAY also make use of the aggregated and/or distributed Claims structure to refer to the original source of the subject's Claims.

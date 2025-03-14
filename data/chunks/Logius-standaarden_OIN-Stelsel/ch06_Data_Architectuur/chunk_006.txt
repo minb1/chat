@@ -1,0 +1,14 @@
+
+###Waarom hebben wij gekozen voor betekenisloze SubOINs?
+
+In de discussie met betrokkenen is besproken op welke manier SubOINs worden vastgelegd. Er zijn twee alternatieven besproken:
+
+1. Als basis het [=OIN=] van de rechtspersoon met een volgnummer van 3 cijfers in het suffix|
+2. Een uniek betekenisloos nummer
+
+ Wij hebben gekozen voor een betekenisloos nummer vanwege een aantal redenen:
+ Gebruikmaken van een suffix heeft een beperking tot 999 volgnummers. Dit lijkt een voldoende groot aantal maar vanwege de regel dat eenmaal ingetrokken SubOINs nooit hergebruikt mogen worden is het bereiken van deze limiet niet ondenkbaar
+
+ Het is niet onmogelijk dat organisatieonderdelen wijzigen van een juridische verantwoordelijke, of dat een samenwerkingsverband van samenstelling wijzigt. Met een volgnummerconstructie wordt de ontkoppeling van rechtspersoon en [=SubOIN-beheerder=] onmogelijk.
+
+</div>

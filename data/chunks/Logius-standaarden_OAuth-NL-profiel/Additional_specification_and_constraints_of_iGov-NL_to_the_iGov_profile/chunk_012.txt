@@ -1,0 +1,13 @@
+4.2 Connections with Clients
+
+iGov-NL
+
+A Protected Resource under this profile MUST NOT accept access tokens passed using the query parameter method.
+
+A Protected Resource under this profile SHOULD verify if the client is the Authorized party (azp) when client authentication is used. See section Advanced OAuth Security Options as well.
+
+/iGov-NL
+
+**reference to rationale: Detailed rationale 8**
+
+##

@@ -1,0 +1,11 @@
+
+##Identificerend nummer
+
+Het organisatie identificatienummer (OIN) is het identificerende nummer voor organisaties die gebruik maken van Digikoppeling. De partijen identificeren elkaar op basis van dit nummer.
+
+De bron voor identificatie van organisaties is een erkend register dat is opgenomen in het OIN beleid. In de meeste gevallen is dit het Handelsregister. Het OIN kan worden opgezocht in het OIN Register.
+
+Zie [[?Digikoppeling Identificatie-Authenticatie]]] voor meer informatie.
+
+Het OIN register is bereikbaar op [*https://portaal.digikoppeling.nl/registers/*](https://portaal.digikoppeling.nl/registers/).
+

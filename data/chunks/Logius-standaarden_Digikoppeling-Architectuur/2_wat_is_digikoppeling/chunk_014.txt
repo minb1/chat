@@ -1,0 +1,6 @@
+
+##Scope van Digikoppeling
+
+Digikoppeling moet worden toegepast voor geautomatiseerde gegevensuitwisseling tussen informatiesystemen en is verplicht voor Nederlandse overheden (Rijk, provincies, gemeenten en waterschappen) en instellingen uit de (semi-)publieke sector. Digikoppeling moet worden toegepast wanneer gebruikt gemaakt wordt van Gesloten Diensten. Dat wil zeggen diensten waarbij er noodzaak is om de afnemer te authenticeren.
+
+![Digikoppeling is bedoeld voor Closed Data G2G Uitwisseling](media/DK_closed_g2g.svg "Digikoppeling voor Closed Data G2G Uitwisseling")

@@ -1,0 +1,8 @@
+
+#####Digikoppeling Overzicht Actuele Documentatie en Compliance
+
+- [Pull request](https://github.com/Logius-standaarden/Digikoppeling-Overzicht-Actuele-Documentatie-en-Compliance/pull/10)
+- [Wijzigingen](https://logius-standaarden.github.io/Digikoppeling-Algemeen/releases/Digikoppeling-Release-20250130/diff-comp.htm)
+  - ${\textsf{\color{red}↓ Verwijderd ↓}}$
+  - ${\textsf{\color{green}↕ Vervangen ↕}}$
+  - ${\textsf{\color{orange}↑ Toegevoegd ↑}}$

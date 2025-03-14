@@ -1,0 +1,55 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc.*
+
+# Virtual environment
+venv/
+.env/
+.envrc
+*.env
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+*.whl
+
+# PyCharm-specific
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Python cache and logs
+*.log
+logs/
+*.sqlite3
+db.sqlite3
+
+# Testing
+.tox/
+.nox/
+.coverage
+*.cover
+coverage.xml
+pytest_cache/
+
+# MyPy
+.mypy_cache/
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Docker
+*.dockerignore
+
+# VSCode settings (if applicable)
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db

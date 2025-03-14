@@ -1,0 +1,25 @@
+
+##Berichtuitwisselpatronen
+
+Deze specificatie ondersteunt zowel One Way als Two Way
+bericht-uitwisselpatronen (message exchange patterns, terminologie ontleend aan
+[[?ebMS3]]). One Way uitwisselingen ondersteunen bedrijfstransacties voor
+informatie­verspreiding en notificaties, die geen antwoordbericht
+veronderstellen. Two Way uitwisselingen ondersteunen bedrijfstransacties van het
+type Vraag-Antwoord, Verzoek-Bevestig, Verzoek-Antwoord en Handelstransacties
+(zie [[?UMMR10]], [[?UMMUG]] voor informatie over het concept bedrijfstransactie
+patronen). In het geval van tweewegsverkeer leggen de ebXML headervelden
+(MessageId, RefToMessagId en ConversationId) de relatie tussen request berichten
+en de corresponderende response berichten vast.
+
+Deze specificatie gebruikt uitsluitend een Push binding aan het HTTPS protocol.
+Dat wil zeggen dat het retourbericht in een tweewegscommunicatie via een
+afzonderlijke HTTPS connectie verloopt, die is geïnitieerd vanuit de verzender
+(=de beantwoorder). Het initiële bericht is dan verzonden in een eerdere HTTPS
+connectie, die afgesloten is na succesvolle overdracht van het heengaande
+bericht.
+
+De keuze van het te gebruiken profiel is onafhankelijk van het uitwisselpatroon.
+Het heengaande bericht en (in een tweewegsuitwisseling) het teruggaande bericht
+kunnen naar keuze gebruik maken van het Best Effort profiel of het Reliable
+Messaging profiel.

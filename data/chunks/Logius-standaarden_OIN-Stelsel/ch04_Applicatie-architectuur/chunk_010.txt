@@ -1,0 +1,4 @@
+
+###Publiceren van OIN en SubOINs
+
+het [=OIN=] of [=SubOIN=] is pas openbaar toegankelijk, nadat de beheerder van de [=COR=] het [=OIN=] heeft gepubliceerd. Het [=OIN=] of [=SubOIN=] bezit dan de status *Actief*. De [=COR=] toont ook [=OIN=] en [=SubOIN=]s die ingetrokken zijn.

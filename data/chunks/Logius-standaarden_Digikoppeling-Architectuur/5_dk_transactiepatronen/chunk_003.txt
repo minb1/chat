@@ -1,0 +1,12 @@
+
+###Synchrone Melding
+
+Bij een melding-bevestiging stuurt een service-requester informatie naar de service-provider en de ontvangst wordt synchroon door de service-provider bevestigd. Belangrijk is de schadelijke effecten te voorkomen als een bericht twee keer wordt verzonden (door een time-out) of als meldingen in de verkeerde volgorde binnenkomen.
+
+
+|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
+|---|---|---|
+|Digikoppeling WUS| Digikoppeling WUS is geschikt als voor de melding een gestructureerde bericht (in XML) nodig is. Digikoppeling heeft profielen voor signing en encryption. Voorwaarde is dat de melding *idempotent* is |...|
+|Digikoppeling REST API| Digikoppeling REST API heeft een PUT methode waarmee synchrone requests kunnen uitgevoerd. Digikoppeling REST API kent nog geen gestandaardiseerde versies voor signing of encryptie Het Digikoppeling REST API profiel kent ook een POST methode. POST is niet idempotent en kan dus niet herhaaldelijk worden verzonden| Binen Haal-Centraal kan een nieuwe resource worden gecreeerd in de Basisadministratie zoals de BAG of de BRP |
+
+Tabel 5.2: Synchrone Melding

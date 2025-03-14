@@ -1,0 +1,12 @@
+
+###Delivering notifications
+
+- A delivery request MUST use a HTTP POST request via HTTPS.
+- A delivery response MUST have the appropriate status code:
+    - `200 OK` or `200 Created` if delivery had been accepted and processed and response carries a payload
+    - `201` Created or `204 No Content` when accepted and processed but carries no payload 
+    - `202 Accepted` if accepted but not yet processed or processing status is unknown
+    - `410 Gone` if delivery target has been retired
+    - `429 Too Many Requests` when exceeding a request rate limit and MUST include the Retry-After header.
+    - `415 Unsupported Media Type` when notification format is not understood.
+    - other error status codes apply as specified in [RFC7231](https://tools.ietf.org/html/rfc7231).

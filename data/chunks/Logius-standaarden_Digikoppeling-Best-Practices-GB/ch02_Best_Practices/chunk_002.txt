@@ -1,0 +1,21 @@
+
+##Inleiding
+
+De situatie kan zich voordoen dat een Digikoppeling bericht een grootte krijgt die niet meer efficiënt door de Digikoppeling adapters verwerkt kan worden. (meestal is in de praktijk de middleware / servicebus de bottleneck) Ook kan het zich voordoen dat er behoefte bestaat aan het buiten de normale procesgang ('out-of-band') uitwisselen van grote hoeveelheden informatie tussen systemen.
+In die gevallen zal dit “grote bericht” op een andere wijze verstuurd moeten worden: middels de Digikoppeling Koppelvlakstandaard Grote Berichten. De volgende aanpak wordt dan gehanteerd:
+
+- De verzender stelt een bestand samen uit (een deel van) de gegevens die normaliter in het “grote bericht” verzonden zou worden. Het resultaat wordt aangeduid met de term “groot bestand”. Merk op dat dit ook een “groot” xml bestand kan zijn, een CAD bestand, een PDF document, multimedia files, een ZIP bestand, et cetera.
+
+- De verzender stelt metadata samen over het grote bestand en deelt deze metadata in een Digikoppeling-bericht [in een zgn. stuurbericht].
+
+- Uitwisseling van het grote bestand vindt plaats via een PULL of een PUSH principe.  
+   - Bij Het PULL principe biedt de verzender het groot bestand aan via een Grote Berichten File service aan de ontvanger.  
+   - Bij het PUSH principe stuurt de verzender het groot bestand naar de Grote Berichten File service van de ontvanger.
+
+- De bestandsoverdracht is niet “betrouwbaar”; hiervoor dient de ontvanger aanvullende maatregelen te implementeren (retry-mechanisme, foutafhandeling). De Koppelvlakstandaard bevat hiervoor handvatten. Toepassing van deze handvatten in concrete implementaties vallen buiten de scope van het koppelvlak.
+
+Merk op dat het stuurbericht naast metadata ook voorzien kan zijn van inhoudelijke informatie die al nodig is bij de verwerking van het bericht.
+
+Dit document beschrijft welke gegevens er in de metadata opgenomen moeten worden en hoe het HTTP 1.1 protocol gebruikt moet worden voor de overdracht van het grote bestand.
+
+De standaard doet geen uitspraak over gegevensstromen waarin kleine en grote berichten voorkomen. Bij implementatie van dergelijke gegevensstromen zal een organisatie moeten afwegen of kleine berichten anders of gelijk aan de ‘echte’ grote berichten verwerkt worden. In z’n algemeenheid zal een uniforme afhandeling eenduidiger en vooral ook eenvoudiger zijn; slechts in bijzondere gevallen zal dit niet volstaan.

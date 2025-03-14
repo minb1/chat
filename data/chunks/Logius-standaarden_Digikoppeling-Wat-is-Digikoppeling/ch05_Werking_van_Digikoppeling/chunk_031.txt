@@ -1,0 +1,10 @@
+
+##Hoe ziet de berichtuitwisseling-dialoog eruit voor bevragingen en meldingen?
+
+De berichtuitwisseling tussen betrokken partijen kent de volgende mogelijkheden:
+
+- Bilaterale uitwisseling tussen partijen.
+
+- Bilaterale uitwisseling via een transparante intermediair
+
+    De mogelijkheden worden hieronder toegelicht. Daarbij zijn de componenten in de Digikoppeling-keten en hun samenhang op abstract niveau weergegeven.

@@ -1,0 +1,97 @@
+
+####Introspection
+
+Token introspection allows a protected resource to query the authorization server for metadata about a token. The protected resource makes a request like the following to the token introspection endpoint:
+
+<aside class="example">
+<pre>POST /introspect HTTP/1.1
+User-Agent: Faraday v0.9.0
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+Accept: */*
+Connection: close
+Host: as-va.example.com
+Content-Length: 1412
+
+client_assertion=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3M
+iOiJhMmMzNjkxOS0wMWZmLTQ4MTAtYTgyOS00MDBmYWQzNTczNTEiLCJzdWIi
+OiJhMmMzNjkxOS0wMWZmLTQ4MTAtYTgyOS00MDBmYWQzNTczNTEiLCJhdWQiO
+iJodHRwczovL2FzLXZhLmV4YW1wbGUuY29tL3Rva2VuIiwiaWF0IjoxNDE4Nj
+k4ODE0LCJleHAiOjE0MTg2OTg4NzQsImp0aSI6IjE0MTg2OTg4MTQvZmNmNDQ
+2OGY2MDVjNjE1NjliOWYyNGY5ODJlMTZhZWY2OTU4In0.md7mFdNBaGhiJfE_
+pFkAAWA5S-JBvDw9Dk7pOOJEWcL08JGgDFoi9UDbg3sHeA5DrrCYGC_zw7fCG
+c9ovpfMB7W6YN53hGU19LtzzFN3tv9FNRq4KIzhK15pns9jckKtui3HZ25L_B
+-BnxHe7xNo3kA1M-p51uYYIM0hw1SRi2pfwBKG5O8WntybLjuJ0R3X97zvqHn
+2Q7xdVyKlInyNPA8gIZK0HVssXxHOI6yRrAqvdMn_sneDTWPrqVpaR_c7rt8D
+dd7drf_nTD1QxESVhYqKTax5Qfd-aq8gZz8gJCzS0yyfQh6DmdhmwgrSCCRC6
+BUQkeFNvjMVEYHQ9fr0NA
+&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
+&client_id=a2c36919-01ff-4810-a829-400fad357351
+&token=eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0MTg3MDI0MTQsImF1ZCI6W
+yJlNzFmYjcyYS05NzRmLTQwMDEtYmNiNy1lNjdjMmJjMDAzN2YiXSwiaXNzIj
+oiaHR0cHM6XC9cL2FzLXZhLmV4YW1wbGUuY29tXC8iLCJqdGkiOiIyMWIxNTk
+2ZC04NWQzLTQzN2MtYWQ4My1iM2YyY2UyNDcyNDQiLCJpYXQiOjE0MTg2OTg4
+MTR9.FXDtEzDLbTHzFNroW7w27RLk5m0wprFfFH7h4bdFw5fR3pwiqejKmdfA
+bJvN3_yfAokBv06we5RARJUbdjmFFfRRW23cMbpGQCIk7Nq4L012X_1J4IewO
+QXXMLTyWQQ_BcBMjcW3MtPrY1AoOcfBOJPx1k2jwRkYtyVTLWlff6S5gK-ciY
+f3b0bAdjoQEHd_IvssIPH3xuBJkmtkrTlfWR0Q0pdpeyVePkMSI28XZvDaGnx
+A4j7QI5loZYeyzGR9h70xQLVzqwwl1P0-F_0JaDFMJFO1yl4IexfpoZZsB3Hh
+F2vFdL6D_lLeHRy-H2g2OzF59eMIsM_Ccs4G47862w
+</pre>
+</aside>
+
+The client assertion parameter is structured as described in [Section 2.3.3](#requests-to-the-token-endpoint) .
+
+The server responds to an introspection request with a JSON object representing the token containing the following fields as defined in the token introspection specification:
+
+<dl>
+
+<dt>active</dt>
+
+<dd style="margin-left: 8">Boolean value indicating whether or not this token is currently active at this authorization server. Tokens that have been revoked, have expired, or were not issued by this authorization server are considered non-active.</dd>
+
+<dt>scope</dt>
+
+<dd style="margin-left: 8">Space-separated list of OAuth 2.0 scope values represented as a single string.</dd>
+
+<dt>exp</dt>
+
+<dd style="margin-left: 8">Timestamp of when this token expires (integer number of seconds since from 1970-01-01T00:00:00Z UTC)</dd>
+
+<dt>sub</dt>
+
+<dd style="margin-left: 8">An opaque string that uniquely identifies the user who authorized this token at this authorization server (if applicable). This string MAY be diversified per client.</dd>
+
+<dt>client_id</dt>
+
+<dd style="margin-left: 8">An opaque string that uniquely identifies the OAuth 2.0 client that requested this token</dd>
+
+</dl>
+
+<aside class="example">
+The following example is a response from the introspection endpoint:
+
+<pre>HTTP/1.1 200 OK
+Date: Tue, 16 Dec 2014 03:00:14 GMT
+Access-Control-Allow-Origin: *
+Content-Type: application/json;charset=ISO-8859-1
+Content-Language: en-US
+Content-Length: 266
+Connection: close
+
+{
+   "active": true,
+   "scope": "file search visa",
+   "exp": 1418702414,
+   "sub": "{sub\u003d6WZQPpnQxV, iss\u003dhttps://idp-p.example.com/}",
+   "client_id": "e71fb72a-974f-4001-bcb7-e67c2bc0037f",
+   "token_type": "Bearer"
+}
+</pre>
+</aside>
+
+The authorization server MUST require authentication for both the revocation and introspection endpoints as described in [Section 2.3.2](#requests-to-the-token-endpoint) . Protected resources calling the introspection endpoint MUST use credentials distinct from any other OAuth client registered at the server.
+
+A protected resource MAY cache the response from the introspection endpoint for a period of time no greater than half the lifetime of the token. A protected resource MUST NOT accept a token that is not active according to the response from the introspection endpoint.
+
+<!-- ### [3.3.](#rfc.section.3.3) Response to Authorization Requests -->

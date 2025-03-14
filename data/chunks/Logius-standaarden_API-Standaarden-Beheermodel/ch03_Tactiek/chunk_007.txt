@@ -1,0 +1,6 @@
+
+###Nederlandse Overheid Referentie Architectuur (NORA)  
+
+De API Standaarden volgen de principes van de Nederlandse Overheid Referentie Architectuur. Zie voor meer informatie: [https://www.noraonline.nl/wiki/NORA\_online](https://www.noraonline.nl/wiki/NORA_online)  
+
+In de NORA is sinds 2017 het Thema API's opgenomen en beschreven. De NORA beschrijft met name wat een API is en waarom API's belangrijk zijn. Ook zijn er op de site aanbevelingen voor API's in de Enterprise Architectuur en de toepassing van API's in het ontwerp van een dienst.

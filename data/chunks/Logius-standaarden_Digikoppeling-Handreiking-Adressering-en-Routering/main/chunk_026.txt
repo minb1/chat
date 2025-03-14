@@ -1,0 +1,5 @@
+
+##Identificatie van organisaties met OIN
+
+Het OIN (Organisatie Identificatie Nummer) wordt gebruikt om organisaties te identificeren (zie ook [OIN Stelsel](https://gitdocumentatie.logius.nl/publicatie/dk/oin/)
+Het SubOIN is een afgeleide van het OIN en is opgesteld volgens de OIN-nummersystematiek en wordt gebruikt voor een organisatieonderdeel, samenwerkingsverband of voorziening. SubOIN's kunnen worden gebruikt om fijnmazig te identificeren. (Aan een OIN kunnen meerdere SubOIN's gekoppeld worden).

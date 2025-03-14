@@ -1,0 +1,4 @@
+
+###Identificatie
+
+Het gebruik van een Organisatie Identificatienummer (OIN) beoogt rechtspersonen en niet-rechtspersonen te identificeren ten behoeve van digitale berichtenverkeer met de overheid.

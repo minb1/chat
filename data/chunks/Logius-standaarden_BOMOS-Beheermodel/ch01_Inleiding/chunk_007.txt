@@ -1,0 +1,8 @@
+
+##Bomos
+
+Logius richt de beheerorganisatie in conform het Beheer en
+OntwikkelModel voor Open Standaarden (BOMOS). Ook dit beheer document is
+op basis van BOMOS ingericht.
+
+![Bomos model](images/image3.png "BOMOS model")

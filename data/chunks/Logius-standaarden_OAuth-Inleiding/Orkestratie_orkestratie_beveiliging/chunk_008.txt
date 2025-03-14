@@ -1,0 +1,10 @@
+
+###Authenticiteit
+
+- De Authenticiteit van Client X wordt gegarandeerd door Identity Service Provider Z
+
+- De Authenticiteit van Client X wordt geverifieerd door Service Y en Identity Service Provider Z
+
+- De Authenticiteit van Service Y moet worden geverifieerd door Client X
+
+- De Authenticiteit van Service A,B & C moet worden geverifieerd door Service Y

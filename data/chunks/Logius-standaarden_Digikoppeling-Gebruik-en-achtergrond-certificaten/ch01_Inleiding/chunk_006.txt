@@ -1,0 +1,26 @@
+
+##Leeswijzer
+
+Dit document is opgebouwd volgens een karakteristiek proces dat organisaties bij invoering van Digikoppeling doorlopen:
+
+- [Uitleg over PKIoverheid](#achtergrond-pkioverheid-certificaten)
+
+- [Ontwerpen van de aansluiting op Digikoppeling met een Digikoppeling adapter](#ontwerp-aspecten-digikoppeling-adapter)
+
+- [Bestellen van een certificaat](#bestellen-certificaat)
+
+- [Ontvangst en installatie van het certificaat](#installatie-certificaat)
+
+- [Distributie van het certificaat](#distributie-en-cpa-creatie)
+
+- [Gebruik van het certificaat](#gebruiksaspecten)
+
+De volgende hoofdstukken gaan hier per processtap op in. Elk hoofdstuk begint met de opsomming van een aantal vragen die duidelijk maken op welke informatiebehoefte het hoofdstuk antwoord geeft. Daarna volgt belangrijke achtergrondinformatie. Het hoofdstuk sluit af met een beschrijving van de benodigde activiteiten voor deze proces stap.
+
+In bijlagen is de volgende aanvullende informatie opgenomen:
+
+- [Informatie over bestandsformaten waarin sleutels en/of certificaten uitgewisseld kunnen worden](#bijlage-1-bestandsformaten-voor-certificaten)
+
+- [Richtlijnen voor een veilig wachtwoord](#bijlage-2-richtlijnen-voor-een-veilig-password)
+
+- [Gegevens die in een certificaat opgenomen kunnen worden opgenomen](#bijlage-3-basisattributen-in-certificaat)

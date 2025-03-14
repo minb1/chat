@@ -1,0 +1,6 @@
+
+##Rechtenbeleid  
+
+De OAuth-NL standaard zelf en dit beheermodel vallen onder de Creative Commons licentie ([Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/)) Dit houdt in dat het is toegestaan om deze documenten te gebruiken, verder te verspreiden en aan te passen. Dit werk en de specificaties van de OAuth-NL standaard worden royalty-free ter beschikking gesteld. Organisaties en personen die bijdragen aan de OAuth-NL dienen dit onder dezelfde voorwaarden te doen als bij het originele werk. Door bij te dragen aan de OAuth-NL standaard verklaren zij hiermee in te stemmen.
+
+Uitgesloten van alle bovenstaande zijn rechten verbonden aan de standaarden, profielen en andere onderdelen waar de OAuth-NL standaard gebruik van maakt. Hierop zijn de rechten van de betreffende standaarden, profielen en andere onderdelen zelf van toepassing. Dit zijn in geval van de OAuth-NL allemaal open standaarden.

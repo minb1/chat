@@ -1,0 +1,30 @@
+
+##Doel en scope van Digikoppeling
+
+Digikoppeling biedt de mogelijkheid om op een gestandaardiseerde wijze berichten
+uit te wisselen tussen partijen. De uitwisseling tussen partijen wordt in drie
+lagen opgedeeld:
+
+- Inhoud: Op deze laag worden de afspraken gemaakt de inhoud van het uit te
+    wisselen bericht, dus de structuur, semantiek en waardebereiken.
+    Digikoppeling houdt zich **niet** met de inhoud bezig, ‘Digikoppeling heeft
+    geen boodschap aan de boodschap’.
+
+- Logistiek: Op deze laag bevinden zich de afspraken betreffende
+
+    transportprotocollen (HTTP), messaging (SOAP), beveiliging
+
+    (authenticatie en encryptie)en betrouwbaarheid. *Dit is de*
+
+    *Digikoppeling-laag.*
+
+- Transport: deze laag verzorgt het daadwerkelijke transport van
+
+    het bericht.
+
+Digikoppeling richt zich dus uitsluitend op de logistieke laag. Deze afspraken
+komen in de koppelvlakstandaards en andere voorzieningen. In het geval van WUS
+en ebMS2 komt de logistieke laag overeen met de ‘header’ van het bericht en gaat
+de ‘body’ uitsluitend over de inhoud. In het geval van Digikoppeling grote
+berichten is een deel van de logistieke informatie opgenomen in de ‘body’ van
+het bericht in de vorm van gestandaardiseerde meta-data.

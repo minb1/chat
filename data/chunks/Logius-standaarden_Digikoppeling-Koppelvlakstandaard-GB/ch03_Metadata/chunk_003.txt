@@ -1,0 +1,8 @@
+
+##Opbouw en structuur XML Schema definities  
+
+
+Om volledig backwards compatible te blijven met de vorige versie van de DK GB
+standaard waarin alleen het PULL principe was gespecificeerd worden voor PULL en
+PUSH aparte schema’s gehanteerd waarbij het PULL schema ongewijzigd is t.o.v. de
+vorige versie.

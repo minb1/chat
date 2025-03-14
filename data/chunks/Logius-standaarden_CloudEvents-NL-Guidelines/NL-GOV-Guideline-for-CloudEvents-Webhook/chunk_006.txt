@@ -1,0 +1,9 @@
+
+##Recommendations
+- One SHOULD use the  [HTTP 1.1 Web Hooks for Event Delivery](https://github.com/cloudevents/spec/blob/v1.0.1/http-webhook.md). 
+- There are no agreements to deviate from the standard in any part.
+- As described in the specification usage of an access token added to the HTTP Request URI Query component has a number of security weaknesses and therefore SHOULD NOT be used unless it is impossible to send an access token in the Authorization request header field.
+-  The CloudEvents specification focuses on automated validation of intended notification applications. Within the context of the Dutch government, there can (also) be non-automated validation (e.g. by specifying endpoints in agreements between the organizations involved). In those cases it is not always necessary to perform an automated handshake before notifications may be sent.
+- An automated handshake as described can take place at different moments. If automated subscription to event notification is used:
+    - one SHOULD perform a handshake as described in the specification immediately at registration time
+    - one MAY perform a handshake as a "pre-flight" request immediately preceding a delivery.

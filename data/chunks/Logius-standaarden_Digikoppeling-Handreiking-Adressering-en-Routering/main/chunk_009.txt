@@ -1,0 +1,4 @@
+
+##Wanneer is het aan te raden om subOIN's te gebruiken voor adresseren en routeren?
+
+Over het gebruik van subOIN's voor adresseren en routeren bestaan verschillende opvattingen. Sommige organisaties kennen verschillende digitale postbussen van organisatieonderdelen of voorzieningen en gebruiken subOIN's om deze digitale postbussen te identificeren. Andere organisaties willen het gebruik van OIN reserveren om Organisaties te identificeren en gebruiken voor het routeren van berichten binnen de organisatie ander kenmerken van het bericht. Het OIN-stelsel maakt het eenvoudiger om subOIN's aan te maken, maar legt de partijen geen verplicht patroon op hoe subOIN's gebruikt kunnen worden ten behoeve van adresseren en routeren. Partijen die met elkaar berichten uitwisselen zullen over het gebruik van subOIN's onderling afspraken moeten maken.

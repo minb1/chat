@@ -1,0 +1,7 @@
+
+####Data
+
+Domain-specific information about the occurrence (i.e. the payload). This might
+include information about the occurrence, details about the data that was
+changed, or more. See the [Event Data](#event-data) section for more
+information.

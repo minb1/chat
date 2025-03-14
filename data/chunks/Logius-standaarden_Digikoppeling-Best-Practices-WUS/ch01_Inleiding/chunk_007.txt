@@ -1,0 +1,6 @@
+
+##Opbouw van dit document
+
+Hoofdstuk 1 bevat een aantal algemene inleidende onderwerpen.
+
+Hoofdstuk 2 bevat aanbevelingen, werkwijzes en Best Practices.

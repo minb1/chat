@@ -1,0 +1,21 @@
+
+####Point-to-Point beveiliging
+
+Deze beveiliging zorgt ervoor dat het volledige bericht en het http-protocol is
+beveiligd tijdens het transport van verzender naar ontvanger. Alle Digikoppeling
+profielen verplichten point-to-point beveiliging. Hierbij gelden de volgende
+voorschriften:
+
+| Nr    | Omschrijving |
+|---|---|
+| WT001 | Authenticatie op transportniveau gebeurt op basis TLS met tweezijdige authenticatie. De huidige toegestane protocolversies zijn beschreven in het [[Beveiligingsdocument]]. Client and Server authenticatie is vereist gebruikmakend van HTTPS en alle in [[Beveiligingsdocument]] genoemde TLS versies. De TLS implementatie mag niet op een oudere TLS of SSL versie terug kunnen vallen. |
+| | Meer informatie in het [[Beveiligingsdocument]] |
+| WT002 | De te gebruiken certificaten in de productie omgeving voldoen aan de eisen van PKIoverheid (PvE 3b) en de inhoud van de identificerende velden in het certificaat dienen te voldoen aan de afspraken als gesteld in de functionele eisen Authenticatie Digikoppeling. Met het toepassen van PKIoverheid-certificaten die Digikoppeling compliant zijn, wordt hieraan voldaan. |
+| WT003 | De minimaal ondersteunde TLS encryptie algoritmen en sleutellengtes worden beschreven in het [[Beveiligingsdocument]] |
+| | Meer informatie in het [[Beveiligingsdocument]] |
+| WT004 | De geldigheid van het certificaat wordt getoetst met betrekking tot de geldigheidsdatum en de Certificate Revocation List(CRL) die voldoet aan de eisen van PKIoverheid. |
+| WT005 | De betreffende CRL dient zowel voor de versturende als ontvangende partij te benaderen zijn. |
+| WT006 | Voor communicatie over HTTPS wordt port 443 gebruikt. |
+| | Overwegingen: Wanneer men afwijkt van Poort 443 dient de gebruiker van de site of de service naast https ook het afwijkende poortnummer in de URI te specificeren. Het is sterk aanbevolen voor publieke services en sites om poort 443 te handhaven en met behulp van een firewall rule of proxy pass het verkeer intern te redirecten naar een afwijkende poort. Het verbergen van een open poort door een afwijkend poortnummer te gebruiken heeft geen zin omdat port scans eenvoudig open en toegankelijke poorten ontdekken. |
+| WT007 | Binnen een TLS-sessie kunnen meerdere berichten verstuurd worden. |
+| WT008 | Voor de TLS-sessie moet een maximale duur gelden, na het verloop hiervan wordt de verbinding verbroken. Partijen zijn vrij om de maximale duur zelf te bepalen. |

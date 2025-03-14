@@ -1,0 +1,30 @@
+
+##PKIoverheid
+
+De Nederlandse overheid heeft een eigen Public Key Infrastructure ingericht waarmee de veiligheid van digitale diensten in Nederland kan worden geborgd door middel van het uitgeven (en intrekken) van digitale certificaten.
+
+De certificaat autoriteit (CA) borgt de integriteit en authenticiteit van het certificaat en staat in voor de identiteit van de certificaateigenaar.
+
+De certificatie dienstverleners (TSPs<sup>3</sup>) verstrekken PKIoverheid certificaten (onder de root of stamcertificaat van de Staat der Nederlanden) conform de eisen van PKIoverheid en vallen onder toezicht van Logius als Policy Authority (PA). De PA beheert het Programma van Eisen (het normenkader) en Certification Practice Statements. De PA bepaalt de toetreding van TSPs tot het stelsel en houdt toezicht op de TSPs.<sup>4</sup>
+
+<sup>3</sup>: Trust Service Providers (TSPs) is de engelse term voor certificatie dienstverleners. De afkorting TSPs wordt in dit document gebruikt voor beide begrippen. TSP’s werden eerder CSP genoemd, Certificate Service Provider.
+
+<sup>4</sup>: https://www.logius.nl/diensten/pkioverheid
+
+Kenmerken PKIoverheid<sup>5</sup>:
+
+<sup>5</sup>: [Hoe werkt PKIoverheid?](https://www.logius.nl/diensten/pkioverheid/hoe-werkt-het)
+
+- Exclusief keurmerk van de Staat der Nederlanden.
+
+- Gebaseerd op Nederlandse wet- en regelgeving en Europese standaarden.
+
+- Beheer van de standaard door de Rijksoverheid.
+
+- Regie van incidenten of calamiteiten door de Rijksoverheid.
+
+- Actief toezicht op de certificatiedienstverleners door de Rijksoverheid.
+
+- Mogelijkheid om een rechtsgeldige elektronische handtekening te zetten.
+
+- Eén digitaal certificaat voor meerdere voorzieningen.

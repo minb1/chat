@@ -1,0 +1,56 @@
+
+####Ad 1. Onderscheid tussen ontwikkeling en beheer
+
+Een onderscheid tussen initiële ontwikkeling en lopend beheer is
+relevant omdat de eerste over het algemeen eenvoudiger te financieren
+is dan de tweede. Opdrachtgevers zijn in de meeste gevallen wel
+geneigd om een project te financieren rond een bepaald probleem waarin
+een standaard de oplossing is. Als de standaard eenmaal ontwikkeld is
+in het project, dan is het echter een stuk lastiger om de continue
+financiering te vinden voor het beheer. Regelmatig haken de initiële
+opdrachtgevers af, of op zijn minst is er veel overtuiging nodig voor
+nut en noodzaak voor continue financiering. Uitleggen wat onder lopend
+beheer valt is dan ook noodzakelijk: de standaard aanpassen aan de
+veranderende omgeving. Bijvoorbeeld wetgeving is veranderd,
+afhankelijke standaarden zijn veranderd, of innovaties op technisch
+vlak. Lopend beheer kan wel leiden tot een nieuwe versie van een
+standaard. (Overigens soms, bijvoorbeeld door het NEN, wordt beheer
+nauwer gedefinieerd als het beschikbaar houden op een website, en kan
+beheer niet leiden tot een nieuwe versie van een standaard)
+
+Projectfinanciering en subsidie zijn op zich prima voor incidentele
+zaken zoals de initiële ontwikkeling maar ook specifieke uitbreiding
+van de standaard. Echter aangezien ze niet structureel zijn, is het
+minder handig deze bronnen in te zetten voor het beheer van een
+standaard. Structureel op de begroting (bijv. financiering door
+overheid) is natuurlijk een ideaal scenario, maar niet voor elke
+beheerorganisatie weggelegd. Bij het ontbreken hiervan wordt het
+nagenoeg noodzakelijk om een lidmaatschapsmodel te bestuderen. De
+gewenstheid van het lidmaatschapsmodel (soms ook contributie of
+participanten genoemd aangezien een stichting geen leden mag hebben)
+is afhankelijk van de voordelen die exclusief voor de leden gelden, en
+het kostenaspect. Als iedereen kan participeren tegen gediversifieerde
+tarieven dan is dit een acceptabel alternatief. Bijvoorbeeld op type
+organisatie en omzet. Het lidmaatschapsgeld mag voor geen enkele
+deelnemer een grote barrière vormen. Als er geen voordelen aan het
+lidmaatschap verbonden zijn zal niemand geneigd zijn om deel te nemen.
+
+Voordelen van een lidmaatschap liggen op een tweetal punten:
+
+1. Zichtbaar maken dat organisatie de standaard
+   ondersteunt. (bijvoorbeeld logo op website, twee kanten uit: de
+   logo van het participerende organisatie op de website van de
+   standaard, en anderzijds dat de participerende organisatie het logo
+   van de standaard mag gebruiken op websites en flyers)
+
+2. Deelname aan werkgroepen. Deelname aan werkgroepen is vaak zeer
+   waardevol aangezien het kennis geeft van de processen in de
+   branche, en de toekomst ontwikkeling van de standaard. Het geven
+   van voordelen aan lidmaatschap heeft consequenties voor de openheid
+   van de standaard; hier moet gezocht worden naar een juiste balans.
+
+Sommige standaardisatieorganisaties maken in hun tarieven onderscheid
+tussen sturende leden en deelnemende leden. Dit begint wel
+twijfelachtig te zijn in relatie tot openheid. Ook wordt soms getracht
+veel opbrengsten bij leveranciers te behalen maar dit kan de adoptie
+van de standaard schaden.

@@ -1,0 +1,28 @@
+Alternatieven voor berichtvolgorde
+
+Het garanderen van de volgordelijkheid binnen een keten kan in zijn algemeenheid op meerdere manieren worden geregeld:
+
+1.  Vermijden van de behoefte  
+    Een zuivere gebeurtenis-gedreven architectuur kan de behoefte aan volgordelijkheid vaak vermijden. In deze architectuur worden gegevens niet meegeleverd met gebeurtenissen, maar naar aanleiding van gebeurtenissen bij de bron geraadpleegd. Als in een dergelijke situatie bijvoorbeeld overlijden eerder dan de geboorte doorgegeven wordt zal de actie die op overlijden (of geboorte) volgt altijd de meest actuele gegevens opleveren.
+
+2.  Risico-reductie  
+    Bewuste vertragingen aan de bron tussen twee opeenvolgende (gerelateerde) gebeurtenissen, kan het risico op het uit volgorde raken van berichten beperken.
+
+3.  Applicatief: mitigatie  
+    In deze situatie verwerkt de afnemer gebeurtenissen zodanig dat eventuele volgordeproblemen worden gemitigeerd (simpelste algoritme: als het BSN binnenkomt voordat de persoon bekend is, wordt het BSN terzijde gelegd totdat de persoon wél bekend is).
+
+4.  Applicatief: unipotente operaties  
+    In deze situatie wordt er voor gezorgd dat de operatie naar aanleiding van een bericht slechts op één manier interpreteerbaar is. Bijvoorbeeld door bij verandering van een subsidie of burgelijke staat zowel de oude als de nieuwe situatie mee te geven. Of bij ‘saldo-informatie’ een verhoging of verlaging te sturen in plaats van de nieuwe waarde.
+
+5.  Applicatieve volgorde door ontvanger  
+    In deze situatie geeft de applicatie aan het bericht informatie mee waarmee de ontvanger de volgorde kan bepalen. Dit kan bijvoorbeeld met tellers, zodat de applicatie de berichten voor verwerking in volgorde kan plaatsen, maar ook met timestamps zodat de applicatie na verwerking eventuele correcties kan uitvoeren (zie ook bijlage 1 onder “zelfbouwoverwegingen”). Dit zal liefst selectief alleen voor kritische berichten gebeuren zodat andere berichten ongestoord doorgang vinden.
+
+6.  Applicatieve volgorde door verzender  
+    In deze situatie wacht de verzendende applicatie op een ontvangstbevestiging of verwerkingsbevestiging van de ontvanger voordat een nieuw bericht gestuurd wordt. Dit zal liefst selectief alleen voor kritische berichten gebeuren zodat andere berichten ongestoord doorgang vinden.
+
+7.  Logistieke volgorde  
+    Digikoppeling biedt als optie om berichten in volgorde af te leveren aan de ontvangende applicatie. Deze functie van de Digikoppeling-adapter software wordt echter door enkele belangrijke leveranciers niet ondersteund. Digikoppeling stelt daarom dat deze optie alleen gebruikt kan worden als vóóraf bilateraal overeenstemming bereikt is over ondersteuning.
+
+Bijlage 1 – Message Ordering
+
+##

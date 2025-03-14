@@ -1,0 +1,10 @@
+
+###Profile Requirement Item: HTTP Access Control
+
+|[[EBXML-MSG]] Appendix B.2.6 Access Control Header elements| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header elements|MIME parts|
+| Which HTTP access control mechanism(s) are required or allowed? Basic, Digest, or client certificate (the latter only if transport-layer security is used), for example. Refer to item 4.1.4.8 in Security section. | Access control is based on client certificate information only. HTTP Basic or Digest authentication are **not supported**. |
+| Alignment | Appears as AccessAuthentication elements in CPA.   |
+| Test References | (empty) |
+| Notes  | (empty) |

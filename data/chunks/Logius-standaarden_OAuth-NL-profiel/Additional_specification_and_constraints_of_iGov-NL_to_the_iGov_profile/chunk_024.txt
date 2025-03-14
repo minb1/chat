@@ -1,0 +1,10 @@
+3 Limiting the set of usecases 
+OAuth2 can be applied over a wide range of various use case scenarios. Profiles like this profile "iGov-NL" therefore exist to set a baseline to be applicable for specific use cases.
+
+Selected use cases have implications on choices for e.g. security, privacy and interoperability. This version of this profile is therefore scoped to a single use case. Future updates to this profile may increase the scope to additional use cases.
+
+Since this profile focuses on a particular use case, certain explicit requirements or changes from the upsteam iGov profile exist. These include (non exhaustive):
+- A `sub` identifier MUST be present in access tokens, as the use case by definition focuses on authorization including an identifier.
+- Direct access clients are out of scope.
+
+##

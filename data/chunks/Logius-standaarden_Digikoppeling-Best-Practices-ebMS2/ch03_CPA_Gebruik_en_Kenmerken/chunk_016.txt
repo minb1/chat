@@ -1,0 +1,4 @@
+
+###Endpoint
+
+Deze heeft de waarde van de URL (FQDN, met pad namen) van de ebMS-adapter waarmee over Digikoppeling gegevens uitgewisseld worden. De FQDN van de URL moet overeenkomen met de FQDN die in het server certificaat vermeld staat.

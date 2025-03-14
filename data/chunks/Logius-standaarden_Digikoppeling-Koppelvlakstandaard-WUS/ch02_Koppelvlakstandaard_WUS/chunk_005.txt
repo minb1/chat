@@ -1,0 +1,88 @@
+
+##Ondersteunde varianten 
+
+Om redenen van interoperabiliteit, eenvoud en overzichtelijkheid onderscheidt
+deze Digikoppeling Koppelvlakstandaard een tweetal varianten van uitwisselingen.
+Elke variant veronderstelt bepaalde voorgedefinieerde keuzes voor parameters als
+beveiliging en betrouwbaarheid en is daarmee een “profiel” voor WUS.
+
+Elke uitwisseling op basis van de WUS-protocollen over Digikoppeling zal moeten
+voldoen aan één of een combinatie van de volgende Digikoppeling WUS-varianten:
+
+- __Best Effort:__ dit zijn synchrone uitwisselingen die geen faciliteiten
+    voor betrouwbaarheid (ontvangstbevestigingen, duplicaateliminatie etc.)
+    vereisen. Voorbeelden zijn toepassingen waar het eventueel verloren raken
+    van sommige berichten niet problematisch is en waar snelle verwerking
+    gewenst is.
+
+- __End-to-End Security:__ een bericht wordt beveiligd tussen de
+    uiteindelijke consumer en de uiteindelijke provider, ook wanneer er zich
+    intermediairs bevinden in het pad tussen die twee. Het betreft hier
+    authenticatie van de consumerorganisatie, conform het Digikoppeling
+    authenticatiemodel, waarbij alleen de identiteit van de consumerorganisatie
+    relevant is(signing), en encryptie van het bericht (payload inclusief
+    attachments) onderweg. Voor de authenticatie en encryptie wordt
+    gebruikgemaakt van WS-Security.
+
+- __Attachments:__ één of meerdere bijlagen, naast natuurlijk het reeds bestaande
+    (xml) bericht zelf. Dit kan, maar hoeft niet, toegepast te worden in
+    combinatie de bovengenoemde profielen: het is dus optioneel.
+
+- Vertrouwelijkheid en authenticatie van zender en ontvanger wordt als volgt
+    gerealiseerd:
+
+  - voor Point-to-Point Security, door middel van twee-zijdig TLS op
+ transport-niveau (in het HTTP kanaal). (De toepassing ervan is verplicht
+ op alle Digikoppeling versies.)
+
+  - voor End-to-End Security, door middel van signing (ondertekening) en
+ (optioneel) encryptie (versleuteling) op berichtniveau (payload
+ inclusief de attachments, ook wel 'bijlagen' genoemd) in combinatie met
+ (point-to-point) twee-zijdig TLS in het HTTP kanaal.
+
+De onderstaande tabel geeft in essentie de eigenschappen van de verschillende
+Digikoppeling profielen weer. Voor alle profielen wordt tweezijdig TLS gebruikt
+op transportniveau (HTTPS).
+
+<table>
+<thead>
+  <tr>
+    <td colspan="3">Profile Names</td>
+    <td colspan="4">Profile Names</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td colspan="3">Digikoppeling WUS</td>
+    <td>2-zijdig TLS</td>
+    <td>Signed</td>
+    <td>Encrypted</td>
+    <td>Attachments</td>
+  </tr>
+  <tr>
+    <td colspan="2">Best Effort</td>
+    <td>Digikoppeling 2W-be</td>
+    <td>√</td>
+    <td>―</td>
+    <td>―</td>
+    <td>Optional</td>
+  </tr>
+  <tr>
+    <td rowspan="2">End-to-End Security</td>
+    <td>Best Effort – Signed</td>
+    <td>Digikoppeling 2W-be-S</td>
+    <td>√</td>
+    <td>√</td>
+    <td>―</td>
+    <td>Optional</td>
+  </tr>
+  <tr>
+    <td>Best Effort – Encrypted</td>
+    <td>Digikoppeling 2W-be-SE</td>
+    <td>√</td>
+    <td>√</td>
+    <td>√</td>
+    <td>Optional</td>
+  </tr>
+</tbody>
+</table>

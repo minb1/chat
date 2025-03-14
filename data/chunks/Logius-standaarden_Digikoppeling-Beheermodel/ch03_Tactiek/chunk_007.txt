@@ -1,0 +1,7 @@
+
+##Kwaliteitsbeleid en benchmarking
+Zoals gezegd wordt het beheer van de Digikoppeling standaard volledig
+open ingevuld (zie ook de paragraaf [BOMOS](#bomos) en
+[Governance](#governance)) Dit borgt dat zoveel
+mogelijk belangstellenden en belanghebbenden betrokken zijn bij
+wijzigingen en besluitvorming rond die wijzigingen.

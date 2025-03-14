@@ -1,0 +1,13 @@
+
+###Voorwaarden voor toepassen van het synchrone bevestiging
+
+- Scope:
+  - Dit profiel is alleen geldig voor de Digikoppeling ebMS2 RM-profielen
+- Aanleiding:
+  - Door omvang van het volume van uitwisseling van berichten in beperkte tijd bestaan verwerkingsproblemen bij (een van beide) providers. Asynchrone uitwisseling van berichten binnen het ebMS profiel blijft de defaultmodus. Dus als de verwerking probleemloos verloopt is er geen reden om over te gaan op synchrone uitwisseling.
+- Voorwaarde:
+  - De Digikoppeling oplossing van beide partijen ondersteunen het instellen van SyncReplymode op mshSignalsOnly. Het instellen van deze mode kan dus niet eenzijdig worden opgelegd.
+
+<aside class="note">
+    Indien de berichtuitwisseling via een intermediary verloopt dient deze ook de SyncReplymode te ondersteunen om de synchrone communicatie tussen partijen mogelijk te maken.
+</aside>

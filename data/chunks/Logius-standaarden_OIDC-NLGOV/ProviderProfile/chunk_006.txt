@@ -1,0 +1,108 @@
+
+###ID Tokens of the Provider profile
+
+All ID Tokens MUST be signed by the OpenID Provider's private signature key.
+ID Tokens MAY be encrypted using the appropriate key of the requesting Client.
+
+The ID Token MUST expire and SHOULD have an active lifetime no longer than five minutes. Since the ID Token is consumed by the Client and not presented to remote systems, it is RECOMMENDED that expiration times are kept as short as possible.
+
+The Token Response includes an Access Token (which can be used to make a UserInfo request) and ID Token (a signed and optionally encrypted JSON Web Token). This profile imposes the following requirements on the Claims used in ID Tokens:
+
+`iss`
+
+- REQUIRED. The `issuer` field is the Uniform Resource Locator (URL) of the expected Issuer. Identical as in [[OpenID.iGov]].
+
+`aud`
+
+- REQUIRED. The `audience` field contains the Client ID of the Client. Identical as in [[OpenID.iGov]].
+
+`sub`
+
+- REQUIRED. The identifier of the authenticated End-User, also known as the subject. OpenID Providers MUST support a pairwise identifier in accordance with the OpenID Connect specification [[OpenID.Core]], section 8.1. See [Pairwise Identifiers](#pairwise-identifiers) on when it may be useful to relax this requirement. Identical as in [[OpenID.iGov]].
+
+`sub_id_type`
+
+- OPTIONAL. The type of identifier passed in the `sub` Claim. In order to support multiple types of identifiers in an interoperable way, the type of identifier used for the identifier in the `sub` Claim SHOULD be explicitly included. The value of the `sub_id_type` MUST be a URI. Values supported by the OpenID Provider are provided via the [Discovery endpoint](#discovery-endpoint).
+
+`acr`
+
+- OPTIONAL. The LoA the End-User was authenticated at. MUST be at least the requested Level of Assurance value requested by the Client (either via the `acr_values` or `claims` parameters) or - if none was requested - a Level of Assurance established through prior agreement. See also [Section 5.2.3](#authentication-context). As eIDAS is leading in most scenarios targeted by this profile, using the `acr` Claim to express the Level of Assurance is preferred over Vectors of Trust (`vot`).
+
+`nonce`
+
+- REQUIRED. MUST contain the `nonce` value that was provided in the Authentication Request. Identical as in [[OpenID.iGov]].
+
+`jti`
+
+- REQUIRED. A unique identifier for the token, which can be used to prevent reuse of the token. The value of `jti` MUST uniquely identify the ID Token between sender and receiver for at least 12 months.
+
+`auth_time`
+
+- REQUIRED if `max_age` was specified in the request or when `auth_time` was requested as an Essential Claim. Otherwise `auth_time` is OPTIONAL and SHOULD be included if the OpenID Provider can assert an End-User's authentication intent was demonstrated. For example, a login event where the End-User took some action to authenticate. See also Section 15.1 of [[OpenID.Core]].
+
+`exp`, `iat`, `nbf`
+
+- REQUIRED. The `expiration`, `issued at`, and `not before` timestamps indicate when the token expires, was issued and becomes valid, respectively. The expiration time for ID Tokens is specific to the OpenID Provider. In line with [[OpenID.iGov]].
+
+`represents`
+
+- REQUIRED in case Representation is applicable, the `represents` Claim provides information about the effective authorization due to a Representation Relationship for the End-User.
+
+`alt_sub`
+
+- OPTIONAL. Describes alternative Subject Identifiers for the authenticated End-User in the context of a specific audience. The value of `alt_sub` is an array of objects, each of which MUST contain `sub` and `aud` Claims to uniquely identify the authenticated End-User and the audience for the alternative Subject Identifier and SHOULD contain a `sub_id_type` Claim to explicitly indicate the type of identifier used in the `sub` claim if the OpenID Provider supports multiple types of subject identifiers.
+
+`vot`
+
+- OPTIONAL. The vector value as specified in Vectors of Trust. MUST NOT be included when `acr` is included. See also [Section 5.2.4](#vectors-of-trust).
+
+`vtm`
+
+- REQUIRED if `vot` is provided. The trustmark URI as specified in Vectors of Trust. See also [Section 5.2.4](#vectors-of-trust).
+
+Other Claims MAY be included. See Claims Request below on how such Claims SHOULD be requested by the Client to be provided by the OpenID Provider.
+
+<aside class="example">
+  
+This example ID Token has been signed using the server's RSA key:
+<pre>
+            eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0MTg2OTk0
+            MTIsInN1YiI6IjZXWlFQcG5ReFYiLCJzdWJfaWRfd
+            HlwZSI6InVybjpubC1laWQtZ2RpOjEuMDppZDpwc2
+            V1ZG9ueW0iLCJub25jZSI6IjE4ODYzN2IzYWYxNGE
+            iLCJhdWQiOlsiYzFiYzg0ZTQtNDdlZS00YjY0LWJi
+            NTItNWNkYTZjODFmNzg4Il0sImFsdF9zdWIiOlt7I
+            mF1ZCI6IjM3OWIwMjJkLWQ5ZDAtNGM0My1iN2RlLT
+            I5MGEwMjNlYjQ2MSIsInN1YiI6InhTSENyRm05Qkc
+            iLCJzdWJfaWRfdHlwZSI6InVybjpubC1laWQtZ2Rp
+            OjEuMDppZDpwc2V1ZG9ueW0ifV0sImlzcyI6Imh0d
+            HBzOi8vaWRwLXAuZXhhbXBsZS5jb20vIiwiYWNyIj
+            oiaHR0cDovL2VpZGFzLmV1cm9wYS5ldS9Mb0Evc3V
+            ic3RhbnRpYWwiLCJpYXQiOjE0MTg2OTg4MTIsImp0
+            aSI6ImE2NWM1NjBkLTA4NWMtNDY2ZS05N2M1LWY4N
+            jM5ZmNhNWVhNyIsIm5iZiI6MTQxODY5OTExMn0
+</pre>
+Its Claims are as follows:
+<pre>
+     {
+            "auth_time": 1418698782,
+            "exp": 1418699412,
+            "sub": "6WZQPpnQxV",
+            "sub_id_type": "urn:nl-eid-gdi:1.0:id:pseudonym",
+            "nonce": "188637b3af14a",
+            "aud": [
+              "c1bc84e4-47ee-4b64-bb52-5cda6c81f788"
+            ],
+            "alt_sub": [{
+              "aud": "379b022d-d9d0-4c43-b7de-290a023eb461",
+              "sub": "xSHCrFm9BG",
+              "sub_id_type": "urn:nl-eid-gdi:1.0:id:pseudonym"
+            }],
+            "iss": "https://idp-p.example.com/",
+            "acr": "http://eidas.europa.eu/LoA/substantial",
+            "iat": 1418698812,
+            "jti": "a65c560d-085c-466e-97c5-f8639fca5ea7",
+            "nbf": 1418699112,
+      }
+</pre>
+</aside>

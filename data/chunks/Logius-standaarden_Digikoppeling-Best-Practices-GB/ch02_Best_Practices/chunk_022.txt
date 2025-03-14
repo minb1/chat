@@ -1,0 +1,13 @@
+
+####Server-zijde
+
+Controle van het OIN in het client-certificaat is voor vertrouwelijke (niet-openbare) gegevensbestanden noodzakelijk. Hiervoor zijn onder andere de volgende implementaties mogelijk:
+
+1. OIN opnemen in de url  
+    In deze situatie bevat de url waarmee het bestand uitgewisseld wordt het OIN van de organisatie die dit mag uploaden of downloaden. In een security-module (zie voorbeeld Apache Tomcat) vindt dan aan de hand van het certificaat controle plaats of een rechtmatige url toegepast wordt.
+
+1. Autorisatie-database  
+    In deze situatie wordt het OIN uit het certificaat vergeleken met autorisaties in een database (zie opmerking in voorbeeld Apache Tomcat). Dit kan bijvoorbeeld nodig zijn omdat meerdere organisaties tot hetzelfde bestand toegang moeten hebben. Een simpele oplossing als hiervoor volstaat dan niet meer.
+
+1. Http basic-authentication (met TLS-offloader)  
+    In deze situatie wordt het OIN uit het certificaat door een TLS-offloader toegevoegd in de http-uitwisseling als userid waar de achterliggende bestandsserver op controleert.

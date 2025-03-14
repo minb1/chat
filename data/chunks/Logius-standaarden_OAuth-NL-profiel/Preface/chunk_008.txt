@@ -1,0 +1,6 @@
+
+###Step 1. Client Authentication
+
+Using the client credentials, the client sends a Authentication Request to the Authorization Server's token Endpoint.
+It does so using the Client authentication as pre-registered.
+The Authorization Server receives and validates the Authentication Request.

@@ -1,0 +1,10 @@
+
+###Profile Requirement Item: Persistent Authorization
+
+|[[EBXML-MSG]] Section 4.1.4.7 Persistent Authorization| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header element(s)|`/SOAP:Header/eb:Signature`|
+| Are persistent authorization methods required? [Yes, for Security Services Profiles 18-21.] Which methods are allowed or required? | **Not applicable**  |
+| Alignment | [Appears as BusinessTransactionCharacteristics/\@isAuthorizationRequired=persistent in CPA.]   |  
+| Test References | (empty) |
+| Notes  | (empty) |

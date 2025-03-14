@@ -1,0 +1,8 @@
+
+###Kwaliteitsborging
+
+De beheerder van de [=COR=] is verantwoordelijk voor de goede werking van de [=COR=], het bieden van ondersteuning bij het gebruik van de CORen  de beschikbaarheid van het systeem. De beheerder van de [=COR=] is verantwoordelijk voor het correct vastleggen van (Sub)OINs en bijbehorende gegevens in de [=COR=], zoals die worden aangeleverd door de aanvrager.
+
+De beheerder van de [=COR=] is niet verantwoordelijk voor de kwaliteit van de geregisteerde [=OIN=] gegevens. De rechtspersonen aan wie [=SubOIN=]s zijn uitgegeven hebben een zorgplicht met betrekking tot de inhoud van de geregistreerde gegevens in de [=COR=]. Bij twijfel over de juistheid van geregistreerde gegevens kan de beheerder van de [=COR=] maatregelen nemen om de kwaliteit van subnummer registraties te toetsen en desgewenst te herstellen. De beheerder van de [=COR=] is niet verantwoordelijk voor de kwaliteit van de gegevens uit de aangesloten overheidsregisters.
+
+

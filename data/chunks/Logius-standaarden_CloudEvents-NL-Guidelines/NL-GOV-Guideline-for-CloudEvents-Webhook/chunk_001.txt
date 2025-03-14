@@ -1,0 +1,9 @@
+#Guideline for the use of the Webhook pattern for CloudEvents
+
+The CloudEvent-NL message format can be used when using different formats and protocols and patterns. In order to be able to use the GOV-NL profile properly in practice, agreements must also be made when and in what way a certain format, protocol or pattern is used. 
+
+The Serverless Working Group has described how the Webhook pattern can be used in a standardized way in combination with the CloudEvents message format: [HTTP 1.1 Web Hooks for Event Delivery](https://github.com/cloudevents/spec/blob/v1.0.1/http-webhook.md).
+
+"Webhooks" are a popular pattern to deliver notifications between applications and via HTTP endpoints. Applications that make notifications available, allow for other applications to register an HTTP endpoint to which notifications are delivered. In spite of pattern usage being widespread, there is no formal definition for Web Hooks. The CloudEvents specification now provides such a definition for use with CNCF CloudEvents (but is considered generally usable beyond the scope of CloudEvents).
+
+Similar to what happened in the 'NL GOV profile for the CloudEvents' specification, this guideline makes recommendations about the use of the drafted CloudEvents specification within the context of the Dutch government. These are intended to make use of the specification more unambiguous and to work towards standardisation in the long term.

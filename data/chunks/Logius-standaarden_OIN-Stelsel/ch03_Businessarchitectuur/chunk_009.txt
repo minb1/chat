@@ -1,0 +1,6 @@
+
+###Afnemer
+Logius definieert dit bergip in de [[Algemene Voorwaarden Logius]] als volgt:
+> Een publiekrechtelijke of privaatrechtelijke organisatie, of college of een persoon met een publieke taak of bevoegdheid, die voor de uitoefening van die publieke taak elektronisch verkeer met andere overheden en burgers en/of bedrijven wenselijk acht en daarbij gebruik kan en mag maken van één of meer Diensten van Logius.
+
+Een [=afnemer=] van een OIN  kan zowel een aanbieder van diensten zijn als een organisatie die gebruikmaakt van diensten van andere organisaties.On der het begrip [=afnemer=] van een OIN vallen ook organisaties die beschreven zijn in de Algemene wet Bestuursrecht, zoals de Tweede en Eerste Kamer.

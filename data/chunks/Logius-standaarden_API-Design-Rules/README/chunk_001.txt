@@ -1,0 +1,3 @@
+##API Design Rules versie
+
+De definitieve versie 2.0.0 is beschikbaar op: https://gitdocumentatie.logius.nl/publicatie/api/adr/

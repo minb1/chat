@@ -1,0 +1,10 @@
+
+##Recommendations
+
+- One SHOULD use the [HTTP Protocol Binding for CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md). 
+- There are no agreements to deviate from the standard in any part.
+- Given the fact that many organizations still have little experience with standardized exchange of events, we recommend a useful relatively simple mechanism that consumers are already familiar with:
+    - One SHOULD use structured content mode.
+    - One SHOULD use the JSON (non batched) event format
+    - When using structured mode one SHOULD NOT depend on the usage of HTTP-headers that replicate context-attributes in the event.    
+- If the above advice is followed, when notifying via webhooks 1 message will contain JSON-structured data about 1 event that has occurred.

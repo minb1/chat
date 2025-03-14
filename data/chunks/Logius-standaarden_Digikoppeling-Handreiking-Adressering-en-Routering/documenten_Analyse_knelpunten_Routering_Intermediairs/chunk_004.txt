@@ -1,0 +1,14 @@
+
+##Definitie Intermediair
+
+*Een intermediair is een organisatie **die tussen twee (of meer) partijen berichten via Digikoppeling ontvangt en routeert**. Een intermediair kan dienen als sectoraal knooppunt, waarbij de intermediair meerdere partijen in een samenwerkingsverband ontzorgt en ondersteunt.*
+
+*Een intermediair vormt een schakel in de Digikoppeling-keten tussen serviceaanbieder en serviceafnemer:*
+
+- *Een *transparante* intermediair stuurt berichten door naar het eindpunt (ontvanger) zonder de berichten te bewerken. Een transparante intermediair is zelf dus geen eindpunt in Digikoppeling (1). Het versleutelen van berichtinhoud (berichtenniveau versleuteling) kan worden toegepast indien de intermediair niet vertrouwd wordt.*
+
+- *Een *niet-transparante* intermediair (b.v. een sectoraal knooppunt) bewerkt berichten en is dus een eindpunt binnen Digikoppeling.*
+
+*(1): We beschouwen transparantie hier op de logistieke laag. Op technisch niveau is de intermediair een eindpunt omdat de TLS verbinding tussen twee servers moet worden opgezet.*
+
+*Bron:* [Digikoppeling Architectuur 2.0 ](https://publicatie.centrumvoorstandaarden.nl/dk/architectuur/#intermediairs)

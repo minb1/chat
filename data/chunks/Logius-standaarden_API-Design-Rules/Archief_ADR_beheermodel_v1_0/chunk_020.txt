@@ -1,0 +1,6 @@
+
+###Nederlandse Overheid Referentie Architectuur (NORA)  
+
+De ADR-standaard volgt de principes van de Nederlandse Overheid Referentie Architectuur. Zie voor meer informatie: [https://www.noraonline.nl/wiki/NORA\_online](https://www.noraonline.nl/wiki/NORA_online)  
+
+In de NORA is sinds 2017 het Thema API&#39;s opgenomen en beschreven. De NORA beschrijft met name wat een API is en waarom API&#39;s belangrijk zijn. Ook zijn er op de site aanbevelingen voor API&#39;s in de Enterprise Architectuur en de toepassing van API&#39;s in het ontwerp van een dienst.

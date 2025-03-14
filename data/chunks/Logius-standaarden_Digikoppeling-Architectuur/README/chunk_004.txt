@@ -1,0 +1,5 @@
+
+##Wat is er nieuw in de Digikoppeling Architectuur
+
+- Overzicht transactiepatronen 
+- Overzicht use cases

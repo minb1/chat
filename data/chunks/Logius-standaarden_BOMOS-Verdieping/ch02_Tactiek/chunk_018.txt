@@ -1,0 +1,66 @@
+
+###Kiezen van de juiste middelen
+
+Het is niet gemakkelijk om de juiste strategie te kiezen voor het
+bevorderen van de adoptie van een standaard. Soms is een dergelijke
+strategie niet nodig en wordt de standaard volledig 'gedragen' door
+partijen in het veld. Vaak hangt een standaard echter samen met een
+bredere ontwikkeling. Denk bijvoorbeeld aan een standaard voor
+digitalisering van een keten. De invoering van de standaard hangt dan
+samen met de vraag of een organisatie aan de slag gaat met die
+digitalisering.
+
+De middelen voor adoptie kunnen onderverdeeld worden in drie groepen:
+
+*   Financieel: de 'peen' het stimuleren van de adoptie door het faciliteren van het gebruik van de standaard. Voorbeelden van middelen zijn het geven van subsidie of het bieden van implementatie-instrumenten die de kosten van een implementatie verminderen.
+*   Communicatief: de 'preek' het geven van voorlichting over de voordelen die de standaard biedt voor organisaties. Bijvoorbeeld door het schrijven van artikelen of het organiseren van seminars.
+*   Juridisch: de 'zweep' het verplichten van het gebruik van een standaard. Bijvoorbeeld door de standaard op te nemen op de lijst met open standaarden voor 'pas toe of leg uit' van het Forum Standaardisatie.
+
+Meestal is er niet één altijd passende strategie. De keuze zal afhangen van de bestaande en gewenste situatie en van tal van omgevingsfactoren. Adoptiemiddelen kunnen bijvoorbeeld verschillen in of afhangen van:
+
+*   de keuze voor de primair aan te spreken doelgroepen: alle gebruikers specifieke gebruikers, softwareleveranciers
+*   de middelen die worden ingezet: verleiding, contracten, wetgeving, commerciële dwang
+*   de aanpak: klein beginnen, of direct groot; eerste kleine groep, of direct de hele doelgroep; eerst een klein deel van de standaard en later meer
+*   de bestaande situatie in de doelgroep: Is gegevensverkeer daar al gemeengoed? Worden daar al oudere of andere standaarden gebruikt?
+*   de dominante voordelen die de standaard met zich mee moet brengen of het dominante probleem waarvoor zij een oplossing is: Waar vallen de grootste baten van de standaard? Waar de kosten? Wie voelt het meest de huidige beperkingen?
+*   intrinsieke aspecten van de standaard: Hoe complex is deze? Wat is zijn werkingsgebied? Welke kennis is nodig voor de toepassing ervan?
+
+Voorbeelden van adoptiemiddelen:
+
+*   Informeren/adviseren.
+    *   Informatie-event organiseren.
+    *   Voorlichtingsdagen.
+    *   Presentatie op een congres.
+    *   Artikelen in magazines.
+    *   Advies over gebruik van de standaard.
+*   Betrekken en beïnvloeden.
+    *   Collectieve business case opstellen en verspreiden.
+    *   Documenteren cases.
+    *   Publiceren overzicht met gebruikers.
+    *   Open standaardisatieproces.
+    *   Oprichten klankbordgroep.
+    *   Community building.
+    *   Oprichten samenwerkingsplatform.
+    *   Afstemmen softwareleveranciers van gebruikers.
+*   Samenwerken en faciliteren.
+    *   Testbed voor implementatie van de standaard.
+    *   Uitvoeren van gezamenlijke pilots.
+    *   Plugfest organiseren.
+    *   Partnerschappen realiseren.
+    *   Validators.
+    *   Business case tool.
+    *   Referentie implementaties.
+*   Ontlasten en subsidiëren.
+    *   Subsidie voor invoering.
+    *   Financiering implementatie bij software leveranciers.
+    *   Opstellen van een specifiek plan van aanpak.
+    *   Het invoeren van een eigen implementatie die als 'broker' fungeert.
+    *   Certificering.
+    *   Gratis implementatie ondersteuning.
+*   Onderhandelen en contracteren.
+    *   Bestuurlijke verankering bij gebruikers.
+    *   Opstellen convenant.
+    *   Contract opstellen tussen sturende actor en ketenpartijen.
+*   Opdragen en verplichten.
+    *   Opleggen via de lijst met open standaarden voor 'pas toe of leg uit'.
+    *   Wettelijke dwang.

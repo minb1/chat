@@ -1,0 +1,14 @@
+
+###Standaarden
+
+* OIN (Organisatie Identificatie Nummer)
+* Digikoppeling
+    * WUS (WSDL, UDDI en SOAP)
+    * EBMS (ebXML Messaging Service)
+    * REST API (Representational State Transfer - Application Programming Interface)
+    * Grote Berichten
+* API
+    * ADR ( (REST) API Design Rules)
+    * OAuth (Open Authorization)
+    * OIDC (OpenID Connect)
+* DMKS (Digimelding Koppevlak Specificatie)

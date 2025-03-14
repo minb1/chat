@@ -1,0 +1,10 @@
+
+###Autorisatie
+
+- De autorisatie is bepaald in en door de Service provider Y, Service A,B & C weten niet dat hun gegevens wordt gedeeld met Client X en User U of een andere client of user
+
+- Service Y moet geautoriseerd zijn bij Service A,B & C om namens Client X en/of User U gegevens op te vragen
+
+- Service A,B & C delegeren toegang tot hun gegevens aan Service Y
+
+![Schematische weergave van Niet Transparante-Orkestratie](../../../media/orkestratie-Niet-transparante-Orkestratie.drawio.svg)

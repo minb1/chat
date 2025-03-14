@@ -1,0 +1,16 @@
+
+##Omgang met certificaat
+
+Certificaten zijn gebaseerd op sleutelparen waarvan het publieke deel in het certificaat is opgenomen en het privédeel door de certificaateigenaar geheim wordt gehouden. Beide delen passen op elkaar in de zin dat:
+
+- ondertekening met de privésleutel via de publieke sleutel gecontroleerd kan worden;
+
+- encryptie met de publieke sleutel alleen met de privésleutel ontcijferd kan worden.
+
+De privésleutel vertegenwoordigt in de elektronische communicatie de eigenaar. Binnen de huidige Digikoppeling afspraken is dit een overheidsorganisatie. Overheidsorganisaties hebben veelal toegang tot (meerdere) basisregistraties en hebben vergaande rechten binnen de e-overheid. Het is daarom van het grootste belang om zeer vertrouwelijk om te gaan met een privésleutel behorend bij een certificaat en te voorkomen dat deze zoek raakt of in verkeerde handen belandt. Een dergelijke situatie leidt namelijk tot:
+
+- toegang tot de e-overheidssystemen voor onbevoegden;
+
+- het intrekken van een sleutel met het gevolg dat een organisatie niet kan deelnemen aan de e-overheid;
+
+- de noodzaak tot het opnieuw genereren van het sleutelpaar en het aanvragen van een certificaat.

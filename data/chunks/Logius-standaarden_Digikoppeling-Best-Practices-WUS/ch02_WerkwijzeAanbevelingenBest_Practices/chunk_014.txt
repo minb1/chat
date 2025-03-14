@@ -1,0 +1,24 @@
+
+###Technische fouten
+
+Voor technische foutmeldingen kan een standaard bericht gedefinieerd worden. In de SOAP specificatie is de SOAP Fault beschreven die je hiervoor goed kunt gebruiken.
+
+Communiceren van een fout via een SOAP Fault heeft een aantal voordelen:
+
+Uitzonderingen op een consistente manier afgehandeld worden;
+
+De SOAPFault wordt beschreven in de SOAP specificatie;
+
+De verschillende elementen waaruit een SOAP Fault is opgebouwd biedt de mogelijkheid tot het communiceren van uitgebreide informatie;
+
+De FaultCode kan aanduiden of de fout was veroorzaakt door Client of Server.
+
+Een aantal nadelen zijn:
+
+Soapfaults kunnen geen binding (HTTP) gerelateerde fout communiceren. In dat geval wordt over het onderliggende protocol de fout gecommuniceerd
+
+Bij een SOAPFault bericht mag geen additionele data toegevoegd worden
+
+Het ‘detail’ element van de SOAP Fault is bedoeld om applicatie specifieke foutmeldingen te communiceren die gerelateerd zijn aan het SOAP ‘Body’ element. Het moet aanwezig zijn in de SOAP Fault indien de fout werd veroorzaakt door het ‘Body’ element. Indien er geen ‘detail’ element in de SOAP Fault aanwezig is, dan betekent dit dat de fout niet is ontstaan bij het verwerken van het ‘body’ element.
+
+Voor een web service in het Digikoppeling domein moeten foutmeldingen gedefinieerd worden

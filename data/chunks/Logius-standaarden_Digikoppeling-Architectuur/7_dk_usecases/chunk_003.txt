@@ -1,0 +1,8 @@
+
+###Hoeveel partijen zijn er betrokken bij de koppeling en wat is hun rol?
+
+Voorbeelden:
+
+- 1 service provider, n service consumers. Hier kan een service provider er voor kiezen meerdere koppelvlakstandaarden aan te bieden (bijvoorbeeld REST API en WUS).
+- Many to many: Meerdere partijen die allemaal objecten kunnen versturen en ontvangen. Voor deze koppeling worden een REST API koppelvlak vaak gebruikt.  
+- 1-op-1: twee partijen die onderling objecten uitwisselen. Hierbij kunnen partijen om een specifiek contract af te spreken, zoals in een CPA bij ebMS.  

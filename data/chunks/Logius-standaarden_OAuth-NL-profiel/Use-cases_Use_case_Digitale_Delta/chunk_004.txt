@@ -1,0 +1,11 @@
+
+##Client
+
+Clients can be a range of systems: 
+
+- Business Intelligence
+- GIS
+- Artificial Intelligence/Machine Learning
+- REST service consumers
+- Web browsers
+- Excel users

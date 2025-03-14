@@ -1,0 +1,6 @@
+
+####Vertrouwelijkheid
+
+De Digikoppeling Beveiligingsstandaarden en voorschriften gaan specifiek in op het verplichte gebruik van PKIO certificaten [[PKIO-PvE]].
+* Zie [[[DK-beveiliging]]]
+

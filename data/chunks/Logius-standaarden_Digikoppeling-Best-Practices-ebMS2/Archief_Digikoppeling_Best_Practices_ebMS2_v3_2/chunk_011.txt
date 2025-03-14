@@ -1,0 +1,17 @@
+EB004 PartyId postfix 
+
+Voorzie de PartyId van een postfix voor het onderscheid tussen test- en productieservices ('OTAP'). De naamgevingsconventie is hierbij:
+
+-   Ontwikkelomgeving met de postfix ‘_O’
+
+-   Testomgeving met de postfix ‘_T’
+
+-   Acceptatieomgeving met de postfix ‘_A’
+
+-   Productieomgeving zonder postfix (het oorspronkelijke nummer).
+
+Samenstellingen zijn ook mogelijk, bijvoorbeeld de postfix ‘_OTA’ als er één specifiek adres gebruikt wordt voor de ontwikkel-, test-, en acceptatieomgeving. Aangezien Digikoppeling een strikte scheiding tussen test en productie nastreeft zou een combinatie van productie met andere omgevingen nooit moeten voorkomen[^2].
+
+[^2]: De scheiding komt ook. tot uitdrukking in het gebruik van een andere certificaat-root voor productie en andere omgevingen. Zie hiervoor het document “Gebruik en achtergrond Digikoppeling-certificaten”.
+
+##

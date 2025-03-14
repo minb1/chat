@@ -1,0 +1,13 @@
+ Waarom wordt er een CPA gebruikt?
+
+Redenen voor het toepassen van een CPA:
+
+-   het is een formeel contract tussen twee partijen, die op basis van ebMS2 gegevens willen uitwisselen;
+
+-   het automatiseert de e-configuratie van de ebMS-adapter (het inlezen van de CPA volstaat);
+
+-   het biedt de zekerheid dat beide partijen dezelfde instellingen gebruiken.
+
+Daarom is het hebben van een CPA het uitgangspunt voor de specificatie en configuratie van de gegevensuitwisseling tussen twee partijen op Digikoppeling.
+
+##

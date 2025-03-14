@@ -1,0 +1,12 @@
+
+###2. Client profiel
+
+- Clients zijn _Full_ clients, ofwel web applicaties die centraal draaien, of _Native_ clients, instanties van software die draaien op het device van de user, de zogenaamde apps. Beide client types hebben verschillende vereisten ([§  2.1](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#client-types))
+- Clients moeten vooraf zijn geregistreerd bij de Authorization Server ([§  2.2](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#client-registration))
+- Clients mogen geen gebruik maken van een redirect naar de localhost en mogen ook geen waardes doorsturen naar andere URI's ([§  2.2.1](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#redirect-uri))
+- Clients moeten een willekeurige status parameter genereren en koppelen aan de client sessie om deze vervolgens mee te sturen naar de Authorization server en te verifiëren of deze ook correct in de response wordt meegegeven ([§  2.3](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#connection-to-the-authorization-server))
+- Clients moeten de volledige redirect URI meesturen in het verzoek aan de Authorization server ([§  2.3](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#connection-to-the-authorization-server))
+- De Authorization Server moet de redirect URI controleren ten opzichte van de URI die vooraf is geregistreerd door de Client ([§  2.3](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#connection-to-the-authorization-server))
+- Native Clients moeten PCKE toepassen ([§  2.3](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#connection-to-the-authorization-server))
+- Wanneer de API, Client en Authorisation Server niet onder verantwoordelijkheid vallen van één organisatie moeten PKIOverheid certificaten worden gebruikt (met OIN) ([§  2.3.4](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#client-keys))
+- Clients moeten autorisatie requests over TLS sturen en moeten het certificaat van de API verifiëren ([§  2.4](https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#connection-to-the-protected-resource))

@@ -1,0 +1,85 @@
+
+##Documentation
+
+An API is as good as the accompanying documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start implementing. Hiding the technical documentation in PDF documents and/or behind a login creates a barrier for both developers and search engines.
+
+<span id="api-16"></span>
+<div class="rule" id="/core/doc-openapi" data-type="technical">
+  <p class="rulelab">Use OpenAPI Specification for documentation</p>
+  <dl>
+      <dt>Statement</dt>
+      <dd>
+         API documentation MUST be provided in the form of an OpenAPI definition document which conforms to the OpenAPI Specification (from v3 onwards).
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         The OpenAPI Specification (OAS) [[OPENAPIS]] defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
+         API documentation MUST be provided in the form of an OpenAPI definition document which conforms to the OpenAPI Specification (from v3 onwards). As a result, a variety of tools can be used to render the documentation (e.g. Swagger UI or ReDoc) or automate tasks such as testing or code generation. The OAS document SHOULD provide clear descriptions and examples.
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: Check the specification type.</li>
+            <li> Step 3: All references MUST be publicly resolvable, including the external references.</li>
+         </ul>
+      </dd>
+   </dl>
+</div>
+
+<span id="api-17"></span>
+<div class="rule" id="/core/doc-language" data-type="functional">
+  <p class="rulelab">Publish documentation in Dutch unless there is existing documentation in English</p>
+  <dl>
+      <dt>Statement</dt>
+      <dd>
+         You SHOULD write the OAS document in Dutch.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         In line with design rule <a href="#/core/interface-language">/core/interface-language</a>, the OAS document (e.g. descriptions and examples) SHOULD be written in Dutch. If relevant, you MAY refer to existing documentation written in English.
+      </dd>
+      <dt>Implications</dt>
+      <dd id="implications"></dd>
+   </dl>
+</div>
+
+<span id="api-51"></span>
+<div class="rule" id="/core/publish-openapi" data-type="technical">
+  <p class="rulelab">Publish OAS document at a standard location in JSON-format</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         To make the OAS document easy to find and to facilitate self-discovering clients, there SHOULD be one standard location where the OAS document is available for download.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p> Clients (such as Swagger UI or ReDoc) MUST be able to retrieve the document without having to authenticate. Furthermore, the CORS policy for this [=URI=] MUST allow external domains to read the documentation from a browser environment.</p>
+         <p>The standard location for the OAS document is a URI called <code>openapi.json</code> or <code>openapi.yaml</code> within the base path of the API. This can be convenient, because OAS document updates can easily  become part of the CI/CD process.</p>
+         <p>At least the JSON format MUST be supported. When having multiple (major) versions of an API, every API SHOULD provide its own OAS document(s).</p>
+         <div class="example">
+            <p>An API having base path <code>https://api.example.org/v1/</code> MUST publish the OAS document at:</p>
+            <pre>https://api.example.org/v1/openapi.json</pre>
+            <p>Optionally, the same OAS document MAY be provided in YAML format:</p>
+            <pre>https://api.example.org/v1/openapi.yaml</pre>
+         </div>
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file (openapi.json) is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: The openapi.yaml MAY be available. If available it MUST contain yaml, be readable and parsable.</li>
+            <li> Step 3: The openapi.yaml MUST contain the same OpenAPI Description as the openapi.json.</li>
+            <li> Step 4: The CORS header Access-Control-Allow-Origin MUST allow all origins.</li>
+         </ul>
+      </dd>
+   </dl>
+</div>

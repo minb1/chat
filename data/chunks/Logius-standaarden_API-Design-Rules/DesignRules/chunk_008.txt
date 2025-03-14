@@ -1,0 +1,144 @@
+
+##Versioning
+
+Changes in APIs are inevitable. APIs should therefore always be versioned, facilitating the transition between changes.
+
+<span id="api-18"></span>
+<div class="rule" id="/core/deprecation-schedule" data-type="functional">
+  <p class="rulelab">Include a deprecation schedule when deprecating features or versions</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Implement well documented and timely communicated deprecation schedules.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         Managing change is important. In general, well documented and timely communicated deprecation schedules are the most important for API users. When deprecating features or versions, a deprecation schedule MUST be published. This document SHOULD be published on a public web page. Furthermore, active clients SHOULD be informed by e-mail once the schedule has been updated or when versions have reached end-of-life.
+      </dd>
+      <dt>Implications</dt>
+	  <dd id="implications"></dd>
+   </dl>
+</div>
+
+<span id="api-19"></span>
+<div class="rule" id="/core/transition-period" data-type="functional">
+  <p class="rulelab">Schedule a fixed transition period for a new major API version</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Old versions MUST remain available for a limited and fixed deprecation period.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         When releasing a new major API version, the old version MUST remain available for a limited and fixed deprecation period. Offering a deprecation period allows clients to carefully plan and execute the migration from the old to the new API version, as long as they do this prior to the end of the deprecation period. A maximum of 2 major API versions MAY be published concurrently.
+      </dd>
+      <dt>Implications</dt>
+	  <dd id="implications"></dd>
+   </dl>
+</div>
+
+<span id="api-20"></span>
+<div class="rule" id="/core/uri-version" data-type="technical">
+  <p class="rulelab">Include the major version number in the URI</p>
+    <dl>
+      <dt>Statement</dt>
+      <dd>
+         The [=URI=] of an API MUST include the major version number.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         The [=URI=] of an API (base path) MUST include the major version number, prefixed by the letter <code>v</code>. This allows the exploration of multiple versions of an API in the browser. The minor and patch version numbers are not part of the [=URI=] and MAY not have any impact on existing client implementations.
+      <div class="example">
+         <p>An example of a base path for an API with current version 1.0.2:</p>
+         <pre>https://api.example.org/v1/</pre>
+         <pre>version: '1.0.2'</pre>
+         <pre>servers:
+                  - description: test environment  
+                  url: https://api.test.example.org/v1/  
+                  - description: production environment  
+                  url: https://api.example.org/v1/  
+         </pre>
+      </div>
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The base path MUST contain a version number.</li>
+            <li> Step 2: Each url of the server object of the OpenAPI Description MUST include a version number.</li>
+            <li> Step 3: The version in the OAS file MUST be the same as the version in the base path.</li>
+         </ul>
+      </dd>
+   </dl>
+</div>
+
+<span id="api-55"></span>
+<div class="rule" id="/core/changelog" data-type="functional">
+  <p class="rulelab">Publish a changelog for API changes between versions</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Publish a changelog.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>When releasing new (major, minor or patch) versions, all API changes MUST be documented properly in a publicly available changelog.</p>
+      </dd>
+      <dt>Implications</dt>
+	  <dd id="implications"></dd>
+   </dl>
+</div>
+
+<span id="api-56"></span>
+<div class="rule" id="/core/semver" data-type="technical">
+  <p class="rulelab">Adhere to the Semantic Versioning model when releasing API changes</p>
+  <dl>
+      <dt>Statement</dt>
+      <dd>
+         Implement Semantic Versioning.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         Version numbering MUST follow the Semantic Versioning [[SemVer]] model to prevent breaking changes when releasing new API versions. Release versions are formatted using the <code>major.minor.patch</code> template (examples: 1.0.2, 1.11.0). Pre-release versions MAY be denoted by appending a hyphen and a series of dot separated identifiers (examples: 1.0.2-rc.1, 2.0.0-beta.3). When releasing a new version which contains backwards-incompatible changes, a new major version MUST be released. Minor and patch releases MAY only contain backwards compatible changes (e.g. the addition of an endpoint or an optional attribute).
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         The "API-Version" response header MUST comply with Semantic Versioning.
+      </dd>
+   </dl>
+</div>
+
+<span id="api-57"></span>
+<div class="rule" id="/core/version-header" data-type="technical">
+  <p class="rulelab">Return the full version number in a response header</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Return the API-Version header.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Since the URI only contains the major version, it's useful to provide the full version number in the response headers for every API call. This information could then be used for logging, debugging or auditing purposes. In cases where an intermediate networking component returns an error response (e.g. a reverse proxy enforcing access policies), the version number MAY be omitted.</p>
+         <p>The version number MUST be returned in an HTTP response header named <code>API-Version</code> (case-insensitive) and SHOULD not be prefixed.</p>
+         <div class="example">
+            <p>An example of an API version response header:</p>
+            <pre>API-Version: 1.0.2</pre>
+         </div>
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         A response MUST include the header "API-Version".
+      </dd>
+   </dl>
+</div>

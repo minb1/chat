@@ -1,0 +1,6 @@
+
+####Redirect URIs
+
+The authorization server MUST compare a client's registered redirect URIs with the redirect URI presented during an authorization request using an exact string match.
+
+<!-- ### [3.1.9.](#rfc.section.3.1.9) RefreshTokens -->

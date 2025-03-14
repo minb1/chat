@@ -1,0 +1,8 @@
+
+###Asynchrone uitwisseling
+
+Bij een asynchrone request-response verstuurt de service-requester een bericht naar de ontvangende partij (ontvanger) en wacht op een (technische) ontvangstbevestiging. De verzendende (business) applicatie vertrouwt er op dat het bericht (betrouwbaar) afgeleverd wordt. De (business)applicatie zal niet wachten op het antwoord: deze applicatie zal het eventuele 'antwoordbericht' als event of signaal op een ander moment ontvangen en moeten correleren aan het oorspronkelijke vraag bericht.
+
+Een asynchroon verzoek is een enkelvoudig bericht waarop eventueel enige tijd later een retour signaal volgt. Het gebruikte protocol regelt de betrouwbare ontvangst. Bij asynchrone uitwisseling is de betrouwbare aflevering van het bericht essentieel. Als een partij het bericht niet direct kan aannemen, voorzien de protocollen erin dat het bericht nogmaals wordt aangeboden. In algemene zin bestaat Asynchrone uitwisseling uit meervoudige synchrone uitwisseling die vanuit meerdere zijden wordt geïnitieerd.
+
+Digikoppeling Koppelvlakstandaard ebMS2 biedt specifieke ondersteuning voor asynchrone uitwisseling. Ook eDelivery biedt specifieke ondersteuning hiervoor.

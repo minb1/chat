@@ -1,0 +1,6 @@
+
+##Echo
+
+De berichten beschreven in deze uitwisseling kunnen worden gebruikt om
+te controleren of de berichtverwerking in zijn algemeenheid beschikbaar
+is.

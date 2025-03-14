@@ -1,0 +1,26 @@
+Wat is een CPA?
+
+Een CPA is een formeel xml document om de gebruikte functionele en technische eigenschappen van de ebMS2 protocol-karakteristieken vast te leggen. Het is dus een formele beschrijving voor het vastleggen van de gegevensuitwisseling.
+
+De CPA is gestandaardiseerd in [ISO 15000-1: ebXML Collaborative Partner Profile Agreement (afgekort tot ebCPP[^3])]. Het ebMS2 protocol is gestandaardiseerd in [ISO 15000-2: ebXML Messaging Service Specification (afgekort tot ebMS2[^4])].
+
+[^3]: [ebCPP] Collaboration-Protocol Profile and Agreement Specification Version 2.0, September 23, 2002. Url: http://www.oasis-open.org/committees/ebxml-cppa/documents/ebcpp-2.0c.pdf
+
+[^4]: [ebMS] Message Service Specification, Version 2.0, 1 April 2002.   
+    Url: http://www.oasis-open.org/committees/ebxml-msg/documents/ebMS_v2_0.pdf
+
+De eigenschappen van de gegevensoverdracht geven onder andere aan:
+
+-   tussen welke partijen er informatie uitgewisseld wordt;
+
+-   welke services en actions ('functies') er zijn waar de berichtuitwisseling op wordt gebaseerd;
+
+-   hoe certificaten gebruikt worden voor bijvoorbeeld transportbeveiliging, payload encryptie en/of ondertekening van berichten;
+
+-   wat de overdrachts karakteristieken zijn, zoals de intervallen voor hertransmissie als betrouwbare overdracht gewenst is;
+
+-   hoe om te gaan met acknowledements;
+
+-   wat de eigenschappen zijn van de transportkanalen;
+
+##

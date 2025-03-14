@@ -1,0 +1,9 @@
+
+##Documentatie
+
+Alle documenten m.b.t. de API standaarden en het beheer van de standaarden worden openbaar en zonder drempels voor gebruik, gepubliceerd op [logius.nl](https://www.logius.nl/domeinen/gegevensuitwisseling/api-standaarden) en onze [Github pagina's](https://github.com/Logius-standaarden). Logius publiceert tenminste de volgende documenten:
+
+- Dit API Standaarden beheermodel
+- De vergaderstukken van het Technisch overleg en overige besluitvormende gremia.
+- De specificaties van de standaard
+- De voorlopige specificaties van de nieuwe versie van de standaard.

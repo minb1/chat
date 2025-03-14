@@ -1,0 +1,36 @@
+
+###Identiteit, authenticatie en vastlegging bij koppelpunten
+
+In het onderlijnde gedeelte van bovenstaande NORA tekst is al aangegeven, dat in
+de variant van de inhoudelijke koppeling een echte overheidsorganisatie moet
+bestaan die verantwoordelijk kan worden gehouden. Voorgesteld wordt om die
+variant van de inhoudelijke koppeling in deze notitie als intermediair te
+benoemen. In dat geval wordt de intermediaire organisatie op basis van de
+toepasselijke wetgeving (dus weer 'zelfstandig bevoegd') als serviceafnemer
+beschouwd, die geauthenticeerd en geautoriseerd moet worden. Voor de
+serviceaanbieder is dat gelijk aan het aanbieden van een service aan een
+'gewone' organisatie. Er dient dan ook alleen vastgelegd te worden, dat de
+intermediair de service heeft afgenomen. Het formeel vastleggen, dat een
+achterliggende partij eigenlijk de service wil afnemen, gebeurt dan niet bij de
+uiteindelijke service verlener, maar natuurlijk wel bij de intermediair. Ook de
+vastlegging gebeurt bij de serviceaanbieder (net als bij een normale afnemer).
+
+In het geval van een logistiek koppelpunt heeft de aanbieder feitelijk te maken
+met de identiteit van de achterliggende afnemer. Het logistieke koppelpunt wordt
+niet gezien. Bij de vastlegging is het de vraag of het noodzakelijk is te weten
+of de serviceaanvraag via het logistieke koppelpunt tot stand kwam.
+
+Als we consequent de redenatie volgen zoals in § 4.3 - is beschreven, dan is het
+niet nodig om het logistieke koppelpunt in de vastlegging mee te nemen.
+Uiteraard kan dat alleen als er voldoende waarborgen en afspraken (bijvoorbeeld
+bewerkerovereenkomst<sup>8</sup>) zijn.
+
+<sup>8</sup>: Andere vormen van bewerkers, die ten behoeve van een verantwoordelijke (in
+    de zin van de WBP) gegevens verwerken, laten we hier vooralsnog buiten
+    beschouwing. De hoofdlijn is ook daar dat er voor de identiteit uitgegaan
+    wordt van de 'zelfstandig bevoegde', dus de verantwoordelijke.
+
+De criteria die bepalen wanneer een intermediair als inhoudelijk koppelpunt
+beschouwd wordt en wanneer als een puur logistiek koppelpunt, moeten nog worden
+aangescherpt.
+

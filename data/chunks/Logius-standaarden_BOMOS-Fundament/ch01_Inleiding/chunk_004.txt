@@ -1,0 +1,12 @@
+
+##Aanleiding
+
+Het beheer en ontwikkelen van standaarden is geen sinecure. Toch
+gebeurt het vaak dat standaarden worden ontwikkeld zonder stil te
+staan bij verdere ontwikkeling en beheer van de standaard. Dit komt
+doordat standaardisatie vaak als tijdelijk project tot stand komt. Er
+wordt projectfinanciering ingezet voor de ontwikkeling van een
+standaard of een bijbehorende voorziening, maar een structurele inzet
+ontbreekt. Dat gaat niet goed samen met een continue ontwikkeling en
+beheer van standaarden.
+

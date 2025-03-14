@@ -1,0 +1,11 @@
+
+##Toepassingen
+
+Een PKIoverheid-certificaat wordt gebruikt bij:
+
+- beveiliging van websites
+- authenticatie (van servers en/of personen)
+- rechtsgeldige elektronische handtekeningen
+- versleuteling van elektronische berichten
+
+Zie https://www.logius.nl/diensten/pkioverheid voor meer informatie.

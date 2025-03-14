@@ -1,0 +1,8 @@
+
+##Introduction
+This section describes security principles, concepts and technologies to apply when working with APIs. Controls need to be applied for the security objectives of integrity, confidentiality and availability of the API and services and data provided thereby. The (new draft of the) [architecture section of the API strategy](https://docs.geostandaarden.nl/api/cv-hr-API-Strategie-20210628/#architectuur) contains architecture patterns for implementing Transport security.
+
+The scope of this section is limited to generic security controls that directly influence the visible parts of an API. Effectively, only security standards directly applicable to interactions are discussed here.
+In order to meet the complete security objectives, every implementer MUST also apply a range of controls not mentioned in this section.
+
+Note: security controls for signing and encrypting of application level messages will be part of a separate extension, [Signing and Encryption](https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/).

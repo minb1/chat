@@ -1,0 +1,18 @@
+
+##Verwerkingsfouten
+
+In het geval dat een verwerkingsfout er toe leidt dat een antwoord
+volledig uitblijft, bijvoorbeeld door het offline zijn van het
+verwerkende systeem, dan zal de Digikoppeling-adapter van de afnemer een
+time-out geven.
+
+Indien het bevraagde systeem het bericht niet kan verwerken door een
+systeemfout maar nog wel kan antwoorden, dan krijgt de afnemer een SOAP
+Fault-bericht terug met de Digikoppeling-fout DK0051 (time-out),
+optioneel kan de basisregistratie in de SOAP Fault-detail meer
+informatie verstrekken. Wanneer het bericht niet verwerkt kan worden
+vanwege een probleem met de inhoud van het bericht, anders dan de
+syntax, dan wordt een DK0050-bericht ('kan bericht niet verwerken')
+verstuurd. Indien een basisregistratie een eigen specifieke foutcode
+heeft dan mag deze in plaats van de Digikoppeling-foutmelding verstuurd
+worden.

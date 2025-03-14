@@ -1,0 +1,10 @@
+
+####CloudEvents-NL
+
+- MAY be used to reference an external data location (for example: a link back to 
+  the producer of the event that can be queried for more information about the event).
+- MAY be used to implenment 'informatiearm notificeren' where the consumer of the 
+  event receives some minimal information on the nature of the event, but then has 
+  to issue a request back to the producer to obtain additional information (the time 
+  aspect may deserve attention because changes may occur in the period that consumers
+  are notified and the time of requesting additional information).

@@ -1,0 +1,36 @@
+3.2.1 JWT Bearer Tokens
+
+iGov-NL
+
+In iGov-NL the sub claim MUST be present.
+
+/iGov-NL
+
+**rationale to be provided by:**
+
+**reference to rationale: Detailed rationale 3**
+
+iGov-NL
+
+In addition to above signing methods, the Authorization server SHOULD support PS256 signing algorithm [RFC7518] for the signing of the JWT Bearer Tokens.
+
+/iGov-NL
+
+**reference to rationale: Detailed rationale 4**
+
+iGov-NL
+
+How to select or obtain the key to be used for encryption of an access token is out of scope of this profile. A early draft of "Resource Indicators for OAuth 2.0" exist and could be used. This draft describes usage of the resource parameter to indicate the applicable resource server.
+
+
+**reference to rationale: self explanatory: additional information (non normative) on how to implement requirement**
+
+In case the Authorization Server, Resource Server and client are not operated under responsibility of the same organisation, each party MUST use PKIoverheid certificates with OIN for encryption.
+
+
+**reference to rationale: Detailed rationale 1**
+
+/iGov-NL
+
+
+##

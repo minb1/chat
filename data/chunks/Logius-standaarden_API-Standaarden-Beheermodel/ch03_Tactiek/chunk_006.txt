@@ -1,0 +1,8 @@
+
+####Kennisplatform API's
+
+Kennisplatform API's is een initiatief van Geonovum, Bureau Forum Standaardisatie, Kamer van Koophandel, VNG Realisatie en Logius. Het doel van het Kennisplatform is om de kennis over het toepassen van API's uit te wisselen en de aanpak bij verschillende organisaties op elkaar af te stemmen en waar nodig te standaardiseren. In het kennisplatform wordt gezamenlijk gekeken naar strategische en tactische vraagstukken rond het ontwikkelen van API's door de overheid en gebruik van deze API's buiten en binnen de overheid. Dit vanuit de gedachte dat we in een digitale samenleving eenvoudig met elkaar moeten kunnen samenwerken.  
+
+De API Standaarden komen voort uit de Nederlandse API Strategie die beheerd wordt door het Kennisplatform API's en zijn veelal door het kennisplatform ontwikkeld. Op het moment dat er in het kennisplatform consensus was over de kwaliteit van de standaard en de wenselijkheid deze via het 'pas toe of leg uit' -principe normatief te laten verklaren is de standaard voorgedragen aan Forum Standaardisatie voor het verkrijgen van de voor overheden verplichte 'pas toe of leg uit' status en heeft Logius het beheer van dit normatieve deel op zich genomen.  
+
+Het kennisplatform API's blijft via haar werkgroepen actief met API Standaarden, maar richt zich primair op de ontwikkeling van nieuwe modules. Deze modules zijn bovendien (nog) niet normatief van aard. Logius heeft bij het beheer van de API Standaarden nauw contact met het kennisplatform om zo te borgen dat wensen en issues m.b.t. de API Standaarden bij beide partijen helder zijn en hier gezamenlijk de beste aanpak voor gekozen kan worden. (Zie ook [[[#operationeel]]]).

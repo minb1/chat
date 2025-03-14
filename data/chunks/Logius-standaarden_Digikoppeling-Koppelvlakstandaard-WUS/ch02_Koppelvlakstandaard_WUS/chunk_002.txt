@@ -1,0 +1,16 @@
+
+##Inleiding 
+
+WUS is een acroniem voor WSDL, UDDI en SOAP: WUS dus. Daarmee wordt een familie
+van internationale standaarden van OASIS en W3C bedoeld; deze worden ook vaak
+met WS-\* aangeduid. Deze standaarden gaan over application-to-application
+webservices.
+
+Alle Digikoppeling webservices die op WUS gebaseerd zijn, moeten aan deze
+koppelvlakstandaard conformeren. Doel van de Koppelvlakstandaard WUS is het
+eenduidig en bruikbaar definiëren van het koppelvlak voor WUS. Er zijn daarvoor
+de volgende onderwerpen relevant: WSDL met adressering en naamgeving,
+beveiliging, betrouwbaarheid, binaire data, resulterende berichtheaders,
+profielen van Digikoppeling en compliancevoorzieningen. Deze standaard wordt
+verder aangevuld met “Best Practices” en adviezen, beschreven in een apart
+document. Alle documentatie over Digikoppeling is te vinden op [[?Logius]].

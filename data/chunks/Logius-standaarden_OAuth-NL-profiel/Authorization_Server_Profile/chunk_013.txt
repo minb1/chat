@@ -1,0 +1,6 @@
+
+###Connections with protected resources
+
+Unlike the core OAuth protocol, the ~~iGov~~ iGov-NL profile intends to allow compliant protected resources to connect to compliant authorization servers.
+
+<!-- ### [3.2.1.](#rfc.section.3.2.1) [JWT Bearer Tokens](#JWTBearerTokens) -->

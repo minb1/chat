@@ -1,0 +1,4 @@
+Expert advice OAuth forum standaardisatie
+The creation of the iGov-NL profile is based on a recommendation from the expert advice on OAuth [Expert]. This expert advice was writen as part of the procedure to make OAuth a mandotary standard for the dutch public sector. Conditional for the adoption of OAuth as a mandotory standard was the creation of a Dutch implementation profile. The Rationale provided is that without a local implementation profile the risk of diverging non-interoperable implementations of the standard becomes unacceptably large.
+
+##

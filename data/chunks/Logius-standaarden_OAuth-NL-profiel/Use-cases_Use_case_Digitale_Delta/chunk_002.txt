@@ -1,0 +1,17 @@
+
+##Overview
+
+The Digitale Delta API provides access to measurements and related information.
+It is not an specific implementation of an API, but a template that defines its behaviour and its resources.
+
+Consumers of the data, in general, will be automated processes or systems such as Business Intelligence or GIS systems.
+Since not all data may be open or public, access to certain data must be restricted.
+However, also browser based solutions, or Excel users, can be consumers of the data.
+
+For automated requests, interactive scenario's are no feasible. A certificate scenario may not be feasible either.
+
+Next to cunsuming data, the API allows for adding or removing data by using import files or sensor devices.
+
+This also is (mostly) an automated proces. The same situation applies: interactive scenario's may not be usable, and PKI certificates may not be able to be deployed on sensory devices.
+
+The addition to the Authorization Code Flow, the Client Credential Flow can be used to cover the scenario's.

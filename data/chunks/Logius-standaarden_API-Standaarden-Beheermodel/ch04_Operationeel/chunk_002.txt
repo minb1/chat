@@ -1,0 +1,10 @@
+
+##Initiatie
+
+Toevoegingen aan de API Standaarden zoals het toevoegen van een nieuwe module worden behandeld als introductie van een nieuwe standaard.
+
+1. Uitbreidingen en aanpassingen in de standaarden in beheer bij Logius komen tot stand door participatie van de verschillende belanghebbenden.
+2. Belanghebbenden kunnen op verschillende manieren participeren.
+    1. op persoonlijke titel (het proces is volledig open)
+    2. als lid van de Community
+    3. als lid van één van de overleggen: het Technisch Overleg, de Programmeringstafel Gegevensuitwisseling of het OBDO.

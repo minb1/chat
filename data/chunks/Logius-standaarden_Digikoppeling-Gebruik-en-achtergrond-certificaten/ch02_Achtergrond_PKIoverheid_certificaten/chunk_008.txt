@@ -1,0 +1,10 @@
+
+###Private services servercertificaten
+
+Een PKIoverheid services servercertificaat is een Private Root certificaat en geschikt voor de beveiliging van verkeer tussen systemen.
+
+Een Private Root certificaat is 3 jaar <sup>9</sup> geldig. Dit type certificaat is niet aangemeld bij softwareleveranciers en wordt door browsers niet automatisch vertrouwd. Dit is echter geen belemmering als het certificaat gebruikt wordt voor berichtenverkeer tussen systemen.
+
+<sup>9</sup>: Laatste raadpleging februari 2020
+
+**Raadpleeg [Digikoppeling Beveiligingsstandaarden en voorschriften] voor de eisen m.b.t certificaten.**

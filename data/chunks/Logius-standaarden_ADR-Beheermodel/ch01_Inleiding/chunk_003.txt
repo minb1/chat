@@ -1,0 +1,6 @@
+
+##De REST-API Design Rules ofwel ADR-standaard
+
+De ADR-standaard omvat een set van normatieve ontwerpafspraken voor het structureren en documenteren van REST-API’s. De standaard heeft tot doel om betere, uniforme en ontwikkelaar vriendelijke API’s te ontwikkelen die makkelijk te implementeren zijn.
+De set van afspraken bestaat uit breed toepasbare en ondubbelzinnige richtlijnen. Deze helpen organisaties die nieuwe API’s ontwikkelen voor Nederlandse overheden (Rijk, provincies, gemeenten en waterschappen) en instellingen uit de (semi-) publieke sector.
+Het Nut en de werking van de standaard zijn reeds goed beschreven door het Forum Standaardisatie en voor de eenduidigheid hieronder integraal opgenomen [zie link](https://www.forumstandaardisatie.nl/open-standaarden/rest-api-design-rules):

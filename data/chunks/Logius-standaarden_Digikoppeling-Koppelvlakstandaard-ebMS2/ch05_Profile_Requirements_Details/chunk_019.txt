@@ -1,0 +1,11 @@
+
+###Profile Requirement Item: Non Persistent Integrity
+
+
+|[[EBXML-MSG]] Section 4.1.4.4 Non Persistent Integrity| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header element(s)|`/SOAP:Header/eb:Signature`|
+| Are communication channel integrity methods required? [Yes, for Security Services Profile 4.] Which methods are allowed or required? | **Not applicable**  |
+| Alignment | [Appears as BusinessTransactionCharacteristics/\@isTamperproof=transient in CPA.] |
+| Test References | (empty) |
+| Notes  | (empty) |

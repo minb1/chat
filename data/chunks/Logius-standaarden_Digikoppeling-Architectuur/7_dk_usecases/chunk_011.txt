@@ -1,0 +1,15 @@
+
+###Abonneren op wijzigingen middels notificaties
+
+Deze case is bedoeld voor ketens die authentieke informatie willen 'halen bij de bron' in plaats van het synchroniseren van registraties. Hiervoor is het essentieel dat organisaties worden genotificeerd bij wijzigingen.
+
+![Notificatie Request](media/Notification_request.png "Notificatie Request")
+
+
+|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
+|---|---|---|
+|Digikoppeling ebMS|Digikoppeling ebMS heeft reliable profiel (osb-rm) dat de bevestiging van ontvangst borgt. Hiermee heeft de aanbiedende partij de zekerheid dat een notificatie door de ontvanger is ontvanger| Digilevering ontvangt gebeurtenisberichten van basisregistraties en zendt deze door naar geabonneerde overheidsorganisaties |
+|Digikoppeling REST API| Een client abonneert zich met POST request op wijzingen in een bepaalde bron van een Provider (en kan muteren met PUT of DELETE request). Een bronhouder informeert een abonnee met een POST request bij een wijzingen. De afnemer haalt de wijzingen op via een GET reequest.| VNG werkt aan afspraken voor decentrale notificatieservices |
+
+
+Tabel 7.2: Notification request

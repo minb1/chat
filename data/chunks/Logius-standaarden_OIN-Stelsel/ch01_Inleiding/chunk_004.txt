@@ -1,0 +1,6 @@
+
+##Aanleiding voor een nieuwe versie van dit document
+
+Dit document is een update op een versie die Logius in 2016 heeft uitgebracht. De aanleiding was toen een inventarisatie van een aantal inmiddels ontstane knelpunten met voorstellen voor de wijzigingen van de regels voor gebruik en uitgifte van OIN’s en SubOINs. Het document stond aan de basis voor de wijzigingen die in 2017 zijn doorgevoerd.
+
+In 2020 heeft Logius de OIN regels opnieuw op punten aangepast. Dit gaf meteen de gelegenheid om het document bij te werken en in lijn te brengen met zowel de wijzigingen uit 2017 en de inmiddels vastgestelde wijzigingen van 2020.

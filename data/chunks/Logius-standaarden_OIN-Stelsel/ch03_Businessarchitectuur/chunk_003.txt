@@ -1,0 +1,10 @@
+
+##Voor wie is het OIN
+
+Het [=OIN=] is voor organisaties die berichten uitwisselen met de overheid. Dit kunnen publieke en private organisaties zijn. Voorwaarde is dat zij staan ingeschreven in het handelsregister. Daarnaast kunnen ook een aantal organisaties die niet in het handelsregister zijn opgenomen een [=OIN=] aanvragen. Dit zijn bijzondere organisaties met een publieke taak, colleges van advies en internationale organisaties met een rechtspersoonlijkheid.
+
+Het [=OIN=] maakt een onderscheid in [=gebruikers=] en [=afnemers=]. Beiden kunnen het [=OIN=] aanvragen. Deze begrippen komen uit de [[Algemene Voorwaarden Logius]] voor [=afnemers=] en zijn als volgt gedefinieerd:
+
+- <dfn data-lt="Afnemers">Afnemer</dfn>: een publiekrechtelijke of privaatrechtelijke organisatie, of college of een persoon met een publieke taak of bevoegdheid, die voor de uitoefening van die publieke taak elektronisch verkeer met andere overheden en burgers en/of bedrijven wenselijk acht en daarbij gebruik kan en mag maken van één of meer Diensten van Logius.
+
+- <dfn data-lt="Gebruikers">Gebruiker</dfn>: een overheidsorganisatie of onderneming of een rechtspersoon, die is ingeschreven in het Handelsregister of een natuurlijk persoon die is ingeschreven in de Gemeentelijke Basisadministratie persoonsgegevens (GBA), en in deze hoedanigheid gebruik maakt van de Diensten van Logius ten behoeve van het elektronisch verkeer met één of meerdere [=Afnemers=].

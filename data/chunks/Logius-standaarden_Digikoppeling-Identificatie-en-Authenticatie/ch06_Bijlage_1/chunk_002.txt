@@ -1,0 +1,22 @@
+
+##OIN formaat, als thans in gebruik voor (Overheids)organisaties
+
+Het basisformaat van het OIN - Organisatie Identificatie Nummer- is:
+
+>   \<prefix\>\<nummer\>\<suffix\>
+
+Voor het nummer maakt Logius voor overheidsorganisaties primair gebruik van het
+Rechtspersonen en Samenwerkingsverbanden Identificatie Nummer (RSIN) uit het HR.
+In die gevallen waar een overheidsorganisatie geen RSIN heeft, kan worden
+uitgeweken naar alternatieven. Het RSIN is inhoudelijk gelijk aan het
+Fiscaal(Fi)-nummer.
+
+Om rekening te houden met een andere systematiek in de toekomst is de lengte van
+het prefixveld bepaald op 8 posities.
+
+De prefix definieert welk soort nummer volgt.
+
+De waarde van het OIN in het OIN Register en in het veld subject.serialNumber is
+inclusief de prefix en suffix en daarbij behorende voorloopnullen. Door het
+gehele nummer te gebruiken wordt zeker gesteld dat het nummer uniek is.
+

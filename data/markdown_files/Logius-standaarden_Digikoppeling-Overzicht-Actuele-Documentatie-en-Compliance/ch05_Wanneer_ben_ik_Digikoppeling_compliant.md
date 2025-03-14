@@ -1,0 +1,175 @@
+# Wanneer ben ik Digikoppeling compliant?
+
+Voor de implementatie van een bepaald koppelvlak volgens de Digikoppeling standaard gebruikt u de algemene documenten van de standaard samen met de technische specificatie van het specifieke koppelvlak (bv WUS, EBMS2, API of Grote Berichten).
+
+## Documenten per koppelvlak
+
+De onderstaande tabel laat zien welke documenten van toepassing zijn voor de implementatie van een bepaald koppelvlak. De kolom Koppelvlak toont per koppelvlak WUS, EBMS2, API, Grote Berichten de bijbehorende documentatie.
+
+
+<!-- | **Digikoppeling Compliance**                      | **Koppelvlak**  | |                |                |                         |               |
+|---------------------------------------------------|----------------|----------      |----------      |--------        |-------------------------|---------------|
+| **Document**                                      | **WUS**        | **EBMS2**      | **API**      | **GB**         | **Type**                | **Normatief** |
+| DK Beheermodel en Releasebeleid                   | X              | X              | X              | X              | Standaard               |               |
+| DK Overzicht Actuele Documentatie en Compliance   | X              | X              | X              | X              | Standaard               |               |
+| DK Architectuur                                   | X              | X              | X              | X              | Standaard               | X             |
+| DK Koppelvlakstandaard WUS                        | X              |                |                | O<sup>1</sup>  | Standaard               | X             |
+| DK Koppelvlakstandaard EBMS2                      |                | X              | X              | O<sup>1</sup>  | Standaard               | X             |
+| DK Koppelvlakstandaard Grote Berichten            | O<sup>1</sup>  | O<sup>1</sup>  | O<sup>1</sup>  | X              | Standaard               | X             |
+| DK Identificatie en Authenticatie                 | X              | X              | X              | X              | Standaard               | X             |
+| DK Beveiliging standaarden en voorschriften       | X              | X              | X              | X              | Standaard               | X             |
+| DK Best Practices WUS                             | X              |                |                |                | Ondersteuning Standaard |               |
+| DK Best Practices EBMS                            |                | X              | X              |                | Ondersteuning Standaard |               |
+| DK Best Practices Grote Berichten                 |                |                |                | X              | Ondersteuning Standaard |               |
+| DK Gebruik en achtergrond certificaten            | X              | X              | X              | X              | Ondersteuning Standaard |               | -->
+
+
+<table>
+    <thead>
+        <tr>
+            <th><b>Digikoppeling Compliance</b></th>
+            <th colspan="3" style="text-align: center;"><b>Koppelvlak</b></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><b>Document</b></td>
+            <td><b>WUS</b></td>
+            <td><b>EBMS2</b></td>
+            <td><b>API</b></td>
+            <td><b>GB</b></td>
+            <td><b>Type</b></td>
+            <td><b>Normatief</b></td>
+        </tr>
+        <tr>
+            <td>DK Beheermodel en Releasebeleid</td>
+            <td>X</td>
+            <td>X</td>
+             <td>X</td>
+            <td>X</td>
+            <td>Standaard</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>DK Overzicht Actuele Documentatie en Compliance</td>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+            <td>Standaard</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>DK Architectuur</td>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+            <td>Standaard</td>
+            <td>X</td>
+        </tr>
+         <tr>
+            <td>DK Koppelvlakstandaard REST API</td>
+            <td></td>
+            <td></td>
+            <td>X</td>
+            <td>O<sup>1</sup></td>
+            <td>Standaard</td>
+            <td>X</td>
+        </tr>
+        <tr>
+            <td>DK Koppelvlakstandaard WUS</td>
+            <td>X</td>
+            <td></td>
+            <td></td>
+            <td>O<sup>1</sup></td>
+            <td>Standaard</td>
+            <td>X</td>
+        </tr>
+        <tr>
+            <td>DK Koppelvlakstandaard EBMS2</td>
+            <td></td>
+            <td>X</td>
+            <td></td>
+            <td>O<sup>1</sup></td>
+            <td>Standaard</td>
+            <td>X</td>
+        </tr>
+        <tr>
+            <td>DK Koppelvlakstandaard Grote Berichten</td>
+            <td>O<sup>1</sup></td>
+            <td>O<sup>1</sup></td>
+            <td>O<sup>1</sup></td>
+            <td>X</td>
+            <td>Standaard</td>
+            <td>X</td>
+        </tr>
+        <tr>
+            <td>DK Identificatie en Authenticatie</td>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+            <td>Standaard</td>
+            <td>X</td>
+        </tr>
+        <tr>
+            <td>DK Beveiliging standaarden en voorschriften</td>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+            <td>Standaard</td>
+            <td>X</td>
+        </tr>
+        <tr>
+            <td class="informative">DK Best Practices WUS</td>
+            <td>X</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="informative">Ondersteuning Standaard</td>
+            <td class="informative"></td>
+        </tr>
+        <tr>
+            <td class="informative">DK Best Practices EBMS</td>
+            <td></td>
+            <td>X</td>
+            <td></td>
+            <td></td>
+            <td class="informative">Ondersteuning Standaard</td>
+            <td class="informative"></td>
+        </tr>
+        <tr>
+            <td class="informative">DK Best Practices Grote Berichten</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>X</td>
+            <td class="informative">Ondersteuning Standaard</td>
+            <td class="informative"></td>
+        </tr>
+        <tr>
+            <td class="informative">DK Gebruik en achtergrond certificaten</td>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+            <td class="informative">Ondersteuning Standaard</td>
+            <td class="informative"></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<sup>1</sup> O=gebruik van WUS óf ebMS2 óf API . Binnen de Grote Berichten standaard wordt eerst een metadatabericht gestuurd om een aan te kondigen dat een bestand klaar staat om te downloaden. Voor dit metadatabericht dient WUS, ebMS2 of API gebruikt te worden.
+
+Tabel 3: Digikoppeling documentatie per koppelvlak
+
+## Toelichting compliance
+
+De tabel in de voorgaande paragraaf geeft aan welke combinatie van documenten tezamen een complete specificatie vormt voor Digikoppeling op basis van WUS, EBMS2 of Grote berichten. Een koppelvlak implementatie voldoet aan de digikoppeling standaard als deze conform de principes, afspraken en gestelde eisen uit de normatieve documenten is uitgewerkt. Om de compliance van software in de een praktijksituatie te testen is de Digikoppeling Compliancy Voorziening ontwikkeld. Deze voorziening is als Docker image beschikbaar op [GitLab](https://gitlab.com/logius/digikoppeling-compliance/).
+
+De Digikoppeling Compliancy Voorziening moet gezien worden als een hulpmiddel. Bij afwijking tussen de documentatie en de Compliance Voorziening zijn de eisen in de documentatie leidend bij het beoordelen of software de Digikoppeling standaard correct implementeert.

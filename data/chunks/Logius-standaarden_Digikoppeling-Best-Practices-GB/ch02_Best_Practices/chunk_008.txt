@@ -1,0 +1,14 @@
+
+###Push principe
+
+Er is bij grote berichten sprake van push, wanneer een groot bestand voorafgaand aan het meta-bericht door de verzender op een afgesproken plaats wordt klaargezet. Aansluitend op deze actie dient altijd een meta-bericht verstuurd te worden door de verzender.
+
+De volgende aanpak wordt hierbij gehanteerd:
+
+- De verzender stelt een groot bestand samen en verstuurt deze via HTTP.
+
+- De verzender stelt de metadata samen en verstuurt deze via een REST-API, ebMS2 of WUS bericht.
+
+- De ontvanger verwerkt het grote bestand.
+
+Het push interactiepatroon is in 2020 toegevoegd aan de Koppelvlakstandaard Grote Berichten. Er wordt in algemene zin gesproken over het verzenden van Grote Berichten, dit kan nu dus door middel van het PUSH principe en door middel van het PULL principe.

@@ -1,0 +1,8 @@
+
+###PersistDuration
+
+Deze heeft default de waarde van 1 dag, maar zal anders zijn als er andere waardes voor ReliableMessaging gebruikt worden:
+
+```XML
+<tns:PersistDuration>P1D</tns:PersistDuration>
+```

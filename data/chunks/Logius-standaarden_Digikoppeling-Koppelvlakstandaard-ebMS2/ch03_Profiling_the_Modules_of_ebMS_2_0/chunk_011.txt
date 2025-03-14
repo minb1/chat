@@ -1,0 +1,7 @@
+
+###Multi-Hop Module [ebMS 2.0] Section 10
+
+| Profile(s)| Usage: required/optional/never used in this profile |Notes|
+|------------------|---|---|
+|**Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security**|**Never used** in this profile.|Multi-hop is the process of passing the message through one or more intermediary nodes or MSH's. An Intermediary is any node or MSH where the message is received, but is not the Sending or Receiving MSH endpoint. This node is called an Intermediary.|
+

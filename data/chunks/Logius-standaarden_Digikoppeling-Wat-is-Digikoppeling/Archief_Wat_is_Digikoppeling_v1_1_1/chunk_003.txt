@@ -1,0 +1,5 @@
+Doel en scope 
+
+Dit document is bedoeld om een algemene toelichting te geven over Digikoppeling en het gebruik ervan.
+
+##

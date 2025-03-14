@@ -1,0 +1,4 @@
+
+###Afhandeling From in combinatie met een proxy/gateway
+
+Een `From` adres geeft aan waar het bericht vandaan is gekomen. Dit adres wordt vervolgens gebruikt om te bepalen waar het bericht vandaan is gekomen. In complexe infrastructuur oplossingen waarbij gebruik is gemaakt van een reverse proxy kan dit voor bepaalde complicaties zorgen (zie [http://en.wikipedia.org/wiki/Reverse_proxy](http://en.wikipedia.org/wiki/Reverse_proxy)). Een server kan namelijk niet het `From` adres als endpoint gebruiken omdat deze moet wijzen naar de interne proxy. Extern verkeer dient vaak in dergelijke situaties altijd over de proxy te gaan. Om dit probleem op te lossen dient ook hier gebruik gemaakt te worden van een endpoint mapping functionaliteit.

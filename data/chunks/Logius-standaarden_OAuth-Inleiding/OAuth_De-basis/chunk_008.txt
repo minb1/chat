@@ -1,0 +1,31 @@
+
+##Referenties
+
+[Coursera basis training met Postman]
+
+https://www.coursera.org/projects/api-testing-a-real-application-via-postman
+
+[Link naar de lijst van verplichte standaarden]
+
+https://forumstandaardisatie.nl/open-standaarden/verplicht
+
+[link naar de standaard]
+
+https://forumstandaardisatie.nl/open-standaarden/verplicht#:~:text=NL%20GOV%20Assurance%20profile%20for%20OAuth%202.0
+
+[link naar de logius standaard]
+
+https://publicatie.centrumvoorstandaarden.nl/api/oauth/
+
+[link naar het IAM thema van de NORA]
+
+https://www.noraonline.nl/wiki/Identity_%26_Access_Management_(IAM)
+
+[link naar het API Thema van de NORA]
+
+https://www.noraonline.nl/wiki/API
+
+[Het JWT token kan  men eenvoudig decoden/inspecteren op]
+
+http://jwt.io
+

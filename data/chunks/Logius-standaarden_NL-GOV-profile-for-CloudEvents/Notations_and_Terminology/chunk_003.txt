@@ -1,0 +1,4 @@
+
+###Terminology
+
+This specification defines the following terms:

@@ -1,0 +1,4 @@
+
+###Client Authentication over HTTP met client certificaat. 
+
+Dit is verplicht. In het client certificaat staat in het subject.Serialnumber de PartyId van de ‘client’ organisatie.

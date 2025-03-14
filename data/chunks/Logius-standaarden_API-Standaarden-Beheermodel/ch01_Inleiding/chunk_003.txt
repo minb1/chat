@@ -1,0 +1,6 @@
+
+###Bijlagen
+Practische aspecten van het beheer, zoals de gebruikte applicaties
+en webservices zijn opgenomen in bijlagen van dit document.
+De bijlagen zijn niet specifiek voor een standaard maar zijn relevant
+voor alle standaarden onder beheer bij Logius.

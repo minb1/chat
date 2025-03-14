@@ -1,0 +1,15 @@
+
+###CORS-policy
+
+<span id="api-50"></span>
+<div class="rule" id="/transport/cors">
+  <p class="rulelab"><strong>/transport/cors</strong>: Use CORS to control access</p>
+  <p>Use CORS to restrict access from other domains (if applicable).</p>
+</div>
+
+Modern web browsers use Cross-Origin Resource Sharing (CORS) to minimize the risk associated with cross-site HTTP-requests. By default browsers only allow 'same origin' access to resources. This means that responses on requests to another `[scheme]://[hostname]:[port]` than the `Origin` request header of the initial request will not be processed by the browser. To enable cross-site requests API's can return a `Access-Control-Allow-Origin` response header. It is RECOMMENDED to use a whitelist to determine the validity of different cross-site request. To do this check the `Origin` header of the incoming request and check if the domain in this header is on the whitelist. If this is the case, set the incoming `Origin` header in the `Access-Control-Allow-Origin` response header.
+
+Using a wildcard `*` in the `Access-Control-Allow-Origin` response header is NOT RECOMMENDED, because it disables CORS-security measures. Only for an open API which has to be accessed by numerous other websites this is appropriate.
+
+**How to test**
+Tests of this design rule can only be performed when the intended client is known to the tester. A thest can be performed when this information is provided by the API provider. Otherwise no conclusive test result can be reached. 

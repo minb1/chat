@@ -1,0 +1,51 @@
+
+##Voorstel
+
+Op basis van het voorgaande wordt voorgesteld om voor gebruik op Digikoppeling
+als OIN te hanteren:
+
+- ofwel het RSIN voor de grote groep organisaties waarvoor dat RSINr bestaat
+    en gebruikt kan worden.
+
+- ofwel een nieuw nummer voor de overige organisaties. Dat nieuwe nummer wordt
+    uitgereikt door Logius als beheerdervan Digikoppeling.
+
+Verder:
+
+- Wanneer later organisaties uit de tweede categorie (dus zonder bruikbaar
+    Fi-nummer) alsnog opgenomen worden in het HR, kan het OIN daarmee in
+    overeenstemming worden gebracht. De inhoud van het HR blijft leidend.
+
+Dat OIN wordt opgenomen in het PKIoverheid certificaat. Omdat PKIoverheid
+certificaten niet alleen door overheidsorganisaties gebruikt worden voor
+identificatie naar andere overheidsorganisaties, maar ook bijvoorbeeld voor
+bedrijfsleven naar overheid, is het nodig onderscheid te kunnen maken naar het
+soort nummer.
+
+Er wordt daarom een prefix gehanteerd voorafgaand aan dat nummer, dat aangeeft
+of het een HR of Fi-nummer, of bijvoorbeeld een KvK-nummer betreft, ofwel een
+door Logius uitgereikt nummer.
+
+De systematiek in deze notitie is bedoeld om zo duidelijk mogelijk te zijn over
+de inrichting van identificatie en authenticatie bij gebruik van Digikoppeling.
+Het is uitgesloten, dat hiermee de gehele werkelijkheid wordt afgedekt. Daarom
+beslist de beheerder van Digikoppeling over alle verzoeken die afwijken van de
+in deze notitie aangegeven lijn.
+
+In 2017 is voor het OIN een nieuw beleid actief geworden waarin de uitgifte voor
+het OIN is verduidelijkt en op sommige punten is verruimd. Zo kunnen
+overheidsorganisaties (formeel organisaties met Publiekrechtelijke
+Rechtspersoonlijkheid) eenvoudig een subOIN aanvragen voor
+
+- samenwerkingverbanden waar ze zelf deel aan nemen,
+
+- eigen organisatieonderdelen en
+
+- voorzieningen waar ze beheer over voeren
+
+Met nadruk stellen we dat deze mogelijkheid facultatief. Ook is duidelijk
+gemaakt hoe en wanneer organisaties een OIN kunnen krijgen als ze niet aan een
+van hierboven gestelde eisen kunnen doen, zoals buitenlandse partijen of
+organisaties uit het onderwijs. In de Digikoppeling Voorwaarden worden de
+voorwaarden voor uitgifte en gebruik van het OIN exact beschreven.
+

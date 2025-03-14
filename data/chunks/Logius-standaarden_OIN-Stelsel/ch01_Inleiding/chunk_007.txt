@@ -1,0 +1,4 @@
+
+###OIN en PKIoverheid
+
+Het nummer wordt opgenomen in het PKIoverheidcertificaat - als inhoud van het attribuut Subject.serialNumber -  en wordt daarnaast gebruik in de adressering van berichten.

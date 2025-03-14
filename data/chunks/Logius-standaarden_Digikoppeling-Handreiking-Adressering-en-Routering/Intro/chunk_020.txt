@@ -1,0 +1,16 @@
+
+###Definities
+
+<dfn>Respec</dfn>
+Tool voor het publiceren van specificatie documenten
+
+<dfn>Standard</dfn>
+Explicit set of agreements and rules
+
+<dfn
+data-lt="API|WEB API|REST API">
+REST API</dfn>
+Representational State Transfer, Application Programming Interface)
+
+
+

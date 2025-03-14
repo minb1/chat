@@ -1,0 +1,31 @@
+
+##Bomos
+
+Logius richt de beheerorganisatie in conform het Beheer en OntwikkelModel voor Open Standaarden (BOMOS). Ook het beheer van de ADR-standaard is op basis van BOMOS ingericht. Voor de beheerorganisatie heeft Logius een generiek beheermodel opgezet, waar het beheerplan van de ADR-standaard is afgeleid.  
+
+![Bomos model](media/Bomos_model_v2.svg "Bomos model")
+> Figuur 1. Bomos model
+
+Voor meer informatie over BOMOS zie ook [de beslisboom van het forumstandaardisatie](https://beslisboom.forumstandaardisatie.nl/thema/ontwikkelen-en-beheren-van-open-standaarden).  
+BOMOS onderscheidt verschillende levenscyclusfases waarin een standaard zich kan bevinden. Deze fase bepaalt mede op welke beheeronderdelen meer of minder wordt ingezet. De verschillende fases zijn:  
+
+1.	Creatie/ontwikkeling
+2.	Introductie
+3.	Implementatie/groei
+4.	Volwaardige toepassing
+5.	Uitfaseren
+
+![Bomos_levenscyclus](media/Bomos_levenscyclus_v2.svg "Bomos levenscyclus")
+> Figuur 2. Bomos levenscyclus
+
+De ADR-standaard bevindt zich in de implementatie/groei fase. De eerste versie van de standaard is 15-10-2019 aangemeld bij het Forum Standaardisatie en op 09-07-2020 op de lijst van verplichte standaarden opgenomen. Vanuit het Kennisplatform API’s en Logius Centrum voor Standaarden wordt momenteel nog volop aan de API Design Rules gewerkt en de verwachting is dat de standaard nog de nodige ontwikkelingen door gaat maken. Daarnaast komt het gebruik van de API Design Rules pas net op stoom, waardoor er van een volwaardige toepassing bij de beoogde doelgroep nog geen sprake is.  
+
+Dit heeft gevolgen voor het beheer van de standaard. Naast de groei in de aantallen toepassingen van de standaard is ook relevant dat eerst nog minor en major wijzigingen in de standaard op een correcte manier worden doorgevoerd en er veel informatie beschikbaar is die gebruikers helpt bij de implementatie van de standaard. Daarom is er komende tijd vooral aandacht voor:
+
+-	Het in de praktijk bestendigen van het beheer van de standaard;  
+-	Gestaag doorontwikkeling van de specificaties zelf;  
+-	Bouwen en aanbieden ondersteunende tooling;  
+-	Groei in het aantal toepassingen van de standaard;  
+-	Monitoring van het gebruik van de standaard;  
+-	Groei van de community rond de standaard.  
+

@@ -1,0 +1,72 @@
+
+###De gelaagdheid van standaarden
+
+Om interoperabiliteit (uitwisselbaarheid) te bewerkstelligen tussen
+organisaties of systemen is een complexe set van standaarden
+nodig. Dit maakt de materie uitermate lastig want het gaat niet meer
+om het kiezen of beheren van één standaard, maar het gaat om een set
+van standaarden die op sommige gebieden sterk aan elkaar gerelateerd
+zijn. Een onderscheid is daarbij te maken in standaarden voor
+technische zaken en standaarden voor de semantiek van
+informatie-uitwisseling. Het interoperabiliteitsraamwerk (op basis van
+Jian, H., & Zhao, H. (2003). A Conceptual Model for Comparative
+Analysis of Standardization of Vertical Industry Languages.) laat dit
+zien; tussen haakjes staan engiszins verouderde voorbeelden van
+standaarden waarmee dit kan worden ingevuld.
+
+![De gelaagdheid van standaarden](images/BOMOS-7_Gelaagdheid-van-standaarden.png "De gelaagdheid van standaarden")
+
+Voor technische interoperabiliteit moeten er keuzes gemaakt worden,
+waarbij vaak gekozen wordt voor een technische filosofie waarbij een
+familie van standaarden hoort; Echt veel keuzes zijn er eigenlijk
+niet. Bijvoorbeeld als communicatiemechanisme is het Internet met als
+standaarden TCP/IP, HTTP, etc. voor de hand liggend. Op het gebied van
+messaging (transport) mechanisme is er misschien meer keuze, maar Web
+Services als familie hier lange tijd voor de hand liggend, en
+inmiddels zijn REST APIs defacto standaard geworden. De keuze voor Web
+services brengt een keuze voor de individuele standaarden (zoals SOAP,
+WSDL, etc.) met zich mee. Overigens is de keuze voor deze technische
+standaarden alleen niet voldoende. Om interoperabiliteit te bereiken
+zijn doorgaans nog profielen nodig bovenop deze standaarden waarin
+beschreven staat hoe de opties in de standaarden ingevuld moeten
+worden. Ook al is dit niet domeinspecifiek wordt dit nu vaak per
+domein ingevuld, vooral om gebruikers een complete
+interoperabiliteitsoplossing te kunnen bieden in combinatie met de
+semantische standaarden.
+
+<aside class="example" title="Gelaagdheid bij standaardisatie van e-facturatie">
+Bij het Standaardisatie Platform E-facturatie (STPE) zie je de gelaagdheid van 
+standaarden goed terug. Daar heeft men te maken met de EN 16931: een Europese 
+standaard dat een semantisch model voor de kernfactuur beschrijft 
+(Common Semantics). Dit model is uitgedrukt in twee Horizontal Languages: 
+UBL en UN/CEFACT Cross Industry Invoice (CII). Beide van deze talen bouwen 
+op XML als Common Syntax. De EN 16931 doet geen uitspraken over hoe de Technical 
+Interoperability ingericht dienen te worden. 
+
+Op het semantisch vlak eindigt de gelaagdheid niet met de Europese kernfactuur. 
+In Nederland heeft men een nationaal profiel op de EN 16931 gespecificeerd om 
+het gebruik van de norm in Nederland te bevordereren: de NL-CIUS (Core Invoice 
+Usage Specifcation). Er zijn zelfs brancheverenigingen die de NLCIUS weer verder 
+specificeren. Zo is de SETU Invoice een laag bovenop de NLCIUS met een aantal 
+inperkingen en instructies om het gebruik van de factuurnorm in het uitzenddomein 
+te bevorderen.
+</aside>
+
+Tot slot is de keuze voor de technische standaard JSON tegenwoordig
+voor de hand liggend. In het verleden was XML, en daarvoor EDI de
+aangewezen technologie. Deze wordt nog veel gebruikt in bestaande
+situaties, maar niet meer in nieuwe situaties.
+
+De technische standaarden zijn randvoorwaardelijk, maar de echte
+uitdaging ligt bij de semantische standaarden waarin de betekenis van
+de informatie-uitwisseling centraal staat. Verticale semantische
+standaarden zijn gericht op een specifieke sector, terwijl horizontale
+sector overstijgend zijn. In de praktijk zijn verticale standaarden
+noodzakelijk om goed aan te sluiten bij de context van de
+organisatie. Verticale standaarden kunnen een nadere invulling zijn
+van horizontale standaarden, zie hiervoor de volgende paragraaf.
+
+Om het nog complexer te maken zijn er standaarden die gebruikt worden
+om standaarden te maken, denk bijvoorbeeld aan de standaard UML, als
+taal om diagrammen te tekenen die bijvoorbeeld het proces en
+data-model van een standaard bevatten.

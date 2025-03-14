@@ -1,0 +1,10 @@
+
+###Profile Requirement Item: charset
+
+|[[EBXML-MSG]] Section 2.1.3.2 | All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|MIME Header elements|Content-Type|
+| Is the "charset" parameter of Content-Type header necessary? If so, what is the (sub)set of allowed values? Example: Content-Type: text/xml; charset="UTF-8" | UTF-8  |
+| Alignment | (empty) |
+| Test References | (empty) |
+| Notes  | (empty) |

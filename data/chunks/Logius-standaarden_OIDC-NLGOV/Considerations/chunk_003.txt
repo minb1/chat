@@ -1,0 +1,24 @@
+
+##Security considerations
+
+Implementations of this profile or any form of access to a service, MUST make a risk assessment or security classification for that service and the information disclosed. It is strongly RECOMMENDED to follow the guide 'Assurance level for digital service provision' [[SG.LoA]].
+Particularly when implementing for higher levels of assurance (e.g. eIDAS "high" or "substantial"), requirements specified as SHOULD (NOT) or (NOT) RECOMMENDED in this profile are more pertinent to implement accordingly. In line with the scope of the "Assurance level for digital service provision" guide, information and services classified as "state secret" (Dutch: "_staatsgeheim_") are out of scope for implementations under this profile.
+
+An OpenID Provider MUST use a distinct Client Identifier (`client_id`) and registration for each unique Client. This in particular applies to public Clients, these registrations MUST NOT be shared with confidential Clients, even if they are operated by the same organisation.
+Distinct registrations MAY be applied to different versions of (native and browser-based public) Clients as well. This will allow a form of support for version management, noting that this can not be considered a very reliable method from a security point of view.
+
+Refresh Tokens SHOULD only be applied and enabled when a functional need exists. Support for Refresh Tokens SHOULD therefore be disabled by default.
+Refresh Tokens for confidential Clients MUST be sender-constrained by the issuing OpenID Provider. How the OP accomplishes this is implementation specific, suggestions can be found in [[?OAuth2.1]], Section 6.1.
+Using Refresh Tokens in combination with public Clients SHOULD be avoided when possible. If a specific scenario does call for usage of Refresh Tokens with public Clients, Refresh Tokens MUST rotate on each use with a limited valid lifetime.
+
+All transactions MUST be protected in transit by TLS as described in BCP195 [[RFC7525]]. In addition, all compliant implementations MUST apply the IT Security Guidelines for TLS by the Dutch NCSC [[SG.TLS]]. Implementations SHOULD only implement settings and options indicated as "good", SHOULD NOT use any settings with a status "phase out" and MUST NOT use any setting with a status "insufficient" in these security guidelines or future updates thereof.
+
+Implementations MUST implement 'HTTP Strict Transport Security', as specified in [[RFC6797]].
+
+All Clients MUST conform to applicable recommendations found in the 'Security Considerations' sections of [[RFC6749]] and those found in 'OAuth 2.0 Threat Model and Security Considerations' [[RFC6819]]. For all Tokens, the 'JSON Web Token Best Current Practices' [[RFC8725]] SHOULD be applied.
+
+All Clients MUST apply cross-site request forgery (CSRF) counter measures. Clients can leverage the OpenID Connect `nonce` and OAuth2 `state` parameters to do so. A Client MUST utilize one or more of these parameters to verify an Authentication Response matches with the Authentication Request sent. After first use, the Client SHOULD invalidate the parameter so it can be used only once (see [[?OAuth2.Security]], Section 4.2.4).
+
+In case Clients are relying on and communicating with multiple OpenID Providers (and/or OAuth2 Authorization Servers), Clients MUST implement countermeasures to prevent mix-up attacks. Clients SHOULD at least use distinct redirect URIs for each OpenID Provider / Authorization Server, or alternatively validate the issuer (`iss`) in the response (ID Token) matches the initiating Authentication Request (see [[RFC8252]], Section 8.10 and [[?OAuth2.Security]], Section 2.1 and 4.4.2).
+
+<!-- [Algorithms](#algorithms) --->

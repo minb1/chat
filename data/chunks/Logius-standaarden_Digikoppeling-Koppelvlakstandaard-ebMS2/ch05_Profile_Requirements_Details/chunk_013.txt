@@ -1,0 +1,11 @@
+
+###Profile Requirement Item: Reference
+
+|[[EBXML-MSG]] Section 3.2.1 Reference Element| All profiles:<br> **Best effort**,<br>**Reliable Messaging**,<br>**End-to-End Security** |
+|------------------|---|
+|Header element(s)|`/SOAP:Body/eb:Manifest/eb:Reference`|
+| Is the xlink:role attribute required? What is its value? | **Not applicable**. The xlink:role attribute is not required.   |
+| Are any other namespace-qualified attributes required?   | **Not applicable**. No other namespace-qualified attributes are allowed. |
+| Alignment | (empty) |
+| Test References | (empty) |
+| Notes  | Only the Content Id reference mechanism [[rfc2392]] is allowed. |

@@ -1,0 +1,8 @@
+#Inleiding
+
+In de BOMOS Verdieping worden de componenten van BOMOS behandeld. Naast de
+lagen operationeel, tactisch en strategisch worden implementatie ondersteuning
+en communicatie besproken.
+
+De BOMOS documentatie is ondervedeeld in een aantal delen
+(zie [BOMOS structuur](#structuur-bomos)).

@@ -1,0 +1,4 @@
+
+##Adoptie en erkenning  
+
+De meerderheid van de API Standaarden hebben de 'pas toe of leg uit' -status van Forum Standaardisatie. Dit betekent kort gezegd dat Nederlandse overheidspartijen en partijen uit de (semi) publieke sector deze standaarden dienen toe te passen op het moment dat zij hun informatie met behulp van API's willen ontsluiten. Zie hoofdstuk 1 voor meer informatie.

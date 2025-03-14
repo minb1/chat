@@ -1,0 +1,4 @@
+
+###Beheerder OIN-stelsel
+
+Logius beheert het OIN Stelsel. Het OIN valt onder de Digikoppeling Standaard. Het Centrum voor Standaarden, van Logius is beheerder van de Digikoppeling standaard en voert ook het beheer over van het OIN-stelsel, voorwaarden en overeenkomsten.

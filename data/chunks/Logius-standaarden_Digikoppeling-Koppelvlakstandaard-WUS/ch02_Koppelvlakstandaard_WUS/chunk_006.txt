@@ -1,0 +1,19 @@
+
+##Compliancevoorzieningen
+
+Voor de Digikoppeling Koppelvlakstandaard WUS is een compliancevoorzieningen
+beschikbaar gesteld, waarmee een ontwikkelaar of beheerder kan testen “of het
+berichtenverkeer werkt”. Deze compliancevoorziening is gedefinieerd aan de hand
+van de WSDL’s die opvraagbaar zijn op
+[[?Compliance]].
+
+De volgende interacties zijn beschikbaar:
+
+- Digikoppeling service requester: wordt gebruikt om een ontwikkelde servicere
+    requester (client) te testen.
+
+- Digikoppeling service provider: wordt gebruikt om een ontwikkelde service
+    provider (service) te testen.
+
+De documenten over de compliancevoorzieningen zijn te vinden op [[?Logius]]. De Digikoppeling Compliancevoorziening zelf is beschikbaar op
+[[?Compliance]]

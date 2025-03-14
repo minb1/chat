@@ -1,0 +1,8 @@
+
+#####Digikoppeling Architectuur
+
+- [Pull request](https://github.com/Logius-standaarden/Digikoppeling-Architectuur/pull/14)
+- [Wijzigingen](https://logius-standaarden.github.io/Digikoppeling-Algemeen/releases/Digikoppeling-Release-20250130/diff-arch.htm)
+  - ${\textsf{\color{red}↓ Verwijderd ↓}}$
+  - ${\textsf{\color{green}↕ Vervangen ↕}}$
+  - ${\textsf{\color{orange}↑ Toegevoegd ↑}}$

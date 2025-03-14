@@ -1,0 +1,52 @@
+
+###Rollen en activiteiten.
+
+In [deel 1 zijn de rollen voor het ontwikkel- en beheerproces gedefinieerd](https://logius-standaarden.github.io/BOMOS-Fundament/index.html#activiteiten-en-rollen),
+en zijn ze gekoppeld aan de hoofdactiviteiten van BOMOS. Omgekeerd
+kijken we er nu in meer detail naar. Onderstaande tabel geeft vanuit
+de rollen aan in welke BOMOS activiteiten ze betrokken kunnen zijn;
+dat laat ook zien dat een 1-op-1 koppeling tussen rol en activiteit
+niet werkt.
+
+| Rol | BOMOS activiteit |
+|-----|------------------|
+| Houder | Governance    |
+|        | Visie         |
+|        | Rechtenbeleid |
+|        | Adoptie en erkennig (beleid)|
+|        | Opleiding (beleid)          |
+|        | Kwaliteitsbeleid benchmarking(beleid) |
+|        | Community (vaststellen) |
+|        | Klachtenafhandeling     |
+|        | Implementatieondersteuning (beleid) |
+| Financier | Financiën |
+| Autorisator | Architectuur (vaststellen) |
+|             | Initiatie (belsuitvorming) |
+| Expert | Architectuur (uitvoeren en advisering) |
+|        | Initiatie (advies) |
+| Functioneel beheerder | Community (uitvoeren) |
+|                       | Kwaliteitsbeleid benchmarking (uitvoeren) |
+|                       | Initiatie (proces) |
+|                       | Wensen en eisen |
+|                       | Ontwikkeling |
+|                       | Uitvoering |
+|                       | Documentatie|
+|                       | Implementatieondersteuning (uitvoeren) |
+| Technisch beheerder   | Draagt bij aan operationeel |
+| Distributeur | Promotie |
+|              | Publicatie |
+| Gebruiker  | Geconsulteerd operationeel |
+
+<aside class="note">
+
+<b>Rollen en stakeholders in de zorg</b>
+
+Het zorgdomein is een complexe situatie met stakeholders en partijen
+die een belang hebben in de standaardisatie ontwikkeling. Door het
+leggen van relaties tussen de rollen, en de invulling van de rollen
+met de namen van de stakeholders/partijen wordt een helder inzicht
+gecreerd in de wereld van deze zorg standaard. (bron voorbeeld: NEN
+7522-2021)
+
+![Voorbeeld van toewijzing rollen aan stakeholders](images/BOMOS-16_Toewijzing-rollen-aan-stakeholders-blanco.png "Voorbeeld van toewijzing rollen aan stakeholders")
+</aside>

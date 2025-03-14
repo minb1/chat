@@ -1,0 +1,9 @@
+
+##Links en lijsten
+
+1. Markdown informatie
+   1. [Basic syntax van Markdown](https://www.markdownguide.org/basic-syntax/ "Basic syntax van Markdown")
+   2. [Markdown tables generator](https://www.tablesgenerator.com/markdown_tables "Handig!")
+2. Informatie over Logius
+   1. [Logius e-procurement](https://logius.nl/diensten/e-procurement/wat-is-e-procurement) "Wat is e-procurement?")
+

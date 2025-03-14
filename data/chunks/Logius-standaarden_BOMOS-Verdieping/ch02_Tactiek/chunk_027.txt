@@ -1,0 +1,39 @@
+
+###Factoren voor adoptie
+
+Een andere manier om te kijken naar de adoptie van een standaard is
+door te analyseren welke factoren bijdragen aan het adoptieproces. Bij
+ieder van deze factoren zijn er instrumenten die de adoptie kunnen
+verbeteren:
+
+**Relatieve voordelen** dragen bij aan de adoptie van een
+  standaard. Een organisatie heeft voordeel bij het gebruik van een
+  standaard. Deze voordelen kunnen zichtbaarder gemaakt worden door:
+
+* Voordelen te communiceren.
+* Business cases te tonen.
+* Best practices te ontwikkelen.
+
+Hoge **adoptie kosten** hebben een negatieve invloed. Getracht kan
+worden deze kosten te verminderen. Bijvoorbeeld door:
+
+* Subsidie te verlenen.
+* Implementaties makkelijker te maken, bijvoorbeeld door hulpmiddelen beschikbaar te stellen.
+
+**Institutionele effecten** hebben betrekking op afspraken vanuit de wet of in een sector, die een meer of minder verplichtend karakter hebben voor het gebruik van de standaard. Instrumenten zijn ondermeer:
+
+* Contractuele afspraken maken met gebruikers.
+* Opnemen in wettelijke afspraken of via de lijst voor 'pas toe of leg uit'.
+* Andere juridische verplichtingen.
+
+Een belangrijk, vaak vergeten factor is community ideologie. Een
+sterke community rondom een standaard kan bijdragen aan de
+adoptie. Door de community te versterken en zo mogelijke
+'evangelisten' te zoeken kan de adoptie versterkt worden.
+
+Een toenemend gebruik versterkt zichzelf vanwege netwerkeffecten. Dit
+kan daarom ook onderdeel uitmaken van de
+adoptiestrategie. Bijvoorbeeld door een grote organisatie te strikken
+die gebruik gaat maken van de standaard, door het organiseren van
+partnerships, gratis implementaties of het organiseren van een
+plugfest.

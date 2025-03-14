@@ -1,0 +1,207 @@
+
+###Discovery document
+
+This profile imposes the following requirements upon the Discovery document:
+
+`issuer`
+
+- REQUIRED. The fully qualified Issuer URL of the OpenID Provider as defined by [[RFC8414]].
+
+`authorization_endpoint`
+
+- REQUIRED. The fully qualified URL of the OpenID Provider's Authorization Endpoint as defined by [[RFC6749]].
+
+`token_endpoint`
+
+- REQUIRED. The fully qualified URL of the OpenID Provider's Token Endpoint as defined by [[RFC6749]].
+
+`userinfo_endpoint`
+
+- RECOMMENDED. The fully qualified URL of the OpenID Provider's Userinfo Endpoint as defined by [[OpenID.Core]].
+
+`registration_endpoint`
+
+- RECOMMENDED. The fully qualified URL of the OpenID Provider's Dynamic Registration endpoint [[RFC7591]].
+
+`introspection_endpoint`
+
+- OPTIONAL. The fully qualified URL of the OpenID Provider's Introspection Endpoint as defined by 'OAuth 2.0 Token Introspection' [[RFC7662]].
+
+`revocation_endpoint`
+
+- OPTIONAL. The fully qualified URL of the OpenID Provider's Revocation Endpoint as defined by 'OAuth 2.0 Token Revocation' [[RFC7009]].
+
+`jwks_uri`
+
+- REQUIRED. The fully qualified URL of the OpenID Provider's public keys in JWK Set format. These keys can be used by Clients to verify signatures on tokens and responses from the OpenID Provider and for encrypting requests to the OpenID Provider.
+
+`scopes_supported`
+
+- REQUIRED. The list of scopes the OpenID Provider supports as defined by [[RFC8414]].
+
+`response_types_supported`
+
+- REQUIRED. JSON array containing the list of OAuth 2.0 `response_type` values that the OpenID Provider supports. In the context of this profile, the value MUST Be ['code'].
+
+`grant_types_supported`
+
+- REQUIRED. JSON array containing the list of OAuth 2.0 `grant_type` values that the OpenID Provider supports. In the context of this profile, the value MUST be ['authorization_code'].
+
+`claims_parameter_supported`
+
+- OPTIONAL. Boolean value specifying whether the OpenID Provider supports the use of the `claims` parameter, as defined by [[OpenID.Discovery]].
+
+`claims_supported`
+
+- REQUIRED. JSON array containing the list of Claims available in the supported scopes as defined by [[OpenID.Discovery]]. See [Claims Supported](#claims-supported).
+
+`claim_types_supported`
+
+- OPTIONAL. JSON array containing the list of Claim types that the OpenID Provider supports. REQUIRED when `aggregated` or `distributed` Claims are used. If omitted, the OpenID Provider only supports `normal` Claims. Identical to [[OpenID.Discovery]].
+
+`sub_id_types_supported`
+
+- OPTIONAL. JSON array containing the list of supported types of Subject Identifiers in the `sub` Claim of ID Tokens. The values MUST be URIs, the exact URIs to be used are situation specific; as an example encrypted BSNs and Pseudonyms could be specified with `urn:nl-eid-gdi:1.0:id:BSN` or `urn:nl-eid-gdi:1.0:id:Pseudonym` respectively.
+
+`acr_values_supported`
+
+- OPTIONAL. JSON array containing the list of supported Levels of Assurances, as defined by [[OpenID.Discovery]]. See [Authentication Context](#authentication-context).
+
+`subject_types_supported`
+
+- REQUIRED. JSON array containing the list of Subject Identifier types that this OpenID Provider supports. Valid types include `pairwise` and `public`.
+
+`token_endpoint_auth_methods_supported`
+
+- REQUIRED. JSON array containing the list of Client Authentication methods that this OpenID Provider supports. With respect to this profile, the allowed values are `private_key_jwt`, `tls_client_auth`, or both.
+
+`id_token_signing_alg_values_supported`
+
+- REQUIRED. JSON array containing the list of JWS signing algorithms (`alg` values) supported by the OpenID Provider for the ID Token to encode the Claims in a JWT. For more information, refer to [Algorithms](#algorithms).
+
+`id_token_encryption_alg_values_supported`
+
+- OPTIONAL. JSON array containing the list of JWE encryption algorithms (`alg` values) supported by the OpenID Provider for the ID Token to encrypt the Content Encryption Key (CEK). REQUIRED when the OpenID Provider supports encryption of ID Tokens. For more information, refer to [Algorithms](#algorithms).
+
+`id_token_encryption_enc_values_supported`
+
+- OPTIONAL. JSON array containing the list of JWE encryption algorithms (`enc` values) supported by the OpenID Provider for the ID Token to encrypt the Claims in a JWT using the CEK. REQUIRED when the OpenID Provider supports encryption of ID Tokens. For more information, refer to [Algorithms](#algorithms).
+
+`userinfo_signing_alg_values_supported`
+
+- REQUIRED. JSON array containing the list of JWS signing algorithms (`alg` values) supported by the UserInfo Endpoint to encode the Claims in a JWT. For more information, refer to [Algorithms](#algorithms).
+
+`userinfo_encryption_alg_values_supported`
+
+- OPTIONAL. JSON array containing the list of JWE encryption algorithms (`alg` values) supported by the OpenID Provider for the UserInfo Endpoint to encrypt the Content Encryption Key (CEK). REQUIRED when the OpenID Provider supports encryption of UserInfo responses. For more information, refer to [Algorithms](#algorithms).
+
+`userinfo_encryption_enc_values_supported`
+
+- OPTIONAL. JSON array containing the list of JWE encryption algorithms (`enc` values) supported by the OpenID Provider for the UserInfo Endpoint to encrypt the Claims in a JWT using the CEK. REQUIRED when the OpenID Provider supports encryption of UserInfo responses. For more information, refer to [Algorithms](#algorithms).
+
+`request_object_signing_alg_values_supported`
+
+- REQUIRED. JSON array containing the list of JWS signing algorithms (`alg` values) supported by the OpenID Provider for Request Objects. These algorithms are applicable for Request Objects passed by value and passed by reference. For more information, refer to [Algorithms](#algorithms).
+
+`request_object_encryption_alg_values_supported`
+
+- OPTIONAL. JSON array containing the list of JWE encryption algorithms (`alg` values) supported by the OpenID Provider for Request Objects to encrypt the Content Encryption Key (CEK). REQUIRED when the OpenID Provider supports encryption of UserInfo responses. For more information, refer to [Algorithms](#algorithms).
+
+`request_object_encryption_enc_values_supported`
+
+- OPTIONAL. JSON array containing the list of JWE encryption algorithms (`enc` values) supported by the OpenID Provider for Request Objects to encrypt the Claims in a JWT using the CEK. REQUIRED when the OpenID Provider supports encryption of UserInfo responses. For more information, refer to [Algorithms](#algorithms).
+
+`request_uri_parameter_supported`
+
+- OPTIONAL. Boolean value which specifies whether the OpenID Provider accepts Request Objects passed by reference using the `request_uri` parameter. As per [[OpenID.Core]], the default value is `true`.
+
+`require_request_uri_registration`
+
+- REQUIRED and MUST have Boolean value `true` if the OpenID Provider accepts Request Objects passed by reference using the `request_uri` parameter. OPTIONAL otherwise. This parameter indicates that `request_uri` values used by the Client to send Request Objects by reference must always be pre-registered.
+
+`signed_metadata`
+
+- RECOMMENDED. A JWT, signed using JWS, containing metadata values about the OpenID Provider as claims, as specified in [[RFC8414]], Section 2.1.
+
+<aside class="example">
+The following example shows the JSON document found at a discovery endpoint for an OpenID Provider:
+<pre>
+    {
+      "request_parameter_supported": true,
+      "id_token_encryption_alg_values_supported": [
+        "RSA-OAEP", "RSA-OAEP-256"
+      ],
+      "registration_endpoint": "https://idp-p.example.com/register",
+      "userinfo_signing_alg_values_supported": [
+        "RS256", "RS384", "RS512"
+      ],
+      "token_endpoint": "https://idp-p.example.com/token",
+      "request_uri_parameter_supported": false,
+      "request_object_encryption_enc_values_supported": [
+        "A192CBC-HS384", "A192GCM", "A256CBC+HS512",
+        "A128CBC+HS256", "A256CBC-HS512",
+        "A128CBC-HS256", "A128GCM", "A256GCM"
+      ],
+      "token_endpoint_auth_methods_supported": [
+        "private_key_jwt",
+      ],
+      "userinfo_encryption_alg_values_supported": [
+        "RSA-OAEP", "RSA-OAEP-256"
+      ],
+      "subject_types_supported": [
+        "public", "pairwise"
+      ],
+      "id_token_encryption_enc_values_supported": [
+        "A192CBC-HS384", "A192GCM", "A256CBC+HS512",
+        "A128CBC+HS256", "A256CBC-HS512", "A128CBC-HS256",
+        "A128GCM", "A256GCM"
+      ],
+      "claims_parameter_supported": false,
+      "jwks_uri": "https://idp-p.example.com/jwk",
+      "id_token_signing_alg_values_supported": [
+        "RS256", "RS384", "RS512"
+      ],
+      "authorization_endpoint": "https://idp-p.example.com/authorize",
+      "require_request_uri_registration": false,
+      "introspection_endpoint": "https://idp-p.example.com/introspect",
+      "request_object_encryption_alg_values_supported": [
+        "RSA-OAEP", "RSA-OAEP-256"
+      ],
+      "service_documentation": "https://idp-p.example.com/about",
+      "response_types_supported": [
+        "code", "token"
+      ],
+      "token_endpoint_auth_signing_alg_values_supported": [
+        "RS256", "RS384", "RS512"
+      ],
+      "revocation_endpoint": "https://idp-p.example.com/revoke",
+      "request_object_signing_alg_values_supported": [
+        "HS256", "HS384", "HS512", "RS256", "RS384", "RS512"
+      ],
+      "claim_types_supported": [
+        "normal"
+      ],
+      "grant_types_supported": [
+        "authorization_code",
+      ],
+      "scopes_supported": [
+        "profile", "openid", "doc"
+      ],
+      "userinfo_endpoint": "https://idp-p.example.com/userinfo",
+      "userinfo_encryption_enc_values_supported": [
+        "A192CBC-HS384", "A192GCM", "A256CBC+HS512","A128CBC+HS256",
+        "A256CBC-HS512", "A128CBC-HS256", "A128GCM", "A256GCM"
+      ],
+      "op_tos_uri": "https://idp-p.example.com/about",
+      "issuer": "https://idp-p.example.com/",
+      "op_policy_uri": "https://idp-p.example.com/about",
+      "claims_supported": [
+        "sub", "name", "vot", "acr"
+      ],
+      "acr_values_supported" [
+        "http://eidas.europa.eu/LoA/substantial",
+        "http://eidas.europa.eu/LoA/high"
+      ]
+    }
+</pre>
+</aside>
