@@ -1,29 +1,34 @@
+# chatRAG/vectorstorage/pinecone_client.py
 from pinecone import Pinecone
-
-
 from dotenv import load_dotenv
 import os
+from typing import List, Dict, Any
+from .base_client import BaseVectorClient
 
 load_dotenv()
 
-def retrieve_vectors(vector):
 
-    try:
-        PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
-    except:
-        return "No API key found"
-    pc = Pinecone(api_key=PINECONE_API_KEY)
-    index = pc.Index("google-embed-004-768d")
+class PineconeClient(BaseVectorClient):
+    def __init__(self, index_name="google-embed-004-768d", namespace="ns1"):
+        self.index_name = index_name
+        self.namespace = namespace
+        self.api_key = os.getenv("PINECONE_API_KEY")
+        if not self.api_key:
+            raise ValueError("No API key found for Pinecone")
 
-    response = index.query(
-        namespace="ns1",
-        vector=vector,
-        top_k=50,
-        include_values=False,
-        include_metadata=True
-    )
+    def retrieve_vectors(self, vector: List[float], top_k: int = 50) -> List[str]:
+        """Retrieve file paths from Pinecone based on vector similarity."""
+        pc = Pinecone(api_key=self.api_key)
+        index = pc.Index(self.index_name)
 
-    # Retrieves all relatiev file paths
-    chunk_paths = [match["metadata"].get("file_path") for match in response["matches"]]
+        response = index.query(
+            namespace=self.namespace,
+            vector=vector,
+            top_k=top_k,
+            include_values=False,
+            include_metadata=True
+        )
 
-    return chunk_paths
+        # Retrieves all relative file paths
+        chunk_paths = [match["metadata"].get("file_path") for match in response["matches"]]
+        return chunk_paths

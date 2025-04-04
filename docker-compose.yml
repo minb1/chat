@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  web:
+  app:
     build: .
     ports:
       - "8000:8000"
@@ -10,3 +10,29 @@ services:
     environment:
       - DEBUG=True
       - DJANGO_SETTINGS_MODULE=chatRAG.settings
+    depends_on:
+      - db
+      - qdrant
+
+  db:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=logius-standaarden
+    ports:
+      - "5432:5432"
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    volumes:
+      - qdrant_data:/qdrant/storage
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+
+volumes:
+  postgres_data:
+  qdrant_data:

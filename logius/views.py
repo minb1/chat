@@ -10,6 +10,12 @@ from logius.chat_handler import process_user_message
 from memory.redis_handler import create_chat_session, get_chat_history
 from model.model_factory import get_available_models
 
+from utils.git_fetch_and_chunk import fetch_git_and_chunk
+from utils.embedder import embed_chunks
+from utils.postgresql_insert import insert_chunks_to_postgres
+from utils.qdrant_upsert import insert_into_qdrant
+
+
 # Create your views here.
 def chat_view(request):
     return render(request, 'index.html')
@@ -71,3 +77,17 @@ class ModelsView(APIView):
     def get(self, request):
         models = get_available_models()
         return Response(models)
+
+class KnowledgeBase(APIView):
+    def get(self, request):
+
+        print("Calling knowledge base update scripts")
+        print("Fetching Git pages & Chunking")
+        fetch_git_and_chunk()
+        print("Fetched chunsk, creating embeddings...")
+        embed_chunks()
+        print("Chunks embedded, inserting into qdrant..")
+        insert_into_qdrant()
+        print("Qdrant operation complete, moving to PostGreSQL")
+        insert_chunks_to_postgres()
+        return JsonResponse({'status': 'update triggered'})
