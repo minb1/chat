@@ -7,7 +7,6 @@ from model.model_factory import get_model_handler
 from embedding.embedding_factory import get_embedding_handler
 from vectorstorage.vector_factory import get_vector_client, get_embedding_model_for_kb, get_available_knowledge_bases
 from prompt.prompt_builder import create_prompt
-from database.get_from_local import retrieve_chunks, retrieve_docs
 from memory.redis_handler import log_message, format_chat_history_for_prompt
 
 
