@@ -72,7 +72,7 @@
           "refId": "A"
         }
       ],
-      "title": "Log Levels Over Time",
+      "title": "Log Levels",
       "type": "timeseries"
     },
     {
@@ -129,126 +129,6 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 8,
-        "x": 0,
-        "y": 8
-      },
-      "id": 3,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.4.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "loki",
-            "uid": "${DS_LOKI}"
-          },
-          "expr": "{app=\"django-rag\"} | json | message_content =~ `RESPONSE_GENERATED` | unwrap response_length | __error__=\"\" | avg_over_time(response_length [$__interval])",
-          "refId": "A"
-        }
-      ],
-      "title": "Average Response Length",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "loki",
-        "uid": "${DS_LOKI}"
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 8,
-        "y": 8
-      },
-      "id": 4,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.4.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "loki",
-            "uid": "${DS_LOKI}"
-          },
-           "expr": "{app=\"django-rag\"} | json | message_content =~ `RESPONSE_GENERATED` | unwrap docs_retrieved_count | __error__=\"\" | avg_over_time(docs_retrieved_count [$__interval])",
-          "refId": "A"
-        }
-      ],
-      "title": "Avg. Docs Retrieved (Initial)",
-      "type": "stat"
-    },
-        {
-      "datasource": {
-        "type": "loki",
-        "uid": "${DS_LOKI}"
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 16,
-        "y": 8
-      },
-      "id": 5,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.4.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "loki",
-            "uid": "${DS_LOKI}"
-          },
-           "expr": "{app=\"django-rag\"} | json | message_content =~ `RESPONSE_GENERATED` | unwrap docs_returned_count | __error__=\"\" | avg_over_time(docs_returned_count [$__interval])",
-          "refId": "A"
-        }
-      ],
-      "title": "Avg. Docs Returned (Final)",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "loki",
-        "uid": "${DS_LOKI}"
-      },
-      "gridPos": {
-        "h": 8,
         "w": 12,
         "x": 0,
         "y": 16
@@ -285,7 +165,7 @@
           "refId": "A"
         }
       ],
-      "title": "LLM Model Usage",
+      "title": "LLM Model Gebruik",
       "type": "piechart"
     },
     {
@@ -331,7 +211,7 @@
           "refId": "A"
         }
       ],
-      "title": "Reranker Usage",
+      "title": "Reranker gebruik",
       "type": "piechart"
     },
      {
@@ -367,7 +247,7 @@
           "refId": "A"
         }
       ],
-      "title": "Recent Warnings & Errors",
+      "title": "Recente errors",
       "type": "logs"
     },
         {
@@ -403,7 +283,7 @@
           "refId": "A"
         }
       ],
-      "title": "Recent Logs (All Levels)",
+      "title": "Recente Logs (All)",
       "type": "logs"
     }
   ],
