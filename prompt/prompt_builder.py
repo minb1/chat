@@ -13,7 +13,7 @@ def create_prompt(user_query, context=None, chat_history=None):
 
     Beantwoord de volgende vraag op basis van de verstrekte context.
     Geef een zo volledig en nauwkeurig mogelijk antwoord. 
-    Let op technische details.
+    Let op technische details en vermeld uit welk document je het antwoord gehaald heb.
 
     **Vraag:** {user_query}
 

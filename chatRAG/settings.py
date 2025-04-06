@@ -39,6 +39,32 @@ INSTALLED_APPS = [
     'logius',
 ]
 
+# Add this to your chatRAG/settings.py
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'json': {
+            'format': '{"timestamp":"%(asctime)s", "level":"%(levelname)s", "message":"%(message)s"}',
+            'datefmt': '%Y-%m-%dT%H:%M:%S%z'
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'json',
+        },
+    },
+    'loggers': {
+        'rag_metrics': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    },
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

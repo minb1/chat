@@ -40,60 +40,60 @@ def connect_db() -> Tuple[psycopg2.extensions.connection, psycopg2.extensions.cu
 
 # --- Retrieval Functions ---
 
-def retrieve_chunks_from_db(relative_paths: List[str]) -> str:
+def retrieve_chunks_from_db(relative_paths: List[str]) -> Dict[str, str]:
     """
-    Retrieves content for given relative file paths from the PostgreSQL database
-    and formats it as a single string for the RAG context.
+    Retrieves content for given relative file paths from the PostgreSQL database.
 
     Args:
         relative_paths: A list of file paths as stored in the database (e.g., from Qdrant).
 
     Returns:
-        A formatted string containing the content of the found documents,
-        or an empty string if no paths are provided or a DB connection error occurs.
-        Includes messages for paths not found in the DB.
+        A dictionary where keys are the found file paths and values are their content.
+        Returns an empty dictionary if no paths are provided, no content is found,
+        or a DB connection error occurs. Includes messages for paths not found in the DB.
     """
     if not relative_paths:
-        return ""
+        return {}
 
-    formatted_output = []
+    content_map: Dict[str, str] = {}
     conn = None
     cur = None
 
     try:
-        conn, cur = connect_db()
+        conn, cur = connect_db() # Make sure this function exists and works
 
         # Use ANY(%s) for efficient querying with a list of paths
-        # Ensure the list is passed as a tuple for psycopg2
+        # Ensure the list is passed correctly (as a list or tuple)
         query = """
         SELECT file_path, content
         FROM documents
         WHERE file_path = ANY(%s);
         """
-        cur.execute(query, (relative_paths,)) # Pass the list as a tuple
+        # Pass the list as a tuple or list for psycopg2
+        cur.execute(query, (list(relative_paths),))
         results = cur.fetchall()
 
         # Create a dictionary for quick lookup of retrieved content
-        content_map: Dict[str, str] = {row[0]: row[1] for row in results}
+        content_map = {row[0]: row[1] for row in results}
 
-        # Iterate through the original paths to maintain order and handle misses
-        for rel_path in relative_paths:
-            content = content_map.get(rel_path)
-            if content:
-                # Mimic the original formatting
-                formatted_output.append(f"**{rel_path}**:\n\"{content}\"\n")
-            else:
-                # Indicate if a specific path wasn't found in the DB
-                formatted_output.append(f"**{rel_path}**:\n(Content not found in database)\n")
+        # You could optionally add markers for paths not found, but it might be
+        # cleaner to just return what was found. The frontend will only display
+        # items present in the returned dictionary.
+        # Log missing paths if needed for debugging:
+        found_paths = set(content_map.keys())
+        missing_paths = [p for p in relative_paths if p not in found_paths]
+        if missing_paths:
+             print(f"Warning: Content not found in DB for paths: {missing_paths}", file=sys.stderr)
+
 
     except (Exception, psycopg2.Error) as e:
         print(f"Error retrieving chunks from database: {e}", file=sys.stderr)
-        # Return a generic error message or empty string depending on desired behavior
-        return "Error retrieving context from database."
+        return {} # Return empty dict on error
     finally:
         if cur:
             cur.close()
         if conn:
             conn.close()
 
-    return "\n".join(formatted_output)
+    # Return the dictionary directly
+    return content_map
