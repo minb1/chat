@@ -244,7 +244,7 @@ class QdrantClient(BaseVectorClient):
             logger.error(error_msg)
             raise Exception(error_msg)
 
-    def retrieve_vectors(self, vector: List[float], top_k: int = 25) -> List[str]:
+    def retrieve_vectors(self, vector: List[float], top_k: int = 50) -> List[str]:
         """Retrieve file paths based on vector similarity.
 
         Args:
