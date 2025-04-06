@@ -102,11 +102,18 @@
             display: flex;
             align-items: center;
             padding: 0 20px;
+            flex-wrap: wrap; /* Allow wrapping if needed */
+            gap: 10px; /* Add some gap between elements */
         }
 
         .chat-title {
             font-weight: 600;
             font-size: 1.1rem;
+            margin-right: auto; /* Push other elements to the right */
+        }
+        .chat-header .form-check { /* Style the checkbox */
+             font-size: 0.9rem;
+             margin-bottom: 0; /* Override default margin */
         }
 
         .chat-messages {
@@ -340,15 +347,21 @@
         <div class="chat-interface" id="chatInterface">
             <div class="chat-header">
                 <div class="chat-title">Logius Standaarden Chat</div>
-                <!-- New button for testing knowledge update -->
-                <button id="updateKnowledgeBtn" class="btn btn-sm btn-secondary ms-3">Test Update</button>
-                <!-- Model selector dropdown -->
-                <div class="ms-auto d-flex align-items-center" >
-                    <select id="modelSelector" class="form-select form-select-sm me-2" style="max-width: 180px;">
-                        <option value="">Loading models...</option>
-                    </select>
-                    <span id="chatSessionId" style="font-size: 0.8rem; color: #6c757d;"></span>
+                <!-- Test Update Button -->
+                <button id="updateKnowledgeBtn" class="btn btn-sm btn-secondary">Test Update</button>
+
+                <!-- Reranker Checkbox -->
+                <div class="form-check form-switch ms-2">
+                  <input class="form-check-input" type="checkbox" role="switch" id="useRerankerCheckbox" checked>
+                  <label class="form-check-label" for="useRerankerCheckbox">Use Reranker</label>
                 </div>
+
+                <!-- Model selector dropdown -->
+                <select id="modelSelector" class="form-select form-select-sm ms-2" style="max-width: 180px;">
+                    <option value="">Loading models...</option>
+                </select>
+                <!-- Chat Session ID -->
+                <span id="chatSessionId" class="ms-2" style="font-size: 0.8rem; color: #6c757d;"></span>
             </div>
             <div class="chat-messages" id="chatMessages">
                 <div class="message bot-message">
@@ -385,7 +398,7 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Get DOM elements
+        // --- Existing DOM elements ---
         const welcomeScreen = document.getElementById('welcomeScreen');
         const chatInterface = document.getElementById('chatInterface');
         const chatForm = document.getElementById('chatForm');
@@ -398,11 +411,13 @@
         const divider = document.getElementById('divider');
         const sidebar = document.getElementById('docsSidebar');
         const appContainer = document.querySelector('.app-container');
-        const updateKnowledgeBtn = document.getElementById('updateKnowledgeBtn'); // Get button
+        const updateKnowledgeBtn = document.getElementById('updateKnowledgeBtn');
+        // --- New DOM element ---
+        const useRerankerCheckbox = document.getElementById('useRerankerCheckbox'); // Get the checkbox
 
         let currentChatId = null;
 
-        // Function to load models from the API endpoint
+        // Function to load models (no changes needed)
         function loadModels() {
             fetch('/api/chat/models/')
                 .then(response => response.json())
@@ -413,13 +428,20 @@
                         const option = document.createElement('option');
                         option.value = modelKey;
                         option.textContent = modelLabel;
-                        // Select the first model by default or a preferred one
                         if (isFirst) { // Select the first one as default
                              // option.selected = true; // Optionally pre-select
                              isFirst = false;
                         }
                         modelSelector.appendChild(option);
                     }
+                     // Select a default if desired, e.g., gemini
+                     const defaultModel = "gemini"; // Or fetch default from config
+                     if (modelSelector.querySelector(`option[value="${defaultModel}"]`)) {
+                         modelSelector.value = defaultModel;
+                     } else if (modelSelector.options.length > 0) {
+                         modelSelector.selectedIndex = 0; // Fallback to first
+                     }
+
                 })
                 .catch(error => {
                     console.error('Error loading models:', error);
@@ -430,23 +452,21 @@
         // Call loadModels on page load
         loadModels();
 
-        // Auto-resize textarea
+        // Auto-resize textarea (no changes needed)
         userInput.addEventListener('input', function () {
             this.style.height = 'auto';
             this.style.height = Math.min(this.scrollHeight, 200) + 'px'; // Limit max height
         });
-        // Adjust height on focus/blur too if needed
         userInput.addEventListener('focus', function () { this.dispatchEvent(new Event('input')); });
         userInput.addEventListener('blur', function () { this.dispatchEvent(new Event('input')); });
 
-
-        // Start a new chat session
+        // Start a new chat session (no changes needed)
         startChatBtn.addEventListener('click', function () {
             fetch('/api/chat/session/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRFToken': getCookie('csrftoken') // Ensure you have getCookie defined
+                    'X-CSRFToken': getCookie('csrftoken')
                 }
             })
                 .then(response => {
@@ -459,6 +479,9 @@
                     welcomeScreen.style.display = 'none';
                     chatInterface.style.display = 'flex';
                     userInput.focus();
+                    // Clear previous chat messages and sidebar for new session
+                    chatMessages.innerHTML = `<div class="message bot-message"><div class="message-header"><i class="bi bi-robot me-2"></i> Assistant</div><div class="message-content">Hallo, ik ben de Logius-assistent. Hoe kan ik u helpen?</div></div>`;
+                    docsAccordion.innerHTML = '';
                 })
                 .catch(error => {
                     console.error('Error creating chat session:', error);
@@ -481,9 +504,12 @@
             const thinkingMsgId = `thinking-${Date.now()}`;
             addMessage("...", 'bot', thinkingMsgId); // Use unique ID
 
-             // Disable input/button while waiting
-             userInput.disabled = true;
-             chatForm.querySelector('button').disabled = true;
+            // Disable input/button while waiting
+            userInput.disabled = true;
+            chatForm.querySelector('button').disabled = true;
+
+            // --- Get reranker state ---
+            const useReranker = useRerankerCheckbox.checked;
 
             fetch('/api/chat/', {
                 method: 'POST',
@@ -494,7 +520,8 @@
                 body: JSON.stringify({
                     query: query,
                     chat_id: currentChatId,
-                    model_name: modelSelector.value // Send selected model
+                    model_name: modelSelector.value, // Send selected model
+                    use_reranker: useReranker // <<< SEND RERANKER STATE
                 })
             })
                 .then(response => {
@@ -530,6 +557,7 @@
                 });
         });
 
+        // addMessage function (no changes needed)
         function addMessage(text, sender, id = null) {
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
@@ -543,7 +571,6 @@
             const icon = document.createElement('i');
             icon.classList.add('bi', sender === 'user' ? 'bi-person' : 'bi-robot', 'me-2');
 
-            // User icon on the right for user messages
             if (sender === 'user') {
                 headerDiv.appendChild(document.createTextNode('You'));
                 headerDiv.appendChild(icon); // Icon after text
@@ -555,10 +582,8 @@
 
             const contentDiv = document.createElement('div');
             contentDiv.classList.add('message-content');
-            // Render Markdown for bot, plain text for user and thinking message
             if (sender === 'bot' && text !== "...") {
-                 // Use marked.parse with basic safety options if needed
-                contentDiv.innerHTML = marked.parse(text, { breaks: true }); // `breaks: true` renders line breaks
+                 contentDiv.innerHTML = marked.parse(text, { breaks: true });
             } else {
                 contentDiv.textContent = text;
             }
@@ -567,14 +592,10 @@
             messageDiv.appendChild(contentDiv);
             chatMessages.appendChild(messageDiv);
 
-            // Scroll to the bottom only if the user isn't scrolled up
-            // Debatable UX, sometimes better to always scroll
-            // const isScrolledToBottom = chatMessages.scrollHeight - chatMessages.clientHeight <= chatMessages.scrollTop + 1;
-            // if (isScrolledToBottom) {
-                 chatMessages.scrollTop = chatMessages.scrollHeight;
-            // }
+             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
+        // removeMessage function (no changes needed)
          function removeMessage(id) {
              const messageElement = document.getElementById(id);
              if (messageElement) {
@@ -582,41 +603,44 @@
              }
          }
 
-        // --- CORRECTED FUNCTION ---
+        // updateDocsSidebar function (minor adjustment to handle potential missing score)
         function updateDocsSidebar(docs) {
             docsAccordion.innerHTML = ''; // Clear previous docs
-            if (!docs || (Array.isArray(docs) && docs.length === 0) || (typeof docs === 'object' && Object.keys(docs).length === 0) ) {
+             // Ensure docs is an array (backend should always return array now)
+            if (!Array.isArray(docs) || docs.length === 0) {
                 docsAccordion.innerHTML = '<p class="p-2 text-muted small">No relevant documents found.</p>';
                 console.log("No docs data or empty docs received.");
-                return; // Exit if docs is null, undefined, or empty
+                return; // Exit if docs is null, undefined, or empty array
             }
 
             let index = 0;
 
             // Helper function to create and append an accordion item
-            const createAccordionItem = (title, fullPath, content, index) => {
+            const createAccordionItem = (title, fullPath, content, index, score = null) => { // Add score parameter
                 const accordionItem = document.createElement('div');
                 accordionItem.classList.add('accordion-item');
 
                 const headerId = `heading${index}`;
                 const collapseId = `collapse${index}`;
 
-                // Basic check for content before parsing
                 const safeContent = typeof content === 'string' ? content : 'Content unavailable';
                 let parsedContent;
                 try {
-                     // Use marked.parse, consider adding sanitization options if needed
                      parsedContent = marked.parse(safeContent, { breaks: true });
                 } catch (e) {
                      console.error("Markdown parsing error:", e);
-                     parsedContent = `<pre>${safeContent.replace(/</g, "<").replace(/>/g, ">")}</pre>`; // Fallback to preformatted text
+                     parsedContent = `<pre>${safeContent.replace(/</g, "<").replace(/>/g, ">")}</pre>`; // Safer fallback
                 }
 
+                // Add score to title if available and valid number
+                const scoreText = (typeof score === 'number' && !isNaN(score))
+                    ? ` (Score: ${score.toFixed(2)})`
+                    : '';
 
                 accordionItem.innerHTML = `
                     <h2 class="accordion-header" id="${headerId}">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}" title="${fullPath}">
-                        ${title}
+                        ${title}${scoreText} <!-- Add score text here -->
                       </button>
                     </h2>
                     <div id="${collapseId}" class="accordion-collapse collapse" aria-labelledby="${headerId}" data-bs-parent="#docsAccordion">
@@ -628,58 +652,28 @@
                 docsAccordion.appendChild(accordionItem);
             };
 
-            // Check if docs is an array (reranked format)
-            if (Array.isArray(docs)) {
-                console.log("Processing docs as Array (reranked format)");
-                docs.forEach(doc => {
-                    if (!doc || typeof doc !== 'object' || !doc.file_path || typeof doc.content !== 'string') {
-                         console.warn("Skipping invalid doc object in array:", doc);
-                         return; // Skip malformed doc objects
-                    }
-                    const filePath = doc.file_path;
-                    const mdContent = doc.content;
-                    // Extract filename, handle potential missing extension or paths
-                    const pathParts = filePath.split(/[\\/]/);
-                    let fileName = pathParts.pop() || 'Unknown Document'; // Get last part or default
-                    fileName = fileName.replace(/\.[^/.]+$/, ""); // Remove extension
+             // Process the array of document objects
+            console.log("Processing docs as Array");
+            docs.forEach(doc => {
+                if (!doc || typeof doc !== 'object' || !doc.file_path || typeof doc.content !== 'string') {
+                     console.warn("Skipping invalid doc object in array:", doc);
+                     return; // Skip malformed doc objects
+                }
+                const filePath = doc.file_path;
+                const mdContent = doc.content;
+                const rerankScore = doc.rerank_score; // Get score (might be null/undefined if not reranked)
 
-                    // Add rerank score if available and valid number
-                    const scoreText = (typeof doc.rerank_score === 'number')
-                        ? ` (Score: ${doc.rerank_score.toFixed(2)})`
-                        : '';
+                const pathParts = filePath.split(/[\\/]/);
+                let fileName = pathParts.pop() || 'Unknown Document'; // Get last part or default
+                fileName = fileName.replace(/\.[^/.]+$/, ""); // Remove extension
 
-                    createAccordionItem(fileName + scoreText, filePath, mdContent, index);
-                    index++;
-                });
-            }
-            // Check if docs is an object (original dictionary format)
-            else if (typeof docs === 'object' && docs !== null) {
-                console.log("Processing docs as Object (dictionary format)");
-                Object.entries(docs).forEach(([filePath, mdContent]) => {
-                     if (typeof filePath !== 'string' || typeof mdContent !== 'string') {
-                         console.warn("Skipping invalid entry in object:", {filePath, mdContent});
-                         return; // Skip malformed entries
-                     }
-                     const pathParts = filePath.split(/[\\/]/);
-                     let fileName = pathParts.pop() || 'Unknown Document';
-                     fileName = fileName.replace(/\.[^/.]+$/, ""); // Remove extension
+                createAccordionItem(fileName, filePath, mdContent, index, rerankScore); // Pass score
+                index++;
+            });
 
-                     createAccordionItem(fileName, filePath, mdContent, index);
-                     index++;
-                });
-            } else {
-                 console.warn("Received docs in an unexpected format:", docs);
-                 docsAccordion.innerHTML = '<p class="p-2 text-muted small">Error displaying documents (unexpected format).</p>';
-            }
-             // Re-initialize bootstrap collapse components if needed, though often not required if structure is correct
-             // var collapseElementList = [].slice.call(document.querySelectorAll('.collapse'))
-             // var collapseList = collapseElementList.map(function (collapseEl) {
-             //   return new bootstrap.Collapse(collapseEl, { toggle: false }) // Initialize without toggling
-             // })
         }
-        // --- END OF CORRECTED FUNCTION ---
 
-
+        // getCookie function (no changes needed)
         function getCookie(name) {
             let cookieValue = null;
             if (document.cookie && document.cookie !== '') {
@@ -695,7 +689,7 @@
             return cookieValue;
         }
 
-        // --- Resizable Divider Logic ---
+        // --- Resizable Divider Logic (no changes needed) ---
         let isResizing = false;
         let lastDownX = 0;
 
@@ -703,35 +697,20 @@
             isResizing = true;
             lastDownX = e.clientX;
             divider.classList.add('active');
-            document.body.style.cursor = 'col-resize'; // Indicate resizing across the body
-            document.body.style.userSelect = 'none'; // Prevent text selection during resize
-
-            // // Optional: Add overlay to capture mouse events globally during resize
-            // const overlay = document.createElement('div');
-            // overlay.style.position = 'fixed'; overlay.style.top = '0'; overlay.style.left = '0';
-            // overlay.style.width = '100%'; overlay.style.height = '100%';
-            // overlay.style.zIndex = '1000'; overlay.style.cursor = 'col-resize';
-            // document.body.appendChild(overlay);
-            // divider.overlay = overlay;
+            document.body.style.cursor = 'col-resize';
+            document.body.style.userSelect = 'none';
         });
 
         document.addEventListener('mousemove', function (e) {
             if (!isResizing) return;
-
             const containerWidth = appContainer.offsetWidth;
-            const delta = lastDownX - e.clientX; // Reversed delta for right sidebar
-            let sidebarWidth = sidebar.offsetWidth + delta; // Add delta
-
-            // Constrain sidebar width
+            const delta = lastDownX - e.clientX;
+            let sidebarWidth = sidebar.offsetWidth + delta;
             const minWidth = 200;
-            const maxWidth = containerWidth * 0.6; // Allow up to 60%
-
+            const maxWidth = containerWidth * 0.6;
             sidebarWidth = Math.max(minWidth, Math.min(sidebarWidth, maxWidth));
-
             sidebar.style.width = `${sidebarWidth}px`;
-            // Update CSS variable if you rely on it elsewhere, otherwise direct style is fine
             document.documentElement.style.setProperty('--sidebar-width', `${sidebarWidth}px`);
-
             lastDownX = e.clientX;
         });
 
@@ -739,27 +718,18 @@
             if (!isResizing) return;
             isResizing = false;
             divider.classList.remove('active');
-            document.body.style.cursor = 'default'; // Restore default cursor
-            document.body.style.userSelect = 'auto'; // Restore text selection
-
-            // // Remove overlay if used
-            // if (divider.overlay) {
-            //     divider.overlay.remove();
-            //     divider.overlay = null;
-            // }
-            // Save width after resizing stops
+            document.body.style.cursor = 'default';
+            document.body.style.userSelect = 'auto';
             localStorage.setItem('sidebarWidth', sidebar.style.width);
         });
 
-        // Add double-click to reset sidebar width
         divider.addEventListener('dblclick', function () {
             const defaultWidth = '300px';
             sidebar.style.width = defaultWidth;
             document.documentElement.style.setProperty('--sidebar-width', defaultWidth);
-            localStorage.setItem('sidebarWidth', defaultWidth); // Save reset width
+            localStorage.setItem('sidebarWidth', defaultWidth);
         });
 
-        // Restore saved sidebar width on page load
         const savedWidth = localStorage.getItem('sidebarWidth');
         if (savedWidth) {
             sidebar.style.width = savedWidth;
@@ -767,31 +737,27 @@
         }
         // --- End Resizable Divider Logic ---
 
-
-        // --- Test Update Knowledge button event listener ---
+        // --- Test Update Knowledge button event listener (no changes needed) ---
         updateKnowledgeBtn.addEventListener('click', function () {
-          // Add visual feedback
           updateKnowledgeBtn.textContent = 'Updating...';
           updateKnowledgeBtn.disabled = true;
-
-          fetch('/api/knowledge_base/build/', { method: 'GET' }) // Usually POST for actions
+          fetch('/api/knowledge_base/build/', { method: 'GET' })
             .then(response => {
               if (!response.ok) {
                  return response.text().then(text => { throw new Error(`Update failed: ${response.status} ${text || response.statusText}`) });
               }
               console.log('✅ Knowledge base update triggered successfully.');
-              return response.json(); // Assuming it returns JSON on success
+              return response.json();
             })
             .then(data => {
               console.log('Server response:', data);
-              alert(data.message || 'Knowledge base update started successfully!'); // Show success message
+              alert(data.message || 'Knowledge base update started successfully!');
             })
             .catch(error => {
               console.error('❌ Error triggering knowledge update:', error);
-              alert(`Error starting update: ${error.message}`); // Show error message
+              alert(`Error starting update: ${error.message}`);
             })
             .finally(() => {
-                 // Restore button state
                  updateKnowledgeBtn.textContent = 'Test Update';
                  updateKnowledgeBtn.disabled = false;
             });
