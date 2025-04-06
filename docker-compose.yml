@@ -10,20 +10,28 @@ services:
     environment:
       - DEBUG=True
       - DJANGO_SETTINGS_MODULE=chatRAG.settings
+      # Add PostgreSQL connection details if not already hardcoded
+      # - DATABASE_URL=postgres://postgres:postgres@db:5432/logius-standaarden
+      # Add Qdrant connection details if needed
+      # - QDRANT_URL=http://qdrant:6333
     depends_on:
       - db
       - qdrant
+    # Add labels for Promtail discovery
+    labels:
+      logging: "promtail"
+      application: "django-rag"
 
   db:
     image: postgres:15
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_PASSWORD=postgres # Make sure this matches your Django settings if using env vars
       - POSTGRES_USER=postgres
       - POSTGRES_DB=logius-standaarden
     ports:
-      - "5432:5432"
+      - "5432:5432" # Keep exposed for local debugging if needed
 
   qdrant:
     image: qdrant/qdrant:latest
@@ -33,6 +41,59 @@ services:
       - "6333:6333"
       - "6334:6334"
 
+  # --- Monitoring Stack ---
+  loki:
+    image: grafana/loki:2.9.5 # Use a specific version
+    ports:
+      - "3100:3100" # Loki API port
+    volumes:
+      - ./monitoring/config/loki-config.yaml:/etc/loki/local-config.yaml
+      - loki_data:/loki # Persist Loki data
+    command: -config.file=/etc/loki/local-config.yaml
+    networks:
+      - default # Ensure it's on the default network to communicate
+
+  promtail:
+    image: grafana/promtail:2.9.5 # Use a specific version
+    volumes:
+      - ./monitoring/config/promtail-config.yaml:/etc/promtail/config.yml
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro # Read container logs
+      - /var/run/docker.sock:/var/run/docker.sock # Discover containers
+      - promtail_positions:/var/log # Persist read positions
+    command: -config.file=/etc/promtail/config.yml
+    depends_on:
+      - loki
+      - app # Ensure app starts before promtail tries to find its logs
+    networks:
+      - default # Ensure it's on the default network
+
+  grafana:
+    image: grafana/grafana:10.4.2 # Use a specific version
+    ports:
+      - "3000:3000" # Grafana UI port
+    volumes:
+      - grafana_data:/var/lib/grafana
+      # Provisioning: Automatically add Loki datasource and dashboard
+      - ./monitoring/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./monitoring/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+    environment:
+      # Skip login page
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      # Optional: Set default theme, etc.
+      # - GF_USERS_DEFAULT_THEME=dark
+    depends_on:
+      - loki
+    networks:
+      - default # Ensure it's on the default network
+
 volumes:
   postgres_data:
   qdrant_data:
+  loki_data: # For Loki storage
+  promtail_positions: # For Promtail position tracking
+  grafana_data: # For Grafana dashboards, plugins, etc.
+
+# Define the default network if not already explicitly defined
+# networks:
+#   default:

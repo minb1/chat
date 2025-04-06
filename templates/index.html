@@ -229,6 +229,16 @@
             </div>
         </div>
 
+         <!-- ***** NEW: HyDE Setting ***** -->
+        <div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="useHydeCheckbox"> <!-- Default off -->
+                <label class="form-check-label" for="useHydeCheckbox">Use HyDE</label>
+            </div>
+            <div class="form-text text-muted" style="font-size: 0.75rem;">Generate hypothetical doc for retrieval.</div>
+        </div>
+        <!-- ***** END NEW: HyDE Setting ***** -->
+
         <!-- Spacer -->
         <div style="flex-grow: 1;"></div>
 
@@ -311,6 +321,8 @@
         const retrievalTopKInput = document.getElementById('retrievalTopK'); // New input
         const rerankerTopKInput = document.getElementById('rerankerTopK'); // New input
         const settingsSidebar = document.getElementById('settingsSidebar'); // New sidebar
+        const useHydeCheckbox = document.getElementById('useHydeCheckbox'); // <<< Get the new checkbox
+
 
         let currentChatId = null;
 
@@ -406,6 +418,7 @@
             // --- Get ALL settings ---
             const useReranker = useRerankerCheckbox.checked;
             const modelName = modelSelector.value;
+            const useHyde = useHydeCheckbox.checked;
             // Get Top K values, providing defaults if parsing fails or value is invalid
             const retrievalTopK = parseInt(retrievalTopKInput.value, 10) || 5;
             const rerankerTopK = parseInt(rerankerTopKInput.value, 10) || 10;
@@ -423,7 +436,8 @@
                     model_name: modelName,
                     use_reranker: useReranker,
                     retrieval_top_k: retrievalTopK, // <<< SEND retrieval_top_k
-                    reranker_top_k: rerankerTopK     // <<< SEND reranker_top_k
+                    reranker_top_k: rerankerTopK,     // <<< SEND reranker_top_k
+                    use_hyde: useHyde
                 })
             })
             .then(response => { /* ... same response handling ... */
@@ -450,6 +464,81 @@
                 addMessage(`Sorry, something went wrong: ${error.message}`, 'bot');
             })
             .finally(() => { /* ... same finally block ... */
+                userInput.disabled = false;
+                chatForm.querySelector('button').disabled = false;
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                userInput.focus();
+            });
+        });
+
+          loadModels();
+        toggleRerankerOptions(); // Initial check for reranker
+
+        // --- Handle chat form submission ---
+        chatForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const query = userInput.value.trim();
+            if (!query || !currentChatId) return;
+
+            addMessage(query, 'user');
+            userInput.value = '';
+            userInput.dispatchEvent(new Event('input'));
+            userInput.focus();
+
+            const thinkingMsgId = `thinking-${Date.now()}`;
+            addMessage("...", 'bot', thinkingMsgId);
+
+            userInput.disabled = true;
+            chatForm.querySelector('button').disabled = true;
+
+            // --- Get ALL settings ---
+            const useReranker = useRerankerCheckbox.checked;
+            const useHyde = useHydeCheckbox.checked; // <<< Get HyDE setting
+            const modelName = modelSelector.value;
+            const retrievalTopK = parseInt(retrievalTopKInput.value, 10) || 5; // Use default from backend if invalid
+            const rerankerTopK = parseInt(rerankerTopKInput.value, 10) || 10; // Use default from backend if invalid
+
+
+            fetch('/api/chat/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken') // Ensure getCookie function exists
+                },
+                body: JSON.stringify({
+                    query: query,
+                    chat_id: currentChatId,
+                    model_name: modelName,
+                    use_reranker: useReranker,
+                    retrieval_top_k: retrievalTopK,
+                    reranker_top_k: rerankerTopK,
+                    use_hyde: useHyde // <<< SEND HyDE setting
+                })
+            })
+            .then(response => {
+                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                 return response.json();
+            })
+            .then(data => {
+                removeMessage(thinkingMsgId);
+                if (data.error) {
+                    addMessage("Error: " + data.error, 'bot');
+                } else {
+                    addMessage(data.response, 'bot');
+                    if (data.docs) {
+                        console.log("Received docs:", data.docs);
+                        updateDocsSidebar(data.docs);
+                    } else {
+                        docsAccordion.innerHTML = '<p class="p-2 text-muted">No documents retrieved.</p>';
+                    }
+                }
+            })
+            .catch(error => {
+                removeMessage(thinkingMsgId);
+                console.error('Error fetching chat response:', error);
+                addMessage(`Sorry, something went wrong: ${error.message}`, 'bot');
+            })
+            .finally(() => {
                 userInput.disabled = false;
                 chatForm.querySelector('button').disabled = false;
                 chatMessages.scrollTop = chatMessages.scrollHeight;

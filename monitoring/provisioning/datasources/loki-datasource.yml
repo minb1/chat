@@ -1,0 +1,15 @@
+apiVersion: 1
+
+datasources:
+  - name: Loki # Datasource name in Grafana
+    type: loki
+    access: proxy # Access Grafana backend -> Loki (avoids CORS)
+    url: http://loki:3100 # Loki service name from docker-compose
+    jsonData:
+      # Optional: Add derived fields for easier exploration in Grafana Explore
+      derivedFields:
+        - datasourceUid: '${__datasource.uid}' # Link back to this datasource
+          matcherRegex: 'query_id=([^ ]+)' # Example: Extract query_id if not a label
+          name: queryIdFromMsg # Name of the derived field
+          url: '$${__value.raw}' # Link example (can be customized)
+    isDefault: true # Make it the default datasource
