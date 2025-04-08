@@ -10,6 +10,10 @@ services:
     environment:
       - DEBUG=True
       - DJANGO_SETTINGS_MODULE=chatRAG.settings
+      # VLLM configuration - these variables feed into the model_factory.py
+      - VLLM_HOST=vllm
+      - VLLM_PORT=8080
+      - VLLM_MODEL_NAME=meta-llama/Llama-3.2-3B-Instruct
       # Add PostgreSQL connection details if not already hardcoded
       # - DATABASE_URL=postgres://postgres:postgres@db:5432/logius-standaarden
       # Add Qdrant connection details if needed
@@ -17,6 +21,7 @@ services:
     depends_on:
       - db
       - qdrant
+      - vllm
     # Add labels for Promtail discovery
     labels:
       logging: "promtail"
@@ -41,6 +46,32 @@ services:
       - "6333:6333"
       - "6334:6334"
 
+  # New VLLM service to run the Llama-3.2-3B-Instruct model
+  vllm:
+    image: vllm/vllm-openai:latest
+    restart: unless-stopped
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - HUGGING_FACE_HUB_TOKEN=${HUGGING_FACE_HUB_TOKEN}
+    volumes:
+      - huggingface_cache:/root/.cache/huggingface  # Cache HF models
+    ports:
+      - "8080:8080"  # Expose the OpenAI-compatible API
+    command: >
+      --model meta-llama/Llama-3.2-3B-Instruct
+      --tensor-parallel-size 1
+      --gpu-memory-utilization 0.9
+      --max-model-len 4096
+      --dtype bfloat16
+      --served-model-name Llama-3.2-3B-Instruct
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
   # --- Monitoring Stack ---
   loki:
     image: grafana/loki:2.9.5 # Use a specific version
@@ -51,7 +82,7 @@ services:
       - loki_data:/loki # Persist Loki data
     command: -config.file=/etc/loki/local-config.yaml
     networks:
-      - default # Ensure it's on the default network to communicate
+      - default # Ensure it's on the default network
 
   promtail:
     image: grafana/promtail:2.9.5 # Use a specific version
@@ -93,6 +124,7 @@ volumes:
   loki_data: # For Loki storage
   promtail_positions: # For Promtail position tracking
   grafana_data: # For Grafana dashboards, plugins, etc.
+  huggingface_cache: # Cache for downloaded HF models
 
 # Define the default network if not already explicitly defined
 # networks:
