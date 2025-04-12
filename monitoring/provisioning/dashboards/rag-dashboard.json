@@ -122,7 +122,45 @@
       "title": "Request & Error Rate",
       "type": "timeseries"
     },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "${DS_LOKI}"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "${DS_LOKI}"
+          },
 
+          "expr": "sum(rate({app=\"django-rag\", level=\"ERROR\"} |~ `LLM generation failed for query_id|Exception when calling VLLM API` [$__interval]))",
+          "legendFormat": "LLM Generation Failures (/sec)",
+          "refId": "A"
+        }
+      ],
+      "title": "LLM Generation Failure Rate",
+      "type": "timeseries"
+    },
      {
       "datasource": {
         "type": "loki",
@@ -132,7 +170,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 8
+        "y": 16
       },
       "id": 8,
       "options": {
@@ -168,7 +206,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 18
+        "y": 26
       },
       "id": 9,
       "options": {
@@ -229,6 +267,6 @@
   "timezone": "",
   "title": "RAG Application Analytics",
   "uid": "rag-analytics-dashboard",
-  "version": 3,
+  "version": 4,
   "weekStart": ""
 }
