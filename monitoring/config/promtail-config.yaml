@@ -9,44 +9,36 @@ clients:
   - url: http://loki:3100/loki/api/v1/push # Loki service name from docker-compose
 
 scrape_configs:
-  - job_name: django-app # Job name for logs from your Django app
-    docker_sd_configs: # Use Docker service discovery
+  - job_name: django-app
+    docker_sd_configs:
       - host: unix:///var/run/docker.sock
         refresh_interval: 5s
-        filters: # Only target containers with the specific label
-          - name: label # Match on label key
-            values: ["logging=promtail"]
-          - name: label # Match on label value
-            values: ["django-rag"]
+        filters: # <<< Use this corrected format
+          - name: label # Filter type is 'label'
+            values:
+              - "logging=promtail"    # Value is "key=value"
+              - "application=django-rag" # Value is "key=value"
     relabel_configs:
       # Relabel Docker container labels to Loki labels
       - source_labels: ['__meta_docker_container_name']
         regex: '/(.*)'
         target_label: 'container'
+      # Keep this relabeling rule to get the 'app' label in Loki
       - source_labels: ['__meta_docker_container_label_application']
-        target_label: 'app' # Will be 'django-rag' based on docker-compose label
+        target_label: 'app'
       - source_labels: ['__meta_docker_container_log_stream']
-        target_label: 'stream' # 'stdout' or 'stderr'
+        target_label: 'stream'
 
     pipeline_stages:
-      # 1. Parse the entire log line as JSON (since Django logger outputs full JSON lines)
+      # ... your pipeline stages remain the same ...
       - json:
           expressions:
-            # Extract top-level fields into temporary internal fields
             timestamp: timestamp
             level: level
-            # Keep the original message content in 'message_content'
-            # This is important because the 'RESPONSE_GENERATED' message is *also* JSON
-            message_content: message
-
-      # 2. If the message_content *itself* is valid JSON (like our RESPONSE_GENERATED log),
-      #    parse it and extract its fields. This allows querying specific metrics.
+            message_content: message # Keep original message here
       - json:
-          source: message_content # Parse the 'message' field extracted previously
+          source: message_content
           expressions:
-            # Extract fields *from the nested JSON* if they exist
-            # Use 'extracted_' prefix to avoid potential collisions with top-level fields
-            # Default to empty string '' if field doesn't exist or message wasn't JSON
             query_id: "query_id || ''"
             response_length: "response_length || ''"
             kb_id: "kb_id || ''"
@@ -56,24 +48,15 @@ scrape_configs:
             reranker_top_k: "reranker_top_k || ''"
             docs_retrieved_count: "docs_retrieved_count || ''"
             docs_returned_count: "docs_returned_count || ''"
-          # Continue processing even if this JSON parsing fails (e.g., for non-JSON messages)
           drop_malformed: false
-
-      # 3. Set the timestamp for Loki from the log's 'timestamp' field
       - timestamp:
-          source: timestamp # Use the 'timestamp' field extracted in step 1
-          format: ISO8601 # Matches Django's 'datefmt': '%Y-%m-%dT%H:%M:%S%z'
-
-      # 4. Create Loki labels from extracted fields for efficient querying
+          source: timestamp
+          format: ISO8601
       - labels:
-          level: # Use the 'level' field extracted in step 1
-          # Add labels for nested JSON fields if they were successfully extracted
+          level:
           query_id:
           model_used:
           reranker_used:
           kb_id:
-
-      # 5. Set the final log line content for Loki
-      # Use the original message content here, not the parsed structure
       - output:
           source: message_content

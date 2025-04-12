@@ -67,7 +67,7 @@
             "type": "loki",
             "uid": "${DS_LOKI}"
           },
-          "expr": "sum by (level) (count_over_time({app=\"django-rag\"} | json [$__interval]))",
+          "expr": "sum by (level) (count_over_time({app=\"django-rag\", level!=\"\"} [$__interval]))",
           "legendFormat": "{{level}}",
           "refId": "A"
         }
@@ -105,7 +105,7 @@
             "type": "loki",
             "uid": "${DS_LOKI}"
           },
-          "expr": "sum(rate({app=\"django-rag\"} | json | message_content =~ `RESPONSE_GENERATED` [$__interval]))",
+          "expr": "sum(rate({app=\"django-rag\"} |~ \"RESPONSE_GENERATED\" [$__interval]))",
           "legendFormat": "Requests per Second",
           "refId": "A"
         },
@@ -114,7 +114,7 @@
             "type": "loki",
             "uid": "${DS_LOKI}"
           },
-          "expr": "sum(rate({app=\"django-rag\"} | json | level=`error` [$__interval]))",
+          "expr": "sum(rate({app=\"django-rag\", level=\"ERROR\"} [$__interval]))",
           "legendFormat": "Errors per Second",
           "refId": "B"
         }
@@ -122,98 +122,7 @@
       "title": "Request & Error Rate",
       "type": "timeseries"
     },
-    {
-      "datasource": {
-        "type": "loki",
-        "uid": "${DS_LOKI}"
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 16
-      },
-      "id": 6,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "pieType": "pie",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "10.4.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "loki",
-            "uid": "${DS_LOKI}"
-          },
-          "expr": "sum by (model_used) (count_over_time({app=\"django-rag\"} | json | message_content =~ `RESPONSE_GENERATED` [$__interval]))",
-          "refId": "A"
-        }
-      ],
-      "title": "LLM Model Gebruik",
-      "type": "piechart"
-    },
-    {
-      "datasource": {
-        "type": "loki",
-        "uid": "${DS_LOKI}"
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 16
-      },
-      "id": 7,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "pieType": "donut",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "10.4.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "loki",
-            "uid": "${DS_LOKI}"
-          },
-          "expr": "sum by (reranker_used) (count_over_time({app=\"django-rag\"} | json | message_content =~ `RESPONSE_GENERATED` [$__interval]))",
-          "refId": "A"
-        }
-      ],
-      "title": "Reranker gebruik",
-      "type": "piechart"
-    },
+
      {
       "datasource": {
         "type": "loki",
@@ -223,7 +132,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 24
+        "y": 8
       },
       "id": 8,
       "options": {
@@ -243,7 +152,7 @@
             "type": "loki",
             "uid": "${DS_LOKI}"
           },
-          "expr": "{app=\"django-rag\"} | json | level=~\"warning|error\"",
+          "expr": "{app=\"django-rag\", level=~\"WARNING|ERROR\"}",
           "refId": "A"
         }
       ],
@@ -259,7 +168,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 34
+        "y": 18
       },
       "id": 9,
       "options": {
@@ -279,7 +188,7 @@
             "type": "loki",
             "uid": "${DS_LOKI}"
           },
-          "expr": "{app=\"django-rag\"} | json",
+          "expr": "{app=\"django-rag\"}",
           "refId": "A"
         }
       ],
@@ -287,7 +196,7 @@
       "type": "logs"
     }
   ],
-  "refresh": "10s",
+  "refresh": "1m",
   "schemaVersion": 39,
   "tags": ["rag", "django", "loki"],
   "templating": {
@@ -320,6 +229,6 @@
   "timezone": "",
   "title": "RAG Application Analytics",
   "uid": "rag-analytics-dashboard",
-  "version": 1,
+  "version": 3,
   "weekStart": ""
 }

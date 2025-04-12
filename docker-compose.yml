@@ -59,11 +59,13 @@ services:
       - "8080:8080"  # Expose the OpenAI-compatible API
     command: >
       --model meta-llama/Llama-3.2-3B-Instruct
+      --host 0.0.0.0
+      --port 8080
       --tensor-parallel-size 1
       --gpu-memory-utilization 0.9
       --max-model-len 4096
       --dtype bfloat16
-      --served-model-name Llama-3.2-3B-Instruct
+#      --served-model-name Llama-3.2-3B-Instruct
     deploy:
       resources:
         reservations:
@@ -81,6 +83,14 @@ services:
       - ./monitoring/config/loki-config.yaml:/etc/loki/local-config.yaml
       - loki_data:/loki # Persist Loki data
     command: -config.file=/etc/loki/local-config.yaml
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'  # Allow up to 2 CPU cores
+          memory: 4G   # Allow up to 4GB RAM
+        reservations:
+          cpus: '1.0'  # Reserve 1 CPU core
+          memory: 2G  # Reserve 2GB RAM
     networks:
       - default # Ensure it's on the default network
 

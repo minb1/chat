@@ -41,7 +41,8 @@ class VLLMHandler(BaseModelHandler):
                 "temperature": 0.7,
                 "max_tokens": 1024
             }
-
+            print("Sending payload..")
+            print(self.base_url)
             # Send the request to the VLLM server
             response = requests.post(
                 f"{self.base_url}/chat/completions",
