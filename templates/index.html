@@ -219,6 +219,13 @@
             opacity: 0.8; /* Keep the selected one slightly more visible */
             font-weight: bold; /* Indicate selection */
          }
+
+          .settings-sidebar > div + div { /* Add margin-top to divs that follow another div */
+            margin-top: 15px;
+         }
+         .settings-sidebar .form-check + .form-text { /* Smaller margin for help text under checkbox */
+            margin-top: 2px;
+         }
     </style>
 </head>
 <body>
@@ -256,7 +263,7 @@
             </div>
         </div>
 
-         <!-- ***** NEW: HyDE Setting ***** -->
+         <!-- HyDE Setting -->
         <div>
             <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" role="switch" id="useHydeCheckbox"> <!-- Default off -->
@@ -264,7 +271,17 @@
             </div>
             <div class="form-text text-muted" style="font-size: 0.75rem;">Generate hypothetical doc for retrieval.</div>
         </div>
-        <!-- ***** END NEW: HyDE Setting ***** -->
+
+         <!-- ***** NEW: Prompt Augmentation Setting ***** -->
+        <div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="useAugmentationCheckbox"> <!-- Default off -->
+                <label class="form-check-label" for="useAugmentationCheckbox">Use Prompt Augmentation</label>
+            </div>
+            <div class="form-text text-muted" style="font-size: 0.75rem;">Rephrase query for better retrieval.</div>
+        </div>
+        <!-- ***** END NEW ***** -->
+
 
         <!-- Spacer -->
         <div style="flex-grow: 1;"></div>
@@ -350,6 +367,7 @@
         const rerankerTopKInput = document.getElementById('rerankerTopK');
         const settingsSidebar = document.getElementById('settingsSidebar');
         const useHydeCheckbox = document.getElementById('useHydeCheckbox');
+        const useAugmentationCheckbox = document.getElementById('useAugmentationCheckbox');
 
 
         let currentChatId = null;
@@ -396,6 +414,19 @@
         }
         useRerankerCheckbox.addEventListener('change', toggleRerankerOptions);
         toggleRerankerOptions(); // Initial check
+
+        useHydeCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                useAugmentationCheckbox.checked = false;
+            }
+        });
+
+        useAugmentationCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                useHydeCheckbox.checked = false;
+            }
+        });
+
 
         // --- Start a new chat session ---
          startChatBtn.addEventListener('click', function () {
@@ -450,6 +481,8 @@
             const useReranker = useRerankerCheckbox.checked;
             const modelName = modelSelector.value;
             const useHyde = useHydeCheckbox.checked;
+            const useAugmentation = useAugmentationCheckbox.checked; // <<< Get augmentation state
+
             const retrievalTopK = parseInt(retrievalTopKInput.value, 10) || 5; // Use default if invalid
             const rerankerTopK = parseInt(rerankerTopKInput.value, 10) || 10; // Use default if invalid
 
@@ -467,7 +500,8 @@
                     use_reranker: useReranker,
                     retrieval_top_k: retrievalTopK,
                     reranker_top_k: rerankerTopK,
-                    use_hyde: useHyde
+                    use_hyde: useHyde,
+                    use_augmentation: useAugmentation
                 })
             })
             .then(response => {

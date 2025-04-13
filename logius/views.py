@@ -61,16 +61,16 @@ class ChatHistoryView(APIView):
 
 class ChatView(APIView):
     """API view for handling chat requests."""
-    # ... (keep existing code) ...
     def post(self, request):
-        data = {} # Initialize data to avoid errors in exception logging if request.data fails
+        data = {}
         try:
             data = request.data
             user_message = data.get('query')
             chat_id = data.get('chat_id')
-            model_name = data.get('model_name', 'gemini') # Default model
+            model_name = data.get('model_name', 'gemini')
             use_reranker = data.get('use_reranker', True)
-            use_hyde = data.get('use_hyde', False) # <<< Get HyDE parameter, default False
+            use_hyde = data.get('use_hyde', False)
+            use_augmentation = data.get('use_augmentation', False) # <<< Get Augmentation parameter
 
             # --- Extract and Validate Top K parameters ---
             try:
@@ -84,18 +84,14 @@ class ChatView(APIView):
 
             try:
                 reranker_top_k = int(data.get('reranker_top_k', DEFAULT_RERANKER_TOP_K))
-                 # Reranker K should not be greater than Retrieval K
                 if not (1 <= reranker_top_k <= retrieval_top_k):
                     logger.warning(f"Invalid reranker_top_k value ({reranker_top_k}) or > retrieval_top_k. Adjusting.")
                     reranker_top_k = min(retrieval_top_k, DEFAULT_RERANKER_TOP_K)
-                    if reranker_top_k < 1:
-                        reranker_top_k = 1
+                    if reranker_top_k < 1: reranker_top_k = 1
             except (ValueError, TypeError):
                 logger.warning(f"Non-integer reranker_top_k received, using default {DEFAULT_RERANKER_TOP_K}.")
-                # Ensure reranker_top_k doesn't exceed the (potentially defaulted) retrieval_top_k
                 reranker_top_k = min(retrieval_top_k, DEFAULT_RERANKER_TOP_K)
                 if reranker_top_k < 1: reranker_top_k = 1
-
 
             # --- Input Validation ---
             if not user_message:
@@ -107,14 +103,22 @@ class ChatView(APIView):
             if not isinstance(use_reranker, bool):
                  logger.warning(f"Invalid 'use_reranker' value received: {use_reranker}. Defaulting to True.")
                  use_reranker = True
-            if not isinstance(use_hyde, bool): # <<< Validate HyDE parameter
+            if not isinstance(use_hyde, bool):
                  logger.warning(f"Invalid 'use_hyde' value received: {use_hyde}. Defaulting to False.")
                  use_hyde = False
+            if not isinstance(use_augmentation, bool): # <<< Validate Augmentation parameter
+                 logger.warning(f"Invalid 'use_augmentation' value received: {use_augmentation}. Defaulting to False.")
+                 use_augmentation = False
+
+            # Simple backend enforcement of mutual exclusivity (HyDE priority)
+            if use_hyde and use_augmentation:
+                logger.warning(f"Received both HyDE and Augmentation true for ChatID: {chat_id}. Prioritizing HyDE.")
+                use_augmentation = False
 
             logger.info(
                 f"Processing chat request - ChatID: {chat_id}, Model: {model_name}, "
                 f"Reranker: {use_reranker}, RetrK: {retrieval_top_k}, RerankK: {reranker_top_k}, "
-                f"HyDE: {use_hyde}" # <<< Log HyDE status
+                f"HyDE: {use_hyde}, Augment: {use_augmentation}" # <<< Log Augmentation status
             )
 
             # --- Call the processing function ---
@@ -122,22 +126,21 @@ class ChatView(APIView):
                 message=user_message,
                 chat_id=chat_id,
                 model_name=model_name,
-                kb_id='qdrant-logius', # Keep KB ID or make dynamic if needed
+                kb_id='qdrant-logius',
                 use_reranker=use_reranker,
                 retrieval_top_k=retrieval_top_k,
                 reranker_top_k=reranker_top_k,
-                use_hyde=use_hyde # <<< Pass validated HyDE value
+                use_hyde=use_hyde,
+                use_augmentation=use_augmentation # <<< Pass validated Augmentation value
             )
 
             logger.info(f"Chat request processed successfully for ChatID: {chat_id}")
             return Response(result, status=status.HTTP_200_OK)
 
         except Exception as e:
-            # Use the 'data' dict captured at the start for logging context
             chat_id_for_log = data.get('chat_id', 'N/A')
             logger.exception(f"Error processing chat request for chat_id {chat_id_for_log}: {e}")
             return Response({'error': f'An internal server error occurred: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
 
 class ModelsView(APIView):
     """API view for getting available models."""

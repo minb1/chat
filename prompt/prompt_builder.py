@@ -50,3 +50,17 @@ def HyDE(user_query):
     Zorg ervoor dat de documentatie helder, technisch nauwkeurig en begrijpelijk is voor een technisch publiek. 
     """
     return prompt
+
+def AugmentQuery(user_query):
+    """Creates a prompt to rephrase the user query for better retrieval."""
+    prompt = f"""
+    Herschrijf de volgende gebruikersvraag om deze effectiever te maken voor het zoeken in een technische documentatiedatabase.
+    Denk aan synoniemen, gerelateerde technische termen, of het expliciteren van de onderliggende intentie.
+    Focus op het verbeteren van de kans dat relevante documenten worden gevonden.
+    Geef alleen de **éne** beste, herschreven zoekopdracht als resultaat, zonder extra uitleg of opmaak.
+
+    Originele Vraag: "{user_query}"
+
+    Herschreven Zoekopdracht:
+    """
+    return prompt

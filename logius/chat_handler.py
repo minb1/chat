@@ -13,8 +13,8 @@ from vectorstorage.vector_factory import (
     get_embedding_model_for_kb,
     get_available_knowledge_bases
 )
-# Import HyDE prompt function
-from prompt.prompt_builder import create_prompt, HyDE
+# Import HyDE and AugmentQuery prompt functions
+from prompt.prompt_builder import create_prompt, HyDE, AugmentQuery # <<< Import AugmentQuery
 from memory.redis_handler import log_message, format_chat_history_for_prompt
 from reranking.reranker import SentenceTransformerReranker
 
@@ -32,62 +32,102 @@ DEFAULT_RERANKER_TOP_K = 10
 def process_user_message(
     message: str,
     chat_id: Optional[str] = None,
-    model_name: str = 'gemini', # <<< Ensure this is set to your VLLM model name for testing VLLM errors
+    model_name: str = 'gemini',
     kb_id: str = 'qdrant-logius',
     use_reranker: bool = True,
     retrieval_top_k: int = DEFAULT_RETRIEVAL_TOP_K,
     reranker_top_k: int = DEFAULT_RERANKER_TOP_K,
-    use_hyde: bool = False
+    use_hyde: bool = False,
+    use_augmentation: bool = False # <<< Add new parameter
 ) -> Dict:
     """
     Main logic for handling user queries and generating responses.
-    Includes improved error handling for LLM calls.
+    Includes improved error handling for LLM calls and prompt augmentation.
     """
     timestamp = datetime.datetime.now().isoformat()
     query_id = chat_id or f"anonymous_{timestamp}"
-    # Default error response if LLM fails later
     error_response_message = "Sorry, an error occurred while generating the response."
-    response = error_response_message # Set default
-    docs_to_return = [] # Initialize here
-    hypothetical_doc_generated = False # Flag for logging
-    final_llm_error = False # Flag for specific LLM error
+    response = error_response_message
+    docs_to_return = []
+    hypothetical_doc_generated = False # Flag for HyDE logging
+    augmented_query_generated = False # <<< Flag for Augmentation logging
+    final_llm_error = False
+
+    # --- Enforce Mutual Exclusivity ---
+    # If both are somehow passed as True, prioritize one (e.g., HyDE) or disable both.
+    # Here, we prioritize HyDE if both are True.
+    if use_hyde and use_augmentation:
+        logger.warning(f"Query ID {query_id}: Both HyDE and Augmentation were enabled. Prioritizing HyDE.")
+        use_augmentation = False
 
     try:
-        # Log received parameters
         print( # Keep print for immediate console feedback if needed
-            f"Processing message: '{message}', Use Reranker: {use_reranker}, Use HyDE: {use_hyde}, "
+            f"Processing message: '{message}', Use Reranker: {use_reranker}, "
+            f"Use HyDE: {use_hyde}, Use Augmentation: {use_augmentation}, " # <<< Add Augmentation to print
             f"Retrieval K: {retrieval_top_k}, Reranker K: {reranker_top_k}, Model: {model_name}"
         )
         logger.info(
             f"Query ID {query_id}: Reranker={use_reranker}, HyDE={use_hyde}, "
-            f"RetrievalK={retrieval_top_k}, RerankerK={reranker_top_k}, Model={model_name}"
+            f"Augmentation={use_augmentation}, RetrievalK={retrieval_top_k}, " # <<< Add Augmentation to log
+            f"RerankerK={reranker_top_k}, Model={model_name}"
          )
 
         # --- Step 1: Get Embedding Handler ---
         embedding_model = get_embedding_model_for_kb(kb_id)
         embedding_handler = get_embedding_handler(embedding_model)
 
-        # --- Step 1.5: Generate Query Embedding ---
+        # --- Step 1.5: Generate Query Embedding (with HyDE or Augmentation) ---
         query_embedding = None
+        query_for_retrieval = message # Default to original message
+
         if use_hyde:
             print(f"HyDE enabled. Generating hypothetical document for query: '{message}' using model '{model_name}'...")
             try:
                 hyde_prompt = HyDE(message)
-                hyde_llm_handler = get_model_handler(model_name) # This could fail
+                # Use a potentially different/cheaper model for HyDE/Augmentation if needed
+                hyde_llm_handler = get_model_handler(model_name)
                 hypothetical_document = hyde_llm_handler.generate_text(hyde_prompt)
                 print(f"Generated Hypothetical Document:\n---\n{hypothetical_document}\n---")
-                query_embedding = embedding_handler.get_embedding(hypothetical_document)
+                query_for_retrieval = hypothetical_document # Use the doc for embedding
+                query_embedding = embedding_handler.get_embedding(query_for_retrieval)
                 print("Generated embedding for hypothetical document.")
                 hypothetical_doc_generated = True
             except Exception as e:
-                # Log HyDE specific error using logger.exception
-                print(f"Error during HyDE generation/embedding: {e}. Falling back.")
-                logger.exception(f"HyDE generation/embedding failed for query_id {query_id}") # Use exception logger
-                # Fallback: embed the original message
-                query_embedding = embedding_handler.get_embedding(message)
+                print(f"Error during HyDE generation/embedding: {e}. Falling back to original query.")
+                logger.exception(f"HyDE generation/embedding failed for query_id {query_id}")
+                query_embedding = embedding_handler.get_embedding(message) # Fallback
                 print("Generated embedding for original user query (HyDE fallback).")
-        else:
-            print("HyDE disabled. Generating embedding for original user query.")
+
+        # --- NEW: Augmentation Logic ---
+        elif use_augmentation:
+            print(f"Augmentation enabled. Generating augmented query for: '{message}' using model '{model_name}'...")
+            try:
+                augment_prompt = AugmentQuery(message)
+                # Use a potentially different/cheaper model for HyDE/Augmentation if needed
+                augment_llm_handler = get_model_handler(model_name)
+                augmented_query = augment_llm_handler.generate_text(augment_prompt).strip()
+                # Basic validation: ensure augmentation didn't fail badly or return empty
+                if not augmented_query or len(augmented_query) < 5:
+                    print("Augmented query generation resulted in short/empty response. Falling back.")
+                    logger.warning(f"Augmentation resulted in unusable query for query_id {query_id}. Original: '{message}', Augmented: '{augmented_query}'")
+                    augmented_query = message # Fallback to original
+                else:
+                    print(f"Generated Augmented Query:\n---\n{augmented_query}\n---")
+                    augmented_query_generated = True
+
+                query_for_retrieval = augmented_query # Use the augmented query for embedding
+                query_embedding = embedding_handler.get_embedding(query_for_retrieval)
+                print("Generated embedding for augmented query.")
+
+            except Exception as e:
+                print(f"Error during Query Augmentation generation/embedding: {e}. Falling back to original query.")
+                logger.exception(f"Query Augmentation generation/embedding failed for query_id {query_id}")
+                query_embedding = embedding_handler.get_embedding(message) # Fallback
+                print("Generated embedding for original user query (Augmentation fallback).")
+        # --- END NEW ---
+
+        else: # Neither HyDE nor Augmentation is used
+            print("HyDE and Augmentation disabled. Generating embedding for original user query.")
             query_embedding = embedding_handler.get_embedding(message)
             print("Generated embedding for original user query.")
 
@@ -95,12 +135,12 @@ def process_user_message(
              error_msg = "Failed to generate any query embedding."
              print(error_msg)
              logger.error(f"Embedding generation failed completely for query_id {query_id}.")
-             return {"error": error_msg, "docs": []} # Return error immediately
+             return {"error": error_msg, "docs": []}
 
         # --- Step 2: Retrieve relevant document paths ---
         print(f"Getting vclient for KB: {kb_id}")
         vector_client = get_vector_client(kb_id)
-        print(f"Getting top {retrieval_top_k} related vectors now...")
+        print(f"Getting top {retrieval_top_k} related vectors using {'HyDE doc' if use_hyde else ('augmented query' if use_augmentation else 'original query')}...")
         retrieved_paths = vector_client.retrieve_vectors(query_embedding, top_k=retrieval_top_k)
         print(f"Retrieved {len(retrieved_paths)} file paths from vector storage:", retrieved_paths)
 
@@ -112,33 +152,41 @@ def process_user_message(
         documents: List[Dict[str, str]] = [
             {"file_path": path, "content": content}
             for path, content in context_dict_from_db.items()
-            if path in context_dict_from_db
+            if path in context_dict_from_db # Ensure path exists in retrieved content
         ]
 
         # --- Step 3.1: Conditionally Rerank ---
+        # Reranking should use the *original* user message, not the HyDE doc or augmented query
+        query_for_reranker = message
         docs_for_context = []
         if use_reranker and documents:
-            print(f"Reranking {len(documents)} documents, keeping top {reranker_top_k}...")
+            print(f"Reranking {len(documents)} documents against original query, keeping top {reranker_top_k}...")
             try:
-                # Consider making reranker model configurable if needed
                 reranker = SentenceTransformerReranker(model_name="cross-encoder/ms-marco-MiniLM-L-6-v2")
                 reranked_docs_list = reranker.rerank(
-                    query=message, documents=documents, content_key="content", top_k=reranker_top_k
+                    query=query_for_reranker, # <<< Use original query for reranking
+                    documents=documents,
+                    content_key="content",
+                    top_k=reranker_top_k
                 )
                 print(f"Reranked to {len(reranked_docs_list)} documents.")
                 docs_for_context = reranked_docs_list
                 docs_to_return = reranked_docs_list # Includes scores
             except Exception as e:
                 print(f"Error during reranking: {e}. Falling back.")
-                logger.exception(f"Reranking failed for query_id {query_id}") # Log exception
+                logger.exception(f"Reranking failed for query_id {query_id}")
                 docs_for_context = documents[:reranker_top_k]
                 docs_to_return = [{**doc, 'rerank_score': None} for doc in docs_for_context]
         else:
+            # If not reranking, limit based on retrieval_top_k (or maybe reranker_top_k if specified?)
+            # Let's limit by retrieval_top_k if reranker is off, otherwise reranker_top_k
             limit = reranker_top_k if use_reranker else retrieval_top_k
             docs_for_context = documents[:limit]
             docs_to_return = [{**doc, 'rerank_score': None} for doc in docs_for_context]
             if not documents: print("No documents retrieved initially.")
-            elif not use_reranker: print(f"Skipping reranking. Using {len(docs_to_return)} documents.")
+            elif not use_reranker: print(f"Skipping reranking. Using top {len(docs_to_return)} retrieved documents.")
+            else: print(f"Using top {len(docs_to_return)} retrieved documents (reranker limit applied before reranking).")
+
 
         # --- Step 4: Format context ---
         context_string_for_prompt = "\n\n".join(
@@ -147,32 +195,28 @@ def process_user_message(
         ) if docs_for_context else "No relevant documents found."
 
         chat_history = format_chat_history_for_prompt(chat_id) if chat_id else ""
+        # Use the original user message for the final prompt to the LLM
         prompt = create_prompt(message, context_string_for_prompt, chat_history)
 
         # --- Step 5: Generate response from LLM ---
-        # <<< WRAP THIS SECTION IN TRY/EXCEPT >>>
         try:
-            print(f"Generating response using model: {model_name}")
-            model_handler = get_model_handler(model_name) # This factory might raise error
-            llm_response = model_handler.generate_text(prompt) # This calls VLLMHandler.generate_text
+            print(f"Generating final response using model: {model_name}")
+            model_handler = get_model_handler(model_name)
+            llm_response = model_handler.generate_text(prompt)
             print(f"LLM Response generated.")
-            response = llm_response # Update response only on success
+            response = llm_response
         except Exception as e:
-            # Log the specific error during final LLM generation
-            final_llm_error = True # Set flag
+            final_llm_error = True
             print(f"Error generating final response from LLM ({model_name}): {e}")
-            # Use logger.exception to include stack trace!
             logger.exception(f"LLM generation failed for query_id {query_id} using model {model_name}")
-            # `response` variable already holds the default error message set earlier
 
         # --- Step 6: Log conversation ---
         if chat_id:
             log_message(chat_id, "user", message)
-            # Log the actual response OR the error message shown to the user
-            log_message(chat_id, "assistant", response)
+            log_message(chat_id, "assistant", response) # Log final response or error message
             print(f"Logged message and response to redis for chat_id: {chat_id}")
 
-        # Log response info - This will log even if LLM failed, showing the error state
+        # Log response info
         response_info = {
             "timestamp": timestamp,
             "query_id": query_id,
@@ -181,29 +225,27 @@ def process_user_message(
             "model_used": model_name,
             "hyde_used": use_hyde,
             "hyde_generated_doc": hypothetical_doc_generated,
+            "augmentation_used": use_augmentation, # <<< Log augmentation status
+            "augmentation_generated_query": augmented_query_generated, # <<< Log if augmented query was used
             "reranker_used": use_reranker if documents else False,
             "retrieval_top_k": retrieval_top_k,
             "reranker_top_k": reranker_top_k if use_reranker else None,
             "docs_retrieved_count": len(documents),
             "docs_returned_count": len(docs_to_return),
-            "llm_generation_error": final_llm_error # Add the error flag
+            "llm_generation_error": final_llm_error
         }
-        # Use INFO level for metric, but include error flag if applicable
         logger.info(f"RESPONSE_GENERATED {json.dumps(response_info)}")
 
-        # Return response (either generated or the error message) and docs
+        # Return response and docs
         print(f"Returning {len(docs_to_return)} documents to frontend.")
-        # If the final LLM call failed, return the error message set earlier
         if final_llm_error:
-             return {"error": response, "docs": docs_to_return} # Return default error message
+             return {"error": response, "docs": docs_to_return}
         else:
-             return {"response": response, "docs": docs_to_return} # Return successful response
+             return {"response": response, "docs": docs_to_return}
 
     except Exception as e:
-        # Catch any other unexpected errors in the whole process
         print(f"Unexpected error processing message for query_id {query_id}: {e}")
-        logger.exception(f"Unexpected error for query_id {query_id}") # Log trace
-        # Return a generic error response
+        logger.exception(f"Unexpected error for query_id {query_id}")
         return {"error": "An unexpected server error occurred.", "docs": []}
 
 def get_kb_options():
