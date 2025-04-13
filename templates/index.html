@@ -150,7 +150,7 @@
             background-color: #fff;
         }
 
-        /* Message styles (no changes needed) */
+        /* Message styles */
         .message { margin-bottom: 24px; max-width: 90%; display: flex; flex-direction: column; }
         .message-header { font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; }
         .user-message { align-items: flex-end; margin-left: auto; }
@@ -166,21 +166,21 @@
         .message-content ul, .message-content ol { padding-left: 20px; }
 
 
-        /* Input container (no changes needed) */
+        /* Input container */
         .chat-input-container { padding: 16px; border-top: 1px solid var(--border-color); background-color: #fff; }
         .chat-input { display: flex; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; background-color: #fff; }
         .chat-input textarea { flex: 1; border: none; padding: 12px 16px; resize: none; font-size: 1rem; min-height: 56px; max-height: 200px; outline: none; }
         .chat-input button { background-color: var(--primary-color); color: white; border: none; padding: 0 20px; cursor: pointer; font-weight: 600; }
         .chat-input button:disabled { background-color: #ccc; cursor: not-allowed; }
 
-        /* Welcome Screen (no changes needed) */
+        /* Welcome Screen */
         .welcome-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center; padding: 0 20px; }
         .welcome-screen h1 { margin-bottom: 24px; color: var(--primary-color); font-size: 2.5rem; }
         .welcome-screen p { margin-bottom: 32px; font-size: 1.2rem; color: var(--light-text); max-width: 600px; }
         .welcome-screen button { background-color: var(--primary-color); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; }
         .chat-interface { display: none; /* Hidden by default */ flex-direction:column; height:100%; /* Make chat interface take full height of main content */ }
 
-        /* Sidebar Accordion Styling (no changes needed) */
+        /* Sidebar Accordion Styling */
         .docs-sidebar h5 { padding: 10px 0; margin-bottom: 10px; border-bottom: 1px solid var(--border-color); font-weight: 600; }
         .accordion-item { background-color: #fff; border: 1px solid var(--border-color); margin-bottom: 5px; border-radius: 4px; }
         .accordion-header { margin-bottom: 0; }
@@ -192,6 +192,33 @@
         .accordion-body pre { background-color: #f1f1f1; padding: 8px; border-radius: 4px; font-size: 0.8rem; overflow-x: auto; }
         .accordion-body code { background-color: #f1f1f1; padding: 1px 3px; border-radius: 2px; font-size: 0.8rem; }
 
+        /* Style for feedback buttons */
+        .feedback-buttons {
+            display: flex;
+            justify-content: flex-end; /* Align buttons to the right */
+            gap: 5px; /* Space between buttons */
+            margin-top: 8px; /* Space above buttons */
+            margin-bottom: -10px; /* Pull buttons up slightly */
+        }
+        .feedback-buttons button {
+            padding: 2px 6px; /* Smaller padding */
+            font-size: 0.75rem; /* Smaller font */
+            line-height: 1; /* Adjust line height */
+            opacity: 0.7; /* Slightly transparent */
+            transition: opacity 0.2s;
+        }
+         .feedback-buttons button:hover {
+             opacity: 1;
+         }
+        /* Style for disabled/clicked state */
+         .feedback-buttons.submitted button {
+            opacity: 0.4;
+            cursor: default;
+         }
+         .feedback-buttons.submitted button.active {
+            opacity: 0.8; /* Keep the selected one slightly more visible */
+            font-weight: bold; /* Indicate selection */
+         }
     </style>
 </head>
 <body>
@@ -274,7 +301,8 @@
                 <!-- Initial bot message -->
                 <div class="message bot-message">
                     <div class="message-header"><i class="bi bi-robot me-2"></i> Assistant</div>
-                    <div class="message-content">Hallo, ik ben de Logius-assistent. Hoe kan ik u helpen?</div>
+                    <div class="message-content" data-raw-text="Hallo, ik ben de Logius-assistent. Hoe kan ik u helpen?">Hallo, ik ben de Logius-assistent. Hoe kan ik u helpen?</div>
+                     <!-- Feedback buttons added dynamically by JS for actual bot responses -->
                 </div>
             </div>
             <div class="chat-input-container">
@@ -309,25 +337,25 @@
         const userInput = document.getElementById('userInput');
         const chatMessages = document.getElementById('chatMessages');
         const startChatBtn = document.getElementById('startChatBtn');
-        const chatSessionId = document.getElementById('chatSessionId'); // Moved display location
-        const modelSelector = document.getElementById('modelSelector'); // Moved location
+        const chatSessionId = document.getElementById('chatSessionId');
+        const modelSelector = document.getElementById('modelSelector');
         const docsAccordion = document.getElementById('docsAccordion');
-        const dividerRight = document.getElementById('dividerRight'); // Renamed for clarity
-        const docsSidebar = document.getElementById('docsSidebar'); // Renamed for clarity
+        const dividerRight = document.getElementById('dividerRight');
+        const docsSidebar = document.getElementById('docsSidebar');
         const appContainer = document.querySelector('.app-container');
-        const updateKnowledgeBtn = document.getElementById('updateKnowledgeBtn'); // Moved location
-        const useRerankerCheckbox = document.getElementById('useRerankerCheckbox'); // Moved location
-        const rerankerOptions = document.getElementById('rerankerOptions'); // Container for reranker K
-        const retrievalTopKInput = document.getElementById('retrievalTopK'); // New input
-        const rerankerTopKInput = document.getElementById('rerankerTopK'); // New input
-        const settingsSidebar = document.getElementById('settingsSidebar'); // New sidebar
-        const useHydeCheckbox = document.getElementById('useHydeCheckbox'); // <<< Get the new checkbox
+        const updateKnowledgeBtn = document.getElementById('updateKnowledgeBtn');
+        const useRerankerCheckbox = document.getElementById('useRerankerCheckbox');
+        const rerankerOptions = document.getElementById('rerankerOptions');
+        const retrievalTopKInput = document.getElementById('retrievalTopK');
+        const rerankerTopKInput = document.getElementById('rerankerTopK');
+        const settingsSidebar = document.getElementById('settingsSidebar');
+        const useHydeCheckbox = document.getElementById('useHydeCheckbox');
 
 
         let currentChatId = null;
 
-        // --- Function to load models (no changes needed in logic) ---
-        function loadModels() { /* ... same as before ... */
+        // --- Function to load models ---
+        function loadModels() {
             fetch('/api/chat/models/')
                 .then(response => response.json())
                 .then(models => {
@@ -339,7 +367,7 @@
                         option.textContent = modelLabel;
                         modelSelector.appendChild(option);
                     }
-                    const defaultModel = "gemini";
+                    const defaultModel = "gemini"; // Or your preferred default
                     if (modelSelector.querySelector(`option[value="${defaultModel}"]`)) {
                          modelSelector.value = defaultModel;
                     } else if (modelSelector.options.length > 0) {
@@ -351,10 +379,10 @@
                     modelSelector.innerHTML = '<option value="">Error loading</option>';
                 });
         }
-        loadModels();
+        loadModels(); // Load models when DOM is ready
 
-        // --- Auto-resize textarea (no changes needed) ---
-        userInput.addEventListener('input', function () { /* ... same as before ... */
+        // --- Auto-resize textarea ---
+        userInput.addEventListener('input', function () {
             this.style.height = 'auto';
             this.style.height = Math.min(this.scrollHeight, 200) + 'px';
         });
@@ -369,7 +397,7 @@
         useRerankerCheckbox.addEventListener('change', toggleRerankerOptions);
         toggleRerankerOptions(); // Initial check
 
-        // --- Start a new chat session (no changes needed in logic) ---
+        // --- Start a new chat session ---
          startChatBtn.addEventListener('click', function () {
             fetch('/api/chat/session/', {
                 method: 'POST',
@@ -391,10 +419,13 @@
                     chatInterface.style.display = 'flex';
                     userInput.focus();
                     // Clear previous chat messages and sidebar for new session
-                    chatMessages.innerHTML = `<div class="message bot-message"><div class="message-header"><i class="bi bi-robot me-2"></i> Assistant</div><div class="message-content">Hallo, ik ben de Logius-assistent. Hoe kan ik u helpen?</div></div>`;
+                    chatMessages.innerHTML = `<div class="message bot-message"><div class="message-header"><i class="bi bi-robot me-2"></i> Assistant</div><div class="message-content" data-raw-text="Hallo, ik ben de Logius-assistent. Hoe kan ik u helpen?">Hallo, ik ben de Logius-assistent. Hoe kan ik u helpen?</div></div>`;
                     docsAccordion.innerHTML = '';
                 })
-                .catch(error => { /* ... */ });
+                .catch(error => {
+                    console.error('Error starting chat session:', error);
+                    chatSessionId.textContent = 'Error starting session';
+                 });
         });
 
 
@@ -419,91 +450,15 @@
             const useReranker = useRerankerCheckbox.checked;
             const modelName = modelSelector.value;
             const useHyde = useHydeCheckbox.checked;
-            // Get Top K values, providing defaults if parsing fails or value is invalid
-            const retrievalTopK = parseInt(retrievalTopKInput.value, 10) || 5;
-            const rerankerTopK = parseInt(rerankerTopKInput.value, 10) || 10;
+            const retrievalTopK = parseInt(retrievalTopKInput.value, 10) || 5; // Use default if invalid
+            const rerankerTopK = parseInt(rerankerTopKInput.value, 10) || 10; // Use default if invalid
 
 
             fetch('/api/chat/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRFToken': getCookie('csrftoken') // Ensure getCookie function exists
-                },
-                body: JSON.stringify({
-                    query: query,
-                    chat_id: currentChatId,
-                    model_name: modelName,
-                    use_reranker: useReranker,
-                    retrieval_top_k: retrievalTopK, // <<< SEND retrieval_top_k
-                    reranker_top_k: rerankerTopK,     // <<< SEND reranker_top_k
-                    use_hyde: useHyde
-                })
-            })
-            .then(response => { /* ... same response handling ... */
-                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                 return response.json();
-            })
-            .then(data => {
-                removeMessage(thinkingMsgId);
-                if (data.error) {
-                    addMessage("Error: " + data.error, 'bot');
-                } else {
-                    addMessage(data.response, 'bot');
-                    if (data.docs) {
-                        console.log("Received docs:", data.docs);
-                        updateDocsSidebar(data.docs); // Existing function
-                    } else {
-                        docsAccordion.innerHTML = '<p class="p-2 text-muted">No documents retrieved.</p>';
-                    }
-                }
-            })
-            .catch(error => { /* ... same error handling ... */
-                removeMessage(thinkingMsgId);
-                console.error('Error fetching chat response:', error);
-                addMessage(`Sorry, something went wrong: ${error.message}`, 'bot');
-            })
-            .finally(() => { /* ... same finally block ... */
-                userInput.disabled = false;
-                chatForm.querySelector('button').disabled = false;
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-                userInput.focus();
-            });
-        });
-
-          loadModels();
-        toggleRerankerOptions(); // Initial check for reranker
-
-        // --- Handle chat form submission ---
-        chatForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const query = userInput.value.trim();
-            if (!query || !currentChatId) return;
-
-            addMessage(query, 'user');
-            userInput.value = '';
-            userInput.dispatchEvent(new Event('input'));
-            userInput.focus();
-
-            const thinkingMsgId = `thinking-${Date.now()}`;
-            addMessage("...", 'bot', thinkingMsgId);
-
-            userInput.disabled = true;
-            chatForm.querySelector('button').disabled = true;
-
-            // --- Get ALL settings ---
-            const useReranker = useRerankerCheckbox.checked;
-            const useHyde = useHydeCheckbox.checked; // <<< Get HyDE setting
-            const modelName = modelSelector.value;
-            const retrievalTopK = parseInt(retrievalTopKInput.value, 10) || 5; // Use default from backend if invalid
-            const rerankerTopK = parseInt(rerankerTopKInput.value, 10) || 10; // Use default from backend if invalid
-
-
-            fetch('/api/chat/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': getCookie('csrftoken') // Ensure getCookie function exists
+                    'X-CSRFToken': getCookie('csrftoken')
                 },
                 body: JSON.stringify({
                     query: query,
@@ -512,18 +467,22 @@
                     use_reranker: useReranker,
                     retrieval_top_k: retrievalTopK,
                     reranker_top_k: rerankerTopK,
-                    use_hyde: useHyde // <<< SEND HyDE setting
+                    use_hyde: useHyde
                 })
             })
             .then(response => {
-                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                 if (!response.ok) {
+                    // Try to parse error from backend
+                    return response.json().then(err => { throw new Error(err.error || `HTTP error! status: ${response.status}`) });
+                 }
                  return response.json();
             })
             .then(data => {
                 removeMessage(thinkingMsgId);
                 if (data.error) {
-                    addMessage("Error: " + data.error, 'bot');
+                    addMessage("Error: " + data.error, 'bot'); // Show backend error
                 } else {
+                    // Add the actual bot response WITH feedback buttons
                     addMessage(data.response, 'bot');
                     if (data.docs) {
                         console.log("Received docs:", data.docs);
@@ -536,7 +495,7 @@
             .catch(error => {
                 removeMessage(thinkingMsgId);
                 console.error('Error fetching chat response:', error);
-                addMessage(`Sorry, something went wrong: ${error.message}`, 'bot');
+                addMessage(`Sorry, something went wrong: ${error.message}`, 'bot'); // Show specific error
             })
             .finally(() => {
                 userInput.disabled = false;
@@ -546,8 +505,8 @@
             });
         });
 
-        // --- addMessage function (no changes needed) ---
-        function addMessage(text, sender, id = null) { /* ... same as before ... */
+        // --- addMessage function (MODIFIED for feedback buttons) ---
+        function addMessage(text, sender, id = null) {
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
             if (id) messageDiv.id = id;
@@ -566,6 +525,8 @@
 
             const contentDiv = document.createElement('div');
             contentDiv.classList.add('message-content');
+            // Store the raw text for feedback, before markdown parsing
+            contentDiv.dataset.rawText = text; // <-- Store raw text
             if (sender === 'bot' && text !== "...") {
                  // Ensure marked is loaded before calling parse
                  if (typeof marked !== 'undefined') {
@@ -580,19 +541,40 @@
 
             messageDiv.appendChild(headerDiv);
             messageDiv.appendChild(contentDiv);
+
+            // --- ADD FEEDBACK BUTTONS FOR BOT MESSAGES (excluding "...") ---
+            if (sender === 'bot' && text !== "...") {
+                const feedbackDiv = document.createElement('div');
+                feedbackDiv.classList.add('feedback-buttons');
+                // Use data attributes for feedback type
+                feedbackDiv.innerHTML = `
+                    <button class="btn btn-sm btn-outline-success feedback-btn" data-feedback="helpful" title="Helpful answer">
+                        <i class="bi bi-hand-thumbs-up"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-warning feedback-btn" data-feedback="unhelpful" title="Unhelpful answer">
+                        <i class="bi bi-hand-thumbs-down"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger feedback-btn" data-feedback="false" title="False information">
+                        <i class="bi bi-exclamation-octagon"></i>
+                    </button>
+                `;
+                messageDiv.appendChild(feedbackDiv);
+            }
+            // --- END FEEDBACK BUTTONS ---
+
             chatMessages.appendChild(messageDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
          }
 
 
-        // --- removeMessage function (no changes needed) ---
-         function removeMessage(id) { /* ... same as before ... */
+        // --- removeMessage function ---
+         function removeMessage(id) {
             const messageElement = document.getElementById(id);
             if (messageElement) messageElement.remove();
          }
 
-        // --- updateDocsSidebar function (no changes needed) ---
-        function updateDocsSidebar(docs) { /* ... same as before, handles docs array with score ... */
+        // --- updateDocsSidebar function ---
+        function updateDocsSidebar(docs) {
             docsAccordion.innerHTML = '';
             if (!Array.isArray(docs) || docs.length === 0) {
                 docsAccordion.innerHTML = '<p class="p-2 text-muted small">No relevant documents found.</p>';
@@ -608,7 +590,9 @@
                 let parsedContent = `<pre>${safeContent.replace(/</g, "<").replace(/>/g, ">")}</pre>`; // Default safe fallback
                  if (typeof marked !== 'undefined') {
                     try {
-                        parsedContent = marked.parse(safeContent, { breaks: true });
+                        // Use DOMPurify if available and needed for security with markdown
+                        // parsedContent = DOMPurify.sanitize(marked.parse(safeContent, { breaks: true }));
+                         parsedContent = marked.parse(safeContent, { breaks: true });
                     } catch (e) { console.error("Markdown parsing error:", e); }
                  }
                 const scoreText = (typeof score === 'number' && !isNaN(score)) ? ` (Score: ${score.toFixed(2)})` : '';
@@ -638,8 +622,8 @@
          }
 
 
-        // --- getCookie function (no changes needed) ---
-        function getCookie(name) { /* ... same as before ... */
+        // --- getCookie function ---
+        function getCookie(name) {
             let cookieValue = null;
             if (document.cookie && document.cookie !== '') {
                 const cookies = document.cookie.split(';');
@@ -671,15 +655,13 @@
             // Right Divider Logic
             if (isResizingRight) {
                 const containerWidth = appContainer.offsetWidth;
-                // Calculate delta based on movement from the *left* edge of the sidebar
                 const delta = e.clientX - lastDownXRight;
                 let sidebarWidth = docsSidebar.offsetWidth - delta; // Decrease width if mouse moves left
 
                 const minWidth = 200;
-                // Max width should consider the settings sidebar too
                 const settingsWidth = settingsSidebar.offsetWidth;
-                const mainMinWidth = 300; // Min width for main content
-                const maxWidth = containerWidth - settingsWidth - mainMinWidth - dividerRight.offsetWidth; // Calculate max based on others
+                const mainMinWidth = 300;
+                const maxWidth = containerWidth - settingsWidth - mainMinWidth - dividerRight.offsetWidth;
 
                 sidebarWidth = Math.max(minWidth, Math.min(sidebarWidth, maxWidth));
 
@@ -687,7 +669,6 @@
                 document.documentElement.style.setProperty('--docs-sidebar-width', `${sidebarWidth}px`);
                 lastDownXRight = e.clientX;
             }
-             // Add logic for left divider if implemented
         });
 
         document.addEventListener('mouseup', function () {
@@ -698,7 +679,6 @@
                  document.body.style.userSelect = 'auto';
                  localStorage.setItem('docsSidebarWidth', docsSidebar.style.width);
             }
-             // Reset left divider state if implemented
         });
 
         // Optional: Double-click to reset divider
@@ -717,20 +697,131 @@
         }
         // --- End Resizable Divider Logic ---
 
-        // --- Test Update Knowledge button event listener (no changes needed) ---
-        updateKnowledgeBtn.addEventListener('click', function () { /* ... same as before ... */
+        // --- Test Update Knowledge button event listener ---
+        updateKnowledgeBtn.addEventListener('click', function () {
             updateKnowledgeBtn.textContent = 'Updating...';
             updateKnowledgeBtn.disabled = true;
             fetch('/api/knowledge_base/build/', { method: 'GET' })
-             .then(response => { /* ... */ })
-             .then(data => { /* ... */ })
-             .catch(error => { /* ... */ })
+             .then(response => response.json().then(data => ({ ok: response.ok, status: response.status, data })))
+             .then(result => {
+                  if (!result.ok) throw new Error(result.data.error || `HTTP error! status: ${result.status}`);
+                  alert('Knowledge base update finished successfully.'); // Simple feedback
+                  console.log('KB Update successful:', result.data);
+             })
+             .catch(error => {
+                  console.error('Error updating knowledge base:', error);
+                  alert(`Knowledge base update failed: ${error.message}`);
+             })
              .finally(() => {
                   updateKnowledgeBtn.textContent = 'Update Knowledge Base';
                   updateKnowledgeBtn.disabled = false;
              });
         });
         // --- End Test Update Knowledge ---
+
+        // --- NEW: Handle Feedback Button Clicks ---
+        chatMessages.addEventListener('click', function(event) {
+            // Use closest to handle clicks on the icon inside the button
+            const button = event.target.closest('.feedback-btn');
+            if (!button) return; // Click wasn't on a feedback button or its icon
+
+            const feedbackType = button.dataset.feedback;
+            const feedbackDiv = button.parentElement;
+            const messageDiv = feedbackDiv.closest('.bot-message');
+            const contentDiv = messageDiv.querySelector('.message-content');
+            const llmResponse = contentDiv.dataset.rawText; // Get raw text stored earlier
+
+            // Find the preceding user message to get the query
+            let previousElement = messageDiv.previousElementSibling;
+            let userQuery = null;
+            while (previousElement) {
+                if (previousElement.classList.contains('user-message')) {
+                    const userContentDiv = previousElement.querySelector('.message-content');
+                    if (userContentDiv) {
+                        userQuery = userContentDiv.textContent; // Get user's query text
+                    }
+                    break; // Found the closest user message
+                }
+                previousElement = previousElement.previousElementSibling;
+            }
+
+            if (!userQuery) {
+                console.warn("Could not find preceding user query for feedback.");
+                // Optionally provide visual feedback (e.g., flash button red)
+                return;
+            }
+
+            if (!currentChatId) {
+                console.warn("No active chat session ID for feedback.");
+                alert("Cannot submit feedback: No active session."); // User feedback
+                return;
+            }
+
+            // Prevent multiple submissions for the same message
+            if (feedbackDiv.classList.contains('submitted')) {
+                console.log("Feedback already submitted for this message.");
+                return;
+            }
+
+            // Disable buttons visually and functionally after click
+            feedbackDiv.classList.add('submitted');
+            button.classList.add('active'); // Highlight the clicked one
+            feedbackDiv.querySelectorAll('.feedback-btn').forEach(btn => btn.disabled = true);
+
+            // Send feedback to backend
+            sendFeedback(currentChatId, userQuery, llmResponse, feedbackType, button); // Pass button for error handling
+        });
+
+        // --- NEW: Function to send feedback to API ---
+        function sendFeedback(chatId, query, response, feedbackType, buttonElement) {
+            console.log("Sending feedback:", { chatId, query: query.substring(0,100)+"...", response: response.substring(0,100)+"...", feedbackType });
+
+            fetch('/api/feedback/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    user_query: query,
+                    llm_response: response,
+                    feedback_type: feedbackType
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    // Try to parse error from backend JSON response
+                    return response.json().then(err => { throw new Error(err.error || `HTTP error! status: ${response.status}`) });
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Feedback submitted successfully:", data);
+                // Success: Keep buttons disabled and highlighted
+            })
+            .catch(error => {
+                console.error('Error sending feedback:', error);
+                alert(`Failed to submit feedback: ${error.message}`); // Inform user
+
+                // Re-enable buttons on error to allow retry
+                const feedbackDiv = buttonElement.parentElement;
+                feedbackDiv.classList.remove('submitted');
+                buttonElement.classList.remove('active'); // Remove highlight from clicked button
+                feedbackDiv.querySelectorAll('.feedback-btn').forEach(btn => btn.disabled = false);
+
+                // Optional: Add temporary visual error indication to the button
+                buttonElement.classList.add('btn-outline-danger'); // Make border red
+                buttonElement.classList.remove('btn-outline-success', 'btn-outline-warning'); // Remove original outline color
+                setTimeout(() => {
+                     // Reset to original outline color after a delay
+                     buttonElement.classList.remove('btn-outline-danger');
+                     if (feedbackType === 'helpful') buttonElement.classList.add('btn-outline-success');
+                     else if (feedbackType === 'unhelpful') buttonElement.classList.add('btn-outline-warning');
+                     else buttonElement.classList.add('btn-outline-danger'); // false info keeps danger outline
+                }, 2500);
+            });
+        }
 
     }); // End DOMContentLoaded
 </script>

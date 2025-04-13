@@ -4,6 +4,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+import json # <-- Import json
 
 from logius.chat_handler import process_user_message
 from memory.redis_handler import create_chat_session, get_chat_history
@@ -14,6 +15,10 @@ from utils.postgresql_insert import insert_chunks_to_postgres
 from utils.qdrant_upsert import insert_into_qdrant
 
 import logging
+# Use a specific logger for feedback, or reuse the main one
+feedback_logger = logging.getLogger('user_feedback') # Or just use logger = logging.getLogger(__name__)
+
+# Existing logger
 logger = logging.getLogger(__name__)
 
 # Default values for Top K parameters
@@ -27,6 +32,7 @@ def chat_view(request):
 
 class ChatSessionView(APIView):
     """API view for creating a new chat session."""
+    # ... (keep existing code) ...
     def post(self, request):
         try:
             chat_id = create_chat_session()
@@ -39,6 +45,7 @@ class ChatSessionView(APIView):
 
 class ChatHistoryView(APIView):
     """API view for retrieving chat history."""
+    # ... (keep existing code) ...
     def get(self, request, chat_id):
         try:
             history = get_chat_history(chat_id)
@@ -54,16 +61,8 @@ class ChatHistoryView(APIView):
 
 class ChatView(APIView):
     """API view for handling chat requests."""
+    # ... (keep existing code) ...
     def post(self, request):
-        """
-        Process a chat request.
-        Request body (JSON):
-            {"query": "user message", "chat_id": "uuid-string", "model_name": "string",
-             "use_reranker": boolean, "retrieval_top_k": int, "reranker_top_k": int,
-             "use_hyde": boolean} # <<< Added use_hyde
-        Returns:
-            {"response": "assistant response", "docs": [...]} or {"error": "message"}
-        """
         data = {} # Initialize data to avoid errors in exception logging if request.data fails
         try:
             data = request.data
@@ -139,8 +138,10 @@ class ChatView(APIView):
             logger.exception(f"Error processing chat request for chat_id {chat_id_for_log}: {e}")
             return Response({'error': f'An internal server error occurred: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+
 class ModelsView(APIView):
     """API view for getting available models."""
+    # ... (keep existing code) ...
     def get(self, request):
         try:
             models = get_available_models()
@@ -152,6 +153,7 @@ class ModelsView(APIView):
 
 class KnowledgeBase(APIView):
     """API view for triggering knowledge base update."""
+    # ... (keep existing code) ...
     def get(self, request):
         logger.info("Knowledge base update triggered via API.")
         try:
@@ -169,3 +171,50 @@ class KnowledgeBase(APIView):
         except Exception as e:
              logger.exception("Error during knowledge base update process triggered via API.")
              return Response({'error': f'Knowledge base update failed: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+# --- NEW Feedback View ---
+class FeedbackView(APIView):
+    """API view for receiving user feedback on LLM responses."""
+
+    def post(self, request):
+        print("Feedback thingy hit")
+        feedback_data = {} # Initialize for logging context
+        try:
+            feedback_data = request.data
+            chat_id = feedback_data.get('chat_id')
+            user_query = feedback_data.get('user_query')
+            llm_response = feedback_data.get('llm_response')
+            feedback_type = feedback_data.get('feedback_type') # e.g., "helpful", "unhelpful", "false"
+
+            if not all([chat_id, user_query, llm_response, feedback_type]):
+                missing = [k for k, v in feedback_data.items() if not v]
+                logger.warning(f"Received incomplete feedback data. Missing: {missing}")
+                return Response({'error': f'Missing required feedback fields: {missing}'}, status=status.HTTP_400_BAD_REQUEST)
+
+            valid_feedback_types = ["helpful", "unhelpful", "false"]
+            if feedback_type not in valid_feedback_types:
+                 logger.warning(f"Received invalid feedback type: {feedback_type}")
+                 return Response({'error': f'Invalid feedback_type. Must be one of {valid_feedback_types}'}, status=status.HTTP_400_BAD_REQUEST)
+
+            # Log the feedback using a structured format (JSON within the message is good for Loki)
+            log_payload = {
+                "chat_id": chat_id,
+                "feedback_type": feedback_type,
+                "user_query": user_query,
+                "llm_response": llm_response,
+                # Add any other relevant context if needed, e.g., model used for the response
+            }
+            # Use the specific feedback logger or the main logger
+            # Use INFO level for feedback events
+            feedback_logger.info(json.dumps(log_payload)) # Log as a JSON string
+
+            # Alternatively, use extra=dict if your logger handler (e.g., python-json-logger) supports it directly
+            # feedback_logger.info("User feedback received", extra=log_payload)
+
+            return Response({'status': 'Feedback received successfully'}, status=status.HTTP_200_OK)
+
+        except Exception as e:
+            chat_id_for_log = feedback_data.get('chat_id', 'N/A')
+            feedback_type_for_log = feedback_data.get('feedback_type', 'N/A')
+            logger.exception(f"Error processing feedback for chat_id {chat_id_for_log}, type {feedback_type_for_log}: {e}")
+            return Response({'error': 'An internal server error occurred while processing feedback.'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

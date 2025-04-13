@@ -3,60 +3,85 @@ server:
   grpc_listen_port: 0
 
 positions:
-  filename: /var/log/positions.yaml # Path inside the container (maps to promtail_positions volume)
+  filename: /var/log/positions.yaml
 
 clients:
-  - url: http://loki:3100/loki/api/v1/push # Loki service name from docker-compose
+  - url: http://loki:3100/loki/api/v1/push
 
 scrape_configs:
   - job_name: django-app
     docker_sd_configs:
       - host: unix:///var/run/docker.sock
         refresh_interval: 5s
-        filters: # <<< Use this corrected format
-          - name: label # Filter type is 'label'
+        filters:
+          - name: label
             values:
-              - "logging=promtail"    # Value is "key=value"
-              - "application=django-rag" # Value is "key=value"
+              - "logging=promtail"
+              - "application=django-rag"
     relabel_configs:
-      # Relabel Docker container labels to Loki labels
       - source_labels: ['__meta_docker_container_name']
         regex: '/(.*)'
         target_label: 'container'
-      # Keep this relabeling rule to get the 'app' label in Loki
       - source_labels: ['__meta_docker_container_label_application']
         target_label: 'app'
       - source_labels: ['__meta_docker_container_log_stream']
         target_label: 'stream'
 
     pipeline_stages:
-      # ... your pipeline stages remain the same ...
+      # 1. Parse the entire line as JSON (extract top-level fields)
       - json:
           expressions:
-            timestamp: timestamp
-            level: level
-            message_content: message # Keep original message here
-      - json:
-          source: message_content
-          expressions:
-            query_id: "query_id || ''"
-            response_length: "response_length || ''"
-            kb_id: "kb_id || ''"
-            model_used: "model_used || ''"
-            reranker_used: "reranker_used || ''"
-            retrieval_top_k: "retrieval_top_k || ''"
-            reranker_top_k: "reranker_top_k || ''"
-            docs_retrieved_count: "docs_retrieved_count || ''"
-            docs_returned_count: "docs_returned_count || ''"
-          drop_malformed: false
+            extracted_timestamp: timestamp
+            extracted_level: level
+            extracted_logger: logger_name # <-- Extract logger_name
+            message_content: message     # <-- Keep the nested JSON part
+
+      # 2. Set timestamp from the extracted field
       - timestamp:
-          source: timestamp
+          source: extracted_timestamp
           format: ISO8601
+
+      # 3. Set initial labels from reliable top-level fields
       - labels:
-          level:
-          query_id:
-          model_used:
-          reranker_used:
-          kb_id:
-      - output:
-          source: message_content
+          level: extracted_level
+          logger_name: extracted_logger # <-- Apply logger_name label
+
+      # --- Conditional Processing for Feedback Logs ---
+      # 4. Match only lines specifically from the 'user_feedback' logger
+      - match:
+          # Only proceed to the next stages if the log has the correct logger_name label
+          selector: '{logger_name="user_feedback"}'
+          stages:
+            # 5. Parse the NESTED 'message_content' field for feedback details
+            - json:
+                source: message_content # Parse the value extracted in stage 1
+                expressions:
+                  # Extract feedback_type into a temporary field
+                  feedback_label_value: feedback_type # Extracts 'false', 'helpful', etc.
+            # 6. Create the 'feedback_type' LABEL using the value extracted just above
+            - labels:
+                feedback_type: feedback_label_value # Sets the label {feedback_type="false"}, etc.
+
+      # --- Optional: Process RAG Metrics Logs ---
+      # 7. Match only lines specifically from the 'rag_metrics' logger
+      - match:
+          selector: '{logger_name="rag_metrics"}'
+          stages:
+             # 8. Parse the NESTED 'message_content' field for RAG metrics
+             #    NOTE: Your RAG metrics are currently a STRING containing JSON, not nested JSON.
+             #    So we need to parse the string first.
+             - json:
+                 source: message_content # Parse the string value of message_content as JSON
+                 expressions:
+                   extracted_model: model_used # Extract needed fields for labels
+                   extracted_reranker: reranker_used
+                   extracted_kb: kb_id
+             # 9. Set labels specific to RAG metrics
+             - labels:
+                 model_used: extracted_model
+                 reranker_used: extracted_reranker
+                 kb_id: extracted_kb
+
+      # 10. Output Stage (Default is fine - sends original log line)
+      # - output:
+      #     source: ... # Only needed if you want to change what's stored as the log line

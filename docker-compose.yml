@@ -86,11 +86,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '2.0'  # Allow up to 2 CPU cores
-          memory: 4G   # Allow up to 4GB RAM
+          cpus: '2.0'  # Allow up to 2 CPU cores, genuinely wat is dit voor software, absoluut garbage
+          memory: 16G   # Allow up to 4GB RAM
         reservations:
           cpus: '1.0'  # Reserve 1 CPU core
-          memory: 2G  # Reserve 2GB RAM
+          memory: 8G  # Reserve 2GB RAM
     networks:
       - default # Ensure it's on the default network
 
@@ -135,7 +135,3 @@ volumes:
   promtail_positions: # For Promtail position tracking
   grafana_data: # For Grafana dashboards, plugins, etc.
   huggingface_cache: # Cache for downloaded HF models
-
-# Define the default network if not already explicitly defined
-# networks:
-#   default:

@@ -44,24 +44,63 @@ INSTALLED_APPS = [
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'formatters': {
+     'formatters': {
         'json': {
-            'format': '{"timestamp":"%(asctime)s", "level":"%(levelname)s", "message":"%(message)s"}',
-            'datefmt': '%Y-%m-%dT%H:%M:%S%z'
+            # Format optimized for Promtail parsing the 'message' field as JSON
+            'format': '{"timestamp":"%(asctime)s", "level":"%(levelname)s", "logger_name":"%(name)s", "message": %(message)s }',
+            'datefmt': '%Y-%m-%dT%H:%M:%S%z',
+            'validate': False # Add this for robustness if format causes issues
+        },
+        'simple_console': {
+            'format': '%(asctime)s | %(levelname)-8s | %(name)s | %(message)s', # Adjusted for alignment
+            'datefmt': '%Y-%m-%d %H:%M:%S',
         },
     },
+    # --- HANDLERS SECTION ---
     'handlers': {
-        'console': {
+        'console': {  # Handler for simple text output
+            'level': 'DEBUG',
             'class': 'logging.StreamHandler',
-            'formatter': 'json',
+            'formatter': 'simple_console',
+        },
+        # --->>> Ensure this handler definition exists and is spelled correctly <<<---
+        'json_console': {  # Handler specifically for JSON output
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'json',  # Uses the 'json' formatter defined above
         },
     },
     'loggers': {
-        'rag_metrics': {
-            'handlers': ['console'],
+        'django': { # General Django logs
+            'handlers': ['console'], # Use simple output
             'level': 'INFO',
-            'propagate': True,
+            'propagate': False,
         },
+        'django.request': { # HTTP request logs (often noisy)
+            'handlers': ['console'], # Use simple output
+            'level': 'WARNING', # Quieter level
+            'propagate': False,
+        },
+        'rag_metrics': { # Your metrics logger
+            'handlers': ['json_console'], # --->>> Reference the JSON handler <<<---
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'user_feedback': { # Your feedback logger
+            'handlers': ['json_console'], # --->>> Reference the JSON handler <<<---
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'logius': { # Your main app logger (from getLogger(__name__))
+            'handlers': ['console'], # Use simple output
+            'level': 'INFO', # Or 'DEBUG' if needed
+            'propagate': False,
+        },
+         # Optional root logger configuration (catches logs not otherwise configured)
+        # '': {
+        #     'handlers': ['console'],
+        #     'level': 'WARNING', # Default level for unconfigured loggers
+        # },
     },
 }
 
