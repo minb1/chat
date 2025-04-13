@@ -18,7 +18,7 @@ def get_available_models():
     # Add VLLM models - always available since it's running in our Docker setup
     # Extract model name from the environment or use default
     vllm_model = os.getenv("VLLM_MODEL_NAME", "meta-llama/Llama-3.2-3B-Instruct")
-    models["vllm"] = f"Local VLLM ({vllm_model.split('/')[-1]})"
+    models["vllm"] = f"Local ({vllm_model.split('/')[-1]})"
 
     return models
 

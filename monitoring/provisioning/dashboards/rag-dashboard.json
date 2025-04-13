@@ -180,7 +180,7 @@
             "uid": "${DS_LOKI}"
           },
           "editorMode": "code",
-          "expr": "sum(count_over_time({app=\"django-rag\", level=\"ERROR\"} [1m]))",
+          "expr": "sum(count_over_time({app=\"django-rag\"} |= `\"level\":\"ERROR\"` [1m]))",
           "legendFormat": "Errors",
           "queryType": "range",
           "refId": "B"
@@ -688,6 +688,6 @@
   "timezone": "",
   "title": "RAG Application Analytics & Feedback",
   "uid": "rag-analytics-dashboard",
-  "version": 19,
+  "version": 31,
   "weekStart": ""
 }
