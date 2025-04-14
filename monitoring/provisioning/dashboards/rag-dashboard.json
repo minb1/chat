@@ -374,8 +374,10 @@
             "type": "loki",
             "uid": "${DS_LOKI}"
           },
-          "expr": "sum(rate({app=\"django-rag\", level=\"ERROR\"} |~ `LLM generation failed for query_id|Exception when calling VLLM API` [$__interval]))",
+          "editorMode": "code",
+          "expr": "sum(rate({app=\"django-rag\"} |~ `LLM generation failed for query_id|Exception when calling VLLM API` [$__interval]))",
           "legendFormat": "LLM Generation Failures (/sec)",
+          "queryType": "range",
           "refId": "A"
         }
       ],
@@ -606,7 +608,9 @@
             "type": "loki",
             "uid": "${DS_LOKI}"
           },
-          "expr": "{app=\"django-rag\", level=~\"WARNING|ERROR\"}",
+          "editorMode": "code",
+          "expr": "{app=\"django-rag\"} |~ `\"level\":\"(ERROR|WARNING)\"`",
+          "queryType": "range",
           "refId": "A"
         }
       ],
@@ -648,7 +652,121 @@
       ],
       "title": "Recent Logs (All)",
       "type": "logs"
+    },
+    {
+  "datasource": {
+    "type": "loki",
+    "uid": "${DS_LOKI}"
+  },
+  "fieldConfig": {
+    "defaults": {
+      "color": {
+        "mode": "palette-classic"
+      },
+      "custom": {
+        "axisBorderShow": false,
+        "axisCenteredZero": false,
+        "axisColorMode": "text",
+        "axisLabel": "",
+        "axisPlacement": "auto",
+        "barAlignment": 0,
+        "drawStyle": "line",
+        "fillOpacity": 0,
+        "gradientMode": "none",
+        "hideFrom": {
+          "legend": false,
+          "tooltip": false,
+          "viz": false
+        },
+        "insertNulls": false,
+        "lineInterpolation": "linear",
+        "lineWidth": 1,
+        "pointSize": 5,
+        "scaleDistribution": {
+          "type": "linear"
+        },
+        "showPoints": "auto",
+        "spanNulls": false,
+        "stacking": {
+          "group": "A",
+          "mode": "none"
+        },
+        "thresholdsStyle": {
+          "mode": "off"
+        }
+      },
+      "mappings": [],
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "green",
+            "value": null
+          },
+          {
+            "color": "red",
+            "value": 80
+          }
+        ]
+      },
+      "unit": "short"
+    },
+    "overrides": []
+  },
+  "gridPos": {
+    "h": 9,
+    "w": 12,
+    "x": 0,
+    "y": 0
+  },
+  "id": 10,
+  "options": {
+    "barRadius": 0,
+    "barWidth": 0.97,
+    "colorByField": "path_component_2",
+    "groupWidth": 0.7,
+    "legend": {
+      "calcs": [
+        "sum"
+      ],
+      "displayMode": "list",
+      "placement": "bottom",
+      "showLegend": true
+    },
+    "orientation": "auto",
+    "reduceOptions": {
+      "calcs": [
+        "lastNotNull"
+      ],
+      "fields": "",
+      "values": false
+    },
+    "showValue": "auto",
+    "stacking": "none",
+    "tooltip": {
+      "mode": "multi",
+      "sort": "none"
+    },
+    "xTickLabelRotation": 0,
+    "xTickLabelSpacing": 0
+  },
+  "pluginVersion": "10.4.2",
+  "targets": [
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "${DS_LOKI}"
+      },
+      "editorMode": "code",
+      "expr": "sum by (path_component_2) (\n  count_over_time(\n    {\n      app=\"django-rag\", logger_name=\"rag_metrics\"  \n    } \n    |= \"RESPONSE_GENERATED\" \n    | json \n    | line_format \"{{ .message }}\" \n    | json \n    | docs_returned_paths != null\n    | unwrap docs_returned_paths\n    | line_format \"{{ .docs_returned_paths }}\" \n    | regexp `^[^/]+/(?P<path_component_2>[^/]+)/?.*`\n    | line_format \"\"  # Keep only labels for count_over_time\n    [$__interval]\n  )\n)",
+      "legendFormat": "{{path_component_2}}",
+      "queryType": "range",
+      "refId": "A"
     }
+  ],
+  "title": "Returned Document Frequency by Category",
+  "type": "barchart"
+}
   ],
   "refresh": "30m",
   "schemaVersion": 39,
@@ -681,13 +799,13 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "RAG Application Analytics & Feedback",
   "uid": "rag-analytics-dashboard",
-  "version": 31,
+  "version": 32,
   "weekStart": ""
 }

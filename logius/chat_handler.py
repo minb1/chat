@@ -233,6 +233,7 @@ def process_user_message(
             "reranker_top_k": reranker_top_k if use_reranker else None,
             "docs_retrieved_count": len(documents),
             "docs_returned_count": len(docs_to_return),
+            "docs_returned_paths": [doc.get('file_path', 'unknown_path') for doc in docs_to_return],
             "llm_generation_error": final_llm_error # This flag is key
         }
 
