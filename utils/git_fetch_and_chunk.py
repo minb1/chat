@@ -354,6 +354,12 @@ def chunk_html_to_text_with_context_v3(html_string, path):
         if not heading_text:
             continue
 
+        # Extract or generate anchor
+        anchor = heading.get('id', '')
+        if not anchor:
+            # Generate anchor from heading text
+            anchor = re.sub(r'\W+', '-', heading_text.lower()).strip('-')
+
         context = []
         context_levels = []
         node = heading
@@ -396,7 +402,8 @@ def chunk_html_to_text_with_context_v3(html_string, path):
             'chunk_text': content,
             'heading': heading_text,
             'level': current_level,
-            'tables_html': tables_html
+            'tables_html': tables_html,
+            'anchor': anchor  # Add anchor to chunk data
         })
 
     return chunks
@@ -491,7 +498,7 @@ def html_table_to_markdown(table_html):
         return table_markdown_cache[table_html]
 
 def process_and_save_chunks(path, html_content, output_directory, chunk_cache=None):
-    """Optimized chunk processing and saving with optional caching and doc_tag."""
+    """Optimized chunk processing and saving with anchor in metadata."""
     chunk_cache = chunk_cache or {}
 
     doc_tag = "unknown_doc"
@@ -537,6 +544,10 @@ def process_and_save_chunks(path, html_content, output_directory, chunk_cache=No
         title = chunk_data.get('heading', f'Chunk {index}')
         title_str = title.replace('"', '\\"').replace('---', '- - -')
         content.append(f'title: "{title_str}"')
+        # Add anchor to YAML frontmatter
+        anchor = chunk_data.get('anchor', '')
+        anchor_str = anchor.replace('"', '\\"').replace('---', '- - -')
+        content.append(f'anchor: "{anchor_str}"')
         content.append("---\n")
 
         for level, ctx in zip(chunk_data.get('context_levels', []), chunk_data.get('context', [])):

@@ -2,6 +2,7 @@ import os
 import argparse
 import re
 import json
+import shutil
 from pathlib import Path
 from typing import List, Dict, Any, Tuple, Optional
 import yaml
@@ -109,6 +110,16 @@ def generate_and_save_embeddings(input_dir: str, output_dir: str, embedding_hand
         print(f"Error: Input directory '{input_dir}' not found.")
         return
 
+    # Delete existing output directory if it exists
+    if root_output_dir.exists():
+        print(f"Cleaning previous output directory: {root_output_dir}")
+        try:
+            shutil.rmtree(root_output_dir)
+            print("Previous output directory cleaned.")
+        except OSError as e:
+            print(f"Error removing directory {root_output_dir}: {e}. Proceeding might lead to old data.")
+
+    # Create fresh output directory
     root_output_dir.mkdir(parents=True, exist_ok=True)
     print(f"Ensured output directory exists: {root_output_dir}")
 

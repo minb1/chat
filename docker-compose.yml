@@ -7,6 +7,8 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
+      - huggingface_cache:/root/.cache/huggingface  # Cache HF models
+
     environment:
       - DEBUG=True
       - DJANGO_SETTINGS_MODULE=chatRAG.settings
