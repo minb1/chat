@@ -7,6 +7,7 @@ import traceback
 from functools import lru_cache
 import concurrent.futures
 import time
+import yaml
 
 # --- Performance Optimization Additions ---
 # Cache for BeautifulSoup objects
@@ -581,12 +582,29 @@ def html_table_to_markdown(table_html):
 
 
 # --- Optimized Saving Function ---
+# --- Optimized Saving Function ---
 def process_and_save_chunks(path, html_content, output_directory, chunk_cache=None):
-    """Optimized chunk processing and saving with optional caching."""
+    """Optimized chunk processing and saving with optional caching and doc_tag."""
     chunk_cache = chunk_cache or {}
 
+    # --- *** NEW: Extract doc_tag *** ---
+    doc_tag = "unknown_doc" # Default value
+    path_parts = path.split('/')
+    # Expecting path like 'category/doc_name/index.html'
+    if len(path_parts) == 3 and path_parts[1]:
+        doc_tag = path_parts[1]
+    elif len(path_parts) > 1: # Fallback for simpler paths maybe?
+        doc_tag = path_parts[0] # Or adjust logic as needed
+    print(f"  Derived doc_tag '{doc_tag}' from path '{path}'.")
+    # --- *** END NEW *** ---
+
+
     # Create output directory
-    output_dir = os.path.join(output_directory, os.path.dirname(path))
+    # Use doc_tag in the output path structure as well for organization
+    output_dir = os.path.join(output_directory, doc_tag, os.path.dirname(path).split('/')[0]) # e.g. chunks_optimized/adr/api
+    # Ensure correct relative path structure within the doc_tag folder
+    relative_base = os.path.join(path_parts[0]) # e.g. 'api' or 'ep'
+    output_dir = os.path.join(output_directory, relative_base, doc_tag) # e.g. chunks_optimized/api/adr
     os.makedirs(output_dir, exist_ok=True)
 
     # Check if chunks are already cached
@@ -609,65 +627,92 @@ def process_and_save_chunks(path, html_content, output_directory, chunk_cache=No
             continue
 
         filename = create_chunk_filename(chunk_data, index)
+        # --- *** MODIFIED: Correct filepath construction *** ---
         filepath = os.path.join(output_dir, filename)
+        # Calculate relative path for the file_path metadata field
+        chunk_relative_path_parts = [relative_base, doc_tag, filename]
+        chunk_relative_path = '/'.join(chunk_relative_path_parts)
+        # --- *** END MODIFIED *** ---
+
 
         # Build content for this file
         content = []
 
         # YAML Frontmatter
         content.append("---")
-        content.append(f"path: {path}")
+        # --- *** MODIFIED: Use calculated relative path and add doc_tag *** ---
+        content.append(f"file_path: {chunk_relative_path}") # Use the relative path for consistency
+        content.append(f"original_html_path: {path}") # Keep the original HTML path too
+        content.append(f"doc_tag: {doc_tag}") # Add the extracted document tag
+        # --- *** END MODIFIED *** ---
         formatted_context = ["'{}'".format(c.replace("'", "\\'")) for c in chunk_data.get('context', [])]
         context_str = '[' + ', '.join(formatted_context) + ']'
         content.append(f"parent_sections: {context_str}")
         title = chunk_data.get('heading', f'Chunk {index}')
-        title_str = title.replace('"', '\\"')
+        # Ensure title doesn't contain triple dashes which break YAML parsing
+        title_str = title.replace('"', '\\"').replace('---', '- - -')
         content.append(f'title: "{title_str}"')
         content.append("---\n")
 
-        # Markdown Content
+        # Markdown Content (remains the same)
+        # ... (rest of the content building logic) ...
         for level, ctx in zip(chunk_data.get('context_levels', []), chunk_data.get('context', [])):
-            cleaned_ctx = re.sub(r'\s+', ' ', ctx).strip()
-            if cleaned_ctx:
-                content.append(f"{'#' * level} {cleaned_ctx}")
+             cleaned_ctx = re.sub(r'\s+', ' ', ctx).strip()
+             if cleaned_ctx:
+                 content.append(f"{'#' * level} {cleaned_ctx}")
 
         cleaned_heading = re.sub(r'\s+', ' ', title).strip()
         if cleaned_heading:
-            content.append(f"{'#' * chunk_data.get('level', 1)} {cleaned_heading}\n")
+             content.append(f"{'#' * chunk_data.get('level', 1)} {cleaned_heading}\n")
 
         if chunk_data.get('chunk_text'):
-            cleaned_text = re.sub(r'\n{3,}', '\n\n', chunk_data['chunk_text'])
-            cleaned_text = re.sub(r' {2,}', ' ', cleaned_text).strip()
-            if cleaned_text:
-                content.append(cleaned_text + "\n")
+             cleaned_text = re.sub(r'\n{3,}', '\n\n', chunk_data['chunk_text'])
+             cleaned_text = re.sub(r' {2,}', ' ', cleaned_text).strip()
+             if cleaned_text:
+                 content.append(cleaned_text + "\n")
 
         if chunk_data.get('tables_html'):
-            for table_html in chunk_data['tables_html']:
-                markdown_table = html_table_to_markdown(table_html)
-                if markdown_table:
-                    content.append(markdown_table + "\n")
+             for table_html in chunk_data['tables_html']:
+                 markdown_table = html_table_to_markdown(table_html)
+                 if markdown_table:
+                     content.append(markdown_table + "\n")
 
         files_to_write.append((filepath, '\n'.join(content)))
 
-    # Write files
+    # Write files (remains the same)
     saved_count = 0
     for filepath, content in files_to_write:
         try:
+            # Ensure parent directory exists before writing
+            os.makedirs(os.path.dirname(filepath), exist_ok=True)
             with open(filepath, 'w', encoding='utf-8') as txt_file:
                 txt_file.write(content)
             saved_count += 1
         except Exception as e:
             print(f"  Error writing file {filepath}: {e}")
 
-    print(f"  Saved {saved_count} chunks for {path}.")
+    print(f"  Saved {saved_count} chunks for {path} under doc_tag '{doc_tag}'.")
     return saved_count
+
 
 
 # --- Main Execution Block ---
 def fetch_git_and_chunk():
     start_time = time.time()
     output_directory = "chunks_optimized"
+    # --- *** MODIFIED: Clean the output directory before starting *** ---
+    # This is important for the update workflow later, to avoid old files persisting
+    # if a doc is removed or renamed entirely.
+    if os.path.exists(output_directory):
+        print(f"Cleaning previous output directory: {output_directory}")
+        import shutil
+        try:
+            shutil.rmtree(output_directory)
+            print("Previous output directory cleaned.")
+        except OSError as e:
+            print(f"Error removing directory {output_directory}: {e}. Proceeding might lead to old data.")
     os.makedirs(output_directory, exist_ok=True)
+    # --- *** END MODIFIED *** ---
 
     print("Fetching file list from GitHub...")
     files_to_process = get_top_level_index_files_per_folder()

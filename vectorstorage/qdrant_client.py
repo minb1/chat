@@ -244,43 +244,67 @@ class QdrantClient(BaseVectorClient):
             logger.error(error_msg)
             raise Exception(error_msg)
 
-    def retrieve_vectors(self, vector: List[float], top_k: int = 5) -> List[str]:
-        """Retrieve file paths based on vector similarity.
+    def retrieve_vectors(self, vector: List[float], top_k: int = 5) -> List[Dict[str, Any]]:
+        """Retrieve full payloads and scores based on vector similarity.
 
         Args:
             vector: Query vector
             top_k: Number of similar vectors to retrieve
 
         Returns:
-            List of file paths from the matched vector payloads
+            List of dictionaries, where each dictionary contains:
+                'id': The Qdrant point ID
+                'score': The similarity score
+                'payload': The full payload dictionary stored in Qdrant
 
         Raises:
-            Exception: If retrieval operation fails
+            Exception: If retrieval operation fails (implicitly via Qdrant client)
         """
-        logger.info(f"Retrieving top {top_k} vectors from '{self.collection_name}'...")
+        logger.info(f"Retrieving top {top_k} vectors with payloads from '{self.collection_name}'...")
 
         try:
             search_result = self.client.search(
                 collection_name=self.collection_name,
                 query_vector=vector,
                 limit=top_k,
-                with_payload=True
+                with_payload=True,  # Ensure payload is requested
+                with_vectors=False  # Usually not needed for retrieval results
             )
 
-            chunk_paths = []
+            # --- MODIFICATION START ---
+            retrieved_data = []
             for match in search_result:
-                if match.payload and isinstance(match.payload, dict) and "file_path" in match.payload:
-                    chunk_paths.append(match.payload["file_path"])
+                # Basic check: ensure payload exists and is a dictionary
+                if match.payload and isinstance(match.payload, dict):
+                    # Extract required fields safely for logging/debugging
+                    file_path = match.payload.get("file_path", "MISSING_PATH")
+                    doc_tag = match.payload.get("doc_tag", "MISSING_TAG")  # Get the doc_tag
+
+                    # Log the retrieved item info (consider DEBUG level for less noise)
+                    logger.debug(
+                        f"Retrieved item: ID={match.id}, Score={match.score:.4f}, "
+                        f"Path='{file_path}', Tag='{doc_tag}'"  # Log the tag
+                    )
+
+                    # Store the relevant information
+                    retrieved_data.append({
+                        "id": match.id,
+                        "score": match.score,
+                        "payload": match.payload  # Store the entire payload
+                    })
                 else:
+                    # Log if payload is missing or not in expected format
                     logger.warning(
-                        f"Vector match (ID: {match.id}, Score: {match.score}) missing 'file_path'. "
+                        f"Vector match (ID: {match.id}, Score: {match.score}) has missing or invalid payload. "
                         f"Payload: {match.payload}"
                     )
 
-            logger.info(f"Retrieved {len(chunk_paths)} file paths")
-            return chunk_paths
+            logger.info(f"Retrieved {len(retrieved_data)} results with payload data.")
+            return retrieved_data
+            # --- MODIFICATION END ---
 
         except Exception as e:
-            error_msg = f"Error retrieving vectors from Qdrant: {str(e)}"
-            logger.error(error_msg)
+            # Log the error and return an empty list
+            error_msg = f"Error retrieving vectors from Qdrant collection '{self.collection_name}': {str(e)}"
+            logger.exception(error_msg)  # Use exception to include stack trace
             return []

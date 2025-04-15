@@ -4,7 +4,8 @@ import argparse
 import re
 import json
 from pathlib import Path
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Tuple, Optional
+import yaml
 
 # --- Assume chatRAG modules are importable ---
 # Adjust sys.path if needed, e.g., if running from a different directory
@@ -28,39 +29,70 @@ DEFAULT_OUTPUT_DIR = "textembeddings"
 DEFAULT_EMBEDDING_MODEL = "st-minilm" # Use SentenceTransformer MiniLM
 
 # --- Helper Function ---
-def parse_chunk_file(filepath: Path) -> str:
-    """Reads a chunk file and returns the content after the YAML frontmatter."""
+# --- Helper Function ---
+def parse_chunk_file(filepath: Path) -> Tuple[str, Optional[Dict[str, Any]]]:
+    """
+    Reads a chunk file, separates YAML frontmatter from content, and parses the YAML.
+    Returns:
+        Tuple[str, Optional[Dict[str, Any]]]: (content_string, metadata_dict or None)
+    """
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
-            lines = f.readlines()
+            raw_content = f.read()
     except Exception as e:
         print(f"  Error reading file {filepath}: {e}")
-        return ""
+        return "", None
 
     content_lines = []
+    yaml_lines = []
+    in_yaml = False
     in_content = False
     sep_count = 0
-    for line in lines:
-        if line.strip() == '---':
+
+    # --- *** MODIFIED: Separate YAML and Content *** ---
+    for line in raw_content.splitlines():
+        stripped_line = line.strip()
+        if stripped_line == '---':
             sep_count += 1
-            if sep_count == 2:
+            if sep_count == 1:
+                in_yaml = True
+            elif sep_count == 2:
+                in_yaml = False
                 in_content = True
             continue # Skip the separator lines
 
-        if in_content:
+        if in_yaml:
+            yaml_lines.append(line)
+        elif in_content:
             content_lines.append(line)
+        elif sep_count == 0: # Handle case with no frontmatter
+             content_lines.append(line)
 
-    # Handle files with no frontmatter (shouldn't happen with the generator script)
-    if sep_count < 2 and not content_lines:
-         print(f"  Warning: No frontmatter found in {filepath}. Using all lines.")
-         return "".join(lines).strip()
-    elif sep_count == 0 and content_lines: # Case where only content exists
-         return "".join(content_lines).strip()
-    elif sep_count >= 2:
-         return "".join(content_lines).strip()
-    else: # Only frontmatter found
-         print(f"  Warning: Only frontmatter found in {filepath}. No content to embed.")
-         return ""
+
+    content_string = "\n".join(content_lines).strip()
+    metadata = None
+
+    if yaml_lines:
+        yaml_string = "\n".join(yaml_lines)
+        try:
+            metadata = yaml.safe_load(yaml_string)
+            if not isinstance(metadata, dict):
+                 print(f"  Warning: YAML frontmatter in {filepath} did not parse into a dictionary. Metadata ignored.")
+                 metadata = None
+        except yaml.YAMLError as e:
+            print(f"  Error parsing YAML frontmatter in {filepath}: {e}. Metadata ignored.")
+            metadata = None
+        except Exception as e: # Catch other potential errors during loading
+            print(f"  Unexpected error parsing YAML in {filepath}: {e}. Metadata ignored.")
+            metadata = None
+    elif sep_count < 2 and content_string:
+        print(f"  Warning: No frontmatter found in {filepath}. Proceeding without metadata.")
+    elif not content_string:
+         print(f"  Warning: No content found after frontmatter (or no content at all) in {filepath}.")
+
+
+    return content_string, metadata
+    # --- *** END MODIFIED *** ---
 
 # --- Main Embedding Generation Logic ---
 def generate_and_save_embeddings(input_dir: str, output_dir: str, embedding_handler: BaseEmbeddingHandler):
@@ -83,7 +115,10 @@ def generate_and_save_embeddings(input_dir: str, output_dir: str, embedding_hand
     print(f"Ensured output directory exists: {root_output_dir}")
 
     print("\nScanning for .txt chunk files...")
-    chunk_files = list(root_input_dir.rglob("*.txt")) # Recursively find all .txt files
+    # --- *** MODIFIED: Use correct glob pattern based on new structure *** ---
+    # Search within the structure like chunks_optimized/api/adr/*.txt
+    chunk_files = list(root_input_dir.rglob("*/*/*.txt"))
+    # --- *** END MODIFIED *** ---
     print(f"Found {len(chunk_files)} chunk files.")
 
     processed_count = 0
@@ -91,46 +126,75 @@ def generate_and_save_embeddings(input_dir: str, output_dir: str, embedding_hand
     error_count = 0
 
     for filepath in chunk_files:
-        relative_path = filepath.relative_to(root_input_dir)
-        print(f"\nProcessing [{processed_count + skipped_count + error_count + 1}/{len(chunk_files)}]: {relative_path}")
+        relative_path_to_input_root = filepath.relative_to(root_input_dir)
+        print(
+            f"\nProcessing [{processed_count + skipped_count + error_count + 1}/{len(chunk_files)}]: {relative_path_to_input_root}")
 
-        # 1. Parse Content
-        content = parse_chunk_file(filepath)
+        # 1. Parse Content and Metadata
+        # --- *** MODIFIED: Get metadata too *** ---
+        content, metadata = parse_chunk_file(filepath)
+        # --- *** END MODIFIED *** ---
+
         if not content:
-            print(f"  Skipping empty file or file with no content: {relative_path}")
+            print(f"  Skipping empty file or file with no content: {relative_path_to_input_root}")
             skipped_count += 1
             continue
 
-        # 2. Generate Embedding
+        # --- *** NEW: Check for essential metadata *** ---
+        if not metadata:
+            print(f"  Skipping file due to missing or invalid metadata: {relative_path_to_input_root}")
+            skipped_count += 1
+            continue
+
+        file_path_from_meta = metadata.get("file_path")
+        doc_tag_from_meta = metadata.get("doc_tag")
+
+        if not file_path_from_meta or not doc_tag_from_meta:
+            print(f"  Skipping file due to missing 'file_path' or 'doc_tag' in metadata: {relative_path_to_input_root}")
+            skipped_count += 1
+            continue
+        # --- *** END NEW *** ---
+
+        # 2. Generate Embedding (remains the same)
         try:
             print(f"  Generating embedding for {len(content)} characters...")
             embedding = embedding_handler.get_embedding(content)
+            # ... (embedding validation) ...
             if not embedding or len(embedding) != embedding_handler.dimension:
-                 print(f"  Error: Invalid embedding generated (Dim: {len(embedding) if embedding else 'None'} vs Expected: {embedding_handler.dimension}). Skipping.")
-                 error_count += 1
-                 continue
+                print(
+                    f"  Error: Invalid embedding generated (Dim: {len(embedding) if embedding else 'None'} vs Expected: {embedding_handler.dimension}). Skipping.")
+                error_count += 1
+                continue
             print(f"  Embedding generated (dimension: {len(embedding)}).")
 
         except Exception as e:
-            print(f"  Error generating embedding for {relative_path}: {e}")
+            print(f"  Error generating embedding for {relative_path_to_input_root}: {e}")
             error_count += 1
             continue
 
         # 3. Prepare Output Path and Data
-        output_subpath = relative_path.with_suffix(".json")
+        # --- *** MODIFIED: Use metadata file_path for output structure *** ---
+        # Reconstruct output path based on the file_path field in metadata
+        # e.g., api/adr/section_1_1_goal.json
+        output_subpath = Path(file_path_from_meta).with_suffix(".json")
         output_filepath = root_output_dir / output_subpath
+        # --- *** END MODIFIED *** ---
+
+        # --- *** MODIFIED: Add doc_tag to output data *** ---
         output_data = {
-            "file_path": str(relative_path).replace('\\', '/'), # Store relative path with forward slashes
-            "embedding": embedding # Store the list of floats
+            "file_path": file_path_from_meta,  # Use path from metadata
+            "doc_tag": doc_tag_from_meta,  # Add the document tag
+            "embedding": embedding
         }
+        # --- *** END MODIFIED *** ---
 
         # Ensure the specific output subdirectory exists
         output_filepath.parent.mkdir(parents=True, exist_ok=True)
 
-        # 4. Save Embedding to JSON
+        # 4. Save Embedding to JSON (remains the same)
         try:
             with open(output_filepath, 'w', encoding='utf-8') as f_out:
-                json.dump(output_data, f_out, indent=None) # Use None for compact storage
+                json.dump(output_data, f_out, indent=None)
             print(f"  Saved embedding to: {output_filepath}")
             processed_count += 1
         except Exception as e:

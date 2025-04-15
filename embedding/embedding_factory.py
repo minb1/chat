@@ -48,7 +48,7 @@ def get_embedding_for_vector_store(vector_store: str) -> BaseEmbeddingHandler:
     # Map vector stores to appropriate embedding models
     store_to_model = {
         "pinecone": "openai-small",  # Example: Pinecone uses OpenAI embeddings
-        "qdrant": "st-mpnet",  # Example: Qdrant uses SentenceTransformers
+        "qdrant": "st-minilm",  # Example: Qdrant uses SentenceTransformers
         "chroma": "st-mpnet",  # Example: Chroma uses SentenceTransformer
     }
 
