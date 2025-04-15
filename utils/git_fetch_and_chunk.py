@@ -9,32 +9,28 @@ import concurrent.futures
 import time
 import yaml
 
-# --- Performance Optimization Additions ---
-# Cache for BeautifulSoup objects
+# Performance Optimization Additions
 html_soup_cache = {}
 
-
-# LRU cache for expensive operations
 @lru_cache(maxsize=128)
 def cached_sanitize_filename_part(text):
     """Cached wrapper for sanitize_filename_part."""
     if not text:
         return "untitled_chunk"
     text = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('ascii')
-    text = re.sub(r'[\s/:]+', '_', text)
+    text = re.sub(r'[\s/:]+', '', text)
     text = re.sub(r'[^\w\-.]+', '', text)
-    text = text.strip('_-')
-    text = re.sub(r'[-_]{2,}', '_', text)
+    text = text.strip('-')
+    text = re.sub(r'[-]{2,}', '', text)
     sanitized = text[:60] or "chunk"
     if not re.match(r'^section_', sanitized) and sanitized and sanitized[0].isdigit():
-        sanitized = "_" + sanitized
-    if not sanitized or sanitized in ["_", "__", "chunk"]:
+        sanitized = "" + sanitized
+    if not sanitized or sanitized in ["", "__", "chunk"]:
         original_hash_part = abs(hash(text)) % 10000
         return f"chunk_{original_hash_part}"
     return sanitized.lower()
 
-
-def get_top_level_index_files_per_folder(): # Renamed for clarity
+def get_top_level_index_files_per_folder():
     """
     Fetches paths to index.html files that are exactly one level deep
     within a top-level folder (e.g., api/adr/index.html, bomos/beheer/index.html),
@@ -60,21 +56,14 @@ def get_top_level_index_files_per_folder(): # Renamed for clarity
 
     index_files = []
     for item in tree:
-        # Check if it's a file ('blob') and the path ends with '/index.html'
         if item.get('type') == 'blob' and item.get('path', '').endswith('/index.html'):
             path = item['path']
             parts = path.split('/')
-            # Check if the path has exactly 3 parts:
-            # e.g., ['api', 'adr', 'index.html'] -> length 3 - YES
-            # e.g., ['api', 'adr', '1.0', 'index.html'] -> length 4 - NO
-            # Also ensure the middle part (sub_folder) is not empty
             if len(parts) == 3 and parts[1]:
                 index_files.append(path)
 
     return index_files
 
-
-# Parallel fetching of HTML content
 def fetch_html_from_path(path):
     """Fetches raw HTML content from a GitHub raw URL."""
     base_url = "https://raw.githubusercontent.com/Logius-standaarden/publicatie/main/"
@@ -87,7 +76,6 @@ def fetch_html_from_path(path):
     except requests.exceptions.RequestException as e:
         print(f"Error fetching {raw_url}: {e}")
         return None
-
 
 def fetch_all_html_files_parallel(paths, max_workers=10):
     """Fetch multiple HTML files in parallel."""
@@ -104,46 +92,37 @@ def fetch_all_html_files_parallel(paths, max_workers=10):
                 print(f"Error processing {path}: {e}")
     return results
 
-
-# --- Content Check and Sanitization ---
 def has_meaningful_content(html_string):
     """Checks if the HTML content has meaningful text after basic cleaning."""
     if not html_string:
         return False
     try:
-        # Use a simple parsing approach first
-        quick_check_text = re.sub(r'<script.*?</script>', '', html_string, flags=re.DOTALL)
-        quick_check_text = re.sub(r'<style.*?</style>', '', quick_check_text, flags=re.DOTALL)
+        quick_check_text = re.sub(r'<script.?</script>', '', html_string, flags=re.DOTALL)
+        quick_check_text = re.sub(r'<style.?</style>', '', quick_check_text, flags=re.DOTALL)
         quick_check_text = re.sub(r'<.*?>', ' ', quick_check_text)
         quick_check_text = re.sub(r'\s+', ' ', quick_check_text).strip()
 
-        # Quick length check for efficiency
         if len(quick_check_text) < 100:
             return False
 
-        # Only do full parsing if needed
         soup = BeautifulSoup(html_string, 'html.parser')
 
-        # Selectors for elements to remove
         selectors_to_remove = [
             "script", "style", "head", "meta", "link", "nav", "footer",
             ".sidelabel", ".dfn-panel", "div.head"
         ]
 
-        # Find and decompose elements matching the selectors
         for selector in selectors_to_remove:
             try:
                 elements = soup.select(selector)
                 for element in elements:
                     if isinstance(element, Tag):
                         element.decompose()
-            except (NotImplementedError, Exception) as e:
-                pass  # Skip errors in selector processing
+            except (NotImplementedError, Exception):
+                pass
 
-        # Get text after removals
         text = soup.get_text(separator=" ", strip=True)
 
-        # Check text length and against common placeholders
         min_length = 100
         placeholders = {'placeholder', 'coming soon', 'under construction', 'index', 'to be determined'}
 
@@ -156,19 +135,15 @@ def has_meaningful_content(html_string):
 
     return True
 
-
 def sanitize_filename_part(text):
     """Sanitizes text for use in filenames more robustly."""
-    # Use cached version for performance
     return cached_sanitize_filename_part(text)
-
 
 def extract_section_numbers(heading):
     """Extracts section numbers from a heading (e.g., '1.', '1.2', 'A.', 'A.1')."""
     if not heading: return None
-    match = re.match(r'^[A-Za-z]?\s*(\d+(?:\.\d+)*)\.?\s+', heading)
+    match = re.match(r'^[A-Za-z]?\s*(\d+(?:.\d+)*).?\s+', heading)
     return match.group(1) if match else None
-
 
 def create_chunk_filename(chunk_data, index):
     """Creates a filename for a chunk based on its heading."""
@@ -192,11 +167,8 @@ def create_chunk_filename(chunk_data, index):
         else:
             return f"{sanitized_heading}.txt"
 
-
-# --- Optimized HTML Processing ---
 def preprocess_html(html_string):
     """Optimized preprocessing of HTML content."""
-    # Check if we've already processed this exact HTML
     if html_string in html_soup_cache:
         return html_soup_cache[html_string]
 
@@ -206,13 +178,11 @@ def preprocess_html(html_string):
         print(f"Error: Failed to parse HTML for preprocessing: {e}")
         return BeautifulSoup("", 'html.parser')
 
-    # Batch removal of elements for better performance
     for tag_name in ['script', 'style', 'head', 'meta', 'link', 'header', 'footer', 'nav']:
         for element in soup.find_all(tag_name):
             if isinstance(element, Tag):
                 element.decompose()
 
-    # Optimized selector removal - do in batches by selector type
     selectors_by_type = {
         'class': ['.sidelabel', '.dfn-panel', '.p-author', '.issue-container-generatedID',
                   '.jump-to-issues', '.respec-info', '.rule .flag', '.rule .rulelab',
@@ -224,63 +194,48 @@ def preprocess_html(html_string):
                 'details.respec-tests-details', '.header-wrapper > a.self-link']
     }
 
-    # Process by selector type
     for selector_type, selectors in selectors_by_type.items():
         for selector in selectors:
             try:
                 if selector_type == 'class':
-                    class_name = selector[1:]  # Remove the leading dot
+                    class_name = selector[1:]
                     for element in soup.find_all(class_=class_name):
                         if isinstance(element, Tag):
                             element.decompose()
                 elif selector_type == 'id':
-                    id_name = selector[1:]  # Remove the leading #
+                    id_name = selector[1:]
                     element = soup.find(id=id_name)
                     if element and isinstance(element, Tag):
                         element.decompose()
                 else:
-                    # Use select for complex selectors
                     for element in soup.select(selector):
                         if isinstance(element, Tag):
                             element.decompose()
-            except Exception as e:
-                pass  # Skip errors in selector processing
+            except Exception:
+                pass
 
-    # Remove comments
     for comment in soup.find_all(string=lambda text: isinstance(text, Comment)):
         comment.extract()
 
-    # Store in cache
     html_soup_cache[html_string] = soup
     return soup
 
-
-# Optimized content extraction
-# --- Optimized HTML Processing ---
-
-# ... (keep preprocess_html and other preceding functions as they are) ...
-
-# Optimized content extraction
 def extract_content_between_v3(soup, start_node, end_node, start_level):
-    """Optimized version of content extraction that avoids repetitive DOM traversal
-       and stops when a subheading is encountered."""
+    """Optimized version of content extraction that avoids repetitive DOM traversal."""
     if not isinstance(start_node, Tag):
         return "", []
 
     content_parts = []
     tables_html = []
 
-    # Iterate through sibling and subsequent nodes efficiently
-    current = start_node.find_next() # Start processing *after* the heading itself
-    processed_nodes = set() # Keep track of nodes already handled (like table descendants)
+    current = start_node.find_next()
+    processed_nodes = set()
 
     while current and current != end_node:
-        # If node is already processed (e.g., part of a table we handled), skip
         if current in processed_nodes:
             current = current.find_next()
             continue
 
-        # Check if any parent was already processed (avoids double-counting)
         parent_processed = False
         for parent in current.parents:
             if parent in processed_nodes:
@@ -292,74 +247,49 @@ def extract_content_between_v3(soup, start_node, end_node, start_level):
 
         node_name = current.name
 
-        # Skip non-content elements early
         if node_name is None or node_name in ['script', 'style', 'head', 'meta', 'link', 'nav']:
             processed_nodes.add(current)
             current = current.find_next()
             continue
 
-        # Handle headings - check if this is a new section or a SUB-section
         if node_name in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']:
             try:
                 heading_level = int(node_name[1])
-                # *** CHANGE HERE ***
-                # If we encounter ANY heading at a level deeper than the start_node's level,
-                # it signifies the start of a subsection. Stop processing for the current chunk.
                 if heading_level > start_level:
-                    # print(f"DEBUG: Stopping for {start_node.name} ({start_level}) because found subheading {current.name} ({heading_level})")
-                    break # Stop collecting content for the parent section
-
-                # If we encounter a heading at the same level or higher, it's the boundary
-                # (This should technically be caught by end_node, but good safety check)
+                    break
                 elif heading_level <= start_level:
-                    # print(f"DEBUG: Stopping for {start_node.name} ({start_level}) because found same/higher heading {current.name} ({heading_level})")
-                    break # Stop collecting content, new section starts
-
+                    break
             except (ValueError, IndexError):
-                 # Ignore malformed heading tags like <h7> etc.
-                 pass # Continue processing content after it
+                pass
 
-        # Handle tables - store once and process all descendants
         if node_name == 'table':
             table_html_str = str(current)
             if table_html_str not in tables_html:
                 tables_html.append(table_html_str)
             processed_nodes.add(current)
-            # Mark all descendants as processed so we don't extract their text separately
             for desc in current.descendants:
-                 if isinstance(desc, Tag):
+                if isinstance(desc, Tag):
                     processed_nodes.add(desc)
 
-        # Extract text from content tags ONLY if not inside a processed container (like a table)
         elif node_name in ['p', 'li', 'dd', 'dt', 'span', 'em', 'strong', 'a', 'code', 'pre', 'td', 'th', 'ul', 'ol', 'dl']:
-             # Check again if this node itself was processed (e.g., a <td> inside a handled <table>)
-             if current not in processed_nodes:
+            if current not in processed_nodes:
                 node_texts = list(current.stripped_strings)
                 filtered_texts = []
                 for text in node_texts:
                     cleaned_text = re.sub(r'^(functional|technical)\s+/[a-zA-Z0-9_/:-]+\s*:\s*', '',
                                           text.strip()).strip()
-                    # Avoid adding just section numbers as content
                     if not re.fullmatch(r'\d+(\.\d+)+', cleaned_text) and cleaned_text:
                         filtered_texts.append(cleaned_text)
                 if filtered_texts:
                     content_parts.append(' '.join(filtered_texts))
-                processed_nodes.add(current) # Mark this node as processed
+                processed_nodes.add(current)
 
-        # Move to the next node in the document order
         current = current.find_next()
 
     full_text = ' '.join(content_parts)
     full_text = re.sub(r'\s+', ' ', full_text).strip()
     return full_text, tables_html
 
-
-# --- (Rest of the code remains the same) ---
-
-# ... (chunk_html_to_text_with_context_v3, html_table_to_markdown, process_and_save_chunks, main, etc.) ...
-
-
-# Optimized chunking function
 def chunk_html_to_text_with_context_v3(html_string, path):
     """Optimized HTML chunking that reduces redundant operations."""
     if not html_string:
@@ -375,11 +305,9 @@ def chunk_html_to_text_with_context_v3(html_string, path):
         traceback.print_exc()
         return []
 
-    # Find all headings at once to avoid repeated searches
     headings = body.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'], recursive=True)
 
     if not headings:
-        # Create single chunk for the entire document
         full_text, tables_html = extract_content_between_v3(soup, body, None, 0)
         if full_text or tables_html:
             title = 'Document Content'
@@ -395,7 +323,6 @@ def chunk_html_to_text_with_context_v3(html_string, path):
         else:
             return []
 
-    # Create a dictionary to quickly find heading levels
     heading_levels = {}
     for heading in headings:
         if isinstance(heading, Tag):
@@ -404,7 +331,6 @@ def chunk_html_to_text_with_context_v3(html_string, path):
             except (ValueError, IndexError):
                 pass
 
-    # Create a dictionary to find the next heading at same or higher level
     next_boundary = {}
     for i, heading in enumerate(headings):
         for j in range(i + 1, len(headings)):
@@ -428,12 +354,10 @@ def chunk_html_to_text_with_context_v3(html_string, path):
         if not heading_text:
             continue
 
-        # Build context efficiently
         context = []
         context_levels = []
         node = heading
 
-        # Pre-compute all previous headings at once
         prev_headings = []
         while True:
             prev_heading = node.find_previous(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
@@ -442,7 +366,6 @@ def chunk_html_to_text_with_context_v3(html_string, path):
             prev_headings.append(prev_heading)
             node = prev_heading
 
-        # Process context in reverse order
         current_parent_level = current_level
         for prev_heading in prev_headings:
             prev_level = heading_levels.get(prev_heading)
@@ -460,13 +383,10 @@ def chunk_html_to_text_with_context_v3(html_string, path):
             if current_parent_level <= 1:
                 break
 
-        # Get end node from our pre-computed boundaries
         end_node = next_boundary.get(heading)
 
-        # Extract content
         content, tables_html = extract_content_between_v3(soup, heading, end_node, current_level)
 
-        # Skip empty chunks
         if not content and not tables_html:
             continue
 
@@ -481,18 +401,13 @@ def chunk_html_to_text_with_context_v3(html_string, path):
 
     return chunks
 
-
-# --- Optimized Table Conversion ---
-# Cache for table conversions
 table_markdown_cache = {}
-
 
 def html_table_to_markdown(table_html):
     """Cached and optimized HTML table to Markdown conversion."""
     if not table_html:
         return ""
 
-    # Check cache first
     if table_html in table_markdown_cache:
         return table_markdown_cache[table_html]
 
@@ -505,7 +420,6 @@ def html_table_to_markdown(table_html):
 
         markdown_table = []
 
-        # Extract headers
         headers = []
         header_row = table.find('thead')
         start_row_index = 0
@@ -522,19 +436,16 @@ def html_table_to_markdown(table_html):
                            first_row.find_all(['th', 'td'])]
                 start_row_index = 1
 
-        # Process headers
         leading_empty = 0
         trailing_empty = 0
 
         if headers:
-            # Find leading empty headers
             for h in headers:
                 if not h:
                     leading_empty += 1
                 else:
                     break
 
-            # Find trailing empty headers
             for h in reversed(headers):
                 if not h:
                     trailing_empty += 1
@@ -550,7 +461,6 @@ def html_table_to_markdown(table_html):
                 leading_empty = 0
                 trailing_empty = 0
 
-        # Process rows efficiently
         body = table.find('tbody')
         rows = body.find_all('tr') if body else table.find_all('tr')[start_row_index:]
 
@@ -580,39 +490,25 @@ def html_table_to_markdown(table_html):
         table_markdown_cache[table_html] = f"<!-- Error converting table: {e} -->\n{table_html}"
         return table_markdown_cache[table_html]
 
-
-# --- Optimized Saving Function ---
-# --- Optimized Saving Function ---
 def process_and_save_chunks(path, html_content, output_directory, chunk_cache=None):
     """Optimized chunk processing and saving with optional caching and doc_tag."""
     chunk_cache = chunk_cache or {}
 
-    # --- *** NEW: Extract doc_tag *** ---
-    doc_tag = "unknown_doc" # Default value
+    doc_tag = "unknown_doc"
     path_parts = path.split('/')
-    # Expecting path like 'category/doc_name/index.html'
     if len(path_parts) == 3 and path_parts[1]:
         doc_tag = path_parts[1]
-    elif len(path_parts) > 1: # Fallback for simpler paths maybe?
-        doc_tag = path_parts[0] # Or adjust logic as needed
+    elif len(path_parts) > 1:
+        doc_tag = path_parts[0]
     print(f"  Derived doc_tag '{doc_tag}' from path '{path}'.")
-    # --- *** END NEW *** ---
 
-
-    # Create output directory
-    # Use doc_tag in the output path structure as well for organization
-    output_dir = os.path.join(output_directory, doc_tag, os.path.dirname(path).split('/')[0]) # e.g. chunks_optimized/adr/api
-    # Ensure correct relative path structure within the doc_tag folder
-    relative_base = os.path.join(path_parts[0]) # e.g. 'api' or 'ep'
-    output_dir = os.path.join(output_directory, relative_base, doc_tag) # e.g. chunks_optimized/api/adr
+    output_dir = os.path.join(output_directory, path_parts[0], doc_tag)
     os.makedirs(output_dir, exist_ok=True)
 
-    # Check if chunks are already cached
     cache_key = hash(html_content)
     if cache_key in chunk_cache:
         chunks = chunk_cache[cache_key]
     else:
-        # Generate chunks
         chunks = chunk_html_to_text_with_context_v3(html_content, path)
         chunk_cache[cache_key] = chunks
 
@@ -620,70 +516,55 @@ def process_and_save_chunks(path, html_content, output_directory, chunk_cache=No
         print(f"  No processable chunks generated for {path}.")
         return 0
 
-    # Prepare all chunk data before writing
     files_to_write = []
     for index, chunk_data in enumerate(chunks):
         if not chunk_data.get('heading') and not chunk_data.get('chunk_text') and not chunk_data.get('tables_html'):
             continue
 
         filename = create_chunk_filename(chunk_data, index)
-        # --- *** MODIFIED: Correct filepath construction *** ---
-        filepath = os.path.join(output_dir, filename)
-        # Calculate relative path for the file_path metadata field
-        chunk_relative_path_parts = [relative_base, doc_tag, filename]
+        chunk_relative_path_parts = [path_parts[0], doc_tag, filename]
         chunk_relative_path = '/'.join(chunk_relative_path_parts)
-        # --- *** END MODIFIED *** ---
+        filepath = os.path.join(output_dir, filename)
 
-
-        # Build content for this file
         content = []
-
-        # YAML Frontmatter
         content.append("---")
-        # --- *** MODIFIED: Use calculated relative path and add doc_tag *** ---
-        content.append(f"file_path: {chunk_relative_path}") # Use the relative path for consistency
-        content.append(f"original_html_path: {path}") # Keep the original HTML path too
-        content.append(f"doc_tag: {doc_tag}") # Add the extracted document tag
-        # --- *** END MODIFIED *** ---
+        content.append(f"file_path: {chunk_relative_path}")
+        content.append(f"original_html_path: {path}")
+        content.append(f"doc_tag: {doc_tag}")
         formatted_context = ["'{}'".format(c.replace("'", "\\'")) for c in chunk_data.get('context', [])]
         context_str = '[' + ', '.join(formatted_context) + ']'
         content.append(f"parent_sections: {context_str}")
         title = chunk_data.get('heading', f'Chunk {index}')
-        # Ensure title doesn't contain triple dashes which break YAML parsing
         title_str = title.replace('"', '\\"').replace('---', '- - -')
         content.append(f'title: "{title_str}"')
         content.append("---\n")
 
-        # Markdown Content (remains the same)
-        # ... (rest of the content building logic) ...
         for level, ctx in zip(chunk_data.get('context_levels', []), chunk_data.get('context', [])):
-             cleaned_ctx = re.sub(r'\s+', ' ', ctx).strip()
-             if cleaned_ctx:
-                 content.append(f"{'#' * level} {cleaned_ctx}")
+            cleaned_ctx = re.sub(r'\s+', ' ', ctx).strip()
+            if cleaned_ctx:
+                content.append(f"{'#' * level} {cleaned_ctx}")
 
         cleaned_heading = re.sub(r'\s+', ' ', title).strip()
         if cleaned_heading:
-             content.append(f"{'#' * chunk_data.get('level', 1)} {cleaned_heading}\n")
+            content.append(f"{'#' * chunk_data.get('level', 1)} {cleaned_heading}\n")
 
         if chunk_data.get('chunk_text'):
-             cleaned_text = re.sub(r'\n{3,}', '\n\n', chunk_data['chunk_text'])
-             cleaned_text = re.sub(r' {2,}', ' ', cleaned_text).strip()
-             if cleaned_text:
-                 content.append(cleaned_text + "\n")
+            cleaned_text = re.sub(r'\n{3,}', '\n\n', chunk_data['chunk_text'])
+            cleaned_text = re.sub(r' {2,}', ' ', cleaned_text).strip()
+            if cleaned_text:
+                content.append(cleaned_text + "\n")
 
         if chunk_data.get('tables_html'):
-             for table_html in chunk_data['tables_html']:
-                 markdown_table = html_table_to_markdown(table_html)
-                 if markdown_table:
-                     content.append(markdown_table + "\n")
+            for table_html in chunk_data['tables_html']:
+                markdown_table = html_table_to_markdown(table_html)
+                if markdown_table:
+                    content.append(markdown_table + "\n")
 
         files_to_write.append((filepath, '\n'.join(content)))
 
-    # Write files (remains the same)
     saved_count = 0
     for filepath, content in files_to_write:
         try:
-            # Ensure parent directory exists before writing
             os.makedirs(os.path.dirname(filepath), exist_ok=True)
             with open(filepath, 'w', encoding='utf-8') as txt_file:
                 txt_file.write(content)
@@ -694,15 +575,9 @@ def process_and_save_chunks(path, html_content, output_directory, chunk_cache=No
     print(f"  Saved {saved_count} chunks for {path} under doc_tag '{doc_tag}'.")
     return saved_count
 
-
-
-# --- Main Execution Block ---
 def fetch_git_and_chunk():
     start_time = time.time()
     output_directory = "chunks_optimized"
-    # --- *** MODIFIED: Clean the output directory before starting *** ---
-    # This is important for the update workflow later, to avoid old files persisting
-    # if a doc is removed or renamed entirely.
     if os.path.exists(output_directory):
         print(f"Cleaning previous output directory: {output_directory}")
         import shutil
@@ -712,7 +587,6 @@ def fetch_git_and_chunk():
         except OSError as e:
             print(f"Error removing directory {output_directory}: {e}. Proceeding might lead to old data.")
     os.makedirs(output_directory, exist_ok=True)
-    # --- *** END MODIFIED *** ---
 
     print("Fetching file list from GitHub...")
     files_to_process = get_top_level_index_files_per_folder()
@@ -723,7 +597,6 @@ def fetch_git_and_chunk():
 
     print(f"Found {len(files_to_process)} index.html files to process.")
 
-    # Fetch all HTML content in parallel
     print("Fetching HTML content in parallel...")
     html_contents = fetch_all_html_files_parallel(files_to_process)
 
@@ -732,11 +605,9 @@ def fetch_git_and_chunk():
     failed_fetch_count = len(files_to_process) - len(html_contents)
     error_processing_count = 0
 
-    # Process files with meaningful content
     print("Processing HTML content...")
-    chunk_cache = {}  # Cache for chunks
+    chunk_cache = {}
 
-    # Filter out files without meaningful content
     meaningful_files = {}
     for path, html_content in html_contents.items():
         if has_meaningful_content(html_content):
@@ -745,7 +616,6 @@ def fetch_git_and_chunk():
             print(f"  Skipping {path} due to lack of meaningful content.")
             skipped_no_content_count += 1
 
-    # Process meaningful files
     total_chunks = 0
     for path, html_content in meaningful_files.items():
         print(f"\n>>> Processing {path}...")

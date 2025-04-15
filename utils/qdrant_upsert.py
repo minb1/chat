@@ -5,36 +5,22 @@ from qdrant_client import QdrantClient
 from qdrant_client.http import models
 from qdrant_client.http.exceptions import UnexpectedResponse
 
-
 def insert_into_qdrant(
-        directory: Optional[str] = "textembeddings",
-        file_path: Optional[str] = None,
-        collection_name: str = "qdrant-logius",
-        host: str = "qdrant",
-        port: int = 6333,
-        vector_size: int = 384
+    directory: Optional[str] = "textembeddings",
+    file_path: Optional[str] = None,
+    collection_name: str = "qdrant-logius",
+    host: str = "qdrant",
+    port: int = 6333,
+    vector_size: int = 384
 ) -> int:
     """
     Insert embeddings into Qdrant from files or directory.
-
-    Args:
-        directory: Directory containing embedding files
-        file_path: Path to a specific embedding file (alternative to directory)
-        collection_name: Name of the Qdrant collection
-        host: Qdrant server host
-        port: Qdrant server port
-        vector_size: Dimension of the vectors
-
-    Returns:
-        Number of embeddings inserted
     """
-    # Connect to Qdrant
     client = QdrantClient(host=host, port=port)
     print(f"Connected to Qdrant at {host}:{port}")
 
     embeddings_data = []
 
-    # Process a single file if specified
     if file_path:
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
@@ -50,33 +36,23 @@ def insert_into_qdrant(
         except Exception as e:
             print(f"Error processing file {file_path}: {str(e)}")
     elif directory:
-        # Load embeddings from directory
         print(f"Loading embeddings from {directory}...")
         embeddings_data = load_json_files(directory)
     else:
         print("Error: Either directory or file_path must be provided")
         return 0
 
-    # Create collection
     create_qdrant_collection(client, collection_name, vector_size)
 
-    # Insert embeddings
     print(f"Inserting {len(embeddings_data)} embeddings into collection {collection_name}...")
     insert_embeddings(client, collection_name, embeddings_data)
 
     print("Import completed!")
     return len(embeddings_data)
 
-
 def load_json_files(base_directory: str) -> List[Dict[str, Any]]:
     """
     Recursively load all JSON files from a directory structure.
-
-    Args:
-        base_directory: The root directory to start the search
-
-    Returns:
-        A list of dictionaries containing the parsed JSON data
     """
     embeddings_data = []
     processed_files = 0
@@ -95,7 +71,6 @@ def load_json_files(base_directory: str) -> List[Dict[str, Any]]:
                 try:
                     with open(file_path, 'r', encoding='utf-8') as f:
                         content = f.read()
-                        # Try to parse as a single JSON object first
                         try:
                             data = json.loads(content)
                             if isinstance(data, dict):
@@ -110,7 +85,6 @@ def load_json_files(base_directory: str) -> List[Dict[str, Any]]:
                                         embeddings_data.append(item)
                                 print(f"Found {len(data)} embeddings in {file_path}")
                         except json.JSONDecodeError:
-                            # Try line by line for files with one JSON object per line
                             line_count = 0
                             for line in content.splitlines():
                                 if line.strip():
@@ -131,7 +105,6 @@ def load_json_files(base_directory: str) -> List[Dict[str, Any]]:
 
     return embeddings_data
 
-
 def create_qdrant_collection(client: QdrantClient, collection_name: str, vector_size: int = 384):
     """
     Create a Qdrant collection if it doesn't exist and ensure payload index exists.
@@ -147,47 +120,39 @@ def create_qdrant_collection(client: QdrantClient, collection_name: str, vector_
                     size=vector_size,
                     distance=models.Distance.COSINE
                 )
-                # Add shard/replication config if needed
             )
             print(f"Created collection: {collection_name}")
         else:
             print(f"Collection {collection_name} already exists.")
 
-        # --- *** NEW: Ensure payload index exists for doc_tag *** ---
         try:
             collection_info = client.get_collection(collection_name=collection_name)
-            # Check if the index already exists (might need refinement based on client version)
             existing_indexes = collection_info.payload_schema if hasattr(collection_info, 'payload_schema') else {}
-            # Qdrant client library changes often, this is a basic check
             if 'doc_tag' not in existing_indexes:
                 print(f"Creating payload index for 'doc_tag' in collection '{collection_name}'...")
                 client.create_payload_index(
                     collection_name=collection_name,
                     field_name="doc_tag",
-                    field_schema=models.PayloadSchemaType.KEYWORD # Use KEYWORD for exact matching
+                    field_schema=models.PayloadSchemaType.KEYWORD
                 )
                 print(f"Payload index for 'doc_tag' created or already exists.")
             else:
-                 print(f"Payload index for 'doc_tag' seems to exist.")
-
-        except Exception as e: # Catch specific exceptions if possible
+                print(f"Payload index for 'doc_tag' seems to exist.")
+        except Exception as e:
             print(f"Warning: Could not verify or create payload index for 'doc_tag': {e}")
-        # --- *** END NEW *** ---
 
     except UnexpectedResponse as e:
-         print(f"Error communicating with Qdrant during collection creation/check: {e}")
-         # Decide how to handle this, maybe raise the exception
-         raise
+        print(f"Error communicating with Qdrant during collection creation/check: {e}")
+        raise
     except Exception as e:
         print(f"An unexpected error occurred during collection setup: {e}")
         raise
-
 
 def insert_embeddings(client: QdrantClient, collection_name: str, embeddings_data: List[Dict[str, Any]]) -> int:
     """
     Upsert embeddings into the Qdrant collection with unique IDs based on file_path.
     """
-    batch_size = 100 # Adjust as needed
+    batch_size = 100
     total_count = len(embeddings_data)
     inserted_count = 0
 
@@ -200,36 +165,25 @@ def insert_embeddings(client: QdrantClient, collection_name: str, embeddings_dat
         points = []
 
         for item in batch:
-            # --- *** NEW: Use file_path as a more stable ID *** ---
-            # Hash the file_path for a deterministic numeric or UUID ID if required
-            # Qdrant prefers integer or UUID IDs. Hashing ensures consistency.
-            # Using file_path directly might work if it fits UUID format, but hashing is safer.
             import hashlib
             import uuid
             file_path = item.get("file_path")
             if not file_path:
-                 print(f"Warning: Skipping item due to missing 'file_path'.")
-                 continue
+                print(f"Warning: Skipping item due to missing 'file_path'.")
+                continue
 
-            # Create a UUID from the SHA1 hash of the file path for a stable ID
             hashed_path = hashlib.sha1(file_path.encode('utf-8')).digest()
             point_id = str(uuid.UUID(bytes=hashed_path[:16]))
-            # --- *** END NEW *** ---
 
-
-            # Extract embedding vector
             embedding = item.get("embedding")
             if not embedding or not isinstance(embedding, list):
                 print(f"Warning: Invalid embedding format for item ID {point_id} ({file_path}). Skipping.")
                 continue
 
-            # Verify embedding dimensions (use vector_size from function args)
-            # Assuming vector_size = 384 from the default
             if len(embedding) != 384:
                 print(f"Warning: Expected 384 dimensions but got {len(embedding)} for item ID {point_id} ({file_path}). Skipping.")
                 continue
 
-            # --- *** MODIFIED: Add doc_tag to payload *** ---
             doc_tag = item.get("doc_tag")
             if not doc_tag:
                 print(f"Warning: Missing 'doc_tag' for item ID {point_id} ({file_path}). Using 'unknown'.")
@@ -238,9 +192,9 @@ def insert_embeddings(client: QdrantClient, collection_name: str, embeddings_dat
             payload = {
                 "file_path": file_path,
                 "doc_tag": doc_tag,
-                # Add other metadata fields if needed (e.g., title from YAML?)
+                "original_url": item.get("original_url", ""),
+                "chunk_url": item.get("chunk_url", "")
             }
-            # --- *** END MODIFIED *** ---
 
             points.append(models.PointStruct(
                 id=point_id,
@@ -250,23 +204,19 @@ def insert_embeddings(client: QdrantClient, collection_name: str, embeddings_dat
 
         if points:
             try:
-                # Use upsert: inserts new points or updates existing ones with the same ID
                 client.upsert(
                     collection_name=collection_name,
                     points=points,
-                    wait=False # Set to True if you need confirmation before proceeding
+                    wait=False
                 )
                 inserted_count += len(points)
             except Exception as e:
                 print(f"Error during Qdrant upsert batch starting at index {i}: {e}")
-                # Optionally, implement retry logic or log failed IDs
 
         print(f"  Upserted batch {i//batch_size + 1}/{(total_count + batch_size - 1)//batch_size}. Total processed: {min(i + batch_size, total_count)}/{total_count}")
 
-    return inserted_count # Return number of points attempted in valid batches
+    return inserted_count
 
-
-# This allows the script to be run directly or imported as a module
 if __name__ == "__main__":
     import argparse
 
@@ -279,7 +229,6 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    # Call the function with command line arguments
     insert_into_qdrant(
         directory=args.dir,
         file_path=args.file_path,
