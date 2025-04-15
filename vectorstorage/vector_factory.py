@@ -72,7 +72,7 @@ def get_embedding_model_for_kb(kb_id: str) -> str:
     """
     # Map knowledge bases to appropriate embedding models
     kb_to_embedding = {
-        "qdrant-logius": "st-minilm",  # Product manuals use SentenceTransformer
+        "qdrant-logius": "infly-retriever",  # Product manuals use SentenceTransformer
     }
 
     return kb_to_embedding.get(kb_id, "st-minilm")  # Default to SentenceTransformer
