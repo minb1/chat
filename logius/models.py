@@ -23,44 +23,35 @@ class Document(models.Model):
         return f"{self.doc_tag or 'No Tag'}: {self.file_path}"
 
 # ------------------------
-# Query Model
+# ChatQuery Model
 # ------------------------
-class Query(models.Model):
-    # Using a UUID for enhanced uniqueness (alternatively, you could use the chat_id supplied by your client)
+class ChatQuery(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    chat_id = models.CharField(max_length=36, db_index=True, help_text="Session ID for grouping queries")
     user_query = models.TextField(help_text="Original user query")
-    enhanced_query = models.TextField(
+    llm_response = models.TextField(blank=True, null=True, help_text="Response from the LLM")
+    doc_tag = models.JSONField(
+        default=list,
         blank=True,
-        null=True,
-        help_text="Query enhanced using HyDE or query augmentation (if applicable)"
+        help_text="List of document tags for the query context"
     )
-    model_used = models.CharField(max_length=100, help_text="The LLM model used for processing")
-    additional_parameters = models.JSONField(
-        blank=True,
-        null=True,
-        help_text="JSON object storing parameters such as use_hyde, use_augmentation, etc."
+    file_paths = models.JSONField(
+        default=list,
+        help_text="List of file_path strings for retrieved document chunks"
     )
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"Query {self.id} by Model: {self.model_used}"
-
-# ------------------------
-# QueryDocument Junction Model
-# ------------------------
-class QueryDocument(models.Model):
-    query = models.ForeignKey(Query, related_name='query_documents', on_delete=models.CASCADE)
-    document = models.ForeignKey(Document, related_name='document_queries', on_delete=models.CASCADE)
-    retrieval_score = models.FloatField(null=True, blank=True, help_text="Score from the vector retrieval process")
-    rank_position = models.PositiveIntegerField(null=True, blank=True, help_text="Ranking position in the retrieval set")
+    model_used = models.CharField(max_length=100, blank=True, help_text="The LLM model used")
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('query', 'document')
-        ordering = ['rank_position']
+        indexes = [
+            models.Index(fields=['chat_id'], name='idx_chatquery_chat_id'),
+            models.Index(fields=['doc_tag'], name='idx_chatquery_doc_tag'),
+            models.Index(fields=['created_at'], name='idx_chatquery_created_at'),
+        ]
+        ordering = ['-created_at']
 
     def __str__(self):
-        return f"Query {self.query.id} -> Document {self.document.id}"
+        return f"Query {self.id} in session {self.chat_id}"
 
 # ------------------------
 # Feedback Model
@@ -71,7 +62,12 @@ class Feedback(models.Model):
         ('unhelpful', 'Unhelpful'),
         ('false', 'False'),
     ]
-    query = models.ForeignKey(Query, related_name='feedbacks', on_delete=models.CASCADE)
+    query = models.ForeignKey(
+        'ChatQuery',
+        related_name='feedbacks',
+        on_delete=models.CASCADE,
+        help_text="The query this feedback is for"
+    )
     feedback_type = models.CharField(max_length=20, choices=FEEDBACK_CHOICES)
     feedback_text = models.TextField(
         blank=True,
@@ -79,6 +75,9 @@ class Feedback(models.Model):
         help_text="Optional additional comments on the LLM response"
     )
     created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
 
     def __str__(self):
         return f"Feedback for Query {self.query.id}: {self.feedback_type}"

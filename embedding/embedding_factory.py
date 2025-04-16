@@ -30,6 +30,8 @@ def get_embedding_handler(model_name: str) -> BaseEmbeddingHandler:
         return SentenceTransformerHandler("all-MiniLM-L6-v2")
     elif model_name == "st-mpnet":
         return SentenceTransformerHandler("all-mpnet-base-v2")
+    elif model_name == "snowflake-arctic-embed-l-v2.0":
+        return SentenceTransformerHandler('Snowflake/snowflake-arctic-embed-l-v2.0')
     else:
         # Fallback to SentenceTransformer as it doesn't require API key
         return SentenceTransformerHandler()
@@ -48,9 +50,9 @@ def get_embedding_for_vector_store(vector_store: str) -> BaseEmbeddingHandler:
     # Map vector stores to appropriate embedding models
     store_to_model = {
         "pinecone": "openai-small",  # Example: Pinecone uses OpenAI embeddings
-        "qdrant": "st-minilm",  # Example: Qdrant uses SentenceTransformers
+        "qdrant": "Snowflake/snowflake-arctic-embed-l-v2.0",  # Example: Qdrant uses SentenceTransformers
         "chroma": "st-mpnet",  # Example: Chroma uses SentenceTransformer
     }
 
-    model_name = store_to_model.get(vector_store, "st-minilm")  # Default to SentenceTransformer
+    model_name = store_to_model.get(vector_store, "Snowflake/snowflake-arctic-embed-l-v2.0")  # Default to SentenceTransformer
     return get_embedding_handler(model_name)

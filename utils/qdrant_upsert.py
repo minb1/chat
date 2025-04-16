@@ -11,7 +11,7 @@ def insert_into_qdrant(
     collection_name: str = "qdrant-logius",
     host: str = "qdrant",
     port: int = 6333,
-    vector_size: int = 384
+    vector_size: int = 1024 # 1024 for Arctic embed
 ) -> int:
     """
     Insert embeddings into Qdrant from files or directory.
@@ -105,7 +105,7 @@ def load_json_files(base_directory: str) -> List[Dict[str, Any]]:
 
     return embeddings_data
 
-def create_qdrant_collection(client: QdrantClient, collection_name: str, vector_size: int = 384):
+def create_qdrant_collection(client: QdrantClient, collection_name: str, vector_size):
     """
     Create a Qdrant collection if it doesn't exist and ensure payload index exists.
     """
@@ -178,10 +178,6 @@ def insert_embeddings(client: QdrantClient, collection_name: str, embeddings_dat
             embedding = item.get("embedding")
             if not embedding or not isinstance(embedding, list):
                 print(f"Warning: Invalid embedding format for item ID {point_id} ({file_path}). Skipping.")
-                continue
-
-            if len(embedding) != 384:
-                print(f"Warning: Expected 384 dimensions but got {len(embedding)} for item ID {point_id} ({file_path}). Skipping.")
                 continue
 
             doc_tag = item.get("doc_tag")

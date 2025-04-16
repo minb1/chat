@@ -21,7 +21,7 @@ except ImportError as e:
 
 DEFAULT_INPUT_DIR = "chunks_optimized"
 DEFAULT_OUTPUT_DIR = "textembeddings"
-DEFAULT_EMBEDDING_MODEL = "st-minilm"
+DEFAULT_EMBEDDING_MODEL = "snowflake-arctic-embed-l-v2.0"
 
 def parse_chunk_file(filepath: Path) -> Tuple[str, Optional[Dict[str, Any]]]:
     """

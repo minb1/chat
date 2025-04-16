@@ -5,7 +5,7 @@ from .base_handler import BaseEmbeddingHandler
 
 
 class SentenceTransformerHandler(BaseEmbeddingHandler):
-    def __init__(self, model_name="all-MiniLM-L6-v2"):
+    def __init__(self, model_name):
         self.model_name = model_name
         # Lazy loading to avoid importing if not used
         self._model = None
@@ -13,6 +13,8 @@ class SentenceTransformerHandler(BaseEmbeddingHandler):
             "all-MiniLM-L6-v2": 384,
             "all-mpnet-base-v2": 768,
             "all-distilroberta-v1": 768,
+            "snowflake-arctic-embed-l-v2.0": 1024,
+            "Snowflake/snowflake-arctic-embed-l-v2.0": 1024,
             # Add more models and their dimensions as needed
         }
 
@@ -28,7 +30,7 @@ class SentenceTransformerHandler(BaseEmbeddingHandler):
 
     def get_embedding(self, text: str) -> List[float]:
         """Get embeddings using SentenceTransformers."""
-        print(f"This is from the get_embedding func in st-mini")
+        print(f"This is from the get_embedding func")
         try:
             embedding = self.model.encode(text)
             return embedding.tolist()
@@ -37,4 +39,4 @@ class SentenceTransformerHandler(BaseEmbeddingHandler):
 
     @property
     def dimension(self) -> int:
-        return self._dimensions.get(self.model_name, 384)  # Default to 384 if model not in dict
+        return self._dimensions.get(self.model_name)  # Default to 384 if model not in dict
