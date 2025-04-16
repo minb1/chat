@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -139,12 +139,22 @@ WSGI_APPLICATION = 'chatRAG.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+DB_HOST = os.environ.get('DB_HOST')
+DB_PORT = os.environ.get('DB_PORT')
+DB_NAME = os.environ.get('DB_NAME')
+DB_USER = os.environ.get('DB_USER')
+DB_PASSWORD = os.environ.get('DB_PASSWORD')
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql', # Use the PostgreSQL engine
+            'NAME': 'logius-standaarden',                          # Database name from .env
+            'USER': 'postgres',                          # Database user from .env
+            'PASSWORD': 'postgres',                  # Database password from .env
+            'HOST': 'db',                          # Hostname from .env (should be 'db' for docker-compose)
+            'PORT': '5432',                          # Port from .env (should be '5432')
+        }
     }
-}
 
 
 # Password validation

@@ -180,7 +180,6 @@ class FeedbackView(APIView):
     """API view for receiving user feedback on LLM responses."""
 
     def post(self, request):
-        print("Feedback thingy hit")
         feedback_data = {} # Initialize for logging context
         try:
             feedback_data = request.data
