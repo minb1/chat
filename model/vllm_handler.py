@@ -14,7 +14,7 @@ class VLLMCommunicationError(Exception):
 class VLLMHandler(BaseModelHandler):
     """Handler for VLLM-served models."""
 
-    def __init__(self, model_name: str = "meta-llama/Llama-3.2-3B-Instruct", host: str = "vllm", port: int = 8080):
+    def __init__(self, model_name: str , host: str, port: int):
         self.base_url = f"http://{host}:{port}/v1"
         self.model_name = model_name
         # Get the specific logger configured elsewhere if possible, otherwise use __name__

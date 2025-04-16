@@ -17,9 +17,10 @@ def get_available_models():
 
     # Add VLLM models - always available since it's running in our Docker setup
     # Extract model name from the environment or use default
-    vllm_model = os.getenv("VLLM_MODEL_NAME", "meta-llama/Llama-3.2-3B-Instruct")
+    vllm_model = os.getenv("VLLM_MODEL_NAME")
     models["vllm"] = f"Local ({vllm_model.split('/')[-1]})"
-
+    print(vllm_model)
+    print(models)
     return models
 
 
@@ -32,9 +33,9 @@ def get_model_handler(model_name: str):
         return MistralHandler()
     elif model_name == "vllm":
         # Get configuration from environment variables with defaults
-        vllm_host = os.getenv("VLLM_HOST", "vllm")
-        vllm_port = int(os.getenv("VLLM_PORT", "8080"))
-        vllm_model = os.getenv("VLLM_MODEL_NAME", "meta-llama/Llama-3.2-3B-Instruct")
+        vllm_host = os.getenv("VLLM_HOST")
+        vllm_port = int(os.getenv("VLLM_PORT"))
+        vllm_model = os.getenv("VLLM_MODEL_NAME")
         return VLLMHandler(model_name=vllm_model, host=vllm_host, port=vllm_port)
     else:
         # Fallback to Gemini if model not recognized
