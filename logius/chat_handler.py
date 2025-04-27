@@ -283,7 +283,7 @@ def apply_reranking(
         {"file_path": d['file_path'], "content": d['content'], "document": d['document']}
         for d in docs_for_ranking
     ]
-
+    print(docs_for_context[0])
     return docs_for_context, docs_for_ranking
 
 def generate_response(

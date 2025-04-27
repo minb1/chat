@@ -497,8 +497,16 @@ def html_table_to_markdown(table_html):
         table_markdown_cache[table_html] = f"<!-- Error converting table: {e} -->\n{table_html}"
         return table_markdown_cache[table_html]
 
+def construct_urls(original_html_path, anchor):
+    """Constructs original_url and chunk_url from path and anchor."""
+    base_url = "https://gitdocumentatie.logius.nl/publicatie/"
+    folder_path = os.path.dirname(original_html_path)
+    original_url = base_url + folder_path
+    chunk_url = original_url + "#" + anchor if anchor else original_url
+    return original_url, chunk_url
+
 def process_and_save_chunks(path, html_content, output_directory, chunk_cache=None):
-    """Optimized chunk processing and saving with anchor in metadata."""
+    """Optimized chunk processing and saving with anchor and URLs in metadata."""
     chunk_cache = chunk_cache or {}
 
     doc_tag = "unknown_doc"
@@ -533,19 +541,23 @@ def process_and_save_chunks(path, html_content, output_directory, chunk_cache=No
         chunk_relative_path = '/'.join(chunk_relative_path_parts)
         filepath = os.path.join(output_dir, filename)
 
+        # Construct URLs
+        anchor = chunk_data.get('anchor', '')
+        original_url, chunk_url = construct_urls(path, anchor)
+
         content = []
         content.append("---")
         content.append(f"file_path: {chunk_relative_path}")
         content.append(f"original_html_path: {path}")
         content.append(f"doc_tag: {doc_tag}")
+        content.append(f"original_url: {original_url}")
+        content.append(f"chunk_url: {chunk_url}")
         formatted_context = ["'{}'".format(c.replace("'", "\\'")) for c in chunk_data.get('context', [])]
         context_str = '[' + ', '.join(formatted_context) + ']'
         content.append(f"parent_sections: {context_str}")
         title = chunk_data.get('heading', f'Chunk {index}')
         title_str = title.replace('"', '\\"').replace('---', '- - -')
         content.append(f'title: "{title_str}"')
-        # Add anchor to YAML frontmatter
-        anchor = chunk_data.get('anchor', '')
         anchor_str = anchor.replace('"', '\\"').replace('---', '- - -')
         content.append(f'anchor: "{anchor_str}"')
         content.append("---\n")
