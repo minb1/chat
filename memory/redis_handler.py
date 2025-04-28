@@ -30,8 +30,8 @@ def create_chat_session():
     redis_client.hset(f"chat:{chat_id}", "created_at", datetime.now().isoformat())
 
     # Set TTL for both the chat metadata and messages
-    redis_client.expire(f"chat:{chat_id}", 60)
-    redis_client.expire(f"chat:{chat_id}:messages", 60)
+    redis_client.expire(f"chat:{chat_id}", 3600)
+    redis_client.expire(f"chat:{chat_id}:messages", 3600)
 
     return chat_id
 
@@ -86,25 +86,40 @@ def get_chat_history(chat_id):
         return []
 
 
-def format_chat_history_for_prompt(chat_id):
+def format_chat_history_for_prompt(chat_id: str, max_turns: int = 3) -> str:
     """
-    Format the chat history for inclusion in the prompt.
+    Format the MOST RECENT chat history for inclusion in the prompt,
+    limited by the number of turns (Q+A pairs).
 
     Args:
         chat_id (str): The chat session ID
+        max_turns (int): The maximum number of Q+A turns to include.
 
     Returns:
-        str: Formatted chat history for the prompt
+        str: Formatted chat history for the prompt, or empty string.
     """
-    messages = get_chat_history(chat_id)
+    try:
+        # Retrieve the last N messages (N = max_turns * 2)
+        # lrange with negative indices: -1 is last, -2 is second last, etc.
+        num_messages_to_fetch = max_turns * 2
+        messages_json = redis_client.lrange(f"chat:{chat_id}:messages", -num_messages_to_fetch, -1)
 
-    if not messages:
-        return ""
+        if not messages_json:
+            return "" # No history
 
-    formatted_history = "Previous conversation:\n\n"
+        messages = [json.loads(msg) for msg in messages_json]
 
-    for msg in messages:
-        role = "User" if msg["role"] == "user" else "Assistant"
-        formatted_history += f"{role}: {msg['content']}\n\n"
+        # Format the selected messages
+        formatted_history = [] # Build parts in a list
+        for msg in messages: # Already in chronological order (oldest of the N to newest)
+            role = "Gebruiker" if msg.get("role") == "user" else "Assistent"
+            content = msg.get("content", "").strip()
+            if content: # Avoid adding empty lines
+                 formatted_history.append(f"{role}: {content}")
 
-    return formatted_history
+        # Join with double newlines for readability in the prompt
+        return "\n\n".join(formatted_history)
+
+    except Exception as e:
+        print(f"Error formatting chat history from Redis: {e}")
+        return "" # Return empty string on error
