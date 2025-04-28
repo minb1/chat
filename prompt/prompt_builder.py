@@ -13,7 +13,8 @@ def create_prompt(user_query, context=None, chat_history=None):
 
     Beantwoord de volgende vraag op basis van de verstrekte context.
     Geef een zo volledig en nauwkeurig mogelijk antwoord. 
-    Let op technische details en vermeld uit welk document je het antwoord gehaald heb.
+    Let op technische details en vermeld uit welk document je het antwoord gehaald heb. De documentnaam komt als bestandspad binnen. Zet dit bestandspad ALTIJD om naar een menselijk-leesbaar formaat, zodat het makkelijk te herleiden is.
+    Bijvoorbeeld "Sectie x uit het document x). De filepaths volgens het structuur van: "standaard/document/sectie". Vermeld de bestandspadden NIET in je response, alleen de leesbare vorm ervan.
 
     **Vraag:** {user_query}
 

@@ -23,7 +23,7 @@ services:
     depends_on:
       - db
       - qdrant
-      - vllm
+      #- vllm
     # Add labels for Promtail discovery
     labels:
       logging: "promtail"
@@ -49,33 +49,33 @@ services:
       - "6334:6334"
 
   # New VLLM service to run the Llama-3.2-3B-Instruct model
-  vllm:
-    image: vllm/vllm-openai:latest
-    restart: unless-stopped
-    environment:
-      - NVIDIA_VISIBLE_DEVICES=all
-      - HUGGING_FACE_HUB_TOKEN=${HUGGING_FACE_HUB_TOKEN}
-    volumes:
-      - huggingface_cache:/root/.cache/huggingface  # Cache HF models
-    ports:
-      - "8080:8080"  # Expose the OpenAI-compatible API
-    command: >
-      --model mistralai/Mistral-7B-Instruct-v0.3
-      --host 0.0.0.0
-      --port 8080
-      --tensor-parallel-size 1
-      --gpu-memory-utilization 0.9
-      --max-model-len 4096
-      --dtype bfloat16
-      --quantization bitsandbytes
+#  vllm:
+ #   image: vllm/vllm-openai:latest
+  #  restart: unless-stopped
+   # environment:
+    #  - NVIDIA_VISIBLE_DEVICES=all
+#     # - HUGGING_FACE_HUB_TOKEN=${HUGGING_FACE_HUB_TOKEN}
+ #   volumes:
+  #    - huggingface_cache:/root/.cache/huggingface  # Cache HF models
+   # ports:
+    #  - "8080:8080"  # Expose the OpenAI-compatible API
+ #   command: >
+  #    --model mistralai/Mistral-7B-Instruct-v0.3
+  #    --host 0.0.0.0
+   #   --port 8080
+    #  --tensor-parallel-size 1
+     # --gpu-memory-utilization 0.9
+  #    --max-model-len 4096
+  #    --dtype bfloat16
+  #    --quantization bitsandbytes
 #      --served-model-name Llama-3.2-3B-Instruct
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
+  #  deploy:
+  #    resources:
+  #      reservations:
+  #        devices:
+  #          - driver: nvidia
+  #            count: 1
+  #            capabilities: [gpu]
 
   # --- Monitoring Stack ---
   loki:
