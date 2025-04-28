@@ -7,62 +7,81 @@ import sys
 from typing import Dict, List, Optional, Any, Tuple, Union
 from uuid import uuid4
 from django.db import transaction
-import numpy as np # For cosine similarity
-from sklearn.metrics.pairwise import cosine_similarity # Alternative for cosine similarity
+import numpy as np # For cosine similarity calculation
+from sklearn.metrics.pairwise import cosine_similarity # Alternative/robust cosine similarity
 
+# --- Django Model Imports ---
 try:
+    # Assumes models are in an app named 'logius' or adjust as needed
     from logius.models import Document, ChatQuery
 except ImportError:
-    # Define dummy classes if models cannot be imported (e.g., during setup)
+    # Define dummy classes if Django apps aren't loaded or models unavailable
+    # This helps with basic script parsing but won't work at runtime without models
+    logger = logging.getLogger(__name__)
+    logger.warning("Could not import Django models. Using dummy classes.")
     class Document: pass
     class ChatQuery: pass
 
+# --- Local Project Imports ---
+# Adjust paths based on your project structure
 from database.db_retriever import retrieve_chunks_from_db
-from model.model_factory import get_model_handler
-from embedding.embedding_factory import get_embedding_handler
+from model.model_factory import get_model_handler # For LLM calls (CQR, Answer)
+from embedding.embedding_factory import get_embedding_handler # For generating embeddings
 from vectorstorage.vector_factory import (
-    get_vector_client,
-    get_embedding_model_for_kb,
-    get_available_knowledge_bases
+    get_vector_client, # For interacting with Qdrant/vector store
+    get_embedding_model_for_kb, # To know which embedding model to use
+    get_available_knowledge_bases # Potentially for listing options
 )
-# Assuming redis_handler has format_chat_history_for_prompt(chat_id, max_turns=3)
+# Assumes redis_handler provides history formatting
+# Adjust import path as needed
 from memory.redis_handler import log_message, format_chat_history_for_prompt
-from reranking.reranker import SentenceTransformerReranker
-# Import the new CQR prompt
+from reranking.reranker import SentenceTransformerReranker # For reranking results
+# Import prompt generation functions
 from prompt.prompt_builder import create_prompt, HyDE, AugmentQuery, create_cqr_prompt
 
 
-# Configure logging
-logger = logging.getLogger('rag_metrics')
-logger.setLevel(logging.INFO) # Or DEBUG for more verbose logs
+# --- Logging Configuration ---
+# Configure root logger or specific logger
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger('chat_handler') # Specific logger for this module
+# Example: Set higher level for noisy libraries
+# logging.getLogger('sentence_transformers').setLevel(logging.WARNING)
+
 
 # --- Constants for Conversational RAG ---
-DEFAULT_FRESH_K = 6  # K: Number of fresh documents to retrieve
-DEFAULT_STICKY_S = 4  # S: Number of sticky documents to keep/retrieve
-MAX_TOTAL_DOCS = 10 # Target total docs after merging and reranking (K+S)
-SIMILARITY_THRESHOLD = 0.30 # Threshold to flush sticky memory
-HISTORY_TURNS_FOR_CQR = 1 # Number of previous Q-A pairs for CQR context
-HISTORY_TURNS_FOR_PROMPT = 3 # Number of turns for final answer prompt
-SUMMARY_MAX_TOKENS = 100 # Placeholder if using summaries instead of raw history
-# --- End Constants ---
+DEFAULT_FRESH_K = 6       # K: Default number of fresh documents to retrieve per turn
+DEFAULT_STICKY_S = 4      # S: Default number of sticky documents to keep/retrieve per turn
+MAX_TOTAL_DOCS = 10     # Target total documents after merging and reranking (approx K+S)
+SIMILARITY_THRESHOLD = 0.30 # Cosine similarity threshold to flush sticky memory (lower means less related)
+HISTORY_TURNS_FOR_CQR = 1 # Number of previous Q-A pairs for CQR context (adjust based on CQR model needs)
+HISTORY_TURNS_FOR_PROMPT = 3 # Max number of turns for final answer generation prompt context
+# SUMMARY_MAX_TOKENS = 100 # Placeholder if using summary instead of raw history turns
 
-DEFAULT_RETRIEVAL_TOP_K = DEFAULT_FRESH_K # Base retrieval K for non-conversational or first turn
-DEFAULT_RERANKER_TOP_K = MAX_TOTAL_DOCS # Rerank to the target total
-ERROR_RESPONSE_MESSAGE = "Sorry, an error occurred while generating the response."
+# --- Other Constants ---
+DEFAULT_RERANKER_TOP_K = MAX_TOTAL_DOCS # Rerank and keep up to this many documents
+ERROR_RESPONSE_MESSAGE = "Sorry, er is een fout opgetreden bij het verwerken van uw verzoek. Probeer het later opnieuw."
 
-# --- Helper Functions ---
+
+# --- Internal Helper Functions ---
 
 def _get_previous_turn_data(chat_id: str) -> Optional[ChatQuery]:
-    """Fetches the most recent ChatQuery object for a given chat_id."""
+    """
+    Fetches the most recent ChatQuery object (previous turn state) for a given chat_id.
+    Returns None if no previous turn exists or an error occurs.
+    """
     if not chat_id:
         return None
     try:
-        # Fetch the latest query for this chat session
-        return ChatQuery.objects.filter(chat_id=chat_id).latest('created_at')
-    except ChatQuery.DoesNotExist:
-        logger.info(f"No previous turns found for chat_id {chat_id}.")
-        return None
+        # Fetch the latest completed query for this chat session using Django ORM
+        previous_turn = ChatQuery.objects.filter(chat_id=chat_id).order_by('-created_at').first()
+        if previous_turn:
+            logger.debug(f"Found previous turn data for chat_id {chat_id} (Query ID: {previous_turn.id})")
+            return previous_turn
+        else:
+            logger.debug(f"No previous turns found in DB for chat_id {chat_id}.")
+            return None
     except Exception as e:
+        # Log error but allow flow to continue (treat as first turn)
         logger.error(f"Error retrieving previous turn data for chat_id {chat_id}: {e}", exc_info=True)
         return None
 
@@ -70,784 +89,1046 @@ def _rewrite_query_cqr(
     user_query: str,
     chat_history_cqr: str,
     model_name: str,
-    query_id: str
+    query_id: str # For logging context
 ) -> str:
-    """Generates a standalone query using CQR."""
-    logger.info(f"Query ID {query_id}: Rewriting query using CQR with model {model_name}.")
+    """
+    Generates a standalone query using Contextual Query Rewriting (CQR).
+    Uses the specified LLM model. Falls back to the original query on failure.
+
+    Args:
+        user_query: The latest user message.
+        chat_history_cqr: Formatted string of recent chat history for context.
+        model_name: Identifier for the LLM to use for CQR.
+        query_id: Unique ID of the current request for logging.
+
+    Returns:
+        The rewritten, standalone query, or the original query if CQR fails or produces invalid output.
+    """
+    logger.info(f"Query ID {query_id}: Attempting CQR for query: '{user_query[:100]}...'")
     try:
+        # 1. Create the CQR prompt
         cqr_prompt = create_cqr_prompt(user_query, chat_history_cqr)
-        cqr_llm_handler = get_model_handler(model_name) # Use configured model
+        logger.debug(f"Query ID {query_id}: CQR prompt created (length {len(cqr_prompt)}).")
+
+        # 2. Get the LLM handler
+        # Using the same model factory as for answer generation, but could be different
+        cqr_llm_handler = get_model_handler(model_name)
+
+        # 3. Generate the rewritten query
         rewritten_query = cqr_llm_handler.generate_text(cqr_prompt).strip()
+        logger.debug(f"Query ID {query_id}: Raw CQR output: '{rewritten_query}'")
 
-        # Basic validation
-        if not rewritten_query or len(rewritten_query) < 5:
-            logger.warning(f"Query ID {query_id}: CQR resulted in short/empty query '{rewritten_query}'. Falling back to original query.")
+        # 4. Basic validation of the output
+        if not rewritten_query or len(rewritten_query) < 5: # Check if empty or very short
+            logger.warning(f"Query ID {query_id}: CQR produced short/empty output. Falling back to original query.")
             return user_query
-        if rewritten_query == user_query:
-             logger.info(f"Query ID {query_id}: CQR returned the original query.")
+        elif rewritten_query.lower() == user_query.lower():
+             logger.info(f"Query ID {query_id}: CQR returned the original query (or functionally identical).")
+             # Return original to avoid storing redundant data if needed elsewhere
+             return user_query
         else:
-             logger.info(f"Query ID {query_id}: Original: '{user_query}', Rewritten: '{rewritten_query}'")
-        return rewritten_query
+             logger.info(f"Query ID {query_id}: Query successfully rewritten via CQR.")
+             logger.info(f"  Original:  '{user_query}'")
+             logger.info(f"  Rewritten: '{rewritten_query}'")
+             return rewritten_query
+
     except Exception as e:
-        logger.error(f"Query ID {query_id}: CQR failed: {e}. Falling back to original query.", exc_info=True)
-        return user_query
+        logger.error(f"Query ID {query_id}: CQR generation failed: {e}. Falling back to original query.", exc_info=True)
+        return user_query # Fallback on any error
 
-def _calculate_cosine_similarity(vec1: List[float], vec2: List[float]) -> float:
-    """Calculates cosine similarity between two vectors."""
-    if not vec1 or not vec2 or len(vec1) != len(vec2):
-        logger.warning("Cannot calculate cosine similarity due to invalid vectors.")
-        return 0.0 # Return neutral similarity if vectors are invalid
+def _calculate_cosine_similarity(vec1: Optional[List[float]], vec2: Optional[List[float]]) -> float:
+    """
+    Calculates the cosine similarity between two vectors.
+    Handles potential None inputs or dimension mismatches gracefully.
+
+    Returns:
+        Cosine similarity as a float between -1.0 and 1.0 (or 0.0 if calculation is not possible).
+    """
+    if vec1 is None or vec2 is None:
+        logger.debug("Cannot calculate cosine similarity: one or both vectors are None.")
+        return 0.0
+    if len(vec1) != len(vec2):
+        logger.warning(f"Cannot calculate cosine similarity: vector dimensions mismatch ({len(vec1)} vs {len(vec2)}).")
+        return 0.0
+    if not vec1 or not vec2: # Handle empty lists
+         logger.debug("Cannot calculate cosine similarity: one or both vectors are empty.")
+         return 0.0
+
     try:
-        # Using numpy
-        # sim = np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec2))
-
-        # Using sklearn (handles reshaping for single vectors)
-        sim = cosine_similarity(np.array(vec1).reshape(1, -1), np.array(vec2).reshape(1, -1))[0][0]
-        return float(sim)
+        # Using sklearn's implementation is generally robust
+        vec1_np = np.array(vec1).reshape(1, -1)
+        vec2_np = np.array(vec2).reshape(1, -1)
+        similarity = cosine_similarity(vec1_np, vec2_np)[0][0]
+        # Clamp result just in case of floating point issues
+        return float(max(-1.0, min(1.0, similarity)))
     except Exception as e:
         logger.error(f"Error calculating cosine similarity: {e}", exc_info=True)
-        return 0.0
+        return 0.0 # Return neutral similarity on calculation error
 
 def _retrieve_sticky_results(
     sticky_ids: List[Union[str, int, uuid.UUID]],
-    kb_id: str,
-    query_id: str
+    kb_id: str, # Knowledge base ID to target the correct vector store/collection
+    query_id: str # For logging context
 ) -> List[Dict]:
-    """Retrieves documents directly by their IDs (sticky memory)."""
+    """
+    Retrieves full document data for sticky documents using their stored IDs.
+    Fetches payload from vector store (Qdrant) and full content from database (PostgreSQL).
+
+    Args:
+        sticky_ids: List of Qdrant point IDs (or file_paths if used as IDs) from the previous turn.
+        kb_id: Identifier for the knowledge base / Qdrant collection.
+        query_id: Unique ID of the current request for logging.
+
+    Returns:
+        A list of dictionaries, each representing a retrieved sticky document,
+        formatted similarly to fresh results but marked as sticky.
+        Example dict: {'id': ..., 'file_path': ..., 'content': ..., 'document': ..., 'is_sticky': True, ...}
+    """
     if not sticky_ids:
         return []
-    logger.info(f"Query ID {query_id}: Retrieving {len(sticky_ids)} sticky documents by ID.")
-    try:
-        vector_client = get_vector_client(kb_id)
-        # Use the new method to fetch by ID
-        sticky_results_qdrant = vector_client.retrieve_by_ids(sticky_ids)
 
-        # We only have payload from Qdrant, need full Document object from DB
-        sticky_paths = [
+    logger.info(f"Query ID {query_id}: Retrieving {len(sticky_ids)} sticky documents by ID: {sticky_ids}")
+    final_sticky_docs = []
+
+    try:
+        # 1. Retrieve payloads from Vector Store (Qdrant) using IDs
+        vector_client = get_vector_client(kb_id)
+        # Assuming vector_client has retrieve_by_ids implemented as shown previously
+        sticky_results_qdrant = vector_client.retrieve_by_ids(sticky_ids)
+        # Result format: [{'id': point_id, 'payload': {...}, 'score': None}, ...]
+
+        if not sticky_results_qdrant:
+             logger.warning(f"Query ID {query_id}: Vector store returned no results for sticky IDs: {sticky_ids}")
+             return []
+
+        # Create a map of Qdrant ID -> Qdrant result for easier lookup
+        qdrant_results_map = {item['id']: item for item in sticky_results_qdrant}
+
+        # 2. Extract file_paths needed for DB lookup
+        sticky_paths_to_fetch = [
             item['payload']['file_path']
             for item in sticky_results_qdrant
-            if isinstance(item.get('payload'), dict) and 'file_path' in item['payload']
+            if item.get('payload') and item['payload'].get('file_path')
         ]
 
-        if not sticky_paths:
-            logger.warning(f"Query ID {query_id}: No valid file_paths found in sticky results from Qdrant.")
+        if not sticky_paths_to_fetch:
+            logger.warning(f"Query ID {query_id}: No valid 'file_path' found in payloads of retrieved sticky documents from Qdrant.")
             return []
 
-        sticky_document_objects = retrieve_chunks_from_db(sticky_paths)
-        doc_map = {doc.file_path: doc for doc in sticky_document_objects}
+        # Remove duplicates before hitting the DB
+        unique_sticky_paths = sorted(list(set(sticky_paths_to_fetch)))
+        logger.debug(f"Query ID {query_id}: Unique sticky file paths to fetch from DB: {unique_sticky_paths}")
 
-        # Combine Qdrant info (ID) with DB info (content, object)
-        final_sticky_docs = []
-        for item in sticky_results_qdrant:
-            file_path = item.get('payload', {}).get('file_path')
-            if file_path and file_path in doc_map:
-                doc_obj = doc_map[file_path]
+
+        # 3. Retrieve full Document objects from Database (PostgreSQL)
+        sticky_document_objects = retrieve_chunks_from_db(unique_sticky_paths)
+        # Create a map of file_path -> Document object for efficient merging
+        db_doc_map = {doc.file_path: doc for doc in sticky_document_objects}
+        logger.debug(f"Query ID {query_id}: Retrieved {len(db_doc_map)} documents from DB for sticky paths.")
+
+        # 4. Combine Qdrant info (ID) with DB info (content, object)
+        processed_qdrant_ids = set()
+        for qdrant_id, qdrant_item in qdrant_results_map.items():
+            # Avoid processing the same Qdrant ID multiple times if `sticky_ids` had duplicates
+            if qdrant_id in processed_qdrant_ids: continue
+
+            file_path = qdrant_item.get('payload', {}).get('file_path')
+            if file_path and file_path in db_doc_map:
+                doc_obj = db_doc_map[file_path]
                 final_sticky_docs.append({
-                    "id": item['id'], # Qdrant ID
+                    "id": qdrant_id, # The ID from Qdrant (used for next turn's sticky list)
                     "file_path": doc_obj.file_path,
                     "content": doc_obj.content,
-                    "document": doc_obj,
-                    "retrieval_score": None, # No relevance score for sticky retrieval
-                    "rerank_score": None,
-                    "is_sticky": True # Mark as sticky
+                    "document": doc_obj, # The full Django model instance
+                    "retrieval_score": None, # No similarity score for ID-based retrieval
+                    "rerank_score": None, # Will be populated by reranker if used
+                    "is_sticky": True # Mark this document as originating from sticky memory
                 })
+                processed_qdrant_ids.add(qdrant_id)
             else:
-                logger.warning(f"Query ID {query_id}: Could not find DB document for sticky path: {file_path} (Qdrant ID: {item.get('id')})")
+                logger.warning(f"Query ID {query_id}: Could not find matching DB document for sticky Qdrant result (ID: {qdrant_id}, Path: {file_path}). Skipping.")
 
-        logger.info(f"Query ID {query_id}: Successfully retrieved {len(final_sticky_docs)} full sticky documents.")
+        logger.info(f"Query ID {query_id}: Successfully processed {len(final_sticky_docs)} sticky documents by combining vector store and DB data.")
         return final_sticky_docs
 
     except Exception as e:
-        logger.error(f"Query ID {query_id}: Error retrieving sticky documents: {e}", exc_info=True)
-        return []
+        logger.error(f"Query ID {query_id}: Failed during sticky document retrieval or processing: {e}", exc_info=True)
+        return [] # Return empty list on error
 
 def _merge_and_deduplicate_results(
     fresh_results: List[Dict],
-    sticky_results: List[Dict],
-    max_total: int
+    sticky_results: List[Dict]
+    # max_total: int # Max total is handled by reranker top_k later
 ) -> List[Dict]:
-    """Merges fresh and sticky results, removing duplicates based on 'file_path'."""
-    # Prioritize fresh results if duplicates exist, but keep sticky flag if applicable
-    merged_dict = {}
+    """
+    Merges fresh and sticky document results, removing duplicates based on 'file_path'.
+    If a document is both fresh and sticky, it retains its fresh retrieval score
+    but is marked as sticky.
 
-    # Add sticky first, marking them
+    Args:
+        fresh_results: List of dictionaries for freshly retrieved documents.
+        sticky_results: List of dictionaries for sticky documents retrieved by ID.
+
+    Returns:
+        A single list of unique document dictionaries.
+    """
+    # Use file_path as the key for deduplication
+    merged_dict: Dict[str, Dict] = {}
+
+    # Add sticky results first, marking them
     for doc in sticky_results:
-        doc['is_sticky'] = True
-        merged_dict[doc['file_path']] = doc
-
-    # Add fresh, potentially overwriting/merging with sticky
-    for doc in fresh_results:
-        file_path = doc['file_path']
-        if file_path in merged_dict:
-            # If already present from sticky, update scores but keep sticky flag
-            merged_dict[file_path]['retrieval_score'] = doc.get('retrieval_score')
-            # Keep other fields from sticky like 'id' if needed, assuming fresh retrieval doesn't provide Qdrant ID directly in this structure
+        if doc.get('file_path'):
+            doc['is_sticky'] = True # Ensure sticky flag is set
+            merged_dict[doc['file_path']] = doc
         else:
-            # New document from fresh search
-             doc['is_sticky'] = False
-             merged_dict[file_path] = doc
+             logger.warning(f"Sticky document missing file_path, cannot merge: {doc.get('id')}")
+
+
+    # Add fresh results, overwriting non-score fields if duplicate, merging scores/flags
+    for doc in fresh_results:
+        file_path = doc.get('file_path')
+        if not file_path:
+            logger.warning(f"Fresh document missing file_path, cannot merge: {doc.get('id')}")
+            continue
+
+        if file_path in merged_dict:
+            # Document was also sticky. Keep the sticky flag, update with fresh score.
+            merged_dict[file_path]['retrieval_score'] = doc.get('retrieval_score')
+            # Keep the Qdrant ID from the sticky result if the fresh one didn't have it, or reconcile if needed
+            if 'id' not in merged_dict[file_path] and 'id' in doc:
+                 merged_dict[file_path]['id'] = doc['id']
+            # Ensure content and document object are consistent (usually fresh is fine)
+            merged_dict[file_path]['content'] = doc.get('content')
+            merged_dict[file_path]['document'] = doc.get('document')
+            # Mark explicitly it was found in both
+            merged_dict[file_path]['found_in_fresh'] = True
+
+        else:
+            # New document only found in fresh search
+            doc['is_sticky'] = False # Mark as not sticky
+            doc['found_in_fresh'] = True
+            merged_dict[file_path] = doc
 
     # Convert back to list
     merged_list = list(merged_dict.values())
 
-    # Optional: Sort primarily by retrieval_score (desc), then maybe sticky flag?
-    # This simple merge doesn't enforce strict K/S counts *before* reranking
-    # Reranking will determine the final top documents anyway.
-    # merged_list.sort(key=lambda x: (x.get('retrieval_score') or -1.0), reverse=True)
-
     logger.info(f"Merged {len(fresh_results)} fresh and {len(sticky_results)} sticky results into {len(merged_list)} unique documents.")
 
-    # We don't strictly limit to max_total here, reranker will do that
+    # Optional: Sort before reranking? Reranker handles final ordering.
+    # merged_list.sort(key=lambda x: x.get('retrieval_score', -float('inf')), reverse=True)
+
     return merged_list
 
 
-# --- Main Function ---
+# --- Main Processing Function ---
 
-@transaction.atomic # Wrap in transaction for database operations
+# Wrap in transaction.atomic if database operations within need to be rolled back together on error
+@transaction.atomic
 def process_user_message(
     message: str,
     chat_id: Optional[str] = None,
-    model_name: str = 'gemini', # Model for CQR and Final Answer
-    kb_id: str = 'qdrant-logius',
-    use_reranker: bool = True,
-    # Retrieval K/S now handled by conversational logic
-    # retrieval_top_k: int = DEFAULT_RETRIEVAL_TOP_K, # Remove this, use fresh_k/sticky_s
-    reranker_top_k: int = DEFAULT_RERANKER_TOP_K, # Keep this for final selection
-    # Deprecate HyDE/Augment in favor of CQR for conversational context
+    model_name: str = 'gemini', # LLM for CQR and Final Answer generation
+    kb_id: str = 'qdrant-logius', # Target knowledge base / vector collection
+    use_reranker: bool = True, # Flag to enable/disable reranking step
+    reranker_top_k: int = DEFAULT_RERANKER_TOP_K, # Number of docs after reranking
+    # Deprecated options, replaced by conversational logic
+    # retrieval_top_k: int = DEFAULT_RETRIEVAL_TOP_K,
     # use_hyde: bool = False,
     # use_augmentation: bool = False
-) -> Dict:
+) -> Dict[str, Any]:
     """
-    Process a user message in a conversational RAG pipeline with CQR and Sticky Memory.
+    Processes a user message within a conversational RAG pipeline.
+
+    Handles query rewriting (CQR), adaptive sticky memory, hybrid retrieval (fresh+sticky),
+    reranking, answer generation, state persistence, and logging.
 
     Args:
-        message: The user's input message.
-        chat_id: Chat identifier for conversation history and state. If None, treated as first turn.
-        model_name: The LLM to use for CQR and response generation.
-        kb_id: Knowledge base identifier for vector retrieval.
-        use_reranker: Whether to rerank retrieved documents.
-        reranker_top_k: Number of documents to keep after reranking (<= MAX_TOTAL_DOCS).
+        message: The user's input message for the current turn.
+        chat_id: Optional identifier for the conversation session. If None, a new session is started.
+        model_name: Identifier for the LLM to be used (e.g., 'gemini', 'openai').
+        kb_id: Identifier for the knowledge base (vector store collection) to query.
+        use_reranker: Boolean flag to enable the reranking step.
+        reranker_top_k: The number of documents to select after the reranking step.
 
     Returns:
-        Dictionary containing response, query_id, chat_id, or error and relevant documents.
+        A dictionary containing the response and metadata:
+        {
+            "response": str, # The generated answer
+            "docs": List[Dict], # List of source documents used, with scores and metadata
+            "query_id": str, # Unique ID for this specific request/turn
+            "chat_id": str, # Identifier for the ongoing conversation session
+            "error": Optional[str] # Error message if processing failed
+        }
     """
-    timestamp = datetime.datetime.now().isoformat()
-    query_id = str(uuid4())
-    # If no chat_id provided, generate one for this turn (acts like a single-turn chat)
-    is_follow_up = bool(chat_id)
+    start_time = datetime.datetime.now()
+    timestamp = start_time.isoformat()
+    query_id = str(uuid4()) # Unique ID for this specific turn/request
+
+    # Ensure a chat_id exists; generate if not provided (starts a new session)
+    is_new_session = False
     if not chat_id:
-        chat_id = str(uuid4()) # Assign a new chat ID for this interaction
-        logger.info(f"No chat_id provided. Starting new session: {chat_id}")
+        chat_id = str(uuid4())
+        is_new_session = True
+        logger.info(f"Query ID {query_id}: No chat_id provided. Started new session: {chat_id}")
+    else:
+        logger.info(f"Query ID {query_id}: Processing message for existing session: {chat_id}")
 
-    response = ERROR_RESPONSE_MESSAGE
-    final_docs_to_return_serialized = []
-    rewritten_query = message # Default to original query
-    rewritten_query_embedding = None
-    final_doc_ids_for_next_turn = [] # Qdrant IDs or unique file_paths
+    # Initialize response variables and state trackers
+    response = ERROR_RESPONSE_MESSAGE # Default error message
+    final_docs_to_return_serialized: List[Dict] = []
+    rewritten_query: str = message # Default: use original query if no CQR happens
+    rewritten_query_embedding: Optional[List[float]] = None
+    final_doc_ids_for_next_turn: List[Union[str, int, uuid.UUID]] = [] # Store Qdrant IDs or file_paths
 
-    # Track features used in this turn
+    # Dictionary to track features/metrics for this turn
     query_features = {
+        "query_id": query_id,
+        "chat_id": chat_id,
+        "is_follow_up": not is_new_session,
         "cqr_used": False,
         "sticky_memory_used": False,
         "sticky_memory_flushed": False,
+        "sticky_ids_count_in": 0,
         "cosine_similarity": None,
-        "fresh_k_used": DEFAULT_FRESH_K,
-        "sticky_s_used": DEFAULT_STICKY_S,
+        "fresh_k_retrieved": 0,
+        "sticky_s_retrieved": 0,
+        "merged_docs_count": 0,
+        "reranker_used": use_reranker,
+        "final_docs_count": 0,
         "final_llm_error": False,
-        # "hypothetical_doc_generated": False, # Deprecated
-        # "augmented_query_generated": False, # Deprecated
+        "processing_error": None, # To store unexpected error messages
+        "processing_time_ms": 0
     }
 
     try:
-        logger.info(f"--- Turn Start --- Query ID: {query_id}, Chat ID: {chat_id}, Message: '{message}' ---")
+        logger.info(f"--- Turn Start --- Query ID: {query_id}, Chat ID: {chat_id}, Original Message: '{message[:100]}...' ---")
         log_request_parameters(query_id, message, use_reranker, False, False, # No hyde/augment
-                              DEFAULT_FRESH_K, DEFAULT_STICKY_S, reranker_top_k, model_name) # Log K/S
+                              DEFAULT_FRESH_K, DEFAULT_STICKY_S, reranker_top_k, model_name)
 
-        # 1. Get Previous Turn State (if applicable)
-        previous_turn: Optional[ChatQuery] = _get_previous_turn_data(chat_id)
-        previous_sticky_ids = []
-        previous_query_embedding = None
+        # --- Step 1: Load Previous Turn State ---
+        previous_turn: Optional[ChatQuery] = None
+        previous_sticky_ids: List[Union[str, int, uuid.UUID]] = []
+        previous_query_embedding: Optional[List[float]] = None
 
-        if is_follow_up and previous_turn:
-            logger.info(f"Query ID {query_id}: Follow-up turn detected. Previous query ID: {previous_turn.id}")
-            previous_sticky_ids = previous_turn.final_doc_ids or []
-            previous_query_embedding = previous_turn.rewritten_query_embedding
-            # Ensure embedding is loaded correctly (handle JSON vs ArrayField)
-            if isinstance(previous_query_embedding, str): # Simple check for JSON string
-                 try: previous_query_embedding = json.loads(previous_query_embedding)
-                 except: previous_query_embedding = None
-            logger.info(f"Query ID {query_id}: Loaded {len(previous_sticky_ids)} sticky IDs from previous turn.")
-        else:
-            logger.info(f"Query ID {query_id}: First turn or no previous state found for chat_id {chat_id}.")
-            is_follow_up = False # Treat as first turn if no previous state
+        if not is_new_session:
+            previous_turn = _get_previous_turn_data(chat_id)
+            if previous_turn:
+                query_features["is_follow_up"] = True # Confirm it's a follow-up with state
+                previous_sticky_ids = previous_turn.final_doc_ids or [] # Load IDs saved from last turn
+                # Load embedding, handle potential JSON storage
+                raw_embedding = previous_turn.rewritten_query_embedding
+                if isinstance(raw_embedding, str): # Simple check for JSON string
+                    try: previous_query_embedding = json.loads(raw_embedding)
+                    except json.JSONDecodeError: previous_query_embedding = None
+                elif isinstance(raw_embedding, list):
+                    previous_query_embedding = raw_embedding
+                else: previous_query_embedding = None
 
+                query_features["sticky_ids_count_in"] = len(previous_sticky_ids)
+                logger.info(f"Query ID {query_id}: Follow-up turn. Loaded {len(previous_sticky_ids)} sticky IDs and previous embedding (exists: {previous_query_embedding is not None}) from Query ID {previous_turn.id}.")
+            else:
+                # No previous turn found in DB, treat as first turn of this session
+                logger.info(f"Query ID {query_id}: Follow-up chat_id provided, but no previous state found in DB. Treating as first turn.")
+                query_features["is_follow_up"] = False # Override based on state found
 
-        # 2. Query Rewriting (CQR) - Only if it's a follow-up
-        embedding_handler = get_embedding_handler(get_embedding_model_for_kb(kb_id)) # Needed regardless
+        # --- Step 2: Query Rewriting (CQR) ---
+        # CQR only makes sense if there's history/previous context
+        embedding_handler = get_embedding_handler(get_embedding_model_for_kb(kb_id)) # Needed for embeddings later
 
-        if is_follow_up:
-            # Get history snippet for CQR (e.g., last Q+A)
-            # Option 1: Use Redis history formatter
-            chat_history_for_cqr = format_chat_history_for_prompt(chat_id, max_turns=HISTORY_TURNS_FOR_CQR)
-            # Option 2: Use previous ChatQuery object directly (simpler if only 1 turn needed)
-            # chat_history_for_cqr = f"Vorige Vraag: {previous_turn.user_query}\nVorige Antwoord: {previous_turn.llm_response[:200]}..." # Example
-            
+        if query_features["is_follow_up"]:
+            # Get history formatted for CQR prompt (e.g., last Q+A pair)
+            # Using Redis handler: format_chat_history_for_prompt(chat_id, max_turns=HISTORY_TURNS_FOR_CQR)
+            # Or directly from previous_turn object if only last turn needed:
+            if previous_turn and previous_turn.user_query and previous_turn.llm_response:
+                 chat_history_for_cqr = f"Vorige Vraag: {previous_turn.user_query}\nVorige Antwoord: {previous_turn.llm_response[:300]}..." # Example format
+            else:
+                 chat_history_for_cqr = format_chat_history_for_prompt(chat_id, max_turns=HISTORY_TURNS_FOR_CQR) # Fallback to Redis
+
             rewritten_query = _rewrite_query_cqr(message, chat_history_for_cqr, model_name, query_id)
-            query_features["cqr_used"] = (rewritten_query != message)
+            query_features["cqr_used"] = (rewritten_query != message) # Mark if CQR changed the query
         else:
-            # First turn, use original message as the query for retrieval
+            # First turn, the original message *is* the query for retrieval
             rewritten_query = message
+            logger.info(f"Query ID {query_id}: First turn, using original message as retrieval query.")
 
-        # 3. Embed the (potentially rewritten) query
+        # --- Step 3: Embed the Query for Retrieval ---
+        # Embed the potentially rewritten query
         try:
-            query_embedding = embedding_handler.get_embedding(rewritten_query)
-            if query_embedding is None: raise ValueError("Embedding generation returned None")
-            logger.info(f"Query ID {query_id}: Generated embedding for query: '{rewritten_query[:100]}...'")
+            # Use the handler associated with the knowledge base
+            rewritten_query_embedding = embedding_handler.get_embedding(rewritten_query)
+            if rewritten_query_embedding is None: raise ValueError("Embedding generation returned None")
+            logger.info(f"Query ID {query_id}: Generated embedding (dim: {len(rewritten_query_embedding)}) for query: '{rewritten_query[:100]}...'")
         except Exception as embed_e:
-            logger.error(f"Embedding generation failed for query_id {query_id}: {embed_e}", exc_info=True)
-            # Critical failure, cannot proceed with retrieval
-            return {"error": "Failed to generate query embedding", "docs": [], "query_id": query_id, "chat_id": chat_id}
+            logger.error(f"Query ID {query_id}: CRITICAL - Failed to generate embedding for the query: {embed_e}", exc_info=True)
+            # This is a fatal error for RAG, cannot proceed with retrieval.
+            query_features["processing_error"] = "Embedding generation failed"
+            # Skip to final steps, returning error
+            raise embed_e # Re-raise to be caught by the main try-except block
 
-
-        # 4. Adaptive Sticky Memory Logic
+        # --- Step 4: Adaptive Sticky Memory Decision ---
         current_fresh_k = DEFAULT_FRESH_K
-        current_sticky_s = DEFAULT_STICKY_S
+        current_sticky_s_target = DEFAULT_STICKY_S # How many sticky docs we AIM to retrieve
         use_sticky = False # Default to not using sticky memory
 
-        if is_follow_up and previous_sticky_ids and previous_query_embedding:
+        if query_features["is_follow_up"] and previous_sticky_ids and previous_query_embedding:
             # Calculate similarity between current rewritten query and previous rewritten query
-            similarity = _calculate_cosine_similarity(query_embedding, previous_query_embedding)
+            similarity = _calculate_cosine_similarity(rewritten_query_embedding, previous_query_embedding)
             query_features["cosine_similarity"] = round(similarity, 4)
-            logger.info(f"Query ID {query_id}: Cosine similarity with previous query: {similarity:.4f}")
+            logger.info(f"Query ID {query_id}: Cosine similarity with previous turn's query embedding: {similarity:.4f}")
 
             if similarity < SIMILARITY_THRESHOLD:
-                # Flush sticky memory - Topic changed significantly
-                logger.info(f"Query ID {query_id}: Similarity < {SIMILARITY_THRESHOLD}. Flushing sticky memory.")
-                previous_sticky_ids = [] # Clear the IDs
+                # Topic changed significantly - Flush sticky memory
+                logger.info(f"Query ID {query_id}: Similarity ({similarity:.4f}) < Threshold ({SIMILARITY_THRESHOLD}). Flushing sticky memory.")
+                previous_sticky_ids = [] # Clear the IDs for retrieval step
                 query_features["sticky_memory_flushed"] = True
-                # Optional: Increase K when flushing?
+                # Increase fresh K when topic changes drastically
                 current_fresh_k = MAX_TOTAL_DOCS # Retrieve more fresh docs
-                current_sticky_s = 0
+                current_sticky_s_target = 0
             else:
-                # Keep sticky memory - Topic is related
-                logger.info(f"Query ID {query_id}: Similarity >= {SIMILARITY_THRESHOLD}. Keeping sticky memory active.")
+                # Topic is related - Keep sticky memory active
+                logger.info(f"Query ID {query_id}: Similarity ({similarity:.4f}) >= Threshold ({SIMILARITY_THRESHOLD}). Activating sticky memory.")
                 use_sticky = True
                 query_features["sticky_memory_used"] = True
-                # Optional: Adaptive S/K based on similarity (Example)
-                # if similarity > 0.7: # Very similar, prioritize sticky
-                #     current_sticky_s = 6
-                #     current_fresh_k = 4
-                # else: # Moderately similar
-                #     current_sticky_s = 4
-                #     current_fresh_k = 6
-                # For simplicity, we stick to defaults if not flushing
-                current_sticky_s = DEFAULT_STICKY_S
+                # Keep default K/S for simplicity, could add adaptive logic here based on similarity level
                 current_fresh_k = DEFAULT_FRESH_K
-
+                current_sticky_s_target = DEFAULT_STICKY_S # Aim to retrieve up to S sticky docs
         else:
-             # First turn or no previous state with embedding/IDs
+             # First turn or no usable previous state (no IDs or embedding)
              logger.info(f"Query ID {query_id}: Not using sticky memory (first turn or missing previous state).")
              current_fresh_k = MAX_TOTAL_DOCS # Retrieve more fresh docs for the first query
-             current_sticky_s = 0
+             current_sticky_s_target = 0
 
-        query_features["fresh_k_used"] = current_fresh_k
-        query_features["sticky_s_used"] = current_sticky_s if use_sticky else 0
-
-        # 5. Hybrid Retrieval
-        # 5a. Retrieve Fresh Documents
-        logger.info(f"Query ID {query_id}: Retrieving {current_fresh_k} fresh documents.")
+        # --- Step 5: Hybrid Retrieval ---
+        # 5a. Retrieve Fresh Documents (Similarity Search)
+        logger.info(f"Query ID {query_id}: Retrieving up to {current_fresh_k} fresh documents using similarity search.")
         fresh_results_qdrant, fresh_retrieved_paths = retrieve_vector_results(
-            kb_id, query_embedding, current_fresh_k, query_id
+            kb_id, rewritten_query_embedding, current_fresh_k, query_id
         )
+        # `fresh_results_qdrant` structure: [{'id', 'score', 'payload'}, ...]
+
+        # Fetch full documents from DB for the retrieved paths
         fresh_document_objects = retrieve_chunks_from_db(fresh_retrieved_paths)
-        fresh_score_map = {item['payload']['file_path']: item['score'] for item in fresh_results_qdrant
-                           if isinstance(item.get('payload'), dict) and 'file_path' in item['payload']}
-        
-        fresh_intermediate_docs = [
-            {
-                "id": item['id'], # Keep Qdrant ID if available
-                "file_path": doc.file_path,
-                "content": doc.content,
-                "document": doc,
-                "retrieval_score": fresh_score_map.get(doc.file_path),
-                "rerank_score": None,
-                 "is_sticky": False
-            }
-            for doc in fresh_document_objects
-            # Match based on DB object path existing in Qdrant results' paths
-            if doc.file_path in fresh_score_map
-            # Find corresponding Qdrant result to get ID
-            for item in fresh_results_qdrant if item.get('payload', {}).get('file_path') == doc.file_path
-        ]
-        logger.info(f"Query ID {query_id}: Retrieved {len(fresh_intermediate_docs)} full fresh documents.")
+        fresh_db_map = {doc.file_path: doc for doc in fresh_document_objects}
 
+        # Combine Qdrant score/ID with DB content/object for fresh results
+        fresh_intermediate_docs = []
+        processed_fresh_qdrant_ids = set()
+        for item in fresh_results_qdrant:
+             qdrant_id = item.get('id')
+             if qdrant_id in processed_fresh_qdrant_ids: continue # Avoid duplicates from Qdrant results if any
 
-        # 5b. Retrieve Sticky Documents
+             file_path = item.get('payload', {}).get('file_path')
+             if file_path and file_path in fresh_db_map:
+                  doc_obj = fresh_db_map[file_path]
+                  fresh_intermediate_docs.append({
+                      "id": qdrant_id, # Qdrant ID
+                      "file_path": doc_obj.file_path,
+                      "content": doc_obj.content,
+                      "document": doc_obj, # Django object
+                      "retrieval_score": item.get('score'),
+                      "rerank_score": None,
+                      "is_sticky": False # Mark as fresh
+                  })
+                  processed_fresh_qdrant_ids.add(qdrant_id)
+             else:
+                 logger.warning(f"Query ID {query_id}: Could not find DB document for fresh Qdrant result (ID: {qdrant_id}, Path: {file_path}). Skipping.")
+
+        query_features["fresh_k_retrieved"] = len(fresh_intermediate_docs)
+        logger.info(f"Query ID {query_id}: Processed {len(fresh_intermediate_docs)} fresh documents after DB lookup.")
+
+        # 5b. Retrieve Sticky Documents (ID Lookup)
         sticky_intermediate_docs = []
         if use_sticky and previous_sticky_ids:
-            sticky_intermediate_docs = _retrieve_sticky_results(previous_sticky_ids, kb_id, query_id)
+            # Retrieve only up to the target number of sticky docs needed
+            ids_to_fetch = previous_sticky_ids[:current_sticky_s_target]
+            sticky_intermediate_docs = _retrieve_sticky_results(ids_to_fetch, kb_id, query_id)
+            query_features["sticky_s_retrieved"] = len(sticky_intermediate_docs)
+        else:
+            query_features["sticky_s_retrieved"] = 0
 
-        # 5c. Merge and Deduplicate
+
+        # 5c. Merge and Deduplicate Fresh and Sticky Results
         merged_intermediate_docs = _merge_and_deduplicate_results(
-            fresh_intermediate_docs, sticky_intermediate_docs, MAX_TOTAL_DOCS
+            fresh_intermediate_docs, sticky_intermediate_docs
         )
-        logger.info(f"Query ID {query_id}: Total unique documents for reranking: {len(merged_intermediate_docs)}")
+        query_features["merged_docs_count"] = len(merged_intermediate_docs)
 
-        # 6. Reranking
-        # Rerank the *merged* set using the *rewritten* query
-        docs_for_context, docs_for_ranking = apply_reranking(
-            merged_intermediate_docs,
-            rewritten_query, # Use the rewritten query for reranking relevance
-            use_reranker,
-            reranker_top_k, # Use the specified limit after reranking
-            len(merged_intermediate_docs), # Pass the total number before reranking
-            query_id
-        )
 
-        # Ensure docs_for_context has the 'document' object needed later
-        # apply_reranking should already preserve the structure based on your previous code
+        # --- Step 6: Reranking ---
+        # Rerank the merged set using the *rewritten* query for relevance.
+        if use_reranker and merged_intermediate_docs:
+             logger.info(f"Query ID {query_id}: Reranking {len(merged_intermediate_docs)} merged documents...")
+             docs_for_context, docs_for_ranking = apply_reranking(
+                 intermediate_docs=merged_intermediate_docs,
+                 query=rewritten_query, # Use rewritten query for reranking relevance
+                 use_reranker=True, # Explicitly pass True here
+                 reranker_top_k=reranker_top_k, # Target number after reranking
+                 retrieval_top_k=len(merged_intermediate_docs), # Pass the count before reranking
+                 query_id=query_id
+             )
+        elif merged_intermediate_docs:
+            # No reranking, just select top N based on initial retrieval score (if available)
+             logger.info(f"Query ID {query_id}: Skipping reranking. Selecting top {reranker_top_k} from merged documents based on initial score.")
+             # Sort by retrieval score (desc), Nones last, then take top K
+             merged_intermediate_docs.sort(key=lambda x: x.get('retrieval_score', -float('inf')), reverse=True)
+             docs_for_ranking = merged_intermediate_docs[:reranker_top_k]
+             # Prepare context list (content/path/doc obj) from the selected docs
+             docs_for_context = [
+                {"file_path": d['file_path'], "content": d['content'], "document": d.get('document')}
+                for d in docs_for_ranking
+             ]
+             # Ensure rerank_score is None if reranker wasn't used
+             for d in docs_for_ranking: d['rerank_score'] = None
+        else:
+            # No documents retrieved/merged at all
+            logger.warning(f"Query ID {query_id}: No documents available for context generation.")
+            docs_for_context = []
+            docs_for_ranking = []
 
-        # 7. Answer Generation
-        # Get chat history buffer for the final prompt
+        query_features["final_docs_count"] = len(docs_for_ranking)
+
+
+        # --- Step 7: Answer Generation ---
+        # Get formatted chat history buffer for the final prompt context
         chat_history_for_prompt = format_chat_history_for_prompt(chat_id, max_turns=HISTORY_TURNS_FOR_PROMPT)
 
         response = generate_response(
-            message, # Pass the ORIGINAL user message to the LLM
-            docs_for_context,
-            chat_history_for_prompt, # Pass formatted history
-            model_name,
-            query_id,
-            query_features, # Pass features dict to update final_llm_error
-            rewritten_query # Pass rewritten query for potential inclusion in prompt (optional)
+            message=message, # Use the ORIGINAL user message for the LLM to answer
+            docs_for_context=docs_for_context, # The final, reranked context
+            chat_history=chat_history_for_prompt, # Formatted history snippet
+            model_name=model_name, # LLM for generation
+            query_id=query_id,
+            query_features=query_features, # Pass mutable dict to update llm_error status
+            rewritten_query=rewritten_query # Pass rewritten query (optional, for prompt builder)
         )
 
-        # 8. Prepare data for persistence and response
-        # Get the IDs of the final top documents for the *next* turn's sticky memory
-        # Use Qdrant 'id' if available, otherwise fallback to 'file_path' (ensure file_path is unique enough)
+        # Check if LLM generation failed (status updated in generate_response)
+        if query_features["final_llm_error"]:
+             logger.error(f"Query ID {query_id}: LLM generation failed. Response set to error message.")
+             # Keep the error message in 'response' variable for now
+
+
+        # --- Step 8: Prepare Data for Persistence and API Response ---
+        # Get the identifiers (Qdrant ID preferred, fallback to file_path) of the final
+        # documents (after reranking) to store for the *next* turn's sticky memory.
         final_doc_ids_for_next_turn = [
-            d.get('id', d.get('file_path')) # Prioritize Qdrant ID
-            for d in docs_for_ranking # Use the reranked and trimmed list
-            if d.get('id') or d.get('file_path') # Ensure there is some identifier
-        ][:MAX_TOTAL_DOCS] # Limit to the max sticky size
+            d.get('id') or d.get('file_path') # Prioritize Qdrant ID if available
+            for d in docs_for_ranking # Use the final list selected for context
+            if d.get('id') or d.get('file_path') # Ensure there is *some* identifier
+        ][:MAX_TOTAL_DOCS] # Store up to the max target size
+        logger.info(f"Query ID {query_id}: Prepared {len(final_doc_ids_for_next_turn)} doc IDs for next turn's sticky memory: {final_doc_ids_for_next_turn}")
 
-        logger.info(f"Query ID {query_id}: Storing {len(final_doc_ids_for_next_turn)} doc IDs for next turn's sticky memory.")
+        # Serialize the final documents (docs_for_ranking) for the API response payload
+        final_docs_to_return_serialized = serialize_documents_for_response(docs_for_ranking)
 
-        # Serialize documents for the API response
-        final_docs_to_return_serialized = serialize_documents_for_response(docs_for_ranking) # Use reranked list
+        # --- Step 9: Persist State to Database ---
+        # Store the results of this turn, including state needed for the next turn.
+        # @transaction.atomic ensures this save is rolled back if an error occurred earlier in the block.
+        doc_tags_used = list(set( # Get unique tags from the final context docs
+             doc['document'].doc_tag
+             for doc in docs_for_context
+             if doc.get('document') and getattr(doc['document'], 'doc_tag', None)
+        ))
 
-        # 9. Persist State (including data for next turn)
-        # @transaction.atomic handles commit/rollback
-        doc_tags = [doc['document'].doc_tag for doc in docs_for_context if
-                    doc.get('document') and getattr(doc['document'], 'doc_tag', None)]
+        # Convert embedding to list for JSONField storage if needed
+        embedding_to_save = None
+        if rewritten_query_embedding is not None:
+             if isinstance(rewritten_query_embedding, np.ndarray):
+                 embedding_to_save = rewritten_query_embedding.tolist()
+             elif isinstance(rewritten_query_embedding, list):
+                  embedding_to_save = rewritten_query_embedding
+             # else: logger.warning("Cannot determine type of embedding for saving.")
 
-        # Convert embedding to list for JSONField or keep as list for ArrayField
-        embedding_to_save = query_embedding if isinstance(query_embedding, list) else query_embedding.tolist() if query_embedding is not None else None
 
-        ChatQuery.objects.create(
+        new_query_record = ChatQuery(
             id=query_id,
             chat_id=chat_id,
-            user_query=message,
-            rewritten_query=rewritten_query,
-            rewritten_query_embedding=embedding_to_save, # Store the embedding
-            llm_response=response if not query_features["final_llm_error"] else None,
-            final_doc_ids=final_doc_ids_for_next_turn, # Save IDs for next turn
-            doc_tag=doc_tags, # Tags of docs used in *this* response
-            # file_paths field is replaced by final_doc_ids
+            user_query=message, # Original query
+            rewritten_query=rewritten_query if query_features["cqr_used"] else None, # Store only if rewritten
+            rewritten_query_embedding=embedding_to_save, # Store the list/None
+            llm_response=response if not query_features["final_llm_error"] else None, # Store None if LLM failed
+            final_doc_ids=final_doc_ids_for_next_turn, # Save IDs for next turn's sticky memory
+            doc_tag=doc_tags_used, # Tags of docs used in *this* response's context
             model_used=model_name,
+            # created_at is auto_now_add
         )
-        logger.info(f"Query ID {query_id}: ChatQuery object created/saved successfully.")
+        new_query_record.save()
+        logger.info(f"Query ID {query_id}: Successfully saved ChatQuery record to database.")
 
-        # 10. Log conversation turn to Redis (if needed for simple history buffer)
-        log_message(chat_id, "user", message)
-        log_message(chat_id, "assistant", response)
 
-        # 11. Log Metrics
+        # --- Step 10: Log Conversation Turn to External Store (Optional) ---
+        # Example: Log user message and assistant response to Redis for simple history buffer
+        if not query_features["final_llm_error"]:
+            log_message(chat_id, "user", message)
+            log_message(chat_id, "assistant", response)
+
+
+        # --- Step 11: Final Processing & Return ---
+        end_time = datetime.datetime.now()
+        query_features["processing_time_ms"] = round((end_time - start_time).total_seconds() * 1000)
+
+        # Log comprehensive metrics for this turn
         log_doc_details = prepare_doc_details_for_logging(final_docs_to_return_serialized)
         log_response_metrics(
             timestamp=timestamp,
-            query_id=query_id,
-            chat_id=chat_id, # Add chat_id to logs
-            response=response,
+            query_features=query_features, # Pass the whole features dict
+            response=response, # Pass the actual response or error message
             kb_id=kb_id,
             model_name=model_name,
-            use_reranker=use_reranker,
-            reranker_top_k=reranker_top_k,
-            # Log conversational features
-            query_features=query_features,
-            # Counts reflect the final state
-            docs_retrieved_count=len(merged_intermediate_docs), # Total unique docs before rerank
-            docs_found_in_db_count=len(merged_intermediate_docs), # Assuming merge handles DB lookup
-            docs_returned_count=len(final_docs_to_return_serialized),
+            # Docs counts already in query_features
             log_doc_details=log_doc_details
         )
 
-        # 12. Return response
+        # Prepare the final API response payload
         response_payload = {
-            "response": response,
+            "response": response if not query_features["final_llm_error"] else ERROR_RESPONSE_MESSAGE, # Return standard error if LLM failed
             "docs": final_docs_to_return_serialized,
             "query_id": query_id,
-            "chat_id": chat_id # Return chat_id so client can maintain session
+            "chat_id": chat_id, # Return chat_id so client can continue the conversation
+            "error": ERROR_RESPONSE_MESSAGE if query_features["final_llm_error"] else None # Signal error clearly
         }
-        if query_features["final_llm_error"]:
-             response_payload["error"] = response # Overwrite response field if LLM failed
-             response_payload["response"] = ERROR_RESPONSE_MESSAGE # Set standard error message
-
+        logger.info(f"--- Turn End --- Query ID: {query_id}, Duration: {query_features['processing_time_ms']}ms ---")
         return response_payload
 
     except Exception as e:
-        logger.exception(f"Unexpected error processing message for query_id {query_id}, chat_id {chat_id}")
-        # Attempt to save minimal error state if possible (outside transaction might be tricky)
-        # Log error metrics
+        # Catch any unexpected error during the process
+        end_time = datetime.datetime.now()
+        processing_time = round((end_time - start_time).total_seconds() * 1000)
+        error_message = f"An unexpected error occurred: {type(e).__name__} - {e}"
+        logger.exception(f"Query ID {query_id}, Chat ID {chat_id}: CRITICAL - {error_message}") # Log full traceback
+
+        # Update features for error logging
+        query_features["processing_error"] = error_message
+        query_features["final_llm_error"] = True # Mark as failed
+        query_features["processing_time_ms"] = processing_time
+
+        # Log error metrics (outside the transaction)
+        # We might not have all data points if error happened early
         log_response_metrics(
-            timestamp=timestamp, query_id=query_id, chat_id=chat_id, response=ERROR_RESPONSE_MESSAGE,
-            kb_id=kb_id, model_name=model_name, use_reranker=use_reranker, reranker_top_k=reranker_top_k,
-            query_features={**query_features, "final_llm_error": True, "unexpected_error": str(e)},
-            docs_retrieved_count=0, docs_found_in_db_count=0, docs_returned_count=0, log_doc_details=[]
+            timestamp=timestamp,
+            query_features=query_features,
+            response=ERROR_RESPONSE_MESSAGE, kb_id=kb_id, model_name=model_name,
+            log_doc_details=[] # No docs to log in case of early failure
         )
-        return {"error": "An unexpected server error occurred.", "docs": [], "query_id": query_id, "chat_id": chat_id}
+
+        # Return a standardized error response to the client
+        return {
+            "response": None,
+            "docs": [],
+            "query_id": query_id,
+            "chat_id": chat_id,
+            "error": ERROR_RESPONSE_MESSAGE # Standard user-facing error
+            }
 
 
-# --- Updated Helper Functions ---
+# --- Helper Function Updates (Refined versions) ---
 
 def apply_reranking(
     intermediate_docs: List[Dict],
-    query: str, # Should be the rewritten query for relevance
-    use_reranker: bool,
+    query: str, # Should be the rewritten query for relevance calculation
+    use_reranker: bool, # Should be True if this function is called in the rerank path
     reranker_top_k: int,
-    retrieval_top_k: int, # This might be less relevant now, use len(intermediate_docs)
+    retrieval_top_k: int, # Number of docs *before* reranking (for logging/context)
     query_id: str
 ) -> Tuple[List[Dict], List[Dict]]:
     """
-    Apply reranking to merged documents using the potentially rewritten query.
+    Applies reranking to the merged list of documents using a Cross-Encoder model.
 
     Args:
-        intermediate_docs: List of merged dicts including 'content', 'file_path', 'document', 'retrieval_score', 'is_sticky'.
-        query: The query to rerank against (should be the rewritten query).
-        use_reranker: Whether to use reranking.
-        reranker_top_k: Number of documents to keep after reranking.
-        retrieval_top_k: Number of documents *before* reranking (informational).
-        query_id: Unique query identifier.
+        intermediate_docs: List of merged document dicts (fresh & sticky).
+                           Must contain 'content', 'file_path', and optionally 'id'.
+        query: The query (ideally rewritten) to use for calculating relevance scores.
+        use_reranker: Boolean indicating if reranking should be performed (should be True here).
+        reranker_top_k: The target number of documents to return after reranking.
+        retrieval_top_k: The number of documents *input* to reranking (for logging).
+        query_id: Unique query identifier for logging.
 
     Returns:
-        Tuple of:
-        - docs_for_context: List[Dict] containing necessary fields for LLM prompt.
-        - docs_for_ranking: List[Dict] containing full info including scores.
+        A tuple containing:
+        - docs_for_context: List[Dict] prepared for the LLM prompt (content, path, doc object).
+        - docs_for_ranking: List[Dict] containing the final reranked and selected documents
+                            with full metadata including 'rerank_score'.
     """
-    docs_for_context = []
-    docs_for_ranking = [] # This will be the final list after reranking/selection
-
     if not intermediate_docs:
-        logger.warning(f"Query ID {query_id}: No documents provided for reranking.")
+        logger.warning(f"Query ID {query_id}: No documents provided to apply_reranking function.")
         return [], []
 
-    # If not using reranker, select based on retrieval score (if available) or just take top N
     if not use_reranker:
-        logger.info(f"Query ID {query_id}: Skipping reranking. Selecting top {reranker_top_k} from {len(intermediate_docs)} merged documents.")
-        # Sort by retrieval score (descending), putting None scores last
-        intermediate_docs.sort(key=lambda x: x.get('retrieval_score') if x.get('retrieval_score') is not None else -float('inf'), reverse=True)
+        # This function assumes reranking is intended. If called without use_reranker=True, log error.
+        logger.error(f"Query ID {query_id}: apply_reranking called with use_reranker=False. This indicates a logic error.")
+        # Fallback: return top K based on retrieval score as done in the main function's non-rerank path
+        intermediate_docs.sort(key=lambda x: x.get('retrieval_score', -float('inf')), reverse=True)
         docs_for_ranking = intermediate_docs[:reranker_top_k]
-        # Ensure 'rerank_score' is None if not calculated
-        for doc in docs_for_ranking:
-            doc['rerank_score'] = None
-
-    # If using reranker
+        for doc in docs_for_ranking: doc['rerank_score'] = None # Mark as not reranked
     else:
-        logger.info(f"Query ID {query_id}: Reranking {len(intermediate_docs)} documents against query: '{query[:100]}...', keeping top {reranker_top_k}.")
+        # Proceed with reranking
+        logger.info(f"Query ID {query_id}: Applying reranking to {len(intermediate_docs)} documents against query: '{query[:100]}...', keeping top {reranker_top_k}.")
         try:
-            # Ensure necessary keys exist
-            docs_to_rerank = [
-                doc for doc in intermediate_docs
-                if doc.get('file_path') and doc.get('content') # Ensure basic fields are present
-            ]
-            if not docs_to_rerank:
+            # 1. Prepare documents in the format expected by the reranker
+            # Ensure necessary keys are present and valid
+            docs_to_rerank_input = []
+            original_doc_map = {} # Map reranker input ID back to original dict
+            for doc in intermediate_docs:
+                content = doc.get('content')
+                # Use Qdrant ID if available, otherwise file_path as unique ID for reranker item
+                doc_rerank_id = doc.get('id') or doc.get('file_path')
+                if content and doc_rerank_id:
+                    reranker_item = {"id": doc_rerank_id, "content": content}
+                    docs_to_rerank_input.append(reranker_item)
+                    original_doc_map[doc_rerank_id] = doc # Store original dict
+                else:
+                    logger.warning(f"Query ID {query_id}: Skipping doc for reranking due to missing content or identifier: {doc.get('id')}/{doc.get('file_path')}")
+
+            if not docs_to_rerank_input:
                  logger.warning(f"Query ID {query_id}: No valid documents found to pass to the reranker after filtering.")
                  raise ValueError("No valid documents to rerank.")
 
-            # Adapt input format for your reranker if needed
-            # Assuming reranker takes list of dicts with 'id' and 'content' keys
-            reranker_input = [
-                {"id": doc.get('id', doc['file_path']), "content": doc['content']} # Use Qdrant ID if present, else file_path
-                for doc in docs_to_rerank
-            ]
-
-            reranker = SentenceTransformerReranker() # Assuming default model or configured elsewhere
+            # 2. Initialize and run the reranker
+            # Assumes SentenceTransformerReranker or similar interface
+            reranker = SentenceTransformerReranker() # Consider passing model name if needed
             reranked_output = reranker.rerank(
                 query=query,
-                documents=reranker_input,
-                content_key="content",
-                top_k=reranker_top_k # Ask reranker to return only top K
+                documents=docs_to_rerank_input, # Pass the prepared list
+                content_key="content", # Key reranker should use for content
+                top_k=reranker_top_k # Ask reranker to return only the top K results
             )
+            # Expected output format: [{'id': ..., 'rerank_score': ...}, ...] sorted by score
+
             logger.info(f"Query ID {query_id}: Reranker returned {len(reranked_output)} documents.")
 
-            # Map reranked scores back to the original intermediate_docs structure
-            reranked_scores_map = {
-                item.get('id'): item.get('rerank_score') # Assuming 'rerank_score' is the key added by your reranker
-                for item in reranked_output if item.get('id') is not None and item.get('rerank_score') is not None
-            }
+            # 3. Map scores back and reconstruct the final list
+            docs_for_ranking = []
+            if reranked_output:
+                # Create a score map from the reranked output
+                reranked_scores_map = {
+                    item['id']: item['rerank_score']
+                    for item in reranked_output if 'id' in item and 'rerank_score' in item
+                }
 
-            temp_ranked_docs = []
-            for doc_dict in intermediate_docs:
-                # Use the same ID logic (Qdrant ID or file_path) to match
-                doc_id = doc_dict.get('id', doc_dict.get('file_path'))
-                if doc_id in reranked_scores_map:
-                    doc_dict['rerank_score'] = float(reranked_scores_map[doc_id])
-                    temp_ranked_docs.append(doc_dict)
-                # else: # Optionally keep docs that weren't reranked? Typically discard.
-                #    doc_dict['rerank_score'] = None
-                #    temp_ranked_docs.append(doc_dict)
+                # Iterate through the *reranked order* to build the final list
+                for item in reranked_output:
+                    rerank_id = item['id']
+                    if rerank_id in original_doc_map:
+                        original_doc_dict = original_doc_map[rerank_id]
+                        # Update the original dict with the rerank score
+                        original_doc_dict['rerank_score'] = float(reranked_scores_map[rerank_id])
+                        docs_for_ranking.append(original_doc_dict)
+                    else:
+                        # This shouldn't happen if maps are built correctly
+                         logger.error(f"Query ID {query_id}: Mismatch - Reranked ID '{rerank_id}' not found in original document map.")
 
-            # Sort the documents that received a rerank score
-            docs_for_ranking = sorted(
-                temp_ranked_docs,
-                key=lambda x: x.get('rerank_score', -float('inf')), # Handle potential None during sorting
-                reverse=True
-            )
-            # Ensure we don't exceed reranker_top_k (though reranker.rerank might already handle this)
-            docs_for_ranking = docs_for_ranking[:reranker_top_k]
+                # Ensure the list doesn't exceed top_k (should be handled by reranker's top_k)
+                docs_for_ranking = docs_for_ranking[:reranker_top_k]
+            else:
+                 logger.warning(f"Query ID {query_id}: Reranker returned an empty list.")
+                 docs_for_ranking = []
+
 
         except Exception as e:
-            logger.error(f"Reranking failed for query_id {query_id}: {e}", exc_info=True)
-            logger.warning(f"Query ID {query_id}: Falling back to top {reranker_top_k} documents based on initial retrieval score.")
+            logger.error(f"Query ID {query_id}: Reranking process failed: {e}", exc_info=True)
+            logger.warning(f"Query ID {query_id}: Falling back to selecting top {reranker_top_k} documents based on initial retrieval score due to reranking error.")
             # Fallback: Sort by original retrieval score and take top K
-            intermediate_docs.sort(key=lambda x: x.get('retrieval_score') if x.get('retrieval_score') is not None else -float('inf'), reverse=True)
+            intermediate_docs.sort(key=lambda x: x.get('retrieval_score', -float('inf')), reverse=True)
             docs_for_ranking = intermediate_docs[:reranker_top_k]
+            # Mark rerank_score as None to indicate failure/fallback
             for doc in docs_for_ranking:
-                doc['rerank_score'] = None # Indicate reranking failed/skipped
+                doc['rerank_score'] = None
 
-    # Prepare the list for the LLM context (content and path needed for prompt)
+    # --- Prepare final outputs ---
+    # 1. List for LLM context generation (needs specific fields for the prompt)
     docs_for_context = [
-        # Ensure the 'document' object is included if needed by generate_response or serialization
-        {"file_path": d['file_path'], "content": d['content'], "document": d.get('document')}
-        for d in docs_for_ranking
+        {
+            "file_path": d.get('file_path', 'N/A'),
+            "content": d.get('content', ''),
+            "document": d.get('document') # Pass the DB object if available and needed downstream
+         }
+        for d in docs_for_ranking # Use the final selected & ordered list
     ]
 
-    logger.info(f"Query ID {query_id}: Final number of documents selected for context: {len(docs_for_context)}")
-    # Log details of top selected docs
-    for i, d in enumerate(docs_for_ranking[:5]):
-         logger.debug(f"  Top Doc {i+1}: Path='{d.get('file_path')}', RetrScore={d.get('retrieval_score'):.4f}, RerankScore={d.get('rerank_score'):.4f if d.get('rerank_score') is not None else 'N/A'}, Sticky={d.get('is_sticky')}")
+    # 2. The ranked list itself (docs_for_ranking) is also returned for persistence/API response
+
+    logger.info(f"Query ID {query_id}: Final number of documents selected after reranking/selection: {len(docs_for_ranking)}")
+    # Log details of top N selected docs for debugging
+    for i, d in enumerate(docs_for_ranking[:5]): # Log top 5
+         rr_score_str = f"{d.get('rerank_score'):.4f}" if d.get('rerank_score') is not None else 'N/A'
+         ret_score_str = f"{d.get('retrieval_score'):.4f}" if d.get('retrieval_score') is not None else 'N/A'
+         logger.debug(f"  Top Doc {i+1}: Path='{d.get('file_path')}', RerankScore={rr_score_str}, RetrScore={ret_score_str}, Sticky={d.get('is_sticky', False)}")
 
     return docs_for_context, docs_for_ranking
 
 
 def generate_response(
-    message: str, # Original user message
-    docs_for_context: List[Dict],
-    chat_history: str, # Formatted history string
-    model_name: str,
-    query_id: str,
-    query_features: Dict[str, bool], # Mutable dict to update error status
-    rewritten_query: Optional[str] = None # Optional rewritten query
+    message: str, # Original user message/query for the current turn
+    docs_for_context: List[Dict], # Final selected documents for context
+    chat_history: str, # Formatted string of recent conversation history
+    model_name: str, # Identifier of the LLM to use for generation
+    query_id: str, # Unique ID for logging
+    query_features: Dict[str, Any], # Mutable dict to update 'final_llm_error' status
+    rewritten_query: Optional[str] = None # Optional rewritten query (usually not for LLM)
 ) -> str:
     """
-    Generate response from LLM using retrieved context and chat history.
-    Uses the *original* user message as the primary question for the LLM.
-    """
-    if docs_for_context:
-        # Format context for the prompt (ensure sensitive info like IDs isn't leaked if necessary)
-        context_string_for_prompt = "\n\n".join(
-            # Use a helper to format path if needed, otherwise use file_path directly
-            f"Document Path: {doc['file_path']}\nContent:\n{doc['content'][:1000]}..." # Limit content length per doc if needed
-            for doc in docs_for_context
-        )
-    else:
-        context_string_for_prompt = "Geen relevante documenten gevonden."
+    Generates the final response using the LLM, based on the original user query,
+    provided context documents, and chat history. Updates query_features on error.
 
-    # Use the updated create_prompt function
+    Args:
+        message: The original user query for this turn.
+        docs_for_context: List of dictionaries containing 'file_path' and 'content' of context docs.
+        chat_history: Formatted string of recent chat history.
+        model_name: Identifier of the LLM to use.
+        query_id: Unique identifier for logging.
+        query_features: Mutable dictionary to track execution status, specifically 'final_llm_error'.
+        rewritten_query: The rewritten query (optional, mainly for prompt template logic if needed).
+
+    Returns:
+        The generated text response from the LLM, or an error message string if generation fails.
+    """
+    logger.info(f"Query ID {query_id}: Preparing context and prompt for final answer generation using model {model_name}.")
+
+    # 1. Format the context string for the prompt
+    if docs_for_context:
+        # Join document contents, potentially adding metadata like file path
+        # Ensure sensitive info (like internal IDs) isn't leaked if context is logged elsewhere
+        context_items = []
+        for i, doc in enumerate(docs_for_context):
+             # Truncate content per document to avoid excessive prompt length
+             truncated_content = doc.get('content', '')[:1500] # Adjust limit as needed
+             # Use file_path for citation hint in the prompt
+             context_items.append(f"--- Document {i+1} (Path: {doc.get('file_path', 'N/A')}) ---\n{truncated_content}")
+        context_string_for_prompt = "\n\n".join(context_items)
+    else:
+        context_string_for_prompt = "Geen relevante context gevonden in de documentatie."
+        logger.warning(f"Query ID {query_id}: No context documents available for final prompt generation.")
+
+    # 2. Create the final prompt using the dedicated prompt builder function
     prompt = create_prompt(
-        user_query=message, # Use the original query here
+        user_query=message, # IMPORTANT: Use the original query for the LLM to answer
         context=context_string_for_prompt,
         chat_history=chat_history,
-        rewritten_query=rewritten_query # Pass rewritten query (optional, handled by create_prompt)
-        )
+        rewritten_query=rewritten_query # Pass along if needed by the prompt template logic
+    )
 
-    logger.debug(f"Query ID {query_id}: Final prompt for LLM (length {len(prompt)}):\n{prompt[:500]}...\n...\n...{prompt[-500:]}")
+    # Log prompt details carefully (avoid logging full sensitive context if necessary)
+    logger.debug(f"Query ID {query_id}: Final prompt length: {len(prompt)} chars.")
+    # logger.debug(f"Query ID {query_id}: Prompt Snippet:\n{prompt[:300]}...\n...\n...{prompt[-300:]}")
 
+    # 3. Call the LLM to generate the response
     try:
-        logger.info(f"Query ID {query_id}: Generating final response using model: {model_name}")
+        logger.info(f"Query ID {query_id}: Sending request to LLM ({model_name})...")
         model_handler = get_model_handler(model_name)
-        response = model_handler.generate_text(prompt)
-        logger.info(f"Query ID {query_id}: LLM response generated successfully (length {len(response)}).")
-        query_features["final_llm_error"] = False
-        return response
+        response_text = model_handler.generate_text(prompt)
+
+        if not response_text or response_text.strip() == "":
+             logger.warning(f"Query ID {query_id}: LLM ({model_name}) returned an empty response.")
+             # Handle empty response - maybe return a specific message or treat as error
+             query_features["final_llm_error"] = True
+             return "Sorry, ik kon geen antwoord genereren op basis van de beschikbare informatie."
+
+        logger.info(f"Query ID {query_id}: LLM response generated successfully (length {len(response_text)}).")
+        query_features["final_llm_error"] = False # Explicitly mark success
+        return response_text.strip() # Return the cleaned response
+
     except Exception as e:
-        query_features["final_llm_error"] = True # Update the dict
-        logger.exception(f"LLM generation failed for query_id {query_id} using model {model_name}")
-        return ERROR_RESPONSE_MESSAGE # Return error message, status is tracked in query_features
+        # Mark the error in the shared features dict
+        query_features["final_llm_error"] = True
+        logger.exception(f"Query ID {query_id}: LLM generation failed using model {model_name}: {e}")
+        # Return the generic error message to be displayed to the user
+        return ERROR_RESPONSE_MESSAGE
 
 def serialize_documents_for_response(docs_for_ranking: List[Dict]) -> List[Dict]:
     """
-    Converts final documents (after reranking) to JSON-serializable format for API response.
-    Includes Qdrant ID, scores, and stickiness.
+    Converts the final list of documents (after reranking/selection) into a
+    JSON-serializable format suitable for the API response payload.
+    Includes key metadata like scores and origin (sticky/fresh).
+
+    Args:
+        docs_for_ranking: The final list of selected document dictionaries.
+
+    Returns:
+        A list of JSON-serializable dictionaries representing the documents.
     """
     serialized_docs = []
-    for result in docs_for_ranking:
-        doc_obj = result.get('document')
-        # Fallback if 'document' object is missing for some reason
+    if not docs_for_ranking:
+        return []
+
+    for rank, result in enumerate(docs_for_ranking):
+        doc_obj = result.get('document') # Get the Django Document object if present
         file_path = result.get('file_path', 'N/A')
-        content = result.get('content', '')
+        content_snippet = result.get('content', '')[:200] + '...' if result.get('content') else '' # Example snippet
 
         serialized_doc = {
-            'qdrant_id': result.get('id'), # Include Qdrant ID if available
+            'rank': rank + 1,
+            'qdrant_id': result.get('id'), # Qdrant point ID (if available)
             'file_path': file_path,
-            'content': content, # Consider truncating for API response if large
-            'retrieval_score': result.get('retrieval_score'),
-            'rerank_score': result.get('rerank_score'),
-            'is_sticky': result.get('is_sticky', False) # Include sticky status
+            'retrieval_score': result.get('retrieval_score'), # Score from initial vector search
+            'rerank_score': result.get('rerank_score'), # Score from reranker (if used)
+            'is_sticky': result.get('is_sticky', False), # Was this from sticky memory?
+            # Include details from the Document object if available
+            'db_id': doc_obj.id if isinstance(doc_obj, Document) else None,
+            'doc_tag': doc_obj.doc_tag if isinstance(doc_obj, Document) else None,
+            'original_url': doc_obj.original_url if isinstance(doc_obj, Document) else None,
+            'chunk_url': doc_obj.chunk_url if isinstance(doc_obj, Document) else None,
+            'content_snippet': content_snippet, # Add snippet for preview
+            # Add timestamps if needed and available on doc_obj
+            # 'inserted_at': doc_obj.inserted_at.isoformat() if isinstance(doc_obj, Document) and doc_obj.inserted_at else None,
+            # 'updated_at': doc_obj.updated_at.isoformat() if isinstance(doc_obj, Document) and doc_obj.updated_at else None,
         }
-
-        # Add details from the Document object if present
-        if isinstance(doc_obj, Document):
-            serialized_doc.update({
-                'db_id': doc_obj.id,
-                'doc_tag': doc_obj.doc_tag,
-                'original_url': doc_obj.original_url,
-                'chunk_url': doc_obj.chunk_url,
-                'inserted_at': doc_obj.inserted_at.isoformat() if doc_obj.inserted_at else None,
-                'updated_at': doc_obj.updated_at.isoformat() if doc_obj.updated_at else None,
-            })
-        else:
-             logger.warning(f"Document object missing for file_path '{file_path}' during serialization.")
-
+        # Clean None values if desired for cleaner API response
+        # serialized_doc = {k: v for k, v in serialized_doc.items() if v is not None}
         serialized_docs.append(serialized_doc)
 
-    # logger.debug(f"Serialized documents for API response: {json.dumps(serialized_docs, indent=2)}") # Can be very verbose
+    logger.debug(f"Serialized {len(serialized_docs)} documents for API response.")
     return serialized_docs
 
 def prepare_doc_details_for_logging(serialized_docs: List[Dict]) -> List[Dict]:
     """
-    Prepare document details specifically for logging (less verbose).
+    Prepares a compact list of document details suitable for structured logging.
+
+    Args:
+        serialized_docs: The list of documents already serialized for the API response.
+
+    Returns:
+        A list of dictionaries with concise document information for logging.
     """
     log_details = []
     for doc in serialized_docs:
-        log_details.append({
-            "path": doc.get('file_path', 'N/A'),
-            "q_id": doc.get('qdrant_id', 'N/A'),
-            "tag": doc.get('doc_tag', 'N/A'),
-            "ret_sco": f"{doc.get('retrieval_score'):.4f}" if doc.get('retrieval_score') is not None else None,
-            "rr_sco": f"{doc.get('rerank_score'):.4f}" if doc.get('rerank_score') is not None else None,
-            "sticky": doc.get('is_sticky', False)
-        })
+         # Format scores nicely for logs
+         ret_score_str = f"{doc.get('retrieval_score'):.4f}" if doc.get('retrieval_score') is not None else None
+         rr_score_str = f"{doc.get('rerank_score'):.4f}" if doc.get('rerank_score') is not None else None
+         log_details.append({
+             "rank": doc.get('rank'),
+             "path": doc.get('file_path', 'N/A')[-60:], # Log truncated path
+             "qid": str(doc.get('qdrant_id', 'N/A'))[:8], # Log truncated Qdrant ID
+             # "tag": doc.get('doc_tag', 'N/A'), # Uncomment if tag is important for logs
+             "ret_sco": ret_score_str,
+             "rr_sco": rr_score_str,
+             "sticky": doc.get('is_sticky', False)
+         })
     return log_details
 
 def log_request_parameters(query_id, message, use_reranker, use_hyde, use_augmentation,
-                          fresh_k, sticky_s, reranker_top_k, model_name): # Added K/S
-    """Log initial request parameters."""
-    # Deprecated hyde/augment
-    # logger.info(
-    #     f"Query ID {query_id}: Reranker={use_reranker}, HyDE={use_hyde}, "
-    #     f"Augmentation={use_augmentation}, RetrievalK={retrieval_top_k}, "
-    #     f"RerankerK={reranker_top_k}, Model={model_name}"
-    # )
+                          fresh_k, sticky_s, reranker_top_k, model_name):
+    """Logs the key parameters received for the request."""
+    # Log deprecated flags as false for consistency if needed by downstream parsing
+    use_hyde = False
+    use_augmentation = False
     logger.info(
-        f"Query ID {query_id}: Params: Reranker={use_reranker}, FreshK={fresh_k}, "
-        f"StickyS={sticky_s}, RerankerK={reranker_top_k}, Model={model_name}"
+        f"Query ID {query_id}: Request Params - Reranker={use_reranker}, "
+        f"DefaultFreshK={fresh_k}, DefaultStickyS={sticky_s}, RerankerK={reranker_top_k}, "
+        f"Model={model_name}"
+        # f"HyDE={use_hyde}, Augmentation={use_augmentation}" # Log if needed, but should be false
     )
-
-# Deprecated: process_query_enhancements - CQR handled separately
-# def process_query_enhancements(...) -> ...:
 
 def retrieve_vector_results(kb_id: str, query_embedding: List[float], top_k: int, query_id: str) -> Tuple[
     List[Dict], List[str]]:
     """
-    Retrieve FRESH results from vector store based on similarity search.
-    (Renamed slightly for clarity vs direct ID retrieval)
-    """
-    logger.info(f"Query ID {query_id}: Getting vector client for KB: {kb_id}")
-    vector_client = get_vector_client(kb_id)
-    logger.info(f"Query ID {query_id}: Retrieving top {top_k} FRESH vectors via similarity search...")
+    Retrieves FRESH document results from the vector store via similarity search.
 
-    retrieved_results = [] # List of dicts {'id', 'score', 'payload'}
-    retrieved_paths = [] # List of file_paths from payload
+    Args:
+        kb_id: Knowledge base/collection identifier.
+        query_embedding: The embedding vector of the query.
+        top_k: The maximum number of results to retrieve.
+        query_id: Unique identifier for logging.
+
+    Returns:
+        A tuple containing:
+        - List of raw results from vector store client (e.g., [{'id', 'score', 'payload'}, ...]).
+        - List of file_path strings extracted from the payloads.
+    """
+    if top_k <= 0:
+        logger.info(f"Query ID {query_id}: Skipping fresh vector retrieval as top_k is {top_k}.")
+        return [], []
+
+    logger.info(f"Query ID {query_id}: Accessing vector client for KB: {kb_id}")
+    vector_client = get_vector_client(kb_id) # Get the configured client (e.g., QdrantClient)
+    logger.info(f"Query ID {query_id}: Performing similarity search for top {top_k} fresh vectors...")
+
+    retrieved_results_raw: List[Dict] = [] # Raw results from client.retrieve_vectors
+    retrieved_paths: List[str] = [] # Corresponding file paths
 
     try:
-        # This now calls the method specifically for similarity search
-        retrieved_results = vector_client.retrieve_vectors(query_embedding, top_k=top_k)
-        logger.info(f"Query ID {query_id}: Retrieved {len(retrieved_results)} raw results from vector storage search.")
+        # Assuming the client has a method like retrieve_vectors for similarity search
+        # This method should return dicts with 'id', 'score', 'payload'
+        retrieved_results_raw = vector_client.retrieve_vectors(query_embedding, top_k=top_k)
+        count = len(retrieved_results_raw)
+        logger.info(f"Query ID {query_id}: Vector store search returned {count} raw results.")
 
-        # Log top few results retrieved
-        if retrieved_results:
-            logger.debug(f"Query ID {query_id}: Top {min(5, len(retrieved_results))} FRESH results from Vector Store:")
-            for item in retrieved_results[:5]:
+        # Log top few results for debugging
+        if retrieved_results_raw:
+            logger.debug(f"Query ID {query_id}: Top {min(5, count)} FRESH results from vector search:")
+            for item in retrieved_results_raw[:5]:
                 payload = item.get('payload', {})
                 path = payload.get('file_path', 'N/A')
-                tag = payload.get('doc_tag', 'N/A')
+                # tag = payload.get('doc_tag', 'N/A')
                 score = item.get('score', float('nan'))
                 qdrant_id = item.get('id', 'N/A')
-                logger.debug(f"  - ID: {qdrant_id}, Path: {path}, Tag: {tag}, Score: {score:.4f}")
+                logger.debug(f"  - ID: {qdrant_id}, Path: {path}, Score: {score:.4f}")
 
-        # Extract file paths for DB lookup
+        # Extract file paths for subsequent DB lookup
+        # Ensure payload exists and contains the 'file_path' key
         retrieved_paths = [
             item['payload']['file_path']
-            for item in retrieved_results
+            for item in retrieved_results_raw
             if isinstance(item.get('payload'), dict) and 'file_path' in item['payload']
         ]
 
-        if len(retrieved_paths) != len(retrieved_results):
+        # Sanity check: log if counts mismatch significantly
+        if len(retrieved_paths) != count:
             logger.warning(
-                f"Query ID {query_id}: Mismatch between total retrieved results ({len(retrieved_results)}) "
-                f"and results with valid file_paths ({len(retrieved_paths)})."
+                f"Query ID {query_id}: Mismatch after extracting file paths. "
+                f"Vector search returned {count} results, but only {len(retrieved_paths)} had valid file_paths in payload."
             )
+
     except Exception as vector_e:
-        logger.error(f"Vector retrieval via search failed for query_id {query_id}: {vector_e}", exc_info=True)
-        # Return empty lists on failure
-        retrieved_results = []
+        logger.error(f"Query ID {query_id}: Vector retrieval via similarity search failed: {vector_e}", exc_info=True)
+        # Ensure empty lists are returned on failure
+        retrieved_results_raw = []
         retrieved_paths = []
 
-
-    return retrieved_results, retrieved_paths
+    return retrieved_results_raw, retrieved_paths
 
 
 def log_response_metrics(
     timestamp: str,
-    query_id: str,
-    chat_id: str, # Add chat_id
-    response: str,
+    query_features: Dict[str, Any], # Contains query_id, chat_id, flags, counts, etc.
+    response: str, # The final response string (or error message)
     kb_id: str,
     model_name: str,
-    use_reranker: bool,
-    reranker_top_k: int,
-    query_features: Dict[str, Any], # Pass the whole dict
-    # retrieval_top_k removed, use query_features['fresh_k_used'] etc.
-    docs_retrieved_count: int, # Total unique docs before rerank
-    docs_found_in_db_count: int, # Should match docs_retrieved if logic is sound
-    docs_returned_count: int, # Final count after rerank
-    log_doc_details: List[Dict]
+    log_doc_details: List[Dict] # Compact list of final doc details
 ) -> None:
-    """Log detailed metrics about the conversational response generation process."""
+    """Logs detailed metrics about the conversational response generation turn."""
 
-    # Flatten query_features for easier logging
-    flat_features = {k: v for k, v in query_features.items()}
-
-    response_info = {
+    # Prepare the final log record by combining fixed args and dynamic features
+    log_record = {
         "timestamp": timestamp,
-        "query_id": query_id,
-        "chat_id": chat_id,
-        "response_length": len(response),
+        "event_type": "CONV_RESPONSE_METRICS",
+        **query_features, # Unpack all collected features/metrics for this turn
+        "response_length": len(response) if response else 0,
         "kb_id": kb_id,
         "model_used": model_name,
-        "reranker_used": use_reranker,
-        "reranker_top_k": reranker_top_k if use_reranker else None,
-        # Conversational features
-        **flat_features, # Include all features like cqr_used, sticky_*, similarity, K/S used
-        # Document counts
-        "docs_retrieved_merged_count": docs_retrieved_count,
-        "docs_found_in_db_count": docs_found_in_db_count, # Keep for sanity check
-        "docs_returned_final_count": docs_returned_count,
-        "docs_returned_details": log_doc_details,
-        # Error flags already in query_features
-        # "llm_generation_error": query_features["final_llm_error"], # Redundant
-        # "unexpected_error": query_features.get("unexpected_error") # Include if present
+        "final_docs_details": log_doc_details,
+        # Ensure error flags are present and correctly reflect state
+        "success": not (query_features.get("final_llm_error") or query_features.get("processing_error"))
     }
-    # Remove None values for cleaner logs
-    response_info = {k: v for k, v in response_info.items() if v is not None}
 
+    # Remove None values for cleaner logs (optional)
+    # log_record = {k: v for k, v in log_record.items() if v is not None}
 
-    log_message_content = f"CONV_RESPONSE_METRICS {json.dumps(response_info)}"
-    if query_features.get("final_llm_error") or query_features.get("unexpected_error"):
-        logger.error(log_message_content)
-    else:
+    # Convert the dictionary to a JSON string for logging
+    log_message_content = json.dumps(log_record, default=str) # Use default=str for non-serializable types like UUID
+
+    # Log as ERROR if any failure occurred, INFO otherwise
+    if log_record["success"]:
         logger.info(log_message_content)
+    else:
+        logger.error(log_message_content)
+
 
 def get_kb_options():
-    """Get available knowledge base options."""
-    return get_available_knowledge_bases()
+    """Placeholder function to get available knowledge base options."""
+    logger.debug("Fetching available knowledge base options...")
+    # Replace with actual implementation using vector_factory or config
+    try:
+        return get_available_knowledge_bases()
+    except Exception as e:
+        logger.error(f"Failed to get available knowledge bases: {e}")
+        return [{"id": "default", "name": "Default KB (Error)"}]
