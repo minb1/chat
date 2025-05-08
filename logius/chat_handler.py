@@ -117,6 +117,7 @@ def _rewrite_query_cqr(
 
         # 3. Generate the rewritten query
         rewritten_query = cqr_llm_handler.generate_text(cqr_prompt).strip()
+        print("REWRITTEN QUERY ::::", rewritten_query)
         logger.debug(f"Query ID {query_id}: Raw CQR output: '{rewritten_query}'")
 
         # 4. Basic validation of the output

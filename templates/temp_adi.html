@@ -333,6 +333,11 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
             transform: scale(1.1);
             background-color: #103154; /* Slightly darker shade on hover */
         }
+         #chat-toggle-button:disabled { /* Style for disabled button */
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: scale(1); /* No hover effect when disabled */
+        }
 
         #chat-sidebar {
             position: fixed;
@@ -805,8 +810,7 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
             <button id="chat-close-button" aria-label="Close Chat">×</button>
         </div>
         <div id="chat-messages">
-            <!-- Initial message -->
-             <div class="message assistant-message">Stel hier uw vraag over de standaarden in dit document.</div>
+            <!-- Initial message will be added by JS -->
         </div>
         <div id="chat-input-area">
             <textarea id="chat-input" placeholder="Typ uw vraag..." rows="1" aria-label="Chat input"></textarea>
@@ -816,8 +820,8 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
 
         <!-- START: AI Disclaimer (Inside Sidebar) -->
         <div id="chat-disclaimer"> 
-            <p>Deze antwoorden zijn gegenereerd door AI.</p>
-            <p>Let op correctheid en double-check de bronnen.</p>
+            <p>AI kan fouten maken.</p>
+            <p>Controleerop  correctheid en double-check de bronnen.</p>
         </div>
         <!-- END: AI Disclaimer (Inside Sidebar) -->
 
@@ -846,8 +850,8 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
         const closeButton = document.getElementById('chat-close-button');
         const messagesContainer = document.getElementById('chat-messages');
         const inputField = document.getElementById('chat-input');
-        const chatDisclaimer = document.getElementById('chat-disclaimer'); // Get disclaimer element
-        // const sendButton = document.getElementById('chat-send-button'); // Uncomment if using send button
+        const chatDisclaimer = document.getElementById('chat-disclaimer');
+        // const sendButton = document.getElementById('chat-send-button');
 
         // Sources Popup Elements
         const sourcesPopup = document.getElementById('sources-popup');
@@ -856,16 +860,23 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
 
         // --- State ---
         let isOpen = false;
-        let chatId = null;
-        let isLoading = false;
-        let hasInteracted = false; // <-- New state variable
+        let chatId = null; // Will be set by initChatSession
+        let isLoading = false; // For send/receive message operations
+        let hasInteracted = false;
+        let isSessionInitialized = false; // True if chatId is set and (history loaded or new session created)
+        let isInitializingSession = false; // True while initChatSession is running
 
         // --- Configuration ---
-        const API_BASE_URL = 'http://localhost:8000/api'; // Your backend API base URL
+        const API_BASE_URL = 'http://localhost:8000/api';
+        const CHAT_ID_STORAGE_KEY = 'logiusChatId';
+        const CHAT_EXPIRY_STORAGE_KEY = 'logiusChatExpiry';
+        // Client-side expiry for localStorage. Backend (Redis) has its own TTL.
+        // Set this to slightly less than or equal to the backend TTL for consistency.
+        // Backend TTL is 3600s (1 hour). Let's use 55 minutes for localStorage.
+        const CHAT_SESSION_DURATION_MS = 55 * 60 * 1000; 
 
         // --- Helper Functions ---
-
-        function getCookie(name) { // --- CSRF Token ---
+        function getCookie(name) {
             let cookieValue = null;
             if (document.cookie && document.cookie !== '') {
                 const cookies = document.cookie.split(';');
@@ -882,32 +893,22 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
         const csrftoken = getCookie('csrftoken');
 
         function addMessageToChat(text, sender, docs = null) {
-            hideLoader(); // Always hide loader when adding a real message
-
+            hideLoader();
             const messageElement = document.createElement('div');
             messageElement.classList.add('message');
             messageElement.classList.add(sender === 'user' ? 'user-message' : sender === 'assistant' ? 'assistant-message' : 'error-message');
-
-            // Basic Markdown-like replacements (bold, italics)
             text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
             text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
-            // Convert newlines to <br> for HTML display
             messageElement.innerHTML = text.replace(/\n/g, '<br>');
-
             messagesContainer.appendChild(messageElement);
 
-            // Add "View Sources" button if it's an assistant message with documents
             if (sender === 'assistant' && docs && docs.length > 0) {
                 const viewSourcesButton = document.createElement('button');
                 viewSourcesButton.textContent = 'Bekijk Bronnen (' + docs.length + ')';
                 viewSourcesButton.classList.add('view-sources-button');
-                // Store docs data directly on the button
                 viewSourcesButton.setAttribute('data-sources', JSON.stringify(docs));
-                // Place button slightly offset below the message
-                 messageElement.insertAdjacentElement('afterend', viewSourcesButton);
+                messageElement.insertAdjacentElement('afterend', viewSourcesButton);
             }
-
-            // Scroll to the bottom
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
 
@@ -915,7 +916,7 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
             if (!messagesContainer.querySelector('.loader')) {
                 const loader = document.createElement('div');
                 loader.className = 'loader';
-                loader.setAttribute('aria-label', 'Loading response'); // Accessibility
+                loader.setAttribute('aria-label', 'Loading response');
                 messagesContainer.appendChild(loader);
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
             }
@@ -923,128 +924,203 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
 
         function hideLoader() {
             const loader = messagesContainer.querySelector('.loader');
-            if (loader) {
-                messagesContainer.removeChild(loader);
-            }
+            if (loader) messagesContainer.removeChild(loader);
         }
 
         function showSourcesPopup(docs) {
-            sourcesList.innerHTML = ''; // Clear previous sources
+            sourcesList.innerHTML = '';
             if (!docs || docs.length === 0) {
                 sourcesList.innerHTML = '<li>Geen bronnen beschikbaar voor dit antwoord.</li>';
             } else {
                 docs.forEach((doc, index) => {
                     const li = document.createElement('li');
                     const titleSpan = document.createElement('span');
-                    // Use doc_tag or fallback to index
                     titleSpan.innerHTML = `<strong>Bron ${index + 1}:</strong> ${doc.doc_tag || 'Onbekend document'}`;
-
                     const urlSpan = document.createElement('span');
                     const urlLink = document.createElement('a');
-                    // Use chunk_url if available, otherwise '#'
                     urlLink.href = doc.chunk_url || '#';
                     urlLink.textContent = doc.chunk_url ? `Link naar sectie` : 'Geen directe link beschikbaar';
                     if (doc.chunk_url) {
-                         urlLink.target = '_blank'; // Open in new tab if it's a valid URL
+                         urlLink.target = '_blank';
                          urlLink.rel = 'noopener noreferrer';
                     } else {
-                        urlLink.style.pointerEvents = 'none'; // Disable click if no URL
+                        urlLink.style.pointerEvents = 'none';
                         urlLink.style.color = '#6c757d';
                         urlLink.style.borderBottom = 'none';
                     }
-
-
                     urlSpan.innerHTML = '<strong>Url:</strong> ';
                     urlSpan.appendChild(urlLink);
-
                     li.appendChild(titleSpan);
                     li.appendChild(urlSpan);
                     sourcesList.appendChild(li);
                 });
             }
-            // Use class to show the popup
             sourcesPopup.classList.add('visible');
-            // Focus the close button for accessibility
             sourcesPopupClose.focus();
         }
 
         function hideSourcesPopup() {
              sourcesPopup.classList.remove('visible');
-             // Return focus to the element that opened the popup if possible, or the chat input
-             // (Requires tracking the opener, simplified here to focus input)
-             if (isOpen) {
-                 inputField.focus();
-             }
+             if (isOpen) inputField.focus();
         }
 
-        // --- API Interaction ---
+        // --- Chat Session Management ---
 
-        async function fetchChatSession() {
-             if (isLoading) return;
-            isLoading = true;
-            console.log("Requesting new chat session...");
-            // Optionally disable toggle button while fetching session
-            // toggleButton.disabled = true;
+        async function _createNewChatSessionOnBackend() {
+            console.log("Requesting new chat session from backend...");
             try {
                 const response = await fetch(`${API_BASE_URL}/chat/session/`, {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json', 'X-CSRFToken': csrftoken },
-                    body: JSON.stringify({}) // Empty body is fine if backend expects it
+                    body: JSON.stringify({})
                 });
                 if (!response.ok) {
-                     const errorData = await response.json().catch(() => ({ error: "Onbekende serverfout" }));
+                    const errorData = await response.json().catch(() => ({ error: "Onbekende serverfout bij sessiecreatie" }));
                     throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
                 if (data.chat_id) {
-                    chatId = data.chat_id;
-                    console.log("Chat session started:", chatId);
-                    return chatId;
-                } else { throw new Error("Geen chat_id ontvangen."); }
+                    console.log("New chat session received from backend:", data.chat_id);
+                    return data; // Returns { chat_id: "..." }
+                } else {
+                    throw new Error("Geen chat_id ontvangen van backend.");
+                }
             } catch (error) {
-                console.error("Error fetching chat session:", error);
-                addMessageToChat(`Fout bij starten chat: ${error.message}. Probeer opnieuw.`, 'error');
-                chatId = null;
+                console.error("Error creating new chat session on backend:", error);
+                // Error will be handled by initChatSession
                 return null;
-            } finally {
-                isLoading = false;
-                 // toggleButton.disabled = false;
             }
         }
 
-        async function sendMessage(message) {
-             // Ensure chat session exists before sending
-            if (!chatId) {
-                 const newChatId = await fetchChatSession();
-                 if (!newChatId) {
-                    addMessageToChat("Chatsessie is niet actief. Probeer het opnieuw.", 'error');
-                    return; // Stop if session couldn't be created
-                 }
-                 // If session created successfully, proceed with sending message
+        async function fetchAndDisplayHistory(sessionId) {
+            console.log(`Fetching history for session: ${sessionId}`);
+            messagesContainer.innerHTML = ''; // Clear messages before loading history or showing loader
+            showLoader();
+            try {
+                const response = await fetch(`${API_BASE_URL}/chat/history/${sessionId}/`, {
+                    method: 'GET',
+                    headers: { 'X-CSRFToken': csrftoken }
+                });
+                hideLoader(); // Hide loader regardless of outcome after fetch attempt
+                if (!response.ok) {
+                    if (response.status === 404) {
+                        console.warn(`History not found for session ${sessionId} (likely expired on backend).`);
+                    } else {
+                        const errorData = await response.json().catch(() => ({ error: "Fout bij ophalen geschiedenis" }));
+                        console.error(`Error fetching history: ${errorData.error || response.status}`);
+                    }
+                    return false; // Indicate failure
+                }
+                const data = await response.json();
+                if (data.history && Array.isArray(data.history)) {
+                    console.log(`Successfully fetched ${data.history.length} messages for session ${sessionId}.`);
+                    messagesContainer.innerHTML = ''; // Ensure clean slate before adding
+                    data.history.forEach(msg => {
+                        // Ensure 'role' and 'content' exist before adding
+                        if (typeof msg.role === 'string' && typeof msg.content === 'string') {
+                            addMessageToChat(msg.content, msg.role);
+                        } else {
+                            console.warn("Skipping malformed message from history:", msg);
+                        }
+                    });
+
+                    if (data.history.length > 0) {
+                        hasInteracted = true; // If history exists, user has interacted
+                        if (chatDisclaimer) chatDisclaimer.style.display = 'block';
+                    }
+                    return true; // Indicate success
+                } else {
+                    console.warn(`No history array found in response for session ${sessionId}.`);
+                    return false; // Or true if an empty history is a valid "loaded" state
+                }
+            } catch (error) {
+                hideLoader();
+                console.error("Error fetching or displaying chat history:", error);
+                return false; // Indicate failure
+            }
+        }
+
+        async function initChatSession() {
+            console.log("Initializing chat session...");
+            const storedChatId = localStorage.getItem(CHAT_ID_STORAGE_KEY);
+            const storedExpiry = localStorage.getItem(CHAT_EXPIRY_STORAGE_KEY);
+            const currentTime = new Date().getTime();
+
+            if (storedChatId && storedExpiry && currentTime < parseInt(storedExpiry)) {
+                console.log(`Found valid session in localStorage: ${storedChatId}`);
+                chatId = storedChatId; // Temporarily set for fetchAndDisplayHistory
+                const historyLoaded = await fetchAndDisplayHistory(chatId);
+
+                if (historyLoaded) {
+                    isSessionInitialized = true;
+                    if (messagesContainer.children.length === 0) { // If history was empty
+                        addMessageToChat("Stel hier uw vraag over de standaarden in dit document.", 'assistant');
+                    }
+                    console.log("Chat session initialized from localStorage with history.");
+                    return true;
+                } else {
+                    console.warn("Failed to load history for stored session. Clearing localStorage and creating new session.");
+                    localStorage.removeItem(CHAT_ID_STORAGE_KEY);
+                    localStorage.removeItem(CHAT_EXPIRY_STORAGE_KEY);
+                    chatId = null; // Reset chatId as it's invalid
+                }
+            } else {
+                if (storedChatId) console.log("Found expired session in localStorage. Clearing.");
+                localStorage.removeItem(CHAT_ID_STORAGE_KEY);
+                localStorage.removeItem(CHAT_EXPIRY_STORAGE_KEY);
             }
 
-            if (isLoading || !message) return; // Don't send empty messages
+            // If we reach here, we need a new session from the backend
+            console.log("Requesting a new session from backend as no valid local session found.");
+            messagesContainer.innerHTML = ''; // Clear placeholder messages
+            showLoader(); // Show loader while creating new backend session
 
-            // --- Show Disclaimer on First Interaction ---
+            const newSessionData = await _createNewChatSessionOnBackend();
+            hideLoader(); // Hide loader after attempt
+
+            if (newSessionData && newSessionData.chat_id) {
+                chatId = newSessionData.chat_id;
+                const expiryTime = new Date().getTime() + CHAT_SESSION_DURATION_MS;
+                localStorage.setItem(CHAT_ID_STORAGE_KEY, chatId);
+                localStorage.setItem(CHAT_EXPIRY_STORAGE_KEY, expiryTime.toString());
+                
+                isSessionInitialized = true;
+                messagesContainer.innerHTML = ''; // Clear any potentially stale messages
+                addMessageToChat("Stel hier uw vraag over de standaarden in dit document.", 'assistant');
+                console.log("New chat session initialized and stored.");
+                return true;
+            } else {
+                messagesContainer.innerHTML = ''; // Clear messages
+                addMessageToChat("Kon geen chatsessie starten. Probeer het later opnieuw.", 'error');
+                isSessionInitialized = false;
+                chatId = null;
+                console.error("Failed to initialize new chat session.");
+                return false;
+            }
+        }
+
+        // --- API Interaction ---
+        async function sendMessage(message) {
+            if (!isSessionInitialized || !chatId) {
+                 addMessageToChat("Chatsessie is niet actief. Sluit en open de chat opnieuw.", 'error');
+                 console.error("sendMessage called but session not initialized or chatId missing.");
+                 return;
+            }
+
+            if (isLoading || !message) return;
+
             if (!hasInteracted) {
                 hasInteracted = true;
-                if (chatDisclaimer) {
-                    chatDisclaimer.style.display = 'block';
-                }
+                if (chatDisclaimer) chatDisclaimer.style.display = 'block';
             }
-            // --------------------------------------------
 
             isLoading = true;
             inputField.disabled = true;
-            // if (sendButton) sendButton.disabled = true; // Disable send button if present
-
             addMessageToChat(message, 'user');
-            inputField.value = ''; // Clear input field
-            // Reset input height after sending
+            inputField.value = '';
             inputField.style.height = 'auto';
             inputField.style.height = inputField.scrollHeight + 'px';
-
-            showLoader(); // Show spinner while waiting
+            showLoader();
 
             try {
                 const response = await fetch(`${API_BASE_URL}/chat/`, {
@@ -1053,146 +1129,133 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
                     body: JSON.stringify({ query: message, chat_id: chatId })
                 });
 
-                 // No need to hide loader here, addMessageToChat will do it
-
                 if (!response.ok) {
                      const errorData = await response.json().catch(() => ({ error: "Onbekende serverfout" }));
                     throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-
                 if (data.response) {
-                    // Pass documents array to addMessageToChat
                     addMessageToChat(data.response, 'assistant', data.docs || []);
                 } else if (data.error) {
                     addMessageToChat(data.error, 'error');
                 } else {
-                     // Handle unexpected success response without 'response' or 'error'
                      addMessageToChat("Onverwacht antwoord van de server.", 'error');
                 }
             } catch (error) {
                 console.error("Error sending message:", error);
-                hideLoader(); // Ensure loader is hidden on error
+                hideLoader();
                 addMessageToChat(`Fout: ${error.message || "Kon geen verbinding maken."}`, 'error');
             } finally {
                 isLoading = false;
                 inputField.disabled = false;
-                // if (sendButton) sendButton.disabled = false; // Re-enable send button
-                inputField.focus(); // Keep focus on input field
+                inputField.focus();
             }
         }
 
         // --- Event Handlers ---
-
-        async function toggleChat() { // Handles sidebar open/close
-             // Prevent toggling while session is being fetched initially
-            if (isLoading && !isOpen && !chatId) return;
+        async function toggleChat() {
+            if (isInitializingSession) {
+                console.log("Toggle chat aborted: session is currently initializing.");
+                return;
+            }
 
             if (isOpen) {
                 sidebar.classList.remove('is-open');
                 sidebar.setAttribute('aria-hidden', 'true');
-                hideSourcesPopup(); // Also hide popup when sidebar closes
+                hideSourcesPopup();
                 isOpen = false;
-                toggleButton.setAttribute('aria-label', 'Open Chat'); // Update accessibility label
-            } else {
-                // Ensure chat session exists before opening fully
-                if (!chatId) {
-                    const newChatId = await fetchChatSession();
-                    if (!newChatId) return; // Don't open if session failed
+                toggleButton.setAttribute('aria-label', 'Open Chat');
+            } else { // Try to open
+                isInitializingSession = true;
+                toggleButton.disabled = true; // Disable button during init
+                // messagesContainer.innerHTML = ''; // Clear placeholder or old messages before init
+                // showLoader(); // Show loader while initializing
+
+                if (!isSessionInitialized) { // Only fully initialize if not already done
+                    const success = await initChatSession();
+                    // hideLoader(); // Hide loader after init attempt (already handled in initChatSession)
+                    if (!success) {
+                        isInitializingSession = false;
+                        toggleButton.disabled = false; // Re-enable button
+                        // Error message already shown by initChatSession. Sidebar remains closed.
+                        return;
+                    }
                 }
+                
+                // If session is (now) initialized, open the sidebar
                 sidebar.classList.add('is-open');
                 sidebar.setAttribute('aria-hidden', 'false');
                 isOpen = true;
-                inputField.focus(); // Focus input when opened
-                toggleButton.setAttribute('aria-label', 'Close Chat'); // Update accessibility label
+                inputField.focus();
+                toggleButton.setAttribute('aria-label', 'Close Chat');
+                messagesContainer.scrollTop = messagesContainer.scrollHeight; // Scroll to bottom if history loaded
+
+                isInitializingSession = false;
+                toggleButton.disabled = false; // Re-enable button
             }
         }
 
         function handleInputKeypress(event) {
-            // Send message on Enter, unless Shift is pressed (for newlines)
             if (event.key === 'Enter' && !event.shiftKey) {
-                event.preventDefault(); // Prevent newline in textarea
+                event.preventDefault();
                 const message = inputField.value.trim();
-                if (message) { // Only send if message is not empty
-                    sendMessage(message);
-                }
+                if (message) sendMessage(message);
             }
         }
 
-        // Auto-resize textarea height based on content
         function handleInputInput() {
-             inputField.style.height = 'auto'; // Temporarily shrink to calculate correct scrollHeight
+             inputField.style.height = 'auto';
              inputField.style.height = (inputField.scrollHeight) + 'px';
         }
 
         // --- Initialization ---
         toggleButton.addEventListener('click', toggleChat);
-        closeButton.addEventListener('click', toggleChat);
+        closeButton.addEventListener('click', toggleChat); // This will also call init if sidebar was closed and reopened
         inputField.addEventListener('keypress', handleInputKeypress);
         inputField.addEventListener('input', handleInputInput);
 
-        // Send button functionality (if uncommented)
-        // if (sendButton) {
-        //     sendButton.addEventListener('click', () => {
-        //         const message = inputField.value.trim();
-        //         if (message && !isLoading) {
-        //             sendMessage(message);
-        //         }
-        //     });
-        // }
-
-        // --- Popup Close Listeners ---
+        // Popup Close Listeners
         sourcesPopupClose.addEventListener('click', hideSourcesPopup);
-        // Close popup if clicked outside the content area
         sourcesPopup.addEventListener('click', (event) => {
-            if (event.target === sourcesPopup) { // Click was directly on the overlay
-                hideSourcesPopup();
-            }
+            if (event.target === sourcesPopup) hideSourcesPopup();
         });
-        // Close popup on Escape key press
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape' && sourcesPopup.classList.contains('visible')) {
                 hideSourcesPopup();
             }
         });
 
-
-        // --- Event Delegation for "View Sources" Button ---
+        // Event Delegation for "View Sources"
         messagesContainer.addEventListener('click', (event) => {
-            // Check if the clicked element is a view sources button
             if (event.target && event.target.classList.contains('view-sources-button')) {
                  const button = event.target;
                  try {
-                     // Retrieve the stored JSON string and parse it
                     const sourcesData = JSON.parse(button.getAttribute('data-sources'));
                     showSourcesPopup(sourcesData);
                  } catch (e) {
-                    console.error("Error parsing sources data from button attribute:", e);
-                    // Optionally show an error to the user
+                    console.error("Error parsing sources data:", e);
                     alert("Kon bronnen niet laden.");
                  }
             }
         });
 
-
-        // Close sidebar if user clicks outside of it (and not on toggle button or inside popup)
+        // Close sidebar if user clicks outside
         document.addEventListener('click', (event) => {
              if (isOpen && !sidebar.contains(event.target) && !toggleButton.contains(event.target)) {
-                 // Check if the click is outside the sources popup content as well
                  if (!event.target.closest('.popup-content')) {
-                    // Added check: Do not close if clicking on ReSpec definition links/panels
                      if (!event.target.closest('.dfn-panel') && !event.target.closest('dfn, .index-term')) {
-                         toggleChat();
+                         toggleChat(); // This will set isOpen to false
                      }
                  }
             }
         });
 
-         // Initial setup: Ensure sidebar & popup are hidden and aria attributes are correct
+        // Initial UI state
         sidebar.classList.remove('is-open');
         sidebar.setAttribute('aria-hidden', 'true');
         sourcesPopup.classList.remove('visible');
         toggleButton.setAttribute('aria-label', 'Open Chat');
+        if(chatDisclaimer) chatDisclaimer.style.display = 'none'; // Hide disclaimer initially
 
     })(); // IIFE End
     </script>

@@ -245,7 +245,7 @@
         <!-- Retrieval Settings -->
         <div>
              <label for="retrievalTopK" class="form-label">Retrieval Top K</label>
-             <input type="number" class="form-control form-control-sm" id="retrievalTopK" value="50" min="1" max="50">
+             <input type="number" class="form-control form-control-sm" id="retrievalTopK" value="5" min="1" max="50"> <!-- Changed default to 5 for more reasonable initial retrieval -->
              <div class="form-text text-muted" style="font-size: 0.75rem;">Number of docs from vector DB.</div>
         </div>
 
@@ -258,7 +258,7 @@
             </div>
             <div id="rerankerOptions" class="mt-2"> <!-- Show/hide options based on checkbox -->
                 <label for="rerankerTopK" class="form-label">Reranker Top K</label>
-                <input type="number" class="form-control form-control-sm" id="rerankerTopK" value="10" min="1" max="50">
+                <input type="number" class="form-control form-control-sm" id="rerankerTopK" value="3" min="1" max="50"> <!-- Changed default to 3 for more reasonable initial retrieval -->
                 <div class="form-text text-muted" style="font-size: 0.75rem;">Number of docs after reranking.</div>
             </div>
         </div>
@@ -341,6 +341,7 @@
         <h5>Retrieved Docs</h5>
         <div class="accordion" id="docsAccordion">
             <!-- Accordion items will be injected here -->
+            <p class="p-2 text-muted small">Documents retrieved will appear here.</p>
         </div>
     </div>
 </div>
@@ -451,7 +452,7 @@
                     userInput.focus();
                     // Clear previous chat messages and sidebar for new session
                     chatMessages.innerHTML = `<div class="message bot-message"><div class="message-header"><i class="bi bi-robot me-2"></i> Assistant</div><div class="message-content" data-raw-text="Hallo, ik ben de Logius-assistent. Hoe kan ik u helpen?">Hallo, ik ben de Logius-assistent. Hoe kan ik u helpen?</div></div>`;
-                    docsAccordion.innerHTML = '';
+                    docsAccordion.innerHTML = '<p class="p-2 text-muted small">Documents retrieved will appear here.</p>'; // Reset docs sidebar
                 })
                 .catch(error => {
                     console.error('Error starting chat session:', error);
@@ -473,6 +474,9 @@
 
             const thinkingMsgId = `thinking-${Date.now()}`;
             addMessage("...", 'bot', thinkingMsgId);
+            // Clear previous docs on new query
+            docsAccordion.innerHTML = '<p class="p-2 text-muted small">Retrieving documents...</p>';
+
 
             userInput.disabled = true;
             chatForm.querySelector('button').disabled = true;
@@ -481,10 +485,10 @@
             const useReranker = useRerankerCheckbox.checked;
             const modelName = modelSelector.value;
             const useHyde = useHydeCheckbox.checked;
-            const useAugmentation = useAugmentationCheckbox.checked; // <<< Get augmentation state
+            const useAugmentation = useAugmentationCheckbox.checked; 
 
-            const retrievalTopK = parseInt(retrievalTopKInput.value, 10) || 5; // Use default if invalid
-            const rerankerTopK = parseInt(rerankerTopKInput.value, 10) || 10; // Use default if invalid
+            const retrievalTopK = parseInt(retrievalTopKInput.value, 10) || 5; 
+            const rerankerTopK = parseInt(rerankerTopKInput.value, 10) || 3;
 
 
             fetch('/api/chat/', {
@@ -515,21 +519,24 @@
                 removeMessage(thinkingMsgId);
                 if (data.error) {
                     addMessage("Error: " + data.error, 'bot'); // Show backend error
+                    docsAccordion.innerHTML = '<p class="p-2 text-danger small">Error retrieving documents.</p>';
                 } else {
                     // Add the actual bot response WITH feedback buttons
-                    addMessage(data.response, 'bot');
-                    if (data.docs) {
-                        console.log("Received docs:", data.docs);
+                    addMessage(data.response, 'bot', null, data.query_id); // Pass query_id for feedback
+                    if (data.docs && Array.isArray(data.docs)) {
+                        console.log("Received docs for display:", data.docs);
                         updateDocsSidebar(data.docs);
                     } else {
-                        docsAccordion.innerHTML = '<p class="p-2 text-muted">No documents retrieved.</p>';
+                        console.log("No docs received or docs is not an array:", data.docs);
+                        docsAccordion.innerHTML = '<p class="p-2 text-muted small">No documents retrieved for this query.</p>';
                     }
                 }
             })
             .catch(error => {
                 removeMessage(thinkingMsgId);
                 console.error('Error fetching chat response:', error);
-                addMessage(`Sorry, something went wrong: ${error.message}`, 'bot'); // Show specific error
+                addMessage(`Sorry, something went wrong: ${error.message}`, 'bot');
+                docsAccordion.innerHTML = '<p class="p-2 text-danger small">Error fetching documents.</p>';
             })
             .finally(() => {
                 userInput.disabled = false;
@@ -539,8 +546,8 @@
             });
         });
 
-        // --- addMessage function (MODIFIED for feedback buttons) ---
-        function addMessage(text, sender, id = null) {
+        // --- addMessage function (MODIFIED for feedback buttons & query_id) ---
+        function addMessage(text, sender, id = null, queryIdForFeedback = null) { // Added queryIdForFeedback
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
             if (id) messageDiv.id = id;
@@ -559,15 +566,13 @@
 
             const contentDiv = document.createElement('div');
             contentDiv.classList.add('message-content');
-            // Store the raw text for feedback, before markdown parsing
-            contentDiv.dataset.rawText = text; // <-- Store raw text
+            contentDiv.dataset.rawText = text; 
             if (sender === 'bot' && text !== "...") {
-                 // Ensure marked is loaded before calling parse
                  if (typeof marked !== 'undefined') {
                     contentDiv.innerHTML = marked.parse(text, { breaks: true });
                  } else {
                     console.warn("Marked library not loaded, displaying raw text.");
-                    contentDiv.textContent = text; // Fallback
+                    contentDiv.textContent = text;
                  }
             } else {
                 contentDiv.textContent = text;
@@ -576,11 +581,12 @@
             messageDiv.appendChild(headerDiv);
             messageDiv.appendChild(contentDiv);
 
-            // --- ADD FEEDBACK BUTTONS FOR BOT MESSAGES (excluding "...") ---
-            if (sender === 'bot' && text !== "...") {
+            if (sender === 'bot' && text !== "..." && queryIdForFeedback) { // Check for queryIdForFeedback
                 const feedbackDiv = document.createElement('div');
                 feedbackDiv.classList.add('feedback-buttons');
-                // Use data attributes for feedback type
+                // Store query_id on the feedback container
+                feedbackDiv.dataset.queryId = queryIdForFeedback;
+
                 feedbackDiv.innerHTML = `
                     <button class="btn btn-sm btn-outline-success feedback-btn" data-feedback="helpful" title="Helpful answer">
                         <i class="bi bi-hand-thumbs-up"></i>
@@ -594,7 +600,6 @@
                 `;
                 messageDiv.appendChild(feedbackDiv);
             }
-            // --- END FEEDBACK BUTTONS ---
 
             chatMessages.appendChild(messageDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -607,29 +612,46 @@
             if (messageElement) messageElement.remove();
          }
 
-        // --- updateDocsSidebar function ---
+        // --- updateDocsSidebar function (CORRECTED) ---
         function updateDocsSidebar(docs) {
-            docsAccordion.innerHTML = '';
+            docsAccordion.innerHTML = ''; // Clear previous items
             if (!Array.isArray(docs) || docs.length === 0) {
                 docsAccordion.innerHTML = '<p class="p-2 text-muted small">No relevant documents found.</p>';
                 return;
             }
-            let index = 0;
-            const createAccordionItem = (title, fullPath, content, index, score = null) => {
+            let index = 0; // For unique IDs
+
+            const createAccordionItem = (title, fullPath, contentSnippet, index, score = null, originalUrl = null, chunkUrl = null) => {
                 const accordionItem = document.createElement('div');
                 accordionItem.classList.add('accordion-item');
-                const headerId = `heading${index}`;
-                const collapseId = `collapse${index}`;
-                const safeContent = typeof content === 'string' ? content : 'Content unavailable';
+                const headerId = `doc-heading-${index}`;
+                const collapseId = `doc-collapse-${index}`;
+                
+                // Ensure contentSnippet is a string
+                const safeContent = typeof contentSnippet === 'string' ? contentSnippet : 'Content snippet unavailable.';
                 let parsedContent = `<pre>${safeContent.replace(/</g, "<").replace(/>/g, ">")}</pre>`; // Default safe fallback
-                 if (typeof marked !== 'undefined') {
+
+                if (typeof marked !== 'undefined') {
                     try {
-                        // Use DOMPurify if available and needed for security with markdown
-                        // parsedContent = DOMPurify.sanitize(marked.parse(safeContent, { breaks: true }));
-                         parsedContent = marked.parse(safeContent, { breaks: true });
-                    } catch (e) { console.error("Markdown parsing error:", e); }
-                 }
-                const scoreText = (typeof score === 'number' && !isNaN(score)) ? ` (Score: ${score.toFixed(2)})` : '';
+                        parsedContent = marked.parse(safeContent, { breaks: true });
+                    } catch (e) { 
+                        console.error("Markdown parsing error for doc snippet:", e); 
+                        // Keep the pre-formatted safeContent
+                    }
+                }
+
+                // Add links if available
+                let linkHtml = '';
+                if (chunkUrl) {
+                    linkHtml += ` <a href="${chunkUrl}" target="_blank" class="badge bg-info text-decoration-none" title="Open specific chunk/section">Section Link</a>`;
+                }
+                if (originalUrl && originalUrl !== chunkUrl) { // Avoid duplicate links if they are the same
+                    linkHtml += ` <a href="${originalUrl}" target="_blank" class="badge bg-secondary text-decoration-none" title="Open original document">Full Document</a>`;
+                }
+
+
+                const scoreText = (typeof score === 'number' && !isNaN(score)) ? ` (Score: ${score.toFixed(3)})` : '';
+                
                 accordionItem.innerHTML = `
                     <h2 class="accordion-header" id="${headerId}">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}" title="${fullPath}">
@@ -637,20 +659,29 @@
                       </button>
                     </h2>
                     <div id="${collapseId}" class="accordion-collapse collapse" aria-labelledby="${headerId}" data-bs-parent="#docsAccordion">
-                      <div class="accordion-body">${parsedContent}</div>
+                      <div class="accordion-body">
+                        ${parsedContent}
+                        ${linkHtml ? `<div class="mt-2">${linkHtml}</div>` : ''}
+                      </div>
                     </div>`;
                 docsAccordion.appendChild(accordionItem);
             };
 
             docs.forEach(doc => {
-                if (!doc || typeof doc !== 'object' || !doc.file_path || typeof doc.content !== 'string') return;
+                // Corrected check for doc structure and content_snippet
+                if (!doc || typeof doc !== 'object' || !doc.file_path || typeof doc.content_snippet !== 'string') {
+                    console.warn("Skipping invalid doc object:", doc);
+                    return; 
+                }
+
                 const filePath = doc.file_path;
-                const mdContent = doc.content;
-                const rerankScore = doc.rerank_score;
+                const snippet = doc.content_snippet; // Use content_snippet
+                const score = doc.rerank_score !== null ? doc.rerank_score : doc.retrieval_score; // Prefer rerank_score
                 const pathParts = filePath.split(/[\\/]/);
-                let fileName = pathParts.pop() || 'Unknown Document';
-                fileName = fileName.replace(/\.[^/.]+$/, "");
-                createAccordionItem(fileName, filePath, mdContent, index, rerankScore);
+                let fileName = doc.doc_tag || pathParts.pop() || 'Unknown Document'; // Use doc_tag if available
+                fileName = fileName.replace(/\.[^/.]+$/, ""); // Remove extension if still part of fileName
+
+                createAccordionItem(fileName, filePath, snippet, index, score, doc.original_url, doc.chunk_url);
                 index++;
             });
          }
@@ -686,16 +717,17 @@
         });
 
         document.addEventListener('mousemove', function (e) {
-            // Right Divider Logic
             if (isResizingRight) {
                 const containerWidth = appContainer.offsetWidth;
                 const delta = e.clientX - lastDownXRight;
-                let sidebarWidth = docsSidebar.offsetWidth - delta; // Decrease width if mouse moves left
+                let sidebarWidth = docsSidebar.offsetWidth - delta; 
 
                 const minWidth = 200;
                 const settingsWidth = settingsSidebar.offsetWidth;
                 const mainMinWidth = 300;
-                const maxWidth = containerWidth - settingsWidth - mainMinWidth - dividerRight.offsetWidth;
+                // Ensure divider itself is accounted for
+                const dividerEffectiveWidth = dividerRight.offsetWidth || 8; 
+                const maxWidth = containerWidth - settingsWidth - mainMinWidth - dividerEffectiveWidth;
 
                 sidebarWidth = Math.max(minWidth, Math.min(sidebarWidth, maxWidth));
 
@@ -715,7 +747,6 @@
             }
         });
 
-        // Optional: Double-click to reset divider
         dividerRight.addEventListener('dblclick', function () {
             const defaultWidth = '300px';
             docsSidebar.style.width = defaultWidth;
@@ -723,7 +754,6 @@
             localStorage.setItem('docsSidebarWidth', defaultWidth);
         });
 
-        // Restore saved width
         const savedDocsWidth = localStorage.getItem('docsSidebarWidth');
         if (savedDocsWidth) {
             docsSidebar.style.width = savedDocsWidth;
@@ -731,7 +761,7 @@
         }
         // --- End Resizable Divider Logic ---
 
-        // --- Test Update Knowledge button event listener ---
+        // --- Update Knowledge button event listener ---
         updateKnowledgeBtn.addEventListener('click', function () {
             updateKnowledgeBtn.textContent = 'Updating...';
             updateKnowledgeBtn.disabled = true;
@@ -739,7 +769,7 @@
              .then(response => response.json().then(data => ({ ok: response.ok, status: response.status, data })))
              .then(result => {
                   if (!result.ok) throw new Error(result.data.error || `HTTP error! status: ${result.status}`);
-                  alert('Knowledge base update finished successfully.'); // Simple feedback
+                  alert('Knowledge base update finished successfully.'); 
                   console.log('KB Update successful:', result.data);
              })
              .catch(error => {
@@ -751,64 +781,52 @@
                   updateKnowledgeBtn.disabled = false;
              });
         });
-        // --- End Test Update Knowledge ---
+        // --- End Update Knowledge ---
 
-        // --- NEW: Handle Feedback Button Clicks ---
+        // --- Handle Feedback Button Clicks ---
         chatMessages.addEventListener('click', function(event) {
-            // Use closest to handle clicks on the icon inside the button
             const button = event.target.closest('.feedback-btn');
-            if (!button) return; // Click wasn't on a feedback button or its icon
+            if (!button) return; 
 
             const feedbackType = button.dataset.feedback;
             const feedbackDiv = button.parentElement;
+            
+            // Get query_id from the feedbackDiv's dataset
+            const queryIdForFeedback = feedbackDiv.dataset.queryId; 
+            
             const messageDiv = feedbackDiv.closest('.bot-message');
             const contentDiv = messageDiv.querySelector('.message-content');
-            const llmResponse = contentDiv.dataset.rawText; // Get raw text stored earlier
+            const llmResponse = contentDiv.dataset.rawText; 
 
-            // Find the preceding user message to get the query
-            let previousElement = messageDiv.previousElementSibling;
-            let userQuery = null;
-            while (previousElement) {
-                if (previousElement.classList.contains('user-message')) {
-                    const userContentDiv = previousElement.querySelector('.message-content');
-                    if (userContentDiv) {
-                        userQuery = userContentDiv.textContent; // Get user's query text
-                    }
-                    break; // Found the closest user message
-                }
-                previousElement = previousElement.previousElementSibling;
-            }
-
-            if (!userQuery) {
-                console.warn("Could not find preceding user query for feedback.");
-                // Optionally provide visual feedback (e.g., flash button red)
+            if (!queryIdForFeedback) { // Check if queryIdForFeedback was found
+                console.warn("Could not find query_id for feedback on the message.");
+                alert("Cannot submit feedback: Internal error (missing query ID).");
                 return;
             }
 
             if (!currentChatId) {
                 console.warn("No active chat session ID for feedback.");
-                alert("Cannot submit feedback: No active session."); // User feedback
+                alert("Cannot submit feedback: No active session."); 
                 return;
             }
 
-            // Prevent multiple submissions for the same message
             if (feedbackDiv.classList.contains('submitted')) {
                 console.log("Feedback already submitted for this message.");
                 return;
             }
 
-            // Disable buttons visually and functionally after click
             feedbackDiv.classList.add('submitted');
-            button.classList.add('active'); // Highlight the clicked one
+            button.classList.add('active'); 
             feedbackDiv.querySelectorAll('.feedback-btn').forEach(btn => btn.disabled = true);
 
-            // Send feedback to backend
-            sendFeedback(currentChatId, userQuery, llmResponse, feedbackType, button); // Pass button for error handling
+            // We don't need to find the user_query here, as the backend will use query_id
+            // to find the ChatQuery object which contains the user_query.
+            sendFeedback(queryIdForFeedback, llmResponse, feedbackType, button); 
         });
 
-        // --- NEW: Function to send feedback to API ---
-        function sendFeedback(chatId, query, response, feedbackType, buttonElement) {
-            console.log("Sending feedback:", { chatId, query: query.substring(0,100)+"...", response: response.substring(0,100)+"...", feedbackType });
+        // --- Function to send feedback to API (MODIFIED to use query_id) ---
+        function sendFeedback(queryId, llmResponseText, feedbackType, buttonElement) { // Removed userQuery parameter
+            console.log("Sending feedback:", { query_id: queryId, response_snippet: llmResponseText.substring(0,100)+"...", feedbackType });
 
             fetch('/api/feedback/', {
                 method: 'POST',
@@ -817,42 +835,37 @@
                     'X-CSRFToken': getCookie('csrftoken')
                 },
                 body: JSON.stringify({
-                    chat_id: chatId,
-                    user_query: query,
-                    llm_response: response,
+                    query_id: queryId, // Send query_id instead of chat_id + user_query
+                    // user_query is not needed as backend can fetch it using query_id
+                    llm_response: llmResponseText, // Still send llm_response for record-keeping
                     feedback_type: feedbackType
                 })
             })
             .then(response => {
                 if (!response.ok) {
-                    // Try to parse error from backend JSON response
                     return response.json().then(err => { throw new Error(err.error || `HTTP error! status: ${response.status}`) });
                 }
                 return response.json();
             })
             .then(data => {
                 console.log("Feedback submitted successfully:", data);
-                // Success: Keep buttons disabled and highlighted
             })
             .catch(error => {
                 console.error('Error sending feedback:', error);
-                alert(`Failed to submit feedback: ${error.message}`); // Inform user
+                alert(`Failed to submit feedback: ${error.message}`); 
 
-                // Re-enable buttons on error to allow retry
                 const feedbackDiv = buttonElement.parentElement;
                 feedbackDiv.classList.remove('submitted');
-                buttonElement.classList.remove('active'); // Remove highlight from clicked button
+                buttonElement.classList.remove('active'); 
                 feedbackDiv.querySelectorAll('.feedback-btn').forEach(btn => btn.disabled = false);
 
-                // Optional: Add temporary visual error indication to the button
-                buttonElement.classList.add('btn-outline-danger'); // Make border red
-                buttonElement.classList.remove('btn-outline-success', 'btn-outline-warning'); // Remove original outline color
+                buttonElement.classList.add('btn-outline-danger'); 
+                buttonElement.classList.remove('btn-outline-success', 'btn-outline-warning'); 
                 setTimeout(() => {
-                     // Reset to original outline color after a delay
                      buttonElement.classList.remove('btn-outline-danger');
                      if (feedbackType === 'helpful') buttonElement.classList.add('btn-outline-success');
                      else if (feedbackType === 'unhelpful') buttonElement.classList.add('btn-outline-warning');
-                     else buttonElement.classList.add('btn-outline-danger'); // false info keeps danger outline
+                     else buttonElement.classList.add('btn-outline-danger'); 
                 }, 2500);
             });
         }
