@@ -1,3 +1,4 @@
+# logius/views.py
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -5,6 +6,7 @@ from rest_framework import status
 import json
 import logging
 
+# Import the updated function
 from logius.chat_handler import process_user_message
 from memory.redis_handler import create_chat_session, get_chat_history
 from model.model_factory import get_available_models
@@ -19,9 +21,10 @@ logger = logging.getLogger(__name__)
 feedback_logger = logging.getLogger('user_feedback')
 
 # Default values for Top K parameters
-DEFAULT_RETRIEVAL_TOP_K = 50
+# DEFAULT_RETRIEVAL_TOP_K is no longer used directly by process_user_message
 DEFAULT_RERANKER_TOP_K = 10
-MAX_TOP_K = 50
+# MAX_TOP_K might still be useful for validating reranker_top_k if desired
+# MAX_TOP_K = 50 # Example limit for reranker
 
 def chat_view(request):
     return render(request, 'index.html')
@@ -63,35 +66,33 @@ class ChatView(APIView):
             data = request.data
             user_message = data.get('query')
             chat_id = data.get('chat_id')
-            model_name = data.get('model_name', 'gemini')
-            use_reranker = data.get('use_reranker', True)
-            use_hyde = data.get('use_hyde', False)
-            use_augmentation = data.get('use_augmentation', False)
+            model_name = data.get('model_name', 'gemini') # Keep model selection
+            use_reranker = data.get('use_reranker', True) # Keep reranker flag
 
-            # Extract and validate Top K parameters
-            try:
-                retrieval_top_k = int(data.get('retrieval_top_k', DEFAULT_RETRIEVAL_TOP_K))
-                if not (1 <= retrieval_top_k <= MAX_TOP_K):
-                    logger.warning(f"Invalid retrieval_top_k value ({retrieval_top_k}), using default {DEFAULT_RETRIEVAL_TOP_K}.")
-                    retrieval_top_k = DEFAULT_RETRIEVAL_TOP_K
-            except (ValueError, TypeError):
-                logger.warning(f"Non-integer retrieval_top_k received, using default {DEFAULT_RETRIEVAL_TOP_K}.")
-                retrieval_top_k = DEFAULT_RETRIEVAL_TOP_K
+            # --- REMOVED unused retrieval_top_k logic ---
+            # retrieval_top_k is now handled internally by process_user_message (DEFAULT_FRESH_K, MAX_TOTAL_DOCS etc.)
 
+            # Extract and validate Reranker Top K parameter
             try:
+                # Use the default from chat_handler if not provided or invalid
+                # You can still allow overriding it via the API if needed
                 reranker_top_k = int(data.get('reranker_top_k', DEFAULT_RERANKER_TOP_K))
-                if not (1 <= reranker_top_k <= retrieval_top_k):
-                    logger.warning(f"Invalid reranker_top_k value ({reranker_top_k}) or > retrieval_top_k. Adjusting.")
-                    reranker_top_k = min(retrieval_top_k, DEFAULT_RERANKER_TOP_K)
-                    if reranker_top_k < 1:
-                        reranker_top_k = 1
+                # Add validation if desired, e.g., against a MAX_TOP_K
+                # if not (1 <= reranker_top_k <= MAX_TOP_K):
+                #     logger.warning(f"Invalid reranker_top_k value ({reranker_top_k}). Adjusting.")
+                #     reranker_top_k = DEFAULT_RERANKER_TOP_K
+                if reranker_top_k < 1:
+                     logger.warning(f"reranker_top_k ({reranker_top_k}) cannot be less than 1. Using 1.")
+                     reranker_top_k = 1
+
             except (ValueError, TypeError):
                 logger.warning(f"Non-integer reranker_top_k received, using default {DEFAULT_RERANKER_TOP_K}.")
-                reranker_top_k = min(retrieval_top_k, DEFAULT_RERANKER_TOP_K)
-                if reranker_top_k < 1:
-                    reranker_top_k = 1
+                reranker_top_k = DEFAULT_RERANKER_TOP_K
 
-            # Input validation
+            # --- REMOVED unused use_hyde and use_augmentation logic ---
+            # These flags are no longer passed to process_user_message
+
+            # Input validation (keep relevant ones)
             if not user_message:
                 logger.warning("Chat request received without query.")
                 return Response({'error': 'No query provided'}, status=status.HTTP_400_BAD_REQUEST)
@@ -101,35 +102,24 @@ class ChatView(APIView):
             if not isinstance(use_reranker, bool):
                 logger.warning(f"Invalid 'use_reranker' value received: {use_reranker}. Defaulting to True.")
                 use_reranker = True
-            if not isinstance(use_hyde, bool):
-                logger.warning(f"Invalid 'use_hyde' value received: {use_hyde}. Defaulting to False.")
-                use_hyde = False
-            if not isinstance(use_augmentation, bool):
-                logger.warning(f"Invalid 'use_augmentation' value received: {use_augmentation}. Defaulting to False.")
-                use_augmentation = False
 
-            # Enforce mutual exclusivity (HyDE priority)
-            if use_hyde and use_augmentation:
-                logger.warning(f"Received both HyDE and Augmentation true for ChatID: {chat_id}. Prioritizing HyDE.")
-                use_augmentation = False
-
+            # Log the relevant parameters being used
             logger.info(
                 f"Processing chat request - ChatID: {chat_id}, Model: {model_name}, "
-                f"Reranker: {use_reranker}, RetrK: {retrieval_top_k}, RerankK: {reranker_top_k}, "
-                f"HyDE: {use_hyde}, Augment: {use_augmentation}"
+                f"Reranker: {use_reranker}, RerankK: {reranker_top_k}" # Removed RetrK, HyDE, Augment
             )
 
-            # Call the processing function
+            # Call the processing function with the correct arguments
             result = process_user_message(
                 message=user_message,
                 chat_id=chat_id,
                 model_name=model_name,
-                kb_id='qdrant-logius',
+                kb_id='qdrant-logius', # Keep kb_id if it's configurable or needed
                 use_reranker=use_reranker,
-                retrieval_top_k=retrieval_top_k,
-                reranker_top_k=reranker_top_k,
-                use_hyde=use_hyde,
-                use_augmentation=use_augmentation
+                reranker_top_k=reranker_top_k
+                # --- REMOVED retrieval_top_k ---
+                # --- REMOVED use_hyde ---
+                # --- REMOVED use_augmentation ---
             )
 
             logger.info(f"Chat request processed successfully for ChatID: {chat_id}")
@@ -138,7 +128,16 @@ class ChatView(APIView):
         except Exception as e:
             chat_id_for_log = data.get('chat_id', 'N/A')
             logger.exception(f"Error processing chat request for chat_id {chat_id_for_log}: {e}")
-            return Response({'error': f'An internal server error occurred: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            # Check if the error is the specific TypeError we were solving
+            if isinstance(e, TypeError) and 'unexpected keyword argument' in str(e):
+                 error_msg = f"Internal configuration error: Mismatch in function call arguments. Please check server logs. ({str(e)})"
+                 logger.error("Argument mismatch detected between view and chat_handler. Verify removed arguments.")
+                 # Return 500 but with a more specific hint for the developer if possible
+                 return Response({'error': error_msg}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            else:
+                 # General error handling
+                 return Response({'error': f'An internal server error occurred: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 
 class ModelsView(APIView):
     """API view for getting available models."""

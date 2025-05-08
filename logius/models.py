@@ -64,8 +64,7 @@ class ChatQuery(models.Model):
     class Meta:
         indexes = [
             # Compound index for efficient lookup of the latest turn in a chat
-            models.Index(fields=['chat_id', '-created_at'], name='idx_chatquery_chat_id_created_at'),
-            # Keep other indexes if specific queries benefit from them
+            models.Index(fields=['chat_id', '-created_at'], name='chatquery_chat_id_created_idx'), # Renamed to fit 30 chars            # Keep other indexes if specific queries benefit from them
             # models.Index(fields=['doc_tag'], name='idx_chatquery_doc_tag'), # Indexing JSONField might depend on DB
             # models.Index(fields=['created_at'], name='idx_chatquery_created_at'), # Covered by compound index
         ]

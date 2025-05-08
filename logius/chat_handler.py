@@ -5,6 +5,7 @@ import logging
 import datetime
 import sys
 from typing import Dict, List, Optional, Any, Tuple, Union
+import uuid # <--- Fix from previous step (Import the module)
 from uuid import uuid4
 from django.db import transaction
 import numpy as np # For cosine similarity calculation
@@ -166,7 +167,7 @@ def _calculate_cosine_similarity(vec1: Optional[List[float]], vec2: Optional[Lis
         return 0.0 # Return neutral similarity on calculation error
 
 def _retrieve_sticky_results(
-    sticky_ids: List[Union[str, int, uuid.UUID]],
+    sticky_ids: List[Union[str, int, uuid.UUID]], # Use uuid.UUID here
     kb_id: str, # Knowledge base ID to target the correct vector store/collection
     query_id: str # For logging context
 ) -> List[Dict]:
@@ -327,14 +328,11 @@ def _merge_and_deduplicate_results(
 def process_user_message(
     message: str,
     chat_id: Optional[str] = None,
-    model_name: str = 'gemini', # LLM for CQR and Final Answer generation
-    kb_id: str = 'qdrant-logius', # Target knowledge base / vector collection
-    use_reranker: bool = True, # Flag to enable/disable reranking step
-    reranker_top_k: int = DEFAULT_RERANKER_TOP_K, # Number of docs after reranking
-    # Deprecated options, replaced by conversational logic
-    # retrieval_top_k: int = DEFAULT_RETRIEVAL_TOP_K,
-    # use_hyde: bool = False,
-    # use_augmentation: bool = False
+    model_name: str = 'gemini',
+    kb_id: str = 'qdrant-logius',
+    use_reranker: bool = True,
+    reranker_top_k: int = DEFAULT_RERANKER_TOP_K
+    # Removed deprecated args: retrieval_top_k, use_hyde, use_augmentation
 ) -> Dict[str, Any]:
     """
     Processes a user message within a conversational RAG pipeline.
@@ -402,7 +400,8 @@ def process_user_message(
 
     try:
         logger.info(f"--- Turn Start --- Query ID: {query_id}, Chat ID: {chat_id}, Original Message: '{message[:100]}...' ---")
-        log_request_parameters(query_id, message, use_reranker, False, False, # No hyde/augment
+        # Log parameters actually used by this function
+        log_request_parameters(query_id, message, use_reranker, False, False, # Explicitly False for deprecated Hyde/Augment
                               DEFAULT_FRESH_K, DEFAULT_STICKY_S, reranker_top_k, model_name)
 
         # --- Step 1: Load Previous Turn State ---
@@ -556,6 +555,8 @@ def process_user_message(
 
         # --- Step 6: Reranking ---
         # Rerank the merged set using the *rewritten* query for relevance.
+        # NOTE: The 'retrieval_top_k' variable used inside apply_reranking call is
+        # set to len(merged_intermediate_docs), NOT an input parameter.
         if use_reranker and merged_intermediate_docs:
              logger.info(f"Query ID {query_id}: Reranking {len(merged_intermediate_docs)} merged documents...")
              docs_for_context, docs_for_ranking = apply_reranking(
@@ -563,7 +564,7 @@ def process_user_message(
                  query=rewritten_query, # Use rewritten query for reranking relevance
                  use_reranker=True, # Explicitly pass True here
                  reranker_top_k=reranker_top_k, # Target number after reranking
-                 retrieval_top_k=len(merged_intermediate_docs), # Pass the count before reranking
+                 retrieval_top_k=len(merged_intermediate_docs), # Pass the count *before* reranking
                  query_id=query_id
              )
         elif merged_intermediate_docs:
