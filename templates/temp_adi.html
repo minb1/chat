@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl"> <!-- Taalattribuut ingesteld op Nederlands -->
 <head>
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
@@ -308,35 +308,61 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
 
     <!-- START: Chat Sidebar CSS -->
     <style>
-        /* Chat Sidebar Styles - Improved according to Dutch Government Design Standards */
+        /* Chat Sidebar Styles - Enhanced for Digitoegankelijkheid and NL Overheid Look & Feel */
+        :root {
+            --nl-rijkshuisstijl-blauw: #0058a8; /* Rijkshuisstijl Primary Blue (example, Logius Blue #154273 is darker) */
+            --nl-logius-blauw: #154273;
+            --nl-tekst-kleur: #242424; /* Dark grey for text (WCAG AAA on white) */
+            --nl-tekst-kleur-licht: #555555;
+            --nl-achtergrond-kleur: #ffffff;
+            --nl-grijs-achtergrond: #f5f5f5;
+            --nl-grijs-border: #d1d1d1;
+            --nl-grijs-border-input: #b0b0b0; /* Slightly darker for input fields */
+            --nl-focus-kleur: var(--nl-logius-blauw); /* Use primary blue for focus */
+            --nl-focus-outline-width: 2px;
+            --nl-fout-rood-achtergrond: #fbe9e9; /* Was #f8d7da */
+            --nl-fout-rood-tekst: #701919; /* Was #721c24. Darker for better contrast. */
+            --nl-fout-rood-border: #d48c80; /* Was #f5c6cb */
+            --nl-gebruiker-bericht-achtergrond: #e6f2ff; /* Light blue */
+            --nl-gebruiker-bericht-tekst: var(--nl-logius-blauw);
+            --nl-lettertype: inherit; /* Inherit from page, often "Rijksoverheid Sans" on gov sites */
+            --nl-font-grootte-basis: 0.95em; /* Approx 15.2px if base is 16px */
+            --nl-font-grootte-klein: 0.85em; /* For disclaimer, sources subheader */
+            --nl-border-radius: 4px; /* Consistent border radius */
+        }
+
         #chat-toggle-button {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 50px;
-            height: 50px;
-            /* Use primary color from Dutch Government Style (Logius Blue) */
-            background-color: #154273;
-            color: white;
+            width: 56px; /* Slightly larger for touch target */
+            height: 56px;
+            background-color: var(--nl-logius-blauw);
+            color: var(--nl-achtergrond-kleur);
             border: none;
             border-radius: 50%;
-            font-size: 24px;
-            line-height: 50px;
+            font-size: 28px; /* Larger icon */
+            line-height: 56px;
             text-align: center;
             cursor: pointer;
-            z-index: 1001; /* Above sidebar */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: transform 0.2s ease-in-out;
+            z-index: 1001;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+            transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
         }
-
-        #chat-toggle-button:hover {
-            transform: scale(1.1);
-            background-color: #103154; /* Slightly darker shade on hover */
+        #chat-toggle-button:hover,
+        #chat-toggle-button:focus-visible { /* Use focus-visible for keyboard users */
+            transform: scale(1.05);
+            background-color: #103154; /* Darker shade */
         }
-         #chat-toggle-button:disabled { /* Style for disabled button */
+        #chat-toggle-button:focus-visible {
+             outline: var(--nl-focus-outline-width) solid var(--nl-focus-kleur);
+             outline-offset: 2px;
+        }
+        #chat-toggle-button:disabled {
             background-color: #cccccc;
             cursor: not-allowed;
-            transform: scale(1); /* No hover effect when disabled */
+            transform: scale(1);
+            box-shadow: none;
         }
 
         #chat-sidebar {
@@ -344,173 +370,188 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
             top: 0;
             right: 0;
             bottom: 0;
-            width: 750px; /* Maintain specified width */
-            max-width: 90vw; /* Prevent excessive width on smaller screens */
-            background-color: #ffffff; /* White background */
-            box-shadow: -3px 0 6px rgba(0,0,0,0.1);
-            transform: translateX(100%); /* Initially hidden */
+            width: 750px;
+            max-width: min(90vw, 750px); /* Ensure it doesn't exceed 750px but also responsive */
+            background-color: var(--nl-achtergrond-kleur);
+            box-shadow: -4px 0 8px rgba(0,0,0,0.15);
+            transform: translateX(100%);
             transition: transform 0.3s ease-in-out;
             z-index: 1000;
             display: flex;
             flex-direction: column;
-            border-left: 1px solid #d1d1d1; /* Standard light border color */
-            font-family: inherit; /* Inherit main document font */
+            border-left: 1px solid var(--nl-grijs-border);
+            font-family: var(--nl-lettertype);
         }
-
         #chat-sidebar.is-open {
             transform: translateX(0);
         }
 
         #chat-header {
-            padding: 10px 15px;
-            background-color: #f5f5f5; /* Standard light grey header */
-            border-bottom: 1px solid #d1d1d1;
-            font-weight: bold;
+            padding: 12px 16px;
+            background-color: var(--nl-grijs-achtergrond);
+            border-bottom: 1px solid var(--nl-grijs-border);
+            font-weight: 600; /* Slightly bolder for header */
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #333333; /* Dark grey text for readability */
+            color: var(--nl-tekst-kleur);
+            font-size: 1.05em;
         }
 
         #chat-close-button {
             background: none;
             border: none;
-            font-size: 24px; /* Larger for easier clicking */
+            font-size: 28px; /* Larger icon */
+            line-height: 1;
             cursor: pointer;
-            padding: 0 5px;
-            color: #555555; /* Grey color for close icon */
+            padding: 4px; /* Make clickable area slightly larger */
+            color: var(--nl-tekst-kleur-licht);
+            border-radius: var(--nl-border-radius);
         }
-         #chat-close-button:hover {
-             color: #000000; /* Darken on hover */
-         }
+        #chat-close-button:hover,
+        #chat-close-button:focus-visible {
+             color: var(--nl-tekst-kleur);
+             background-color: rgba(0,0,0,0.05);
+        }
+        #chat-close-button:focus-visible {
+             outline: var(--nl-focus-outline-width) solid var(--nl-focus-kleur);
+             outline-offset: 1px;
+        }
 
         #chat-messages {
             flex-grow: 1;
             overflow-y: auto;
-            padding: 15px;
-            background-color: #fff;
+            padding: 16px;
+            background-color: var(--nl-achtergrond-kleur);
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
 
         .message {
-            padding: 10px 14px; /* Slightly more padding */
-            border-radius: 6px; /* Standard border-radius */
+            padding: 10px 14px;
+            border-radius: var(--nl-border-radius);
             max-width: 85%;
             word-wrap: break-word;
-            line-height: 1.5; /* Improved line spacing */
-            font-size: 0.95em; /* Consistent font size */
+            line-height: 1.6; /* Improved line spacing for gov style */
+            font-size: var(--nl-font-grootte-basis);
         }
 
         .user-message {
-            /* Lighter blue, consistent with government palettes */
-            background-color: #e6f2ff; /* Light blue */
-            color: #154273; /* Dark blue text for contrast */
+            background-color: var(--nl-gebruiker-bericht-achtergrond);
+            color: var(--nl-gebruiker-bericht-tekst);
             align-self: flex-end;
-            border-bottom-right-radius: 0;
+            border-bottom-right-radius: 0; /* Keep chat bubble feel */
         }
 
         .assistant-message {
-            background-color: #f5f5f5; /* Consistent light grey */
-            color: #333333; /* Dark grey text */
+            background-color: var(--nl-grijs-achtergrond);
+            color: var(--nl-tekst-kleur);
             align-self: flex-start;
-            border-bottom-left-radius: 0;
+            border-bottom-left-radius: 0; /* Keep chat bubble feel */
         }
 
         .error-message {
-            background-color: #f8d7da; /* Standard error red */
-            color: #721c24; /* Standard error text color */
+            background-color: var(--nl-fout-rood-achtergrond);
+            color: var(--nl-fout-rood-tekst);
+            border: 1px solid var(--nl-fout-rood-border);
             align-self: center;
-            width: 90%;
+            width: calc(100% - 16px); /* Slightly less than full width */
             text-align: center;
-            font-style: italic;
-            border: 1px solid #f5c6cb;
+            padding: 12px; /* More padding for errors */
+            margin: 8px 0;
         }
 
         #chat-input-area {
             display: flex;
-            padding: 10px;
-            border-top: 1px solid #d1d1d1;
-            background-color: #f5f5f5; /* Match header/assistant message */
+            padding: 12px 16px;
+            border-top: 1px solid var(--nl-grijs-border);
+            background-color: var(--nl-grijs-achtergrond);
         }
 
         #chat-input {
             flex-grow: 1;
-            padding: 10px;
-            border: 1px solid #cccccc; /* Standard input border */
-            border-radius: 4px; /* Standard input radius */
-            margin-right: 5px;
+            padding: 10px 12px;
+            border: 1px solid var(--nl-grijs-border-input);
+            border-radius: var(--nl-border-radius);
+            margin-right: 8px;
             resize: none;
-            min-height: 40px;
+            min-height: 44px; /* Standard height for form elements */
             max-height: 120px;
             overflow-y: auto;
             box-sizing: border-box;
-            font-family: inherit; /* Inherit font */
-            font-size: 1em;
+            font-family: var(--nl-lettertype);
+            font-size: 1em; /* Typically 16px if base is 16px */
+            color: var(--nl-tekst-kleur);
         }
-         #chat-input:focus {
+        #chat-input::placeholder {
+            color: var(--nl-tekst-kleur-licht); /* Ensure placeholder text has enough contrast */
+            opacity: 1; /* Firefox needs this */
+        }
+        #chat-input:focus-visible {
             outline: none;
-            border-color: #154273; /* Highlight with primary color */
-            box-shadow: 0 0 0 1px #154273;
-         }
+            border-color: var(--nl-focus-kleur);
+            box-shadow: 0 0 0 var(--nl-focus-outline-width) var(--nl-focus-kleur);
+        }
 
-        #chat-send-button { /* Optional send button */
-            padding: 0 15px; /* Adjust padding for better vertical alignment */
-            height: 40px; /* Match input height */
-            background-color: #154273; /* Use primary color */
-            color: white;
+        #chat-send-button { /* Optional send button styling */
+            padding: 0 16px;
+            height: 44px; /* Match input height */
+            background-color: var(--nl-logius-blauw);
+            color: var(--nl-achtergrond-kleur);
             border: none;
-            border-radius: 4px;
+            border-radius: var(--nl-border-radius);
             cursor: pointer;
             transition: background-color 0.2s;
-            line-height: 40px; /* Center text */
+            line-height: 44px;
+            font-weight: 500;
         }
-        #chat-send-button:hover {
-            background-color: #103154; /* Darker shade on hover */
+        #chat-send-button:hover,
+        #chat-send-button:focus-visible {
+            background-color: #103154; /* Darker shade */
+        }
+        #chat-send-button:focus-visible {
+            outline: var(--nl-focus-outline-width) solid var(--nl-focus-kleur);
+            outline-offset: 1px;
         }
         #chat-send-button:disabled {
             background-color: #cccccc;
             cursor: not-allowed;
         }
 
-
-        /* Spinner */
         .loader {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #154273; /* Use primary blue for spinner */
+            border: 4px solid #e0e0e0; /* Lighter grey for track */
+            border-top: 4px solid var(--nl-logius-blauw);
             border-radius: 50%;
-            width: 24px; /* Slightly larger */
-            height: 24px;
+            width: 28px; /* Slightly larger */
+            height: 28px;
             animation: spin 1s linear infinite;
-            margin: 10px auto;
+            margin: 12px auto;
             align-self: center;
         }
-
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
-        /* --- Sources Popup Styles (Aligned with Theme) --- */
+        /* --- Sources Popup Styles --- */
         .popup-overlay {
-            position: fixed; /* Changed to fixed for full viewport overlay */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.65); /* Slightly darker overlay */
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1005; /* Ensure it's above chat sidebar */
-            padding: 20px; /* Padding around the content */
+            z-index: 1005;
+            padding: 20px;
             box-sizing: border-box;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0s linear 0.3s;
         }
-
         .popup-overlay.visible {
             opacity: 1;
             visibility: visible;
@@ -518,128 +559,161 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
         }
 
         .popup-content {
-            background-color: #fff;
-            padding: 25px; /* More padding */
-            border-radius: 6px; /* Consistent radius */
-            max-width: 700px; /* Limit width */
+            background-color: var(--nl-achtergrond-kleur);
+            padding: 24px; /* Consistent padding */
+            border-radius: var(--nl-border-radius);
+            max-width: 700px;
             width: 90%;
-            max-height: 85vh; /* Use viewport height */
+            max-height: 85vh;
             overflow-y: auto;
             position: relative;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            color: #333333;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+            color: var(--nl-tekst-kleur);
             transform: scale(0.95);
             transition: transform 0.3s ease;
         }
-
         .popup-overlay.visible .popup-content {
              transform: scale(1);
         }
 
-        .popup-content h3 {
+        .popup-content h3 { /* Title for "Bronnen" */
             margin-top: 0;
             margin-bottom: 20px;
-            color: #154273; /* Primary blue heading */
-            border-bottom: 2px solid #154273; /* Use primary color for border */
-            padding-bottom: 10px;
-            font-size: 1.3em;
+            color: var(--nl-logius-blauw);
+            border-bottom: 2px solid var(--nl-logius-blauw);
+            padding-bottom: 12px;
+            font-size: 1.4em; /* Larger title for popup */
+            font-weight: 600;
         }
 
-        #sources-popup-close {
+        #sources-popup-close { /* Close button for popup */
             position: absolute;
-            top: 15px; /* Adjust position */
-            right: 15px;
+            top: 16px;
+            right: 16px;
             background: none;
             border: none;
-            font-size: 28px; /* Larger close icon */
+            font-size: 30px; /* Prominent close icon */
             line-height: 1;
             cursor: pointer;
-            color: #888;
+            color: var(--nl-tekst-kleur-licht);
             padding: 5px;
+            border-radius: var(--nl-border-radius);
         }
-         #sources-popup-close:hover {
-            color: #333;
-         }
+        #sources-popup-close:hover,
+        #sources-popup-close:focus-visible {
+            color: var(--nl-tekst-kleur);
+            background-color: rgba(0,0,0,0.05);
+        }
+         #sources-popup-close:focus-visible {
+            outline: var(--nl-focus-outline-width) solid var(--nl-focus-kleur);
+            outline-offset: 1px;
+        }
 
         #sources-list {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-
         #sources-list li {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eeeeee; /* Lighter border */
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--nl-grijs-border);
         }
-         #sources-list li:last-child {
+        #sources-list li:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
-         }
-
-        #sources-list span {
-            display: block;
-            font-size: 0.9em;
-            margin-bottom: 5px;
-            color: #555555;
-        }
-        #sources-list span strong {
-            color: #333333;
-            margin-right: 5px;
         }
 
-        #sources-list a {
-            color: #154273; /* Use primary blue for links */
-            text-decoration: none;
-            word-break: break-all;
-            border-bottom: 1px dotted #154273; /* Subtle underline */
+        .source-item-title {
+            font-size: 1.15em; /* Slightly larger source titles */
+            font-weight: 600;
+            color: var(--nl-tekst-kleur);
+            margin-bottom: 6px;
         }
-        #sources-list a:hover {
-            text-decoration: none;
-            border-bottom: 1px solid #154273; /* Solid underline on hover */
+        .source-item-subheader {
+            font-size: var(--nl-font-grootte-klein);
+            color: var(--nl-tekst-kleur-licht);
+            margin-top: -4px;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        .source-item-snippet {
+            font-size: var(--nl-font-grootte-basis);
+            line-height: 1.6;
+            color: var(--nl-tekst-kleur);
+            margin-bottom: 12px;
+        }
+        .source-item-link {
+            display: inline-block;
+            font-size: var(--nl-font-grootte-basis);
+            color: var(--nl-logius-blauw);
+            text-decoration: underline; /* Standard link underline */
+            text-decoration-thickness: 1px; /* Subtle underline */
+            text-underline-offset: 2px; /* Space between text and underline */
+            padding-top: 4px;
+            font-weight: 500;
+        }
+        .source-item-link:hover,
+        .source-item-link:focus-visible {
+            text-decoration: none; /* Remove underline on hover/focus if desired, or make solid */
+             border-bottom: 2px solid var(--nl-logius-blauw);
+        }
+        .source-item-link:focus-visible {
+             background-color: rgba(21,66,115,0.1); /* Light blue bg on focus */
+             outline: none; /* Use border or bg for focus */
+        }
+        .source-item-no-link {
+             font-size: var(--nl-font-grootte-basis);
+             color: var(--nl-tekst-kleur-licht);
+             font-style: italic;
+             display: block;
+             padding-top: 4px;
         }
 
-        /* Button to trigger the popup */
+        /* Button to trigger the sources popup */
         .view-sources-button {
-            display: inline-block; /* Make it inline block */
-            margin-top: 10px;
-            margin-left: auto; /* Align to right below message */
-            padding: 6px 12px; /* Standard button padding */
-            font-size: 0.8em;
-            background-color: #e9ecef;
-            color: #343a40;
-            border: 1px solid #ced4da;
-            border-radius: 4px; /* Standard radius */
+            display: inline-block;
+            margin-top: 12px; /* More space above */
+            margin-left: auto;
+            padding: 8px 14px; /* Slightly larger padding */
+            font-size: var(--nl-font-grootte-klein);
+            background-color: var(--nl-achtergrond-kleur);
+            color: var(--nl-logius-blauw);
+            border: 1px solid var(--nl-logius-blauw);
+            border-radius: var(--nl-border-radius);
             cursor: pointer;
-            transition: background-color 0.2s, border-color 0.2s;
-            font-weight: 600; /* Slightly bolder */
-            text-transform: uppercase; /* Uppercase text */
-            letter-spacing: 0.5px;
+            transition: background-color 0.2s, color 0.2s;
+            font-weight: 600;
+            text-transform: none; /* No uppercase for softer look */
+            letter-spacing: 0;
         }
-        .view-sources-button:hover {
-            background-color: #d6dce1;
-            border-color: #b6bec6;
+        .view-sources-button:hover,
+        .view-sources-button:focus-visible {
+            background-color: var(--nl-logius-blauw);
+            color: var(--nl-achtergrond-kleur);
+        }
+         .view-sources-button:focus-visible {
+             outline: var(--nl-focus-outline-width) solid var(--nl-focus-kleur);
+             outline-offset: 1px;
         }
 
-         /* --- AI Disclaimer Styles (Inside Sidebar) --- */
+        /* --- AI Disclaimer Styles --- */
         #chat-disclaimer {
-            font-size: 0.75em; /* Even smaller inside chat */
-            color: #6c757d;
+            font-size: var(--nl-font-grootte-klein); /* Small but legible */
+            color: var(--nl-tekst-kleur-licht);
             text-align: center;
-            padding: 8px 10px; /* Less padding */
-            border-top: 1px solid #d1d1d1; /* Match input area border */
-            background-color: #f5f5f5; /* Match input area background */
-            line-height: 1.3;
-            margin-top: auto; /* Pushes to bottom if sidebar had extra space, but flex handles it */
+            padding: 10px 16px;
+            border-top: 1px solid var(--nl-grijs-border);
+            background-color: var(--nl-grijs-achtergrond);
+            line-height: 1.4;
         }
-         #chat-disclaimer p {
-             margin: 0 0 4px 0; /* Small space between lines */
-         }
-         #chat-disclaimer p:last-child {
+        #chat-disclaimer p {
+             margin: 0 0 4px 0;
+        }
+        #chat-disclaimer p:last-child {
              margin-bottom: 0;
-         }
-
+        }
     </style>
     <!-- END: Chat Sidebar CSS -->
 
@@ -801,39 +875,38 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
 
     <!-- START: Chat Sidebar HTML -->
     <!-- Chat Toggle Button -->
-    <button id="chat-toggle-button" aria-label="Open Chat">💬</button>
+    <button id="chat-toggle-button" aria-label="Chat openen">💬</button> <!-- Aangepast aria-label -->
 
     <!-- Chat Sidebar -->
     <aside id="chat-sidebar" aria-hidden="true">
         <div id="chat-header">
             <span>Logius Standaarden Chatbot</span>
-            <button id="chat-close-button" aria-label="Close Chat">×</button>
+            <button id="chat-close-button" aria-label="Chat sluiten">×</button> <!-- Aangepast aria-label -->
         </div>
         <div id="chat-messages">
             <!-- Initial message will be added by JS -->
         </div>
         <div id="chat-input-area">
-            <textarea id="chat-input" placeholder="Typ uw vraag..." rows="1" aria-label="Chat input"></textarea>
+            <textarea id="chat-input" placeholder="Typ uw vraag..." rows="1" aria-label="Chat invoerveld"></textarea> <!-- Aangepast aria-label -->
             <!-- Optional: Add a send button if needed and enabled in JS -->
-            <!-- <button id="chat-send-button" aria-label="Send message">Verstuur</button> -->
+            <!-- <button id="chat-send-button" aria-label="Bericht versturen">Verstuur</button> -->
         </div>
 
         <!-- START: AI Disclaimer (Inside Sidebar) -->
         <div id="chat-disclaimer"> 
-            <p>AI kan fouten maken.</p>
-            <p>Controleerop  correctheid en double-check de bronnen.</p>
+            <p>Antwoorden zijn automatisch gegenereerd. </p> <!-- Aangepaste tekst -->
+            <p>Controleer de juistheid en raadpleeg de bronnen.</p> <!-- Aangepaste tekst -->
         </div>
         <!-- END: AI Disclaimer (Inside Sidebar) -->
 
         <!-- START: Sources Popup (Modal) -->
-        <!-- Uses CSS class 'popup-overlay' and 'visible' for control -->
         <div id="sources-popup" class="popup-overlay" role="dialog" aria-modal="true" aria-labelledby="sources-popup-title">
             <div class="popup-content">
                 <h3 id="sources-popup-title">Bronnen</h3>
                 <ul id="sources-list">
                     <!-- Source items will be dynamically added here -->
                 </ul>
-                <button id="sources-popup-close" aria-label="Close Sources">×</button>
+                <button id="sources-popup-close" aria-label="Bronnen sluiten">×</button> <!-- Aangepast aria-label -->
             </div>
         </div>
         <!-- END: Sources Popup (Modal) -->
@@ -870,9 +943,6 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
         const API_BASE_URL = 'http://localhost:8000/api';
         const CHAT_ID_STORAGE_KEY = 'logiusChatId';
         const CHAT_EXPIRY_STORAGE_KEY = 'logiusChatExpiry';
-        // Client-side expiry for localStorage. Backend (Redis) has its own TTL.
-        // Set this to slightly less than or equal to the backend TTL for consistency.
-        // Backend TTL is 3600s (1 hour). Let's use 55 minutes for localStorage.
         const CHAT_SESSION_DURATION_MS = 55 * 60 * 1000; 
 
         // --- Helper Functions ---
@@ -897,16 +967,26 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
             const messageElement = document.createElement('div');
             messageElement.classList.add('message');
             messageElement.classList.add(sender === 'user' ? 'user-message' : sender === 'assistant' ? 'assistant-message' : 'error-message');
-            text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
-            messageElement.innerHTML = text.replace(/\n/g, '<br>');
+            
+            // Sanitize text before setting innerHTML to prevent XSS
+            // A simple textContent assignment is safer if no HTML is intended from the LLM.
+            // If HTML (like bold/italic from markdown) is desired, a more robust sanitizer is needed.
+            // For now, we'll keep the simple replace, assuming LLM output is trusted or simple markdown.
+            let sanitizedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            sanitizedText = sanitizedText.replace(/\*(.*?)\*/g, '<em>$1</em>');
+            sanitizedText = sanitizedText.replace(/\n/g, '<br>');
+            messageElement.innerHTML = sanitizedText;
+
             messagesContainer.appendChild(messageElement);
 
             if (sender === 'assistant' && docs && docs.length > 0) {
                 const viewSourcesButton = document.createElement('button');
-                viewSourcesButton.textContent = 'Bekijk Bronnen (' + docs.length + ')';
+                viewSourcesButton.textContent = `Bekijk Bronnen (${docs.length})`;
                 viewSourcesButton.classList.add('view-sources-button');
                 viewSourcesButton.setAttribute('data-sources', JSON.stringify(docs));
+                // Add aria-describedby if the message has an ID, for better context for screen readers
+                // Example: messageElement.id = `msg-${new Date().getTime()}`; 
+                // viewSourcesButton.setAttribute('aria-describedby', messageElement.id);
                 messageElement.insertAdjacentElement('afterend', viewSourcesButton);
             }
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
@@ -916,7 +996,7 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
             if (!messagesContainer.querySelector('.loader')) {
                 const loader = document.createElement('div');
                 loader.className = 'loader';
-                loader.setAttribute('aria-label', 'Loading response');
+                loader.setAttribute('aria-label', 'Bezig met laden'); // Dutch label
                 messagesContainer.appendChild(loader);
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
             }
@@ -934,40 +1014,75 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
             } else {
                 docs.forEach((doc, index) => {
                     const li = document.createElement('li');
-                    const titleSpan = document.createElement('span');
-                    titleSpan.innerHTML = `<strong>Bron ${index + 1}:</strong> ${doc.doc_tag || 'Onbekend document'}`;
-                    const urlSpan = document.createElement('span');
-                    const urlLink = document.createElement('a');
-                    urlLink.href = doc.chunk_url || '#';
-                    urlLink.textContent = doc.chunk_url ? `Link naar sectie` : 'Geen directe link beschikbaar';
-                    if (doc.chunk_url) {
-                         urlLink.target = '_blank';
-                         urlLink.rel = 'noopener noreferrer';
-                    } else {
-                        urlLink.style.pointerEvents = 'none';
-                        urlLink.style.color = '#6c757d';
-                        urlLink.style.borderBottom = 'none';
+
+                    let sourceTitleText = `Bron ${index + 1}`;
+                    let subHeaderText = doc.doc_tag && doc.doc_tag.toLowerCase() !== 'adr' ? `Document: ${doc.doc_tag}` : null;
+
+                    if (doc.file_path && doc.file_path.includes('#')) {
+                        const parts = doc.file_path.split('#');
+                        const anchor = parts[1];
+                        sourceTitleText = anchor.replace(/-/g, ' ').replace(/_/g, ' ');
+                        sourceTitleText = sourceTitleText.split(' ')
+                                              .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                                              .join(' ');
+                        const baseFileName = parts[0].replace(/\.md$/, '').replace(/^[0-9]+-/,'').trim();
+                        if (baseFileName && baseFileName.toLowerCase() !== 'adr' && baseFileName.length > 0) {
+                             subHeaderText = `Uit: ${baseFileName.replace(/-/g, ' ')}`;
+                        }
+                    } else if (doc.doc_tag && doc.doc_tag.toLowerCase() !== 'adr' && doc.doc_tag.trim().length > 0) {
+                        // Fallback if no anchor, use doc_tag if it's specific
+                        sourceTitleText = `Informatie uit ${doc.doc_tag.trim()}`;
+                        subHeaderText = null; // Avoid redundancy
                     }
-                    urlSpan.innerHTML = '<strong>Url:</strong> ';
-                    urlSpan.appendChild(urlLink);
-                    li.appendChild(titleSpan);
-                    li.appendChild(urlSpan);
+                    
+                    const titleElement = document.createElement('h4'); // Changed to h4 for semantic structure in popup
+                    titleElement.classList.add('source-item-title');
+                    titleElement.textContent = sourceTitleText;
+                    li.appendChild(titleElement);
+
+                    if (subHeaderText) {
+                        const subHeaderElement = document.createElement('p');
+                        subHeaderElement.classList.add('source-item-subheader');
+                        subHeaderElement.textContent = subHeaderText;
+                        li.appendChild(subHeaderElement);
+                    }
+
+                    if (doc.content_snippet) {
+                        const snippetElement = document.createElement('p');
+                        snippetElement.classList.add('source-item-snippet');
+                        let snippetText = doc.content_snippet;
+                        snippetText = snippetText.replace(/^#+\s+/, '').replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1').replace(/\[(.*?)\]\(.*?\)/g, '$1');
+                        snippetElement.textContent = snippetText.trim();
+                        li.appendChild(snippetElement);
+                    }
+
+                    if (doc.chunk_url) {
+                        const linkElement = document.createElement('a');
+                        linkElement.href = doc.chunk_url;
+                        linkElement.textContent = `Bekijk deze sectie in het document`;
+                        linkElement.target = '_blank';
+                        linkElement.rel = 'noopener noreferrer'; // Security for _blank
+                        linkElement.classList.add('source-item-link');
+                        li.appendChild(linkElement);
+                    } else {
+                        const noLinkSpan = document.createElement('span');
+                        noLinkSpan.textContent = 'Geen directe link naar sectie beschikbaar.';
+                        noLinkSpan.classList.add('source-item-no-link');
+                        li.appendChild(noLinkSpan);
+                    }
                     sourcesList.appendChild(li);
                 });
             }
             sourcesPopup.classList.add('visible');
-            sourcesPopupClose.focus();
+            sourcesPopupClose.focus(); // Set focus to the close button in the popup
         }
 
         function hideSourcesPopup() {
              sourcesPopup.classList.remove('visible');
-             if (isOpen) inputField.focus();
+             if (isOpen) inputField.focus(); // Return focus to input field if chat is open
         }
 
-        // --- Chat Session Management ---
-
         async function _createNewChatSessionOnBackend() {
-            console.log("Requesting new chat session from backend...");
             try {
                 const response = await fetch(`${API_BASE_URL}/chat/session/`, {
                     method: 'POST',
@@ -975,139 +1090,106 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
                     body: JSON.stringify({})
                 });
                 if (!response.ok) {
-                    const errorData = await response.json().catch(() => ({ error: "Onbekende serverfout bij sessiecreatie" }));
+                    const errorData = await response.json().catch(() => ({ error: "Serverfout bij aanmaken sessie." }));
                     throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                if (data.chat_id) {
-                    console.log("New chat session received from backend:", data.chat_id);
-                    return data; // Returns { chat_id: "..." }
-                } else {
-                    throw new Error("Geen chat_id ontvangen van backend.");
-                }
+                return data; // Returns { chat_id: "..." }
             } catch (error) {
-                console.error("Error creating new chat session on backend:", error);
-                // Error will be handled by initChatSession
+                console.error("Fout bij aanmaken nieuwe chatsessie op backend:", error);
                 return null;
             }
         }
 
         async function fetchAndDisplayHistory(sessionId) {
-            console.log(`Fetching history for session: ${sessionId}`);
-            messagesContainer.innerHTML = ''; // Clear messages before loading history or showing loader
+            messagesContainer.innerHTML = ''; 
             showLoader();
             try {
                 const response = await fetch(`${API_BASE_URL}/chat/history/${sessionId}/`, {
                     method: 'GET',
                     headers: { 'X-CSRFToken': csrftoken }
                 });
-                hideLoader(); // Hide loader regardless of outcome after fetch attempt
+                hideLoader(); 
                 if (!response.ok) {
-                    if (response.status === 404) {
-                        console.warn(`History not found for session ${sessionId} (likely expired on backend).`);
-                    } else {
-                        const errorData = await response.json().catch(() => ({ error: "Fout bij ophalen geschiedenis" }));
-                        console.error(`Error fetching history: ${errorData.error || response.status}`);
-                    }
-                    return false; // Indicate failure
+                    console.warn(`Geschiedenis niet gevonden voor sessie ${sessionId} (status: ${response.status}).`);
+                    return false; 
                 }
                 const data = await response.json();
                 if (data.history && Array.isArray(data.history)) {
-                    console.log(`Successfully fetched ${data.history.length} messages for session ${sessionId}.`);
-                    messagesContainer.innerHTML = ''; // Ensure clean slate before adding
+                    messagesContainer.innerHTML = ''; 
                     data.history.forEach(msg => {
-                        // Ensure 'role' and 'content' exist before adding
                         if (typeof msg.role === 'string' && typeof msg.content === 'string') {
                             addMessageToChat(msg.content, msg.role);
-                        } else {
-                            console.warn("Skipping malformed message from history:", msg);
                         }
                     });
-
                     if (data.history.length > 0) {
-                        hasInteracted = true; // If history exists, user has interacted
+                        hasInteracted = true; 
                         if (chatDisclaimer) chatDisclaimer.style.display = 'block';
                     }
-                    return true; // Indicate success
-                } else {
-                    console.warn(`No history array found in response for session ${sessionId}.`);
-                    return false; // Or true if an empty history is a valid "loaded" state
+                    return true;
                 }
+                return false;
             } catch (error) {
                 hideLoader();
-                console.error("Error fetching or displaying chat history:", error);
-                return false; // Indicate failure
+                console.error("Fout bij ophalen of weergeven chatgeschiedenis:", error);
+                return false;
             }
         }
 
         async function initChatSession() {
-            console.log("Initializing chat session...");
             const storedChatId = localStorage.getItem(CHAT_ID_STORAGE_KEY);
             const storedExpiry = localStorage.getItem(CHAT_EXPIRY_STORAGE_KEY);
             const currentTime = new Date().getTime();
 
             if (storedChatId && storedExpiry && currentTime < parseInt(storedExpiry)) {
-                console.log(`Found valid session in localStorage: ${storedChatId}`);
-                chatId = storedChatId; // Temporarily set for fetchAndDisplayHistory
+                chatId = storedChatId;
                 const historyLoaded = await fetchAndDisplayHistory(chatId);
-
                 if (historyLoaded) {
                     isSessionInitialized = true;
-                    if (messagesContainer.children.length === 0) { // If history was empty
-                        addMessageToChat("Stel hier uw vraag over de standaarden in dit document.", 'assistant');
+                    if (messagesContainer.children.length === 0 || 
+                        (messagesContainer.children.length === 1 && messagesContainer.querySelector('.loader'))) {
+                        addMessageToChat("Waarmee kan ik u helpen met betrekking tot de standaarden in dit document?", 'assistant');
                     }
-                    console.log("Chat session initialized from localStorage with history.");
                     return true;
                 } else {
-                    console.warn("Failed to load history for stored session. Clearing localStorage and creating new session.");
                     localStorage.removeItem(CHAT_ID_STORAGE_KEY);
                     localStorage.removeItem(CHAT_EXPIRY_STORAGE_KEY);
-                    chatId = null; // Reset chatId as it's invalid
+                    chatId = null;
                 }
             } else {
-                if (storedChatId) console.log("Found expired session in localStorage. Clearing.");
                 localStorage.removeItem(CHAT_ID_STORAGE_KEY);
                 localStorage.removeItem(CHAT_EXPIRY_STORAGE_KEY);
             }
-
-            // If we reach here, we need a new session from the backend
-            console.log("Requesting a new session from backend as no valid local session found.");
-            messagesContainer.innerHTML = ''; // Clear placeholder messages
-            showLoader(); // Show loader while creating new backend session
-
+            
+            messagesContainer.innerHTML = '';
+            showLoader();
             const newSessionData = await _createNewChatSessionOnBackend();
-            hideLoader(); // Hide loader after attempt
+            hideLoader();
 
             if (newSessionData && newSessionData.chat_id) {
                 chatId = newSessionData.chat_id;
                 const expiryTime = new Date().getTime() + CHAT_SESSION_DURATION_MS;
                 localStorage.setItem(CHAT_ID_STORAGE_KEY, chatId);
                 localStorage.setItem(CHAT_EXPIRY_STORAGE_KEY, expiryTime.toString());
-                
                 isSessionInitialized = true;
-                messagesContainer.innerHTML = ''; // Clear any potentially stale messages
-                addMessageToChat("Stel hier uw vraag over de standaarden in dit document.", 'assistant');
-                console.log("New chat session initialized and stored.");
+                messagesContainer.innerHTML = ''; 
+                addMessageToChat("Waarmee kan ik u helpen met betrekking tot de standaarden in dit document?", 'assistant');
                 return true;
             } else {
-                messagesContainer.innerHTML = ''; // Clear messages
-                addMessageToChat("Kon geen chatsessie starten. Probeer het later opnieuw.", 'error');
+                messagesContainer.innerHTML = '';
+                addMessageToChat("Kon geen chatsessie starten. Probeer het later opnieuw alstublieft.", 'error');
                 isSessionInitialized = false;
                 chatId = null;
-                console.error("Failed to initialize new chat session.");
                 return false;
             }
         }
 
-        // --- API Interaction ---
         async function sendMessage(message) {
             if (!isSessionInitialized || !chatId) {
-                 addMessageToChat("Chatsessie is niet actief. Sluit en open de chat opnieuw.", 'error');
-                 console.error("sendMessage called but session not initialized or chatId missing.");
+                 addMessageToChat("Chatsessie is niet actief. Sluit en open de chat opnieuw alstublieft.", 'error');
                  return;
             }
-
-            if (isLoading || !message) return;
+            if (isLoading || !message.trim()) return;
 
             if (!hasInteracted) {
                 hasInteracted = true;
@@ -1118,7 +1200,7 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
             inputField.disabled = true;
             addMessageToChat(message, 'user');
             inputField.value = '';
-            inputField.style.height = 'auto';
+            inputField.style.height = 'auto'; 
             inputField.style.height = inputField.scrollHeight + 'px';
             showLoader();
 
@@ -1130,8 +1212,8 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
                 });
 
                 if (!response.ok) {
-                     const errorData = await response.json().catch(() => ({ error: "Onbekende serverfout" }));
-                    throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+                    const errorData = await response.json().catch(() => ({ error: "Onbekende serverfout" }));
+                    throw new Error(errorData.error || `HTTP-fout! Status: ${response.status}`);
                 }
                 const data = await response.json();
                 if (data.response) {
@@ -1139,59 +1221,52 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
                 } else if (data.error) {
                     addMessageToChat(data.error, 'error');
                 } else {
-                     addMessageToChat("Onverwacht antwoord van de server.", 'error');
+                     addMessageToChat("Onverwacht antwoord van de server ontvangen.", 'error');
                 }
             } catch (error) {
-                console.error("Error sending message:", error);
                 hideLoader();
-                addMessageToChat(`Fout: ${error.message || "Kon geen verbinding maken."}`, 'error');
+                addMessageToChat(`Fout: ${error.message || "Kon geen verbinding maken met de server."}`, 'error');
             } finally {
                 isLoading = false;
                 inputField.disabled = false;
-                inputField.focus();
+                if (isOpen) inputField.focus(); // Only focus if sidebar is open
             }
         }
 
-        // --- Event Handlers ---
         async function toggleChat() {
-            if (isInitializingSession) {
-                console.log("Toggle chat aborted: session is currently initializing.");
-                return;
-            }
+            if (isInitializingSession) return;
 
             if (isOpen) {
                 sidebar.classList.remove('is-open');
                 sidebar.setAttribute('aria-hidden', 'true');
-                hideSourcesPopup();
+                toggleButton.setAttribute('aria-label', 'Chat openen');
+                hideSourcesPopup(); 
                 isOpen = false;
-                toggleButton.setAttribute('aria-label', 'Open Chat');
-            } else { // Try to open
+            } else { 
                 isInitializingSession = true;
-                toggleButton.disabled = true; // Disable button during init
-                // messagesContainer.innerHTML = ''; // Clear placeholder or old messages before init
-                // showLoader(); // Show loader while initializing
+                toggleButton.disabled = true;
+                toggleButton.setAttribute('aria-label', 'Chat wordt geladen');
 
-                if (!isSessionInitialized) { // Only fully initialize if not already done
+
+                if (!isSessionInitialized) { 
                     const success = await initChatSession();
-                    // hideLoader(); // Hide loader after init attempt (already handled in initChatSession)
                     if (!success) {
                         isInitializingSession = false;
-                        toggleButton.disabled = false; // Re-enable button
-                        // Error message already shown by initChatSession. Sidebar remains closed.
+                        toggleButton.disabled = false; 
+                        toggleButton.setAttribute('aria-label', 'Chat openen (fout bij laden)');
                         return;
                     }
                 }
                 
-                // If session is (now) initialized, open the sidebar
                 sidebar.classList.add('is-open');
                 sidebar.setAttribute('aria-hidden', 'false');
+                toggleButton.setAttribute('aria-label', 'Chat sluiten');
                 isOpen = true;
                 inputField.focus();
-                toggleButton.setAttribute('aria-label', 'Close Chat');
-                messagesContainer.scrollTop = messagesContainer.scrollHeight; // Scroll to bottom if history loaded
+                messagesContainer.scrollTop = messagesContainer.scrollHeight; 
 
                 isInitializingSession = false;
-                toggleButton.disabled = false; // Re-enable button
+                toggleButton.disabled = false; 
             }
         }
 
@@ -1205,59 +1280,59 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
 
         function handleInputInput() {
              inputField.style.height = 'auto';
-             inputField.style.height = (inputField.scrollHeight) + 'px';
+             inputField.style.height = (inputField.scrollHeight < 44 ? 44 : inputField.scrollHeight) + 'px'; // Ensure min-height
         }
 
-        // --- Initialization ---
         toggleButton.addEventListener('click', toggleChat);
-        closeButton.addEventListener('click', toggleChat); // This will also call init if sidebar was closed and reopened
+        closeButton.addEventListener('click', toggleChat); 
         inputField.addEventListener('keypress', handleInputKeypress);
         inputField.addEventListener('input', handleInputInput);
 
-        // Popup Close Listeners
         sourcesPopupClose.addEventListener('click', hideSourcesPopup);
         sourcesPopup.addEventListener('click', (event) => {
-            if (event.target === sourcesPopup) hideSourcesPopup();
+            if (event.target === sourcesPopup) hideSourcesPopup(); 
         });
         document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && sourcesPopup.classList.contains('visible')) {
-                hideSourcesPopup();
+            if (event.key === 'Escape') {
+                if (sourcesPopup.classList.contains('visible')) {
+                    hideSourcesPopup();
+                } else if (isOpen) {
+                     // Optionally close chat on Escape if popup is not open
+                     // toggleChat(); 
+                }
             }
         });
 
-        // Event Delegation for "View Sources"
         messagesContainer.addEventListener('click', (event) => {
-            if (event.target && event.target.classList.contains('view-sources-button')) {
-                 const button = event.target;
+            const button = event.target.closest('.view-sources-button'); // Use closest to handle clicks on children
+            if (button) {
                  try {
                     const sourcesData = JSON.parse(button.getAttribute('data-sources'));
                     showSourcesPopup(sourcesData);
                  } catch (e) {
-                    console.error("Error parsing sources data:", e);
-                    alert("Kon bronnen niet laden.");
+                    console.error("Fout bij parsen brongegevens:", e);
+                    alert("Kon de bronnen niet laden.");
                  }
             }
         });
 
-        // Close sidebar if user clicks outside
         document.addEventListener('click', (event) => {
              if (isOpen && !sidebar.contains(event.target) && !toggleButton.contains(event.target)) {
-                 if (!event.target.closest('.popup-content')) {
+                 if (!event.target.closest('.popup-overlay') && !event.target.closest('.view-sources-button')) {
                      if (!event.target.closest('.dfn-panel') && !event.target.closest('dfn, .index-term')) {
-                         toggleChat(); // This will set isOpen to false
+                         // toggleChat(); // Decided against closing on outside click for now, can be distracting
                      }
                  }
             }
         });
 
-        // Initial UI state
         sidebar.classList.remove('is-open');
         sidebar.setAttribute('aria-hidden', 'true');
         sourcesPopup.classList.remove('visible');
-        toggleButton.setAttribute('aria-label', 'Open Chat');
-        if(chatDisclaimer) chatDisclaimer.style.display = 'none'; // Hide disclaimer initially
+        toggleButton.setAttribute('aria-label', 'Chat openen');
+        if(chatDisclaimer) chatDisclaimer.style.display = 'none';
 
-    })(); // IIFE End
+    })(); 
     </script>
     <!-- END: Chat Sidebar JavaScript -->
 

@@ -46,7 +46,7 @@ class ChatQuery(models.Model):
     rewritten_query_embedding = models.JSONField(blank=True, null=True, help_text="Embedding vector of the rewritten query (stored as list)")
     final_doc_ids = models.JSONField(
         default=list,
-        help_text="List of Qdrant point IDs (or unique file_paths as fallback) of the final documents used for context in this turn, potentially becoming sticky memory for the next."
+        help_text="List of Qdrant point IDs of the final documents used for context in this turn, potentially becoming sticky memory for the next."
     )
     # --- End Conversational RAG Fields ---
 
@@ -100,7 +100,7 @@ class Feedback(models.Model):
     feedback_text = models.TextField(
         blank=True,
         null=True,
-        help_text="Optional free-text comments from the user"
+        help_text="Optional free-text comments from the user if implemented"
     )
     created_at = models.DateTimeField(auto_now_add=True)
 

@@ -27,7 +27,7 @@ INSTRUCTIES:
 1. Analyseer de chatgeschiedenis en de laatste gebruikersvraag.
 2. Identificeer de kernelementen en de intentie van de **laatste gebruikersvraag**.
 3. Los eventuele verwijzingen naar eerdere berichten op.
-4. Formuleer een nieuwe, **zelfstandige zoekopdracht** die de essentie van de laatste vraag vastlegt.
+4. Formuleer een nieuwe, **zelfstandige zoekopdracht** die de essentie van de laatste vraag vastlegt. Zorg ervoor dat de core intentie van de gebruikersvraag in orde blijf. 
 5. Geef **alleen** de herschreven zoekopdracht terug. Voeg geen uitleg, commentaar, of extra opmaak toe. De output moet direct bruikbaar zijn als zoekterm.
 
 CHAT GESCHIEDENIS:
@@ -84,6 +84,8 @@ INSTRUCTIES VOOR ANTWOORDEN:
 4.  **Als de context de vraag niet volledig beantwoordt,** geef dan aan welke informatie ontbreekt in de verstrekte context. Speculeer niet. Zeg bijvoorbeeld: "De verstrekte documentatie bevat geen details over X."
 5.  **Gebruik de 'CHAT GESCHIEDENIS'** om de context van de huidige vraag beter te begrijpen, maar baseer het feitelijke antwoord alleen op de 'CONTEXT UIT DOCUMENTATIE'.
 6.  **Formuleer het antwoord in het Nederlands.** Wees professioneel en behulpzaam. Begin het antwoord direct, zonder inleidende zinnen zoals "Hier is het antwoord:" of "Gebaseerd op de context...".
+7. **Beantwoord alle vragen duidelijk, technisch en uitgebreid als nodig.** Wees vrij om uitgebreidere antwoorden te geven wanneer dat nodig is. 
+8.  **Indien mogelijk, geef altijd een technisch voorbeeld mee.** Bijvoorbeeld API regels etc, geef een voorbeeld van juiste en incorrecte implementatie mee.
 
 ---
 CHAT GESCHIEDENIS (meest recente beurten):
